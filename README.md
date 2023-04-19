@@ -20,9 +20,9 @@ Perhaps this could be attributed to the high cost of eating out, ranging from $1
     * Dietary guidelines
 * Browser interface:
     * Dynamic rendering based on filters
-    * Add
-    
-    
+    * Add 
 
-# Possible Approaches
+
+
+## Possible Approaches
 * Use additional and artificial constrains to reduce search space.
