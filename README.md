@@ -1,5 +1,5 @@
 # Grocery Suggester
-A gocery suggester for Australians.
+A grocery suggester for Australians.
 
 ## Use Case
 Meal prepping for $1.5 per meal can save over $3000/year/person for an average Australians.
@@ -8,11 +8,12 @@ Perhaps this could be attributed to the high cost of eating out, ranging from $1
 
 
 
-## Requirements can be 
-* Site scraper - need on demand, low resource server:
+## Functional and Technical Requirements
+* Site scraper:
     * Coles
     * Woolworths
     * Aldi
+    * Need on demand, low resource server
 * Constraint engine - this is a high dimensional linear optimisation problem:
     * Macronutrient range
     * Overall cost
