@@ -1,5 +1,5 @@
 # Grocery Suggester
-A grocery suggester for Australians.
+Minimise grocery cost and time, while meeting nutritional targets.
 
 ## Use Case
 Meal prepping for $1.5 per meal can save over $3000/year/person for an average Australians.
