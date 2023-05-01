@@ -3,13 +3,15 @@ Minimise grocery cost and time, while meeting dietary guidelines.
 
 Note: Micronutrients are not considered.
 
+### Improve Nutritional Intake
+Estimated [10 - 20% of Australians meet fruit and vegetable recommendation](https://www.abs.gov.au/statistics/health/health-conditions-and-risks/dietary-behaviour/2020-21), most averaging half the recommended servings. Is this you?
+
 ### Reduce Grocery Expenditure
-Meal prepping for $1.5 per meal can save over $3000/year/person for an average Australians.
-On average, Australians spend $5000/year/person on groceries.
+Meal prepping for $1.8 per meal equates to $2000/year/person compared to the average of $5000/year/person on groceries.
 Perhaps this could be attributed to the high cost of eating out, ranging from $10 - $20 per meal.
 
-### Increase Nutritional Intake
-Estimated [less than 10% of Australians meet fruit and vegetable recommendation](https://www.abs.gov.au/statistics/health/health-conditions-and-risks/dietary-behaviour/2020-21). 
+### Decrease food prep time
+Optimise for bulk buying and meal prepping. Healthy food should be convenient.
 
 
 
