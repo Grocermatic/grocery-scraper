@@ -1,7 +1,6 @@
 # Grocery Suggester
 Minimise grocery cost and time, while meeting dietary guidelines.
-
-Note: Micronutrients are not considered.
+Disclaimer: I'm not a nutritionist, so I'm following the dietary guidelines.
 
 ### Improve Nutritional Intake
 Estimated [10 - 20% of Australians meet fruit and vegetable recommendation](https://www.abs.gov.au/statistics/health/health-conditions-and-risks/dietary-behaviour/2020-21), most averaging half the recommended servings. Is this you?
