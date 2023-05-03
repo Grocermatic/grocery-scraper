@@ -14,22 +14,6 @@ Optimise for bulk buying and meal prepping. Healthy food should be convenient.
 
 
 
-## Functional and Technical Requirements
-Site scraper:
-  * Store data from - Coles, Woolworths, Aldi.
-  * Store link, price, weight, number of servings and nutrition.
-  * On demand, low resource server - once a month.
-
-Constraint engine - this is a high dimensional linear optimisation problem:
-  * Optimise cost within specified ranges.
-  * Follow dietary guidelines and servings by age.
-
-Browser interface:
-  * Dynamic rendering based on filters
-  * Custom filters
-  * Export grocery list
-
-
 
 ## Possible Approaches
 * Use additional and artificial constrains to reduce search space.
