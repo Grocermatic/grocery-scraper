@@ -4,13 +4,22 @@ import * as http from 'http'
 
 
 
-
 describe("static html scraper", () => {
-  it("should render javascript html", async()=>{    
-    const testUrl = 'https://www.saucedemo.com/'
-    let html = await scrapeStatic(testUrl)
-    console.log(html)
-    expect(html).not.toEqual("")
+  it("should render javascript html", async()=>{
+    const testFile = `${__dirname}/test.html`
+    const data = fs.readFileSync('./src/util/test.html')
+    const originalHTML = data.toString()
+
+    const server = http.createServer((req:any, res:any) => {
+        res.writeHead(200, {'Content-Type': 'text/html'})
+        res.write(originalHTML)
+        res.end()
+    }).listen(3000)
+
+    scrapeStatic('http://localhost:3000/')
+    .then((html:string) => {
+      expect(html).toEqual(originalHTML)
+    })
   })
 
   it("should handle unreachable urls", async()=>{
