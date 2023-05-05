@@ -1,9 +1,16 @@
 {
+  "scripts": {
+    "nodemon": "nodemon $1"
+  },
   "dependencies": {
+    "aws-sdk": "^2.1372.0",
     "puppeteer": "^20.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
+    "@types/puppeteer": "^7.0.4",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
 }
