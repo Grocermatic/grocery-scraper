@@ -1,8 +1,9 @@
 import puppeteer from 'puppeteer'
+import {URL} from 'url'
 
 
 
-export const scrapeDynamic = async(url:string):Promise<any> => {
+export const scrapeDynamic = async(url:string):Promise<any> => {  
   // Disable sandbox to decrease scrape time
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -24,10 +25,13 @@ export const scrapeDynamic = async(url:string):Promise<any> => {
     }
   })
 
-  await page.goto(url, {waitUntil: 'domcontentloaded'})
-  const html:string = await page.content()
-  
-  // Close browser to save memory
-  await browser.close()
-  return html
+  try {
+    await page.goto(url, {waitUntil: 'domcontentloaded'})
+    const html:string = await page.content()
+    await browser.close()
+    return html
+  } catch (err:any) {
+    await browser.close()
+    return ''
+  }
 }

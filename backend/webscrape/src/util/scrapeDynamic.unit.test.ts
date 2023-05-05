@@ -3,14 +3,23 @@ import * as fs from 'fs'
 
 
 
-describe("Scrape HTML from dynamic site", () => {
-  test("Should contain additional paragraph text", async()=>{
-    const testFile = `file://${__dirname}/test.html`
-    let html:string = await scrapeDynamic(testFile)
+describe("dynamic html scraper", () => {
+  it("should render javascript html", async()=>{
+    const testUrl = `file://${__dirname}/test.html`
+    let html:string = await scrapeDynamic(testUrl)
     html = html.replaceAll('\n','')
+
     fs.readFile('./src/util/test.html', (err:any, data:any)=>{
-      const expectedHTML = data.toString().replaceAll('</p>', 'Paragraph</p>')
+      const originalHTML = data.toString()
+      const expectedHTML = originalHTML.replaceAll('</p>', 'Paragraph</p>')
+      expect(html).not.toEqual(originalHTML)
       expect(html).toEqual(expectedHTML)
     })
+  })
+
+  it("should handle unreachable urls", async()=>{
+    const testUrl = "unreachableLink"
+    let html:string = await scrapeDynamic(testUrl)
+    expect(html).toEqual("")
   })
 })
