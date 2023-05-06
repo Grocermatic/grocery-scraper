@@ -1,14 +1,16 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo, ProductNutrition } from "../interface"
+import { ProductInfo, ProductNutrition, GetProductInfo } from "../interface"
 import { getNumFromString, roundDecimal } from "../../util/dataCleaning";
 
 
 
-export const getProductInfo = (html:string):ProductInfo => {
+export const colesProductInfo:GetProductInfo = (html) => {
   // Coles provides information rich JSON in script
   const $ = cheerio.load(html)
   const jsonString = $('script[type="application/json"]').text()
+  if (jsonString === '') return null
+
   const rawJson = JSON.parse(jsonString)
   const rawProductJson = rawJson.props.pageProps.product
 
@@ -30,8 +32,8 @@ export const getProductInfo = (html:string):ProductInfo => {
   // Add nutritional information if possible
   try{
     const nutrition:ProductNutrition = {
-      servings: rawProductJson.nutrition.servingsPerPackage,
-      servingSize: rawProductJson.nutrition.servingSize,
+      servings: getNumFromString(rawProductJson.nutrition.servingsPerPackage)[0],
+      servingSize: getNumFromString(rawProductJson.nutrition.servingSize)[0],
       kilojoules: 0,
       protein: 0,
       fat: 0,
@@ -46,18 +48,25 @@ export const getProductInfo = (html:string):ProductInfo => {
       switch (nutrient.nutrient) {
         case 'Energy':
           nutrition.kilojoules = getNumFromString(nutrient.value)[0]
+          break
         case 'Protein':
           nutrition.protein = getNumFromString(nutrient.value)[0]
+          break
         case 'Total Fat':
           nutrition.fat = getNumFromString(nutrient.value)[0]
+          break
         case 'Saturated Fat':
           nutrition.fatSaturated = getNumFromString(nutrient.value)[0]
+          break
         case 'Carbohydrate':
           nutrition.carb = getNumFromString(nutrient.value)[0]
+          break
         case 'Sugars':
           nutrition.sugar = getNumFromString(nutrient.value)[0]
+          break
         case 'Sodium':
           nutrition.sodium = getNumFromString(nutrient.value)[0]
+          break
         default:
       }
     })
@@ -66,3 +75,4 @@ export const getProductInfo = (html:string):ProductInfo => {
   } catch (err:any) {}
   return productInfo
 }
+colesProductInfo('')
