@@ -1,4 +1,23 @@
 // Standardize product
+export interface ProductNutrition {
+  servings: number,
+  servingSize: number,
+  kilojoules: number,
+  protein: number,
+  fat: number,
+  fatSaturated: number,
+  carb: number,
+  sugar: number,
+  sodium: number,
+  
+  fibre?: number,
+  nacin?: number,
+  thiamin?: number,
+  magnesium?: number,
+  potassium?: number,
+  trans?: number
+}
+
 export interface ProductInfo {
   name: string
   url: string
@@ -6,5 +25,5 @@ export interface ProductInfo {
   price: number
   quantity: number
   unitPrice: number
-  nutrition: object
+  nutrition?: ProductNutrition
 }
