@@ -29,5 +29,5 @@ export interface ProductInfo {
 }
 
 export interface GetProductInfo {
-  (html:string):ProductInfo
+  (html:string):ProductInfo | null
 }
