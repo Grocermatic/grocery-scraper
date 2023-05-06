@@ -6,11 +6,10 @@ import * as http from 'http'
 
 describe("static html scraper", () => {
   it("should render javascript html", async()=>{
-    const testFile = `${__dirname}/test.html`
     const data = fs.readFileSync('./src/util/test.html')
     const originalHTML = data.toString()
 
-    const server = http.createServer((req:any, res:any) => {
+    http.createServer((req:any, res:any) => {
         res.writeHead(200, {'Content-Type': 'text/html'})
         res.write(originalHTML)
         res.end()
