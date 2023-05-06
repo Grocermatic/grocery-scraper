@@ -43,29 +43,32 @@ export const colesProductInfo:GetProductInfo = (html) => {
       sodium: 0
     }
 
+    const nutritionSize = getNumFromString(rawProductJson.nutrition.breakdown[0].title)[0]
+    const scaleNutrient = nutrition.servingSize / nutritionSize
+
     // Extract 7 mandatory labeled
-    rawProductJson.nutrition.breakdown[1].nutrients.forEach((nutrient:any) => {
+    rawProductJson.nutrition.breakdown[0].nutrients.forEach((nutrient:any) => {
       switch (nutrient.nutrient) {
         case 'Energy':
-          nutrition.kilojoules = getNumFromString(nutrient.value)[0]
+          nutrition.kilojoules = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         case 'Protein':
-          nutrition.protein = getNumFromString(nutrient.value)[0]
+          nutrition.protein = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         case 'Total Fat':
-          nutrition.fat = getNumFromString(nutrient.value)[0]
+          nutrition.fat = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         case 'Saturated Fat':
-          nutrition.fatSaturated = getNumFromString(nutrient.value)[0]
+          nutrition.fatSaturated = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         case 'Carbohydrate':
-          nutrition.carb = getNumFromString(nutrient.value)[0]
+          nutrition.carb = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         case 'Sugars':
-          nutrition.sugar = getNumFromString(nutrient.value)[0]
+          nutrition.sugar = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         case 'Sodium':
-          nutrition.sodium = getNumFromString(nutrient.value)[0]
+          nutrition.sodium = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
           break
         default:
       }
@@ -73,6 +76,7 @@ export const colesProductInfo:GetProductInfo = (html) => {
 
     productInfo.nutrition = nutrition
   } catch (err:any) {}
+  console.log(rawProductJson.nutrition)
+  console.log(productInfo)
   return productInfo
 }
-colesProductInfo('')
