@@ -27,3 +27,7 @@ export interface ProductInfo {
   unitPrice: number
   nutrition?: ProductNutrition
 }
+
+export interface GetProductInfo {
+  (html:string):ProductInfo
+}
