@@ -1,5 +1,6 @@
-import {scrapeDynamic} from './scrapeDynamic'
 import * as fs from 'fs'
+
+import {scrapeDynamic} from './scrapeDynamic'
 
 
 

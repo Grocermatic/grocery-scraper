@@ -1,6 +1,7 @@
-import {scrapeStatic} from './scrapeStatic'
 import * as fs from 'fs'
 import * as http from 'http'
+
+import {scrapeStatic} from './scrapeStatic'
 
 
 
