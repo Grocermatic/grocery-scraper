@@ -76,7 +76,5 @@ export const colesProductInfo:GetProductInfo = (html) => {
 
     productInfo.nutrition = nutrition
   } catch (err:any) {}
-  console.log(rawProductJson.nutrition)
-  console.log(productInfo)
   return productInfo
 }
