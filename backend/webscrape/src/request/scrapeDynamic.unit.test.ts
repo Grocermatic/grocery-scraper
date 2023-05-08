@@ -10,7 +10,7 @@ describe("dynamic html scraper", () => {
     let html:string = await scrapeDynamic(testUrl)
     html = html.replaceAll('\n','')
 
-    fs.readFile('./src/util/test.html', (err:any, data:any)=>{
+    fs.readFile('./src/request/test.html', (err:any, data:any)=>{
       const originalHTML = data.toString()
       const expectedHTML = originalHTML.replaceAll('</p>', 'Paragraph</p>')
       expect(html).not.toEqual(originalHTML)

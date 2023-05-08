@@ -7,7 +7,7 @@ import {scrapeStatic} from './scrapeStatic'
 
 describe("static html scraper", () => {
   it("should render javascript html", async()=>{
-    const data = fs.readFileSync('./src/util/test.html')
+    const data = fs.readFileSync('./src/request/test.html')
     const originalHTML = data.toString()
 
     http.createServer((req:any, res:any) => {
