@@ -1,5 +1,6 @@
 # Grocery Suggester
 Minimise grocery cost and time, while meeting dietary guidelines.
+
 Disclaimer: I'm not a nutritionist, so I'm following the dietary guidelines.
 
 <div>&nbsp</div>
