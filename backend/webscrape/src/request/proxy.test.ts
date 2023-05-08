@@ -17,10 +17,9 @@ describe("randomly pick real listed html headers", () => {
   it("should alter html header", async() => {
     const testHeaders = generateHtmlHeader() as any
     axios.get('https://httpbin.org/headers', testHeaders).then(({ data }) => {
-      // Some custom header valuesneed to be removed
-      Reflect.deleteProperty(data,'X-Amzn-Trace-Id')
-      Reflect.deleteProperty(data,'Host')
-      expect(testHeaders).toEqual(data)
+      // Some custom header values need to be removed
+      const { ['X-Amzn-Trace-Id']: removedTrace, ['Host']: removedHost,  expectedData } = data
+      expect(testHeaders).toEqual(expectedData)
     })
   }, 30000)
 })

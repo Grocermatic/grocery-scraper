@@ -7,7 +7,7 @@ export const scrapeStatic = async(url:string):Promise<any> => {
   try {
     const proxyClient = axios.create({
       baseURL: `https://${generatePublicIP()}`,
-      timeout: 10000,
+      timeout: 3000,
       headers: generateHtmlHeader()['headers']
     })
     const response = await proxyClient.get(url, generateHtmlHeader())
