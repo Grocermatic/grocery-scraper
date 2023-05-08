@@ -153,7 +153,7 @@ export const generatePublicIP = ():string => {
 
 
 // Generate user agents from Apple, Google, Sumsung phones and tablets
-export const generateHtmlHeader = ():object => {
+export const generateHtmlHeader = ():any => {
   const randomIndex:number = Math.floor(htmlHeaders.length * Math.random())
   return { 'headers': htmlHeaders[randomIndex] }
 }
