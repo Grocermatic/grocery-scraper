@@ -9,7 +9,7 @@ const spinachHtml:string = `<a class="box--wrapper ym-gl ym-g25 " title="to prod
 
 const noJsonHtml:string = ''
 
-describe("coles product scraper", () => {
+describe("Aldi product scraper", () => {
   it("should parse product data", async()=>{
     const productInfo = aldiProductInfo(cornHtml)
     const expectedProductInfo:ProductInfo = {

@@ -11,7 +11,7 @@ const milkHtml:string = `<script id="__NEXT_DATA__" type="application/json">{"pr
 
 const noJsonHtml:string = `<!DOCTYPE html><html><head></head><body><h1>Header</h1><p id="demo"></p><script>document.getElementById("demo").innerHTML = 'Paragraph'</script></body></html>`
 
-describe("coles product scraper", () => {
+describe("Coles product scraper", () => {
   it("should parse nutrition data", async()=>{
     const productInfo = colesProductInfo(milkHtml)
     const expectedProductInfo:ProductInfo = {
