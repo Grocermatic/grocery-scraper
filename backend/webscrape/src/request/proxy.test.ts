@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import { generatePublicIP, generateHtmlHeader, htmlHeaders, generateRandInt } from "./proxy"
+import { generatePublicIP, generateHttpHeaders, httpHeaders, generateRandInt } from "./proxy"
 
 
 
@@ -8,14 +8,14 @@ describe("randomly pick real listed html headers", () => {
   it("should generate from a specified list", async()=>{
     for (let mockRandom = 0; mockRandom > 1; mockRandom += 0.1) {
       jest.spyOn(global.Math, 'random').mockReturnValue(mockRandom)
-      const userAgent = generateHtmlHeader()
-      expect(htmlHeaders).toContain(userAgent)
+      const userAgent = generateHttpHeaders()
+      expect(httpHeaders).toContain(userAgent)
     }
     jest.spyOn(global.Math, 'random').mockRestore()
   })
 
   it("should alter html header", async() => {
-    const testHeaders = generateHtmlHeader() as any
+    const testHeaders = generateHttpHeaders() as any
     axios.get('https://httpbin.org/headers', testHeaders).then(({ data }) => {
       // Some custom header values need to be removed
       const { ['X-Amzn-Trace-Id']: removedTrace, ['Host']: removedHost,  expectedData } = data
