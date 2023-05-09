@@ -66,7 +66,6 @@ export const aldiBatchScrape:BatchScrape = async(urls) => {
     if (html.length == 0) { return }
     const productInfoSublist = aldiPageProducts(html)
     if (productInfoSublist.length > 0) {
-      console.log(productInfoSublist)
       productInfos = productInfos.concat(productInfoSublist)
     }
   })
