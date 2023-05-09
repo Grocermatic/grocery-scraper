@@ -31,3 +31,7 @@ export interface ProductInfo {
 export interface GetProductInfo {
   (html:string):ProductInfo | null
 }
+
+export interface BatchScrape {
+  (urls:string[]):Promise<ProductInfo[]>
+}
