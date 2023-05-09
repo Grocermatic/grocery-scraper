@@ -61,13 +61,12 @@ export const aldiPageProducts = (html:string):ProductInfo[] => {
 
 export const aldiBatchScrape:BatchScrape = async(urls) => {
   let productInfos:ProductInfo[] = []
-  urls.forEach(async(url:string) => {
+  for (const url in urls) {
     const html = await scrapeStatic(url)
-    if (html.length == 0) { return }
     const productInfoSublist = aldiPageProducts(html)
     if (productInfoSublist.length > 0) {
       productInfos = productInfos.concat(productInfoSublist)
     }
-  })
-  return productInfos
+  }
+  return productInfos as ProductInfo[]
 }
