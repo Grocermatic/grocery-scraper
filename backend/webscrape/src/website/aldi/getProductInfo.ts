@@ -1,7 +1,8 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo, GetProductInfo } from "../interface"
+import { ProductInfo, GetProductInfo, BatchScrape } from "../interface"
 import { getNumFromString, roundDecimal } from "../../util/dataCleaning";
+import { scrapeStatic } from '../../request/scrapeStatic';
 
 
 
@@ -42,4 +43,32 @@ export const aldiProductInfo:GetProductInfo = (html) => {
 
   // No nutritional information provided by Aldi
   return productInfo
+}
+
+
+
+export const aldiPageProducts = (html:string):ProductInfo[] => {
+  const productInfos:ProductInfo[] = []
+  const $ = cheerio.load(html)
+  $('.box--wrapper').each((index, element) => {
+    const productInfo = aldiProductInfo($(element).toString())
+    if (productInfo != null) { productInfos.push(productInfo) }
+  })
+  return productInfos
+}
+
+
+
+export const aldiBatchScrape:BatchScrape = async(urls) => {
+  let productInfos:ProductInfo[] = []
+  urls.forEach(async(url:string) => {
+    const html = await scrapeStatic(url)
+    if (html.length == 0) { return }
+    const productInfoSublist = aldiPageProducts(html)
+    if (productInfoSublist.length > 0) {
+      console.log(productInfoSublist)
+      productInfos = productInfos.concat(productInfoSublist)
+    }
+  })
+  return productInfos
 }
