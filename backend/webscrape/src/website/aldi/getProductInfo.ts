@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo, GetProductInfo, BatchScrape } from "../interface"
+import { ProductInfo, GetProductInfo, GetBatchProductInfo } from "../interface"
 import { getNumFromString, roundDecimal } from "../../util/dataCleaning";
 import { scrapeStatic } from '../../request/scrapeStatic';
 
@@ -59,7 +59,7 @@ export const aldiPageProducts = (html:string):ProductInfo[] => {
 
 
 
-export const aldiBatchScrape:BatchScrape = async(urls) => {
+export const aldiBatchScrape:GetBatchProductInfo = async(urls) => {
   let productInfos:ProductInfo[] = []
   for (const url in urls) {
     const html = await scrapeStatic(url)
