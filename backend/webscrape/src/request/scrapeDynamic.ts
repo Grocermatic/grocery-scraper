@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer'
+import { generateHttpHeaders } from './proxy'
 
 
 
@@ -6,12 +7,48 @@ export const scrapeDynamic = async(url:string):Promise<any> => {
   // Disable sandbox to decrease scrape time
   const browser = await puppeteer.launch({
     headless: 'new',
-    args: ['--no-sandbox']
+    args: [
+      '--autoplay-policy=user-gesture-required',
+      '--disable-background-networking',
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-breakpad',
+      '--disable-client-side-phishing-detection',
+      '--disable-component-update',
+      '--disable-default-apps',
+      '--disable-dev-shm-usage',
+      '--disable-domain-reliability',
+      '--disable-extensions',
+      '--disable-features=AudioServiceOutOfProcess',
+      '--disable-hang-monitor',
+      '--disable-ipc-flooding-protection',
+      '--disable-notifications',
+      '--disable-offer-store-unmasked-wallet-cards',
+      '--disable-popup-blocking',
+      '--disable-print-preview',
+      '--disable-prompt-on-repost',
+      '--disable-renderer-backgrounding',
+      '--disable-setuid-sandbox',
+      '--disable-speech-api',
+      '--disable-sync',
+      '--hide-scrollbars',
+      '--ignore-gpu-blacklist',
+      '--metrics-recording-only',
+      '--mute-audio',
+      '--no-default-browser-check',
+      '--no-first-run',
+      '--no-pings',
+      '--no-sandbox',
+      '--no-zygote',
+      '--password-store=basic',
+      '--use-gl=swiftshader',
+      '--use-mock-keychain',
+    ]
   })
 
   const page = await browser.newPage()
-  await page.setViewport({ width: 1920, height: 1080 })
-  await page.setRequestInterception(true);
+  await page.setRequestInterception(true)
+  await page.setExtraHTTPHeaders(generateHttpHeaders()['headers'])
 
   // Block extaneous information to decrease scrape time
   const excludeContentType = ['image', 'media', 'stylesheet']
@@ -25,8 +62,8 @@ export const scrapeDynamic = async(url:string):Promise<any> => {
   })
 
   try {
-    await page.goto(url, {waitUntil: 'domcontentloaded'})
-    const html:string = await page.content()
+    await page.goto(url, {waitUntil: 'networkidle0'})
+    const html:string = await page.evaluate(() =>  document.documentElement.outerHTML)
     await browser.close()
     return html
   } catch (err:any) {
