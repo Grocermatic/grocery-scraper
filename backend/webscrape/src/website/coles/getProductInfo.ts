@@ -1,7 +1,8 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo, ProductNutrition, GetProductInfo } from "../interface"
+import { ProductInfo, ProductNutrition, GetProductInfo, BatchScrape } from "../interface"
 import { getNumFromString, roundDecimal } from "../../util/dataCleaning";
+import { scrapeStatic } from '../../request/scrapeStatic';
 
 
 
@@ -77,4 +78,16 @@ export const colesProductInfo:GetProductInfo = (html) => {
     productInfo.nutrition = nutrition
   } catch (err:any) {}
   return productInfo
+}
+
+
+
+export const colesBatchScrape:BatchScrape = async(urls) => {
+  const productInfos:ProductInfo[] = []
+  for (const url of urls) {
+    const html = await scrapeStatic(url)
+    const productInfo = colesProductInfo(html)
+    if (productInfo != null) { productInfos.push(productInfo) }
+  }
+  return productInfos
 }
