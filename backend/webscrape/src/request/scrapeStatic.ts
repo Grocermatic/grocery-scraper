@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { generateHtmlHeader, generatePublicIP } from './proxy'
+import { generateHttpHeaders, generatePublicIP } from './proxy'
 
 
 
@@ -8,9 +8,9 @@ export const scrapeStatic = async(url:string):Promise<any> => {
     const proxyClient = axios.create({
       baseURL: `https://${generatePublicIP()}`,
       timeout: 3000,
-      headers: generateHtmlHeader()['headers']
+      headers: generateHttpHeaders()['headers']
     })
-    const response = await proxyClient.get(url, generateHtmlHeader())
+    const response = await proxyClient.get(url)
     return response.data
   } catch (err:any) {
     return ''
