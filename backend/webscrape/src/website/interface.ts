@@ -35,3 +35,7 @@ export interface GetProductInfo {
 export interface BatchScrape {
   (urls:string[]):Promise<ProductInfo[]>
 }
+
+export interface GetProductLinks {
+  ():Promise<string[]>
+}
