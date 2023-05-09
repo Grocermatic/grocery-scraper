@@ -1,4 +1,8 @@
-export const htmlHeaders:any[] = [
+interface HttpHeaders {
+  [key: string]: string;
+}
+
+export const httpHeaders:HttpHeaders[] = [
   {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8", 
     "Accept-Encoding": "gzip, deflate, br", 
@@ -153,7 +157,7 @@ export const generatePublicIP = ():string => {
 
 
 // Generate user agents from Apple, Google, Sumsung phones and tablets
-export const generateHtmlHeader = ():any => {
-  const randomIndex:number = Math.floor(htmlHeaders.length * Math.random())
-  return { 'headers': htmlHeaders[randomIndex] }
+export const generateHttpHeaders = ():any => {
+  const randomIndex:number = Math.floor(httpHeaders.length * Math.random())
+  return { 'headers': httpHeaders[randomIndex] }
 }
