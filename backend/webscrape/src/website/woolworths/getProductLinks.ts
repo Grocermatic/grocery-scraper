@@ -10,8 +10,6 @@ const getWoolworthsPageLinks = async(pageLink:string):Promise<string[]> => {
   const productLinks:string[] = []
 
   for (let pageNumber = 1;;pageNumber++) {
-    console.log(productLinks)
-    console.log(productLinks.length)
 
     const pageHtml = await scrapeDynamic(pageLink + `&pageNumber=${pageNumber}`)
     const $ = cheerio.load(pageHtml)
@@ -30,9 +28,6 @@ const getWoolworthsPageLinks = async(pageLink:string):Promise<string[]> => {
   }
   return productLinks
 }
-getWoolworthsPageLinks('https://www.woolworths.com.au/shop/browse/meat-seafood-deli?&filter=Healthstar(4%2C4.5%2C5)').then((list)=>{
-  console.log(list)
-})
 
 
 
