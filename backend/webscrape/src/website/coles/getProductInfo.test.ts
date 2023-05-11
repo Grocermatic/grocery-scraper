@@ -1,5 +1,5 @@
 import { ProductInfo } from "../interface"
-import { colesProductInfo } from "./getProductInfo"
+import { getColesProductInfo } from "./getProductInfo"
 
 
 
@@ -13,7 +13,7 @@ const noJsonHtml:string = `<!DOCTYPE html><html><head></head><body><h1>Header</h
 
 describe("Coles product scraper", () => {
   it("should parse nutrition data", async()=>{
-    const productInfo = colesProductInfo(milkHtml)
+    const productInfo = getColesProductInfo(milkHtml)
     const expectedProductInfo:ProductInfo = {
       name: 'Full Cream Milk',
       url: 'https://www.coles.com.au/product/coles-full-cream-milk-3l-8150288',
@@ -37,7 +37,7 @@ describe("Coles product scraper", () => {
   })
   
   it("should parse nutrition data", async()=>{
-    const productInfo = colesProductInfo(riceHtml)
+    const productInfo = getColesProductInfo(riceHtml)
     const expectedProductInfo:ProductInfo = {
       name: 'Medium Grain Brown Rice',
       url: 'https://www.coles.com.au/product/sunrice-medium-grain-brown-rice-5kg-1751530',
@@ -61,7 +61,7 @@ describe("Coles product scraper", () => {
   })
 
   it("should handle lack of nutrition data", async()=>{
-    const productInfo = colesProductInfo(grapeHtml)
+    const productInfo = getColesProductInfo(grapeHtml)
     const expectedProductInfo:ProductInfo = {
       name: 'White Seedless Grapes Loose',
       url: 'https://www.coles.com.au/product/coles-white-seedless-grapes-loose-approx.-800g-6706395',
@@ -74,7 +74,7 @@ describe("Coles product scraper", () => {
   })
 
   it("should handle lack of JSON", async()=>{
-    const productInfo = colesProductInfo(noJsonHtml)
+    const productInfo = getColesProductInfo(noJsonHtml)
     expect(productInfo).toEqual(null)
   })
 })

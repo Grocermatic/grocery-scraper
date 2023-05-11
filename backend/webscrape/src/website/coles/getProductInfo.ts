@@ -6,7 +6,7 @@ import { scrapeStatic } from '../../request/scrapeStatic';
 
 
 
-export const colesProductInfo:GetProductInfo = (html) => {
+export const getColesProductInfo:GetProductInfo = (html) => {
   // Coles provides information rich JSON in script
   const $ = cheerio.load(html)
   const jsonString = $('script[type="application/json"]').text()
@@ -82,11 +82,11 @@ export const colesProductInfo:GetProductInfo = (html) => {
 
 
 
-export const getColesProductInfo:GetBatchProductInfo = async(urls) => {
+export const getColesBatchProductInfo:GetBatchProductInfo = async(urls) => {
   const productInfos:ProductInfo[] = []
   for (const url of urls) {
     const html = await scrapeStatic(url)
-    const productInfo = colesProductInfo(html)
+    const productInfo = getColesProductInfo(html)
     if (productInfo != null) { productInfos.push(productInfo) }
   }
   return productInfos
