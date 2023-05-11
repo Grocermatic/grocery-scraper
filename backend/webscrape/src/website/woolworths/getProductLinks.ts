@@ -45,9 +45,10 @@ export const getWoolworthsProductLinks:GetProductLinks = async() => {
     'https://www.woolworths.com.au/shop/browse/drinks?&filter=Healthstar(4.5%2C5%2C5.0)'
   ]
 
-  const productLinks:string[] = []
-  for (const pagelink in pageLinks) {
-    getWoolworthsPageLinks(pagelink)
+  let productLinks:string[] = []
+  for (let productLinkIndex = 0; productLinkIndex < pageLinks.length; productLinkIndex++) {
+    const productSubLinks = await getWoolworthsPageLinks(pageLinks[productLinkIndex])
+    productLinks = productLinks.concat(productSubLinks)
   }
-  return pageLinks 
+  return productLinks 
 }
