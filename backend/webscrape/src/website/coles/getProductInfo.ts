@@ -82,7 +82,7 @@ export const colesProductInfo:GetProductInfo = (html) => {
 
 
 
-export const colesBatchScrape:GetBatchProductInfo = async(urls) => {
+export const getColesProductInfo:GetBatchProductInfo = async(urls) => {
   const productInfos:ProductInfo[] = []
   for (const url of urls) {
     const html = await scrapeStatic(url)

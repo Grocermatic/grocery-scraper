@@ -2,7 +2,7 @@ import * as fs from 'fs'
 import * as http from 'http'
 
 import { ProductInfo } from "../interface"
-import { aldiBatchScrape, aldiPageProducts, aldiProductInfo } from "./getProductInfo"
+import { getAldiBatchProductInfo, aldiPageProducts, aldiProductInfo } from "./getProductInfo"
 
 
 
@@ -186,7 +186,7 @@ describe("Aldi url batch scrape", () => {
     }).listen(3010)
 
     setTimeout(() => {
-      aldiBatchScrape(['http://localhost:3010/']).then((testProductInfos:ProductInfo[]) => {
+      getAldiBatchProductInfo(['http://localhost:3010/']).then((testProductInfos:ProductInfo[]) => {
         expect(testProductInfos).toEqual(expectedPageProductInfo)
       })
     }, 500)

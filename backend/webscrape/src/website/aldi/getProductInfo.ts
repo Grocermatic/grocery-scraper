@@ -59,7 +59,7 @@ export const aldiPageProducts = (html:string):ProductInfo[] => {
 
 
 
-export const aldiBatchScrape:GetBatchProductInfo = async(urls) => {
+export const getAldiBatchProductInfo:GetBatchProductInfo = async(urls) => {
   let productInfos:ProductInfo[] = []
   for (const url in urls) {
     const html = await scrapeStatic(url)
