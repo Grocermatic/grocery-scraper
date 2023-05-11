@@ -63,9 +63,15 @@ export const scrapeDynamic = async(url:string):Promise<any> => {
 
   try {
     await page.goto(url, {waitUntil: 'networkidle0'})
-    const html:string = await page.evaluate(() =>  document.documentElement.outerHTML)
-    await browser.close()
-    return html
+    try {
+      const html:string = await page.evaluate(() =>  document.documentElement.outerHTML)
+      await browser.close()
+      return html
+    } catch (err:any) {
+      const html:string = await page.content()
+      await browser.close()
+      return html
+    }
   } catch (err:any) {
     await browser.close()
     return ''
