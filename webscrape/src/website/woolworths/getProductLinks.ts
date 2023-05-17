@@ -5,7 +5,7 @@ import { scrapeDynamic } from "../../request/scrapeDynamic";
 
 
 
-const getWoolworthsPageLinks = async(pageLink:string):Promise<string[]> => {
+const getWoolworthsSectionProductLinks = async(pageLink:string):Promise<string[]> => {
   const baseUrl = 'https://www.woolworths.com.au'
   const productLinks:string[] = []
 
@@ -47,7 +47,7 @@ export const getWoolworthsProductLinks:GetProductLinks = async() => {
 
   let productLinks:string[] = []
   for (let productLinkIndex = 0; productLinkIndex < pageLinks.length; productLinkIndex++) {
-    const productSubLinks = await getWoolworthsPageLinks(pageLinks[productLinkIndex])
+    const productSubLinks = await getWoolworthsSectionProductLinks(pageLinks[productLinkIndex])
     productLinks = productLinks.concat(productSubLinks)
   }
   return productLinks 

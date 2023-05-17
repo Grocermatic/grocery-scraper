@@ -5,7 +5,7 @@ import { scrapeStatic } from "../../request/scrapeStatic";
 
 
 
-const getColesPageLinks = async(pageLink:string):Promise<string[]> => {
+const getColesSectionProductLinks = async(pageLink:string):Promise<string[]> => {
   const baseUrl = 'https://www.coles.com.au'
   const productLinks:string[] = []
 
@@ -50,7 +50,7 @@ export const getColesProductLinks:GetProductLinks = async() => {
 
   let productLinks:string[] = []
   for (let productLinkIndex = 0; productLinkIndex < pageLinks.length; productLinkIndex++) {
-    const productSubLinks = await getColesPageLinks(pageLinks[productLinkIndex])
+    const productSubLinks = await getColesSectionProductLinks(pageLinks[productLinkIndex])
     productLinks = productLinks.concat(productSubLinks)
   }
   return productLinks 
