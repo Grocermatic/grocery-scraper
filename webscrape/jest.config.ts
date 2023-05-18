@@ -8,8 +8,7 @@ const config:Config = {
     '^.+\\.(ts|tsx)?$': 'ts-jest'
   },
   collectCoverageFrom: [
-    "src/**/*.ts",
-    "src/*.ts"
+    "src/**/*.ts"
   ],
   coverageThreshold: {
     "global": {
