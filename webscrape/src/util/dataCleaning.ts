@@ -1,3 +1,7 @@
+import { generateRandInt } from "../request/proxy"
+
+
+
 export const getNumFromString = (str:string):number[] => {
   const matches = str.match(/\d+(\.\d+)?/g) // Match integers and decimals
   if (matches) {
@@ -23,4 +27,16 @@ export const getUnitFromString = (str:string):string => {
   unitMeasure = unitMeasure.replace(/[^a-z]/g, '') // Only extract letters
   if (!['l','ml','kg','g'].includes(unitMeasure)) { return '' }
   return unitMeasure
+}
+
+
+
+export const shuffleArrayFisherYates = (array:any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = generateRandInt(0, i)
+    const swapValue = array[i]
+    array[i] = array[j]
+    array[j] = swapValue
+  }
+  return array
 }
