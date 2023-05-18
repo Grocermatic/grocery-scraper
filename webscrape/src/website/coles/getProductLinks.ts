@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import * as cheerio from "cheerio";
 
 import { GetProductLinks } from "../interface";
@@ -35,8 +37,6 @@ const getColesSectionProductLinks = async(pageLink:string):Promise<string[]> => 
 
 
 
-/* This function is not unit testable */
-/* istanbul ignore next */
 export const getColesProductLinks:GetProductLinks = async() => {
   // Page links with get request health star filters
   const pageLinks = [

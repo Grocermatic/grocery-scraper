@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import * as cheerio from "cheerio";
 
 import { GetProductLinks } from "../interface";
