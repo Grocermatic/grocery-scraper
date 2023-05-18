@@ -1,4 +1,4 @@
-import { getNumFromString, getUnitFromString, roundDecimal, shuffleArrayFisherYates } from "./dataCleaning"
+import { generateUniqueArray, getNumFromString, getUnitFromString, roundDecimal, shuffleArrayFisherYates } from "./dataCleaning"
 
 
 
@@ -59,5 +59,16 @@ describe("Fisher-Yates array shuffling", () => {
     const originalArray = [1,2,3,4,5,6,7,8,9]
     const shuffledArray = shuffleArrayFisherYates(originalArray)
     expect(shuffledArray.sort()).toEqual(originalArray)
+  })
+})
+
+
+
+describe("unique array maker", () => {
+  it("should produce array containing only unique elements", () => {
+    const originalArray = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
+    const expectedArray = [1,2,3,4,5]
+    const uniqueArray = generateUniqueArray(originalArray)
+    expect(uniqueArray).toEqual(expectedArray)
   })
 })
