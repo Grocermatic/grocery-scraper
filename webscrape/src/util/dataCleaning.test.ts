@@ -1,4 +1,4 @@
-import { getNumFromString, roundDecimal } from "./dataCleaning"
+import { getNumFromString, getUnitFromString, roundDecimal } from "./dataCleaning"
 
 
 
@@ -19,6 +19,8 @@ describe("number extractor from string", () => {
   })
 })
 
+
+
 describe("number extractor from string", () => {
   it("should extract numbers including decimals", async()=>{
     const num = 0.12
@@ -26,5 +28,20 @@ describe("number extractor from string", () => {
     expect(roundDecimal(num, 1)).toEqual(0.1)
     expect(roundDecimal(num, 2)).toEqual(0.12)
     expect(roundDecimal(num, 3)).toEqual(0.12)
+  })
+})
+
+
+
+describe("unit measure extractor for food", () => {
+  it("should extract 'kg', 'g', 'l' and 'ml' from end of text", async()=>{
+    expect(getUnitFromString('1.0 ml')).toEqual('ml')
+    expect(getUnitFromString('1.0 l')).toEqual('l')
+    expect(getUnitFromString('1.0ml')).toEqual('ml')
+    expect(getUnitFromString('1.0l')).toEqual('l')
+    expect(getUnitFromString('1.0 kg')).toEqual('kg')
+    expect(getUnitFromString('1.0 g')).toEqual('g')
+    expect(getUnitFromString('1.0 km')).toEqual('')
+    expect(getUnitFromString('')).toEqual('')
   })
 })
