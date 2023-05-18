@@ -19,7 +19,7 @@ describe("Coles product scraper", () => {
       unitPrice: 1.5,
       nutrition: {
         servings: 12,
-        servingSize: 250,
+        servingSize: 0.25,
         kilojoules: 650,
         protein: 8.5,
         fat: 8.25,
@@ -45,7 +45,7 @@ describe("Coles product scraper", () => {
       unitPrice: 1.9,
       nutrition: {
         servings: 71.4,
-        servingSize: 70,
+        servingSize: 0.07,
         kilojoules: 514.5,
         protein: 2.73,
         fat: 0.84,
