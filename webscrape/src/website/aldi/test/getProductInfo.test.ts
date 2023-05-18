@@ -1,18 +1,10 @@
 import * as fs from 'fs'
 import * as http from 'http'
 
-import { ProductInfo } from "../interface"
-import { getAldiBatchProductInfo, aldiPageProducts, aldiProductInfo } from "./getProductInfo"
+import { ProductInfo } from "../../interface"
+import { getAldiBatchProductInfo, aldiPageProducts, aldiProductInfo } from "../getProductInfo"
 
 
-
-const cornHtml:string = `<a class="box--wrapper ym-gl ym-g25 " title="to product detail" href="https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-corn-kernels-1kg-1/"><div class="box m-text-image"><div class="ratio-container m-ratio-1x1 ym-clearfix m-no-ratio-on-phone"><div class="ratio-container m-ratio-57x32 box--image-container m-no-ratio-on-phone"><img src="https://www.aldi.com.au/fileadmin/_processed_/a/2/csm_ALN2853_AWARDS_FROZEN_FOOD_1x1_228x128_2_b2bba5422e.jpg" width="226" height="126"   alt="" ></div><div class="ratio-container m-ratio-57x25 box--description m-no-ratio-on-phone"><div class="box--description--header">Market Fare Corn Kernels 1kg</div><div class="box--price"><span class="ym-hideme">Unit</span><span class="box--amount"></span><span class="ym-hideme">Current Price</span><span class="box--value">$4.</span><span class="box--decimal">19</span><span class="ym-hideme">Unit price</span><span class="box--baseprice">$4.19 per kg</span></div></div><span class="detail--button"><span class="icon-arrow m-tiny m-right m-darkblue detail--button--icon-arrow"></span></span></div></div></a>`
-
-const spinachHtml:string = `<a class="box--wrapper ym-gl ym-g25 " title="to product detail" href="https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-spinach-250g-2/"><div class="box m-text-image"><div class="ratio-container m-ratio-1x1 ym-clearfix m-no-ratio-on-phone"><div class="ratio-container m-ratio-57x32 box--image-container m-no-ratio-on-phone"><img src="https://www.aldi.com.au/fileadmin/_processed_/a/d/csm_ALN2853_AWARDS_FROZEN_FOOD_1x1_228x128_7_e00448fa4c.jpg" width="226" height="126"   alt="" ></div><div class="ratio-container m-ratio-57x25 box--description m-no-ratio-on-phone"><div class="box--description--header">Market Fare Spinach 250g </div><div class="box--price"><span class="ym-hideme">Unit</span><span class="box--amount"></span><span class="ym-hideme">Current Price</span><span class="box--value">89</span><span class="box--decimal"></span><span class="box--value">c</span><span class="ym-hideme">Unit price</span><span class="box--baseprice">$3.56 per kg</span></div></div><span class="detail--button"><span class="icon-arrow m-tiny m-right m-darkblue detail--button--icon-arrow"></span></span></div></div></a>`
-
-const noJsonHtml:string = ''
-
-const testHtmlUrl:string = './src/website/aldi/freezer.test.html'
 
 const expectedPageProductInfo:ProductInfo[] = [
   {
@@ -129,9 +121,13 @@ const expectedPageProductInfo:ProductInfo[] = [
   }
 ]
 
+
+
 describe("Aldi product scraper", () => {
   it("should parse product data", async()=>{
-    const productInfo = aldiProductInfo(cornHtml)
+    const testUrl = `${__dirname}/corn.test.html`
+    const testHtml:any = fs.readFileSync(testUrl)
+    const productInfo = aldiProductInfo(testHtml)
     const expectedProductInfo:ProductInfo = {
       name: 'Market Fare Corn Kernels',
       url: 'https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-corn-kernels-1kg-1/',
@@ -144,7 +140,9 @@ describe("Aldi product scraper", () => {
   })
 
   it("should parse product with cents", async()=>{
-    const productInfo = aldiProductInfo(spinachHtml)
+    const testUrl = `${__dirname}/spinach.test.html`
+    const testHtml:any = fs.readFileSync(testUrl)
+    const productInfo = aldiProductInfo(testHtml)
     const expectedProductInfo:ProductInfo = {
       name: 'Market Fare Spinach',
       url: 'https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-spinach-250g-2/',
@@ -157,6 +155,7 @@ describe("Aldi product scraper", () => {
   })
 
   it("should handle lack of JSON", async()=>{
+    const noJsonHtml = ''
     const productInfo = aldiProductInfo(noJsonHtml)
     expect(productInfo).toEqual(null)
   })
@@ -166,7 +165,8 @@ describe("Aldi product scraper", () => {
 
 describe("Aldi page scraper", () => {
   it("should parse product data", async()=>{
-    const testHtml:any = fs.readFileSync('./src/website/aldi/freezer.test.html')
+    const testUrl = `${__dirname}/freezer.test.html`
+    const testHtml:any = fs.readFileSync(testUrl)
     const testProductInfos = aldiPageProducts(testHtml)
     expect(testProductInfos).toEqual(expectedPageProductInfo)
   })
@@ -176,7 +176,8 @@ describe("Aldi page scraper", () => {
 
 describe("Aldi url batch scrape", () => {
   it("should parse product data", async()=>{
-    const data = fs.readFileSync(testHtmlUrl)
+    const testUrl = `${__dirname}/freezer.test.html`
+    const data = fs.readFileSync(testUrl)
     const originalHTML = data.toString()
 
     http.createServer((req:any, res:any) => {
@@ -189,6 +190,6 @@ describe("Aldi url batch scrape", () => {
       getAldiBatchProductInfo(['http://localhost:3010/']).then((testProductInfos:ProductInfo[]) => {
         expect(testProductInfos).toEqual(expectedPageProductInfo)
       })
-    }, 500)
+    })
   })
 })

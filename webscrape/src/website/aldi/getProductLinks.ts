@@ -2,6 +2,8 @@ import { GetProductLinks } from "../interface";
 
 
 
+/* This function is not unit testable */
+/* istanbul ignore next */
 export const getAldiProductLinks:GetProductLinks = async() => {
   const productLinks = [
     'https://www.aldi.com.au/en/groceries/freezer/',
