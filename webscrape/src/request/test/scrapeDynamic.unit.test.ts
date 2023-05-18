@@ -9,11 +9,11 @@ describe("dynamic html scraper", () => {
     const testUrl = `${__dirname}/test.html`
     let html:string = await scrapeDynamic('file://' + testUrl)
 
-    fs.readFile(testUrl, (err:any, data:any)=>{
-      const originalHTML = data.toString()
-      const expectedHTML = originalHTML.replaceAll('</p>', 'Paragraph</p>')
-      expect(html).toEqual(expectedHTML)
-    })
+    const data = await fs.readFileSync(testUrl)
+    // Additional html is rendered through JavaScript
+    const expectedHTML = data.toString().replaceAll('</p>', 'Paragraph</p>')
+
+    expect(html).toEqual(expectedHTML)
   })
 
   it("should handle unreachable urls", async()=>{
