@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import { generatePublicIP, generateHttpHeaders, httpHeaders, generateRandInt } from "./proxy"
+import { generatePublicIP, generateHttpHeaders, httpHeaders, generateRandInt } from "../proxy"
 
 
 

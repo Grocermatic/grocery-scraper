@@ -1,19 +1,17 @@
 import * as fs from 'fs'
 
-import {scrapeDynamic} from './scrapeDynamic'
+import {scrapeDynamic} from '../scrapeDynamic'
 
 
 
 describe("dynamic html scraper", () => {
   it("should render javascript html", async()=>{
-    const testUrl = `file://${__dirname}/test.html`
-    let html:string = await scrapeDynamic(testUrl)
-    html = html.replaceAll('\n','')
+    const testUrl = `${__dirname}/test.html`
+    let html:string = await scrapeDynamic('file://' + testUrl)
 
-    fs.readFile('./src/request/test.html', (err:any, data:any)=>{
+    fs.readFile(testUrl, (err:any, data:any)=>{
       const originalHTML = data.toString()
       const expectedHTML = originalHTML.replaceAll('</p>', 'Paragraph</p>')
-      expect(html).not.toEqual(originalHTML)
       expect(html).toEqual(expectedHTML)
     })
   })
@@ -21,6 +19,6 @@ describe("dynamic html scraper", () => {
   it("should handle unreachable urls", async()=>{
     const testUrl = "unreachableLink"
     let html:string = await scrapeDynamic(testUrl)
-    expect(html).toEqual("")
+    expect(html).toEqual('')
   })
 })
