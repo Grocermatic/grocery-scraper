@@ -9,13 +9,6 @@ export interface ProductNutrition {
   carb: number,
   sugar: number,
   sodium: number,
-  
-  fibre?: number,
-  nacin?: number,
-  thiamin?: number,
-  magnesium?: number,
-  potassium?: number,
-  trans?: number
 }
 
 export interface ProductInfo {
