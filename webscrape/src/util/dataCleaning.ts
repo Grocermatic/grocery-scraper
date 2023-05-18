@@ -40,3 +40,10 @@ export const shuffleArrayFisherYates = (array:any[]) => {
   }
   return array
 }
+
+
+
+export const generateUniqueArray = (array:any[]) => {
+  const uniqueArray = [...new Set(array)]
+  return uniqueArray
+}
