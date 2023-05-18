@@ -1,4 +1,4 @@
-import { getNumFromString, getUnitFromString, roundDecimal } from "./dataCleaning"
+import { getNumFromString, getUnitFromString, roundDecimal, shuffleArrayFisherYates } from "./dataCleaning"
 
 
 
@@ -43,5 +43,21 @@ describe("unit measure extractor for food", () => {
     expect(getUnitFromString('1.0 g')).toEqual('g')
     expect(getUnitFromString('1.0 km')).toEqual('')
     expect(getUnitFromString('')).toEqual('')
+  })
+})
+
+
+
+describe("Fisher-Yates array shuffling", () => {
+  it("should rearrange elements in an array", () => {
+    const originalArray = [1,2,3,4,5,6,7,8,9]
+    const shuffledArray = shuffleArrayFisherYates(originalArray)    
+    shuffledArray.map(shuffledArrayElement => expect(originalArray).toContain(shuffledArrayElement))
+  })
+
+  it("should produce an array with same original elements", () => {
+    const originalArray = [1,2,3,4,5,6,7,8,9]
+    const shuffledArray = shuffleArrayFisherYates(originalArray)
+    expect(shuffledArray.sort()).toEqual(originalArray)
   })
 })
