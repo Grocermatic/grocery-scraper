@@ -31,4 +31,30 @@ describe("Woolworths product scraper", () => {
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
+
+  it("should parse nutrition data", async()=>{
+    const testUrl = `${__dirname}/sweetPotato.test.html`
+    const html:string = await fs.readFileSync(testUrl).toString()
+    const productInfo = getWoolworthsProductInfo(html)
+    const expectedProductInfo:ProductInfo = {
+      name: 'Woolworths Gold Sweet Potatoes Bag 1kg',
+      url: 'https://www.woolworths.com.au/shop/productdetails/156015',
+      img: 'https://cdn0.woolworths.media/content/wowproductimages/large/156015.jpg',
+      price: 4.5,
+      quantity: 1,
+      unitPrice: 4.5,
+      nutrition: {
+        servings: 13,
+        servingSize: 0.077,
+        kilojoules: 185,
+        protein: 1.4,
+        fat: 0.1,
+        fatSaturated: 0.1,
+        carb: 10.6,
+        sugar: 4.2,
+        sodium: 8
+      }
+    }
+    expect(productInfo).toEqual(expectedProductInfo)
+  })
 })
