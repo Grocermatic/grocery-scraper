@@ -1,7 +1,7 @@
 {
   "scripts": {
     "nodemon": "nodemon $1",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --maxWorkers=50%"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --maxWorkers=50% --watchAll"
   },
   "dependencies": {
     "axios": "^1.4.0",
