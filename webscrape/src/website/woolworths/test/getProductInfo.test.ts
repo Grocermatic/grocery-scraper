@@ -87,4 +87,30 @@ describe("Woolworths product scraper", () => {
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
+
+  it("should not include invalid nutrition data", async()=>{
+    const testUrl = `${__dirname}/potato.test.html`
+    const html:string = await fs.readFileSync(testUrl).toString()
+    const productInfo = getWoolworthsProductInfo(html)
+    const expectedProductInfo:ProductInfo = {
+      name: 'Woolworths Brushed Potatoes Bag 4kg',
+      url: 'https://www.woolworths.com.au/shop/productdetails/124831',
+      img: 'https://cdn0.woolworths.media/content/wowproductimages/large/124831.jpg',
+      price: 9,
+      quantity: 4,
+      unitPrice: 2.25,
+      nutrition: {
+        servings: 53,
+        servingSize: 0.075,
+        kilojoules: 185,
+        protein: 1.7,
+        fat: 0.1,
+        fatSaturated: 0.1,
+        carb: 9.7,
+        sugar: 0.5,
+        sodium: 0
+      }
+    }
+    expect(productInfo).toEqual(expectedProductInfo)
+  })
 })
