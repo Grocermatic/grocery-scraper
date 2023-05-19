@@ -32,28 +32,17 @@ describe("Coles product scraper", () => {
     expect(productInfo).toEqual(expectedProductInfo)
   })
   
-  it("should parse nutrition data", async()=>{
+  it("should handle lack of nutrition data", async()=>{
     const testUrl = `${__dirname}/rice.test.html`
     const testHtml:any = fs.readFileSync(testUrl)
     const productInfo = getColesProductInfo(testHtml)
     const expectedProductInfo:ProductInfo = {
       name: 'Medium Grain Brown Rice',
-      url: 'https://www.coles.com.au/product/sunrice-medium-grain-brown-rice-5kg-1751530',
-      img: 'https://productimages.coles.com.au/productimages/1/1751530.jpg',
-      price: 19,
-      quantity: 5,
-      unitPrice: 3.8,
-      nutrition: {
-        servings: 71.4,
-        servingSize: 0.07,
-        kilojoules: 514.5,
-        protein: 2.73,
-        fat: 0.84,
-        fatSaturated: 0.7,
-        carb: 25.2,
-        sugar: 0.7,
-        sodium: 3.5
-      }
+      url: 'https://www.coles.com.au/product/sunrice-medium-grain-brown-rice-1kg-154693',
+      img: 'https://productimages.coles.com.au/productimages/1/154693.jpg',
+      price: 4,
+      quantity: 1,
+      unitPrice: 4,
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
