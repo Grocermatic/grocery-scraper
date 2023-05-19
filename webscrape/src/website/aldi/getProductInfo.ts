@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { ProductInfo, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getNumFromString, roundDecimal } from "../../util/dataCleaning";
+import { getNumFromString, getUnitFromString, roundDecimal } from "../../util/dataCleaning";
 import { scrapeStatic } from '../../request/scrapeStatic';
 
 
@@ -18,8 +18,8 @@ export const aldiProductInfo:GetProductInfo = (html) => {
   const name = rawTitle.slice(0, -1 - rawQuantity.length)
 
   // Calculate quantity in 'kg' or 'l'
-  let quantity = getNumFromString(rawQuantity)[0]
-  const unit = rawQuantity.slice(`${quantity}`.length).toLowerCase()
+  let quantity = getNumFromString(rawQuantity).slice(-1)[0]
+  const unit = getUnitFromString(rawQuantity)
   if (['g','ml'].includes(unit)) { 
     quantity /= 1000
   }
@@ -61,7 +61,7 @@ export const aldiPageProducts = (html:string):ProductInfo[] => {
 
 export const getAldiBatchProductInfo:GetBatchProductInfo = async(urls) => {
   let productInfos:ProductInfo[] = []
-  for (const url in urls) {
+  for (const url of urls) {
     const html = await scrapeStatic(url)
     const productInfoSublist = aldiPageProducts(html)
     if (productInfoSublist.length > 0) {
