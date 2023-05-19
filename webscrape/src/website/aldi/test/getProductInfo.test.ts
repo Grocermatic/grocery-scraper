@@ -154,6 +154,21 @@ describe("Aldi product scraper", () => {
     expect(productInfo).toEqual(expectedProductInfo)
   })
 
+  it("should extract quantity from complex title", async()=>{
+    const testUrl = `${__dirname}/egg.test.html`
+    const testHtml:any = fs.readFileSync(testUrl)
+    const productInfo = aldiProductInfo(testHtml)
+    const expectedProductInfo:ProductInfo = {
+      name: 'Lodge Farms Large Free Range Eggs',
+      url: 'https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lodge-farms-large-free-range-eggs-12pk600g/',
+      img: 'https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_1_RET_7e823d24d7.png',
+      price: 4.49,
+      quantity: 0.6,
+      unitPrice: 7.48
+    }
+    expect(productInfo).toEqual(expectedProductInfo)
+  })
+
   it("should handle lack of JSON", async()=>{
     const noJsonHtml = ''
     const productInfo = aldiProductInfo(noJsonHtml)
