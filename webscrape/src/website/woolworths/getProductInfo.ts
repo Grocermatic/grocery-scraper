@@ -10,10 +10,18 @@ export const getWoolworthsProductInfo:GetProductInfo = (html) => {
   // Coles provides information rich JSON in script
   const $ = cheerio.load(html)
   
-  const priceString = $('div.primary[_ngcontent-serverapp-c372=""]').contents().toString()
+  let priceString = $('div.primary[_ngcontent-serverapp-c372=""]').contents().toString()
+  if (priceString === '') {
+    const dollarString = $('span.price-dollars').contents().toString()
+    const centString = $('span.price-cents').contents().toString()
+    priceString = `${dollarString}.${centString}`
+  }
   const price = getNumFromString(priceString)[0]
 
-  const unitPriceCalc = getNumFromString($('span.price-per-cup').contents().toString())
+  let unitPriceCalc = getNumFromString($('span.price-per-cup').contents().toString())
+  if (unitPriceCalc.length < 2) {
+    unitPriceCalc = getNumFromString($('div.shelfProductTile-cupPrice').contents().toString())
+  }
   const unitPrice = roundDecimal(unitPriceCalc[0] / unitPriceCalc[1], 2)
   const quantity = roundDecimal(price / unitPrice, 2)
 
@@ -29,7 +37,7 @@ export const getWoolworthsProductInfo:GetProductInfo = (html) => {
 
   // Add nutritional information if possible
   const servings = getNumFromString($('div[*ngif="productServingsPerPack"]').contents().toString())[0]
-  const servingSize = quantity / servings
+  const servingSize = roundDecimal(quantity / servings, 3)
 
   const nutrition:ProductNutrition = {
     servings: servings,
