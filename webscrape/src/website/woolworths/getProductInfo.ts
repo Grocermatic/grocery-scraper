@@ -91,3 +91,16 @@ export const getWoolworthsBatchProductInfo:GetBatchProductInfo = async(urls) => 
   }
   return productInfos
 }
+
+
+import * as fs from 'fs'
+(async() => {
+
+  const url = 'https://www.woolworths.com.au/shop/productdetails/156015'
+  //const productInfo = await getWoolworthsBatchProductInfo([url])
+  //console.log(productInfo)
+
+  //const html = await scrapeDynamic(url)
+  //fs.writeFileSync('sweetPotato.test.html', html)
+
+})()
