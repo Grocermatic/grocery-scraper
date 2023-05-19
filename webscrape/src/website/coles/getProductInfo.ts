@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getNumFromString, roundDecimal } from "../../util/dataCleaning";
+import { getNumFromString, getUnitFromString, roundDecimal } from "../../util/dataCleaning";
 import { scrapeStatic } from '../../request/scrapeStatic';
 
 
@@ -9,16 +9,28 @@ import { scrapeStatic } from '../../request/scrapeStatic';
 export const getColesProductInfo:GetProductInfo = (html) => {
   // Coles provides information rich JSON in script
   const $ = cheerio.load(html)
-  const jsonString = $('script[type="application/json"]').text()
+  let jsonString = $('#__NEXT_DATA__').text()
   if (jsonString === '') return null
 
   const rawJson = JSON.parse(jsonString)
   const rawProductJson = rawJson.props.pageProps.product
 
   // Calculate inaccurately provided info
-  const unitPriceCalc = getNumFromString(rawProductJson.pricing.comparable)
-  const unitPrice = roundDecimal(unitPriceCalc[0] / unitPriceCalc[1], 2)
-  const quantity = roundDecimal(rawProductJson.pricing.now / unitPrice, 2)
+  const unitPriceString = $('span.price__calculation_method').first().text().split(' | ')[0]
+  const unitPriceMeasure = getUnitFromString(unitPriceString)
+  const unitPriceCalc = getNumFromString(unitPriceString)
+  let unitPrice = unitPriceCalc[0] / unitPriceCalc[1]
+  if (['g','ml'].includes(unitPriceMeasure)) {
+    unitPrice *= 1000
+  }
+
+  const productTitleString = $('h1.product__title').first().text()
+  let quantity = getNumFromString(productTitleString).slice(-1)[0]
+  const quantityMeasure = getUnitFromString(productTitleString)
+  if (['g','ml'].includes(quantityMeasure)) {
+    quantity /= 1000
+  }
+
 
   // Prefill mandatory values
   const productInfo:ProductInfo = {
@@ -26,8 +38,8 @@ export const getColesProductInfo:GetProductInfo = (html) => {
     url: `https://www.coles.com.au/product/${rawJson.query.slug}`,
     img: `https://productimages.coles.com.au/productimages${rawProductJson.imageUris[0].uri}`,
     price: rawProductJson.pricing.now,
-    quantity: quantity,
-    unitPrice: unitPrice
+    quantity: roundDecimal(quantity, 3),
+    unitPrice: roundDecimal(unitPrice, 2)
   }
   
   // Add nutritional information if possible
@@ -35,7 +47,7 @@ export const getColesProductInfo:GetProductInfo = (html) => {
     const servings = getNumFromString(rawProductJson.nutrition.servingsPerPackage)[0]
     const nutrition:ProductNutrition = {
       servings: servings,
-      servingSize: roundDecimal(quantity / servings , 2),
+      servingSize: roundDecimal(quantity / servings , 3),
       kilojoules: 0,
       protein: 0,
       fat: 0,

@@ -40,9 +40,9 @@ describe("Coles product scraper", () => {
       name: 'Medium Grain Brown Rice',
       url: 'https://www.coles.com.au/product/sunrice-medium-grain-brown-rice-5kg-1751530',
       img: 'https://productimages.coles.com.au/productimages/1/1751530.jpg',
-      price: 9.5,
+      price: 19,
       quantity: 5,
-      unitPrice: 1.9,
+      unitPrice: 3.8,
       nutrition: {
         servings: 71.4,
         servingSize: 0.07,
@@ -58,7 +58,7 @@ describe("Coles product scraper", () => {
     expect(productInfo).toEqual(expectedProductInfo)
   })
 
-  it("should handle lack of nutrition data", async()=>{
+  it("should parse nutrition data", async()=>{
     const testUrl = `${__dirname}/grape.test.html`
     const testHtml:any = fs.readFileSync(testUrl)
     const productInfo = getColesProductInfo(testHtml)
@@ -66,9 +66,20 @@ describe("Coles product scraper", () => {
       name: 'White Seedless Grapes Loose',
       url: 'https://www.coles.com.au/product/coles-white-seedless-grapes-loose-approx.-800g-6706395',
       img: 'https://productimages.coles.com.au/productimages/6/6706395.jpg',
-      price: 2.88,
+      price: 3.92,
       quantity: 0.8,
-      unitPrice: 3.6
+      unitPrice: 4.9,
+      nutrition: {
+        servings: 6.6,
+        servingSize: 0.121,
+        kilojoules: 333.96,
+        protein: 0.73,
+        fat: 1.21,
+        fatSaturated: 0,
+        carb: 18.15,
+        sugar: 18.15,
+        sodium: 4.84
+      }
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
