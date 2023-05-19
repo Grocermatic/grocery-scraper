@@ -181,8 +181,9 @@ describe("Aldi url batch scrape", () => {
 
     const port = 3010
     hostHtml(originalHTML, port)
-
-    const testProductInfos = await getAldiBatchProductInfo([`http://localhost:${port}`])
-    expect(testProductInfos).toEqual(expectedPageProductInfo)
+    
+    getAldiBatchProductInfo([`http://localhost:${port}`]).then((testProductInfos:ProductInfo[]) => {
+      expect(testProductInfos).toEqual(expectedPageProductInfo)
+    })
   })
 })
