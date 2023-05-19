@@ -6,7 +6,7 @@ import { scrapeStatic } from '../../request/scrapeStatic';
 
 
 
-export const aldiProductInfo:GetProductInfo = (html) => {
+export const getAldiProductInfo:GetProductInfo = (html) => {
   // Aldi provides product html in boxes - product urls don't provide much info
   const $ = cheerio.load(html)
   
@@ -51,7 +51,7 @@ export const aldiPageProducts = (html:string):ProductInfo[] => {
   const productInfos:ProductInfo[] = []
   const $ = cheerio.load(html)
   $('.box--wrapper').each((index, element) => {
-    const productInfo = aldiProductInfo($(element).toString())
+    const productInfo = getAldiProductInfo($(element).toString())
     if (productInfo != null) { productInfos.push(productInfo) }
   })
   return productInfos
