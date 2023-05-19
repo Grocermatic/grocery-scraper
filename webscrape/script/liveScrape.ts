@@ -1,6 +1,3 @@
-
-
-
 import * as fs from 'fs'
 
 import { GetProductInfo } from '../src/website/interface'
