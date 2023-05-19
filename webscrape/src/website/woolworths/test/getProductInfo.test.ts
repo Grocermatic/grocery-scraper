@@ -57,4 +57,19 @@ describe("Woolworths product scraper", () => {
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
+
+  it("should not include invalid nutrition data", async()=>{
+    const testUrl = `${__dirname}/raspberry.test.html`
+    const html:string = await fs.readFileSync(testUrl).toString()
+    const productInfo = getWoolworthsProductInfo(html)
+    const expectedProductInfo:ProductInfo = {
+      name: 'Fresh Raspberry 125g',
+      url: 'https://www.woolworths.com.au/shop/productdetails/165262',
+      img: 'https://cdn0.woolworths.media/content/wowproductimages/large/165262.jpg',
+      price: 5,
+      quantity: 0.125,
+      unitPrice: 40,
+    }
+    expect(productInfo).toEqual(expectedProductInfo)
+  })
 })
