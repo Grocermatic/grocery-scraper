@@ -1,8 +1,8 @@
 import * as fs from 'fs'
-import * as http from 'http'
 
 import { ProductInfo } from "../../interface"
 import { getAldiBatchProductInfo, aldiPageProducts, aldiProductInfo } from "../getProductInfo"
+import { hostHtml } from '../../../util/hostHtml'
 
 
 
@@ -177,19 +177,12 @@ describe("Aldi page scraper", () => {
 describe("Aldi url batch scrape", () => {
   it("should parse product data", async()=>{
     const testUrl = `${__dirname}/freezer.test.html`
-    const data = fs.readFileSync(testUrl)
-    const originalHTML = data.toString()
+    const originalHTML = fs.readFileSync(testUrl).toString()
 
-    http.createServer((req:any, res:any) => {
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write(originalHTML)
-        res.end()
-    }).listen(3010)
+    const port = 3010
+    hostHtml(originalHTML, port)
 
-    setTimeout(() => {
-      getAldiBatchProductInfo(['http://localhost:3010/']).then((testProductInfos:ProductInfo[]) => {
-        expect(testProductInfos).toEqual(expectedPageProductInfo)
-      })
-    })
+    const testProductInfos = await getAldiBatchProductInfo([`http://localhost:${port}`])
+    expect(testProductInfos).toEqual(expectedPageProductInfo)
   })
 })

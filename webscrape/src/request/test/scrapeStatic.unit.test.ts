@@ -1,7 +1,7 @@
 import * as fs from 'fs'
-import * as http from 'http'
 
 import {scrapeStatic} from '../scrapeStatic'
+import { hostHtml } from '../../util/hostHtml'
 
 
 
@@ -10,13 +10,10 @@ describe("static html scraper", () => {
     const testUrl = `${__dirname}/test.html`
     const originalHTML = fs.readFileSync(testUrl).toString()
 
-    http.createServer((req:any, res:any) => {
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write(originalHTML)
-        res.end()
-    }).listen(3000)
+    const port = 3000
+    hostHtml(originalHTML, port)
     
-    const html = await scrapeStatic('http://localhost:3000/')
+    const html = await scrapeStatic(`http://localhost:${port}`)
     expect(html).toEqual(originalHTML)
   })
 
