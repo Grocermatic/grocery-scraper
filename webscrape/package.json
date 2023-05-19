@@ -2,7 +2,8 @@
   "scripts": {
     "nodemon": "nodemon $1",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --maxWorkers=50% --watchAll",
-    "liveScrape": "nodemon ./script/liveScrape.ts"
+    "liveScrape": "nodemon ./script/liveScrape.ts",
+    "getProductLink": "nodemon ./script/getProductLink.ts"
   },
   "dependencies": {
     "axios": "^1.4.0",
