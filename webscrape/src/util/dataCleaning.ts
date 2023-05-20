@@ -12,6 +12,8 @@ export const roundDecimal = (decimal:number, places:number):number => {
 
 
 export const getNumFromString = (str:string):number[] => {
+  if (!str) {return []}
+  
   const matches = str.match(/\d+(\.\d+)?/g) // Match integers and decimals
   if (matches) {
     let numArray:number[] = []
@@ -54,11 +56,12 @@ export const generateUniqueArray = (array:any[]) => {
 
 
 export const getMetricQuantity = (quanityString:string):number => {
-  if (!quanityString) { return 0 }
+  const numArray = getNumFromString(quanityString)
+  if (numArray.length == 0) { return 0 }
 
   // Assume last number is associated with quantity
   const unitMeasure = getUnitFromString(quanityString)
-  let metricQuantity = getNumFromString(quanityString).slice(-1)[0]
+  let metricQuantity = numArray.slice(-1)[0]
 
   if (['g', 'ml'].includes(unitMeasure)) {
     metricQuantity /= 1000
