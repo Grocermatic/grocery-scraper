@@ -50,3 +50,20 @@ export const generateUniqueArray = (array:any[]) => {
   const uniqueArray = [...new Set(array)]
   return uniqueArray
 }
+
+
+
+export const getMetricQuantity = (quanityString:string) => {
+  // Assume last number is associated with quantity
+  const someQuantity = getNumFromString(quanityString).slice(-1)[0]
+  const unitMeasure = getUnitFromString(quanityString)
+
+  let metricQuantity
+  if (['g', 'ml'].includes(unitMeasure)) {
+    metricQuantity = someQuantity / 1000
+    return metricQuantity
+  }
+
+  metricQuantity = someQuantity
+  return metricQuantity
+}
