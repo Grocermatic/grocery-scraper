@@ -1,5 +1,3 @@
-import * as cheerio from 'cheerio'
-
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
 import { getMetricQuantity, getNumFromString, roundDecimal } from "../../util/dataCleaning";
 import { scrapeJson } from '../../request/scrapeJson';
@@ -28,61 +26,66 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
   }
 
   // Add nutritional information if possible
-  productInfoJson['AdditionalAttributes']['servingsperpack-total-nip']
-  productInfoJson['AdditionalAttributes']['servingsize-total-nip']
-  if (servings != undefined) {
-    const productNutritionJson = productJson['NutritionalInformation']
-    const servingSize = roundDecimal(quantity / servings, 3)
+  const servingsPerPack = productInfoJson['AdditionalAttributes']['servingsperpack-total-nip']
+  let servingSize:number | null = getMetricQuantity(productInfoJson['AdditionalAttributes']['servingsize-total-nip'])
+  if (!servingSize && servingsPerPack) {
+    servingSize = roundDecimal(quantity / servingsPerPack, 3)
+  } else if (!servingSize) {
+    servingSize = null
+  }
 
-    const nutrition:ProductNutrition = {
-      servings: servings,
-      servingSize: servingSize,
-      kilojoules: 0,
-      protein: 0,
-      fat: 0,
-      fatSaturated: 0,
-      carb: 0,
-      sugar: 0,
-      sodium: 0
+    
+  const nutrition:ProductNutrition = {
+    servingSize: servingSize,
+    kilojoules: null,
+    protein: null,
+    fat: null,
+    fatSaturated: null,
+    carb: null,
+    sugar: null,
+    sodium: null
+  }
+    
+  // Extract 7 mandatory labeled nutirents
+  productJson['NutritionalInformation'].forEach((singleNutrientInfo:any) => {
+    const nutrientValueJson = singleNutrientInfo['Values']
+    let nutrientQuantity:number|null = getNumFromString(nutrientValueJson['Quantity Per 100g / 100mL'])[0]
+    
+    // Extrapolate quantity from serving if possible
+    if (!nutrientQuantity && servingSize) {
+      const servingNutrientQuantity = getNumFromString(nutrientValueJson['Quantity Per Serving'])[0]
+      nutrientQuantity = servingNutrientQuantity * servingSize / 0.1
+    } else if (!nutrientQuantity) {
+      nutrientQuantity = null
     }
 
-    // Extract 7 mandatory labeled nutirents
-    $('ul.nutrition-row').each((index, nutrientRow) => {
-      const $ = cheerio.load(nutrientRow)
-      const nutirentColumn = $('li.nutrition-column').contents()
-      const nutrientName = nutirentColumn[0].data
-      let nutrientQuantity = getNumFromString(nutirentColumn[1].data)[0]
-      if (nutrientQuantity == undefined) {
-        nutrientQuantity = 0
-      }
+    switch (singleNutrientInfo['Name']) {
+      case 'Energy':
+        nutrition.kilojoules = nutrientQuantity
+        break
+      case 'Protein':
+        nutrition.protein = nutrientQuantity
+        break
+      case 'Fat, Total':
+        nutrition.fat = nutrientQuantity
+        break
+      case '– Saturated':
+        nutrition.fatSaturated = nutrientQuantity
+        break
+      case 'Carbohydrate':
+        nutrition.carb = nutrientQuantity
+        break
+      case '– Sugars':
+        nutrition.sugar = nutrientQuantity
+        break
+      case 'Sodium':
+        nutrition.sodium = nutrientQuantity
+        break
+      default:
+    }
+  })
 
-      switch (nutrientName) {
-        case 'Energy':
-          nutrition.kilojoules = nutrientQuantity
-          break
-        case 'Protein':
-          nutrition.protein = nutrientQuantity
-          break
-        case 'Fat, Total':
-          nutrition.fat = nutrientQuantity
-          break
-        case '– Saturated':
-          nutrition.fatSaturated = nutrientQuantity
-          break
-        case 'Carbohydrate':
-          nutrition.carb = nutrientQuantity
-          break
-        case '– Sugars':
-          nutrition.sugar = nutrientQuantity
-          break
-        case 'Sodium':
-          nutrition.sodium = nutrientQuantity
-          break
-        default:
-      }
-    })
-    productInfo.nutrition = nutrition
-  }
+  productInfo.nutrition = nutrition
   return productInfo
 }
 
@@ -93,8 +96,10 @@ const woolworthsCookie = "bm_sz=8AD67C4F57EDFD0F87BB0FF819E8FFA1~YAAQRsfOF+TdNgS
 export const getWoolworthsBatchProductInfo:GetBatchProductInfo = async(urls) => {
   const productInfos:ProductInfo[] = []
   for (const url of urls) {
-    const html = await scrapeJson(url, woolworthsCookie)
-    const productInfo = getWoolworthsProductInfo(html)
+    const productCode = url.split('/').slice(-2)[0]
+    const jsonUrl = `https://www.woolworths.com.au/apis/ui/product/detail/${productCode}`
+    const productJson = await scrapeJson(jsonUrl, woolworthsCookie)
+    const productInfo = getWoolworthsProductInfo(productJson)
     if (productInfo != null) { productInfos.push(productInfo) }
   }
   return productInfos

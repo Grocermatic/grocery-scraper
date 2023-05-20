@@ -7,6 +7,32 @@ import { ProductInfo } from '../../interface'
 
 describe("Woolworths product scraper", () => {
   it("should parse nutrition data", async()=>{
+    const testUrl = `${__dirname}/onion.test.json`
+    const html:string = await fs.readFileSync(testUrl).toString()
+    const productInfo = getWoolworthsProductInfo(html)
+    const expectedProductInfo:ProductInfo = {
+      name: 'Woolworths Onion Brown Bag',
+      url: 'https://www.woolworths.com.au/shop/productdetails/144336',
+      img: 'https://cdn0.woolworths.media/content/wowproductimages/large/144336.jpg',
+      price: 3.2,
+      quantity: 1,
+      unitPrice: 3.2,
+      nutrition: {
+        servings: 1,
+        servingSize: 0,
+        kilojoules: 120,
+        protein: 1.6,
+        fat: 0.1,
+        fatSaturated: null,
+        carb: 4.3,
+        sugar: 4.3,
+        sodium: 10
+      }
+    }
+    expect(productInfo).toEqual(expectedProductInfo)
+  })
+
+  it("should parse nutrition data", async()=>{
     const testUrl = `${__dirname}/milk.test.html`
     const html:string = await fs.readFileSync(testUrl).toString()
     const productInfo = getWoolworthsProductInfo(html)

@@ -1,7 +1,6 @@
 // Standardize product
 export interface ProductNutrition {
-  servings: number,
-  servingSize: number,
+  servingSize: number | null,
   kilojoules: number | null,
   protein: number | null,
   fat: number | null,
