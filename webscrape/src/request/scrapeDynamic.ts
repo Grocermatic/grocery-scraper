@@ -3,7 +3,7 @@ import { generateHttpHeaders } from './proxy'
 
 
 
-export const scrapeDynamic = async(url:string):Promise<any> => {  
+export const scrapeDynamic = async(url:string):Promise<string> => {  
   // Disable sandbox to decrease scrape time
   const browser = await puppeteer.launch({
     headless: 'new',

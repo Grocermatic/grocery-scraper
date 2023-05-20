@@ -4,7 +4,7 @@ import { wait } from '../util/wait'
 
 
 
-export const scrapeStatic = async(url:string, cookie?:string):Promise<any> => {
+export const scrapeStatic = async(url:string, cookie?:string):Promise<string> => {
   const headers = generateHttpHeaders()['headers']
   if (cookie != undefined) {
     headers.Cookie = cookie
