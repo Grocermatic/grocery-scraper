@@ -18,7 +18,6 @@ describe("Woolworths product scraper", () => {
       quantity: 1,
       unitPrice: 3.2,
       nutrition: {
-        servings: 1,
         servingSize: 0,
         kilojoules: 120,
         protein: 1.6,
@@ -38,13 +37,12 @@ describe("Woolworths product scraper", () => {
     const productInfo = getWoolworthsProductInfo(html)
     const expectedProductInfo:ProductInfo = {
       name: 'Woolworths Whole Milk 3l',
-      url: 'https://www.woolworths.com.au/shop/productdetails/807384',
+      url: 'https://www.woolworths.com.au/shop/productdetails/888141',
       img: 'https://cdn0.woolworths.media/content/wowproductimages/large/807384.jpg',
       price: 4.5,
       quantity: 3,
       unitPrice: 1.5,
       nutrition: {
-        servings: 12,
         servingSize: 0.25,
         kilojoules: 659,
         protein: 8.3,
@@ -70,7 +68,6 @@ describe("Woolworths product scraper", () => {
       quantity: 1,
       unitPrice: 4.5,
       nutrition: {
-        servings: 13,
         servingSize: 0.077,
         kilojoules: 185,
         protein: 1.4,
@@ -126,7 +123,6 @@ describe("Woolworths product scraper", () => {
       quantity: 4,
       unitPrice: 2.25,
       nutrition: {
-        servings: 53,
         servingSize: 0.075,
         kilojoules: 185,
         protein: 1.7,
