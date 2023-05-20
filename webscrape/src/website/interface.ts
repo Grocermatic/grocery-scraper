@@ -2,13 +2,13 @@
 export interface ProductNutrition {
   servings: number,
   servingSize: number,
-  kilojoules: number,
-  protein: number,
-  fat: number,
-  fatSaturated: number,
-  carb: number,
-  sugar: number,
-  sodium: number,
+  kilojoules: number | null,
+  protein: number | null,
+  fat: number | null,
+  fatSaturated: number | null,
+  carb: number | null,
+  sugar: number | null,
+  sodium: number | null,
 }
 
 export interface ProductInfo {
