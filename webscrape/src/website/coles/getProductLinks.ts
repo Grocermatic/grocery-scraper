@@ -30,7 +30,6 @@ const getColesSectionProductLinks = async(pageLink:string):Promise<string[]> => 
       if (productLinks.includes(productLink)) { return }
       productLinks.push(baseUrl + productLink)
     })
-    break
   }
   return productLinks
 }
