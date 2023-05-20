@@ -4,7 +4,7 @@ import { wait } from '../util/wait'
 
 
 
-export const scrapeJson = async(url:string, cookie?:string):Promise<any> => {
+export const scrapeJson = async(url:string, cookie?:string):Promise<string> => {
   const headers = generateHttpHeaders()['headers']
   if (cookie != undefined) {
     headers.Cookie = cookie
@@ -18,7 +18,8 @@ export const scrapeJson = async(url:string, cookie?:string):Promise<any> => {
       headers: headers
     })
     const response = await proxyClient.get(url)
-    return JSON.parse(response.data)
+    console.log(response.data)
+    return JSON.stringify(response.data)
   } catch (err:any) {
     return ''
   } 
