@@ -53,17 +53,16 @@ export const generateUniqueArray = (array:any[]) => {
 
 
 
-export const getMetricQuantity = (quanityString:string) => {
-  // Assume last number is associated with quantity
-  const someQuantity = getNumFromString(quanityString).slice(-1)[0]
-  const unitMeasure = getUnitFromString(quanityString)
+export const getMetricQuantity = (quanityString:string):number => {
+  if (!quanityString) { return 0 }
 
-  let metricQuantity
+  // Assume last number is associated with quantity
+  const unitMeasure = getUnitFromString(quanityString)
+  let metricQuantity = getNumFromString(quanityString).slice(-1)[0]
+
   if (['g', 'ml'].includes(unitMeasure)) {
-    metricQuantity = someQuantity / 1000
-    return metricQuantity
+    metricQuantity /= 1000
   }
 
-  metricQuantity = someQuantity
-  return metricQuantity
+  return roundDecimal(metricQuantity, 3)
 }
