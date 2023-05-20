@@ -1,4 +1,13 @@
-import { generateRandInt } from "../request/proxy"
+export const generateRandInt = (min:number, max:number):number => {
+  const randomInteger = min + Math.floor((max - min + 1) * Math.random())
+  return randomInteger <= max ? randomInteger : randomInteger - 1
+}
+
+
+
+export const roundDecimal = (decimal:number, places:number):number => {
+  return Math.round(decimal * 10**places) / 10**places
+}
 
 
 
@@ -12,12 +21,6 @@ export const getNumFromString = (str:string):number[] => {
     return numArray
   }
   return [];
-}
-
-
-
-export const roundDecimal = (decimal:number, places:number):number => {
-  return Math.round(decimal * 10**places) / 10**places
 }
 
 

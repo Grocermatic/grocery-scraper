@@ -1,3 +1,7 @@
+import { generateRandInt } from "../util/dataCleaning";
+
+
+
 interface HttpHeaders {
   readonly ['Accept']: string;
   readonly ['Accept-Encoding']: string;
@@ -152,13 +156,6 @@ export const httpHeaders:HttpHeaders[] = [
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.3 Mobile/15E148 Safari/604.1", 
   }
 ]
-
-
-
-export const generateRandInt = (min:number, max:number):number => {
-  const randomInteger = min + Math.floor((max - min + 1) * Math.random())
-  return randomInteger <= max ? randomInteger : randomInteger - 1
-}
 
 
 
