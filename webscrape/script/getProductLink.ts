@@ -4,6 +4,7 @@ import { GetProductLinks } from '../src/website/interface'
 import { getWoolworthsProductLinks, getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
 import { getColesProductLinks } from '../src/website/coles/getProductLinks'
 import { getCookie } from '../src/request/getCookie'
+import { roundDecimal } from '../src/util/dataCleaning'
 
 
 
@@ -11,7 +12,8 @@ const logFilePath = './script/getProductLink.log'
 
 const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
   console.log(performaneMeasure)
-  const logMessage = `${performaneMeasure.name}, ${performaneMeasure.duration}\n`
+  const duration = roundDecimal(performaneMeasure.duration / 1000, 3)
+  const logMessage = `${performaneMeasure.name}, ${duration}\n`
   fs.appendFileSync(logFilePath, logMessage)
 }
 
@@ -46,7 +48,13 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
   performance.mark('Finalise links')
   writePerformanceToLog(performance.measure('Save link time',  'Save links', 'Finalise links'))
 
-  writePerformanceToLog(performance.measure('Total CSV generation time', 'Find links', 'Finalise links'))
+  const totalTimeMeasure = performance.measure('Total CSV generation time', 'Find links', 'Finalise links')
+  writePerformanceToLog(totalTimeMeasure)
+
+  writeMessageToLog(`Number of links, ${productLinks.length}`)
+
+  const timePerLink = roundDecimal(totalTimeMeasure.duration / productLinks.length / 1000, 3)
+  writeMessageToLog(`Time per link, ${timePerLink}`)
 
   writeMessageToLog('')
 }
@@ -55,17 +63,9 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
 
 (async() => {
 
-  const fileName = 'woolworthsLinks1.csv'
+  const fileName = 'woolworthsLinks.csv'
   const filePath = `../dataProcess/data/${fileName}`
   //clearLog()
   saveProductLinksCsv(filePath, getWoolworthsProductLinks)
-
-  //getWoolworthsSectionProductLinks()
-  
-  //const requestData:[string,string[]] = ['1-E5BEE36E', ['4','4.0','4.5','5','5.0']]
-  //const woolworthsCookie = await getCookie('https://www.woolworths.com.au')
-  //getWoolworthsSectionProductLinks(requestData, woolworthsCookie)
-  //const data = requestData[1].map(foodStarRating => { return {'Term': foodStarRating} })
-  //console.log(data)
 
 })()
