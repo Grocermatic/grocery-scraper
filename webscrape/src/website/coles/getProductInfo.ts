@@ -46,7 +46,6 @@ export const getColesProductInfo:GetProductInfo = (html) => {
   try{
     const servings = getNumFromString(rawProductJson.nutrition.servingsPerPackage)[0]
     const nutrition:ProductNutrition = {
-      servings: servings,
       servingSize: roundDecimal(quantity / servings , 3),
       kilojoules: 0,
       protein: 0,
@@ -58,7 +57,7 @@ export const getColesProductInfo:GetProductInfo = (html) => {
     }
 
     const nutritionSize = getNumFromString(rawProductJson.nutrition.breakdown[0].title)[0]
-    const scaleNutrient = 1000 * nutrition.servingSize / nutritionSize
+    const scaleNutrient = 1000 * quantity / servings / nutritionSize
 
     // Extract 7 mandatory labeled
     rawProductJson.nutrition.breakdown[0].nutrients.forEach((nutrient:any) => {
