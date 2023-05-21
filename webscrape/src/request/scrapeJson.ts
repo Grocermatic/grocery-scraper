@@ -6,23 +6,46 @@ import { generateRandInt } from '../util/dataCleaning'
 
 
 
-export const scrapeJson = async(url:string, cookie?:string):Promise<string> => {
+export const getRequestJson = async(url:string, cookie?:string):Promise<string> => {
   const headers = generateHttpHeaders()['headers']
   if (cookie != undefined) {
     headers.Cookie = cookie
   }
   await wait(generateRandInt(1000,3000))
   
+  const proxyClient = axios.create({
+    baseURL: `https://${generatePublicIP()}`,
+    timeout: 3000,
+    headers: headers
+  })
+
   try {
-    const proxyClient = axios.create({
-      baseURL: `https://${generatePublicIP()}`,
-      timeout: 3000,
-      headers: headers
-    })
     const response = await proxyClient.get(url)
-    console.log(response.data)
     return JSON.stringify(response.data)
-  } catch (err:any) {
+  } catch(err) {
+    return ''
+  } 
+}
+
+
+
+export const postRequestJson = async(url:string, postRequestPayload:any, cookie?:string):Promise<string> => {
+  const headers = generateHttpHeaders()['headers']
+  if (cookie != undefined) {
+    headers.Cookie = cookie
+  }
+  await wait(generateRandInt(1000,3000))
+  
+  const proxyClient = axios.create({
+    baseURL: `https://${generatePublicIP()}`,
+    timeout: 3000,
+    headers: headers
+  })
+
+  try {
+    const response = await proxyClient.post(url, postRequestPayload)
+    return JSON.stringify(response.data)
+  } catch(err) {
     return ''
   } 
 }
