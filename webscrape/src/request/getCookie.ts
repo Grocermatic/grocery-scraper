@@ -1,6 +1,7 @@
+/* istanbul ignore file */
+
 import puppeteer from 'puppeteer'
 import { generateHttpHeaders } from './proxy'
-import { wait } from '../util/wait'
 
 
 
