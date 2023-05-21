@@ -4,12 +4,15 @@ import { GetProductInfo, GetBatchProductInfo } from '../src/website/interface'
 
 import { scrapeDynamic } from '../src/request/scrapeDynamic'
 import { scrapeStatic } from '../src/request/scrapeStatic'
-import { scrapeJson } from '../src/request/scrapeJson'
+import { getRequestJson, postRequestJson } from '../src/request/scrapeJson'
 import { getCookie } from '../src/request/getCookie'
 
 import { getAldiProductInfo, aldiPageProducts, getAldiBatchProductInfo } from '../src/website/aldi/getProductInfo'
 import { getColesBatchProductInfo, getColesProductInfo } from '../src/website/coles/getProductInfo'
 import { getWoolworthsProductInfo, getWoolworthsBatchProductInfo } from '../src/website/woolworths/getProductInfo'
+import axios from 'axios'
+import { getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
+import { getMetricQuantity, getUnitFromString } from '../src/util/dataCleaning'
 
 
 
@@ -61,14 +64,42 @@ const testScrape = async(filePath:string, scraperFunction:any) => {
   //const filePath = 'test.html'
 
   const woolworthsCookie = await getCookie('https://www.woolworths.com.au')
-  const scrapeWoolworths = async(url:string) => {return await scrapeJson(url, woolworthsCookie)}
+  //const scrapeWoolworths = async(url:string) => {return await getRequestJson(url, woolworthsCookie)}
   
-  liveScrapeSave(url, filePath, scrapeWoolworths, getWoolworthsProductInfo)
+  //liveScrapeSave(url, filePath, scrapeWoolworths, getWoolworthsProductInfo)
   //testScrape(filePath, getWoolworthsProductInfo)
   //liveScrape([url], getWoolworthsBatchProductInfo)
 
-  //const req = await scrapeJson(url, woolworthsCookie)
+  //const req = await getRequestJson(url, woolworthsCookie)
   //console.log(req)
   //fs.writeFileSync(filePath, req)
 
+
+  const payload = {
+    'categoryId': '1-E5BEE36E',
+    'filters': [
+        {
+            'Key': 'Healthstar',
+            'Items': [
+                {
+                    'Term': '5'
+                }
+            ]
+        }
+    ],
+    'formatObject': '{}',
+    'gpBoost': 500,
+    'pageNumber': 1,
+    'pageSize': 36,
+    'url': ''
+  }
+  const listUrl = 'https://www.woolworths.com.au/apis/ui/browse/category'
+  //const req = await axios.post(listUrl, payload, {
+  //  headers:{cookie: woolworthsCookie} 
+  //})
+
+  const req = await postRequestJson(listUrl, payload, await getCookie('https://www.woolworths.com.au'))
+  const productSummary = JSON.parse(req)['Bundles'][10]['Products'][0]
+  console.log(productSummary)
+  console.log(getUnitFromString(productSummary['CupString']))
 })()

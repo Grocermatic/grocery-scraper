@@ -1,6 +1,6 @@
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
 import { getMetricQuantity, getNumFromString, roundDecimal } from "../../util/dataCleaning";
-import { scrapeJson } from '../../request/scrapeJson';
+import { getRequestJson } from '../../request/scrapeJson';
 import { getCookie } from "../../request/getCookie";
 
 
@@ -102,7 +102,7 @@ export const getWoolworthsBatchProductInfo:GetBatchProductInfo = async(urls) => 
     const productCode = url.match(/\/[0-9]+/)?.toString().slice(1)
 
     const jsonUrl = `https://www.woolworths.com.au/apis/ui/product/detail/${productCode}`
-    const productJson = await scrapeJson(jsonUrl, woolworthsCookie)
+    const productJson = await getRequestJson(jsonUrl, woolworthsCookie)
     const productInfo = getWoolworthsProductInfo(productJson)
     if (productInfo != null) { productInfos.push(productInfo) }
   }

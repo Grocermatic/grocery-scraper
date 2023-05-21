@@ -1,12 +1,15 @@
-Writing file: ../dataProcess/data/woolworthsLinks.csv
+Writing file: ../dataProcess/data/woolworthsLinks.csv (old scraper)
 Find link time, 1214364.2417029738
 Process link time, 11.851741015911102
 Save link time, 3.9211249947547913
 Total CSV generation time, 1214380.0145689845
+Number of links, 1211
 
 Writing file: ../dataProcess/data/colesLinks.csv
 Find link time, 355873.4140700102
 Process link time, 37.16934597492218
 Save link time, 4.4791499972343445
 Total CSV generation time, 355915.06256598234
+Number of links, 3335
 
+Writing file: ../dataProcess/data/woolworthsLinks1.csv

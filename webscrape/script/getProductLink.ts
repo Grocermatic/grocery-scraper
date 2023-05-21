@@ -1,8 +1,9 @@
 import * as fs from 'fs'
 
 import { GetProductLinks } from '../src/website/interface'
-import { getWoolworthsProductLinks } from '../src/website/woolworths/getProductLinks'
+import { getWoolworthsProductLinks, getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
 import { getColesProductLinks } from '../src/website/coles/getProductLinks'
+import { getCookie } from '../src/request/getCookie'
 
 
 
@@ -50,11 +51,21 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
   writeMessageToLog('')
 }
 
+
+
 (async() => {
 
-  const fileName = 'coles.csv'
+  const fileName = 'woolworthsLinks1.csv'
   const filePath = `../dataProcess/data/${fileName}`
   //clearLog()
-  //saveProductLinksCsv(filePath, getColesProductLinks)
+  saveProductLinksCsv(filePath, getWoolworthsProductLinks)
+
+  //getWoolworthsSectionProductLinks()
+  
+  //const requestData:[string,string[]] = ['1-E5BEE36E', ['4','4.0','4.5','5','5.0']]
+  //const woolworthsCookie = await getCookie('https://www.woolworths.com.au')
+  //getWoolworthsSectionProductLinks(requestData, woolworthsCookie)
+  //const data = requestData[1].map(foodStarRating => { return {'Term': foodStarRating} })
+  //console.log(data)
 
 })()
