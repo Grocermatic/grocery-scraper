@@ -19,13 +19,13 @@ describe("Coles product scraper", () => {
       unitPrice: 1.5,
       nutrition: {
         servingSize: 0.25,
-        kilojoules: 650,
-        protein: 8.5,
-        fat: 8.25,
-        fatSaturated: 0,
-        carb: 11,
-        sugar: 10.75,
-        sodium: 90
+        kilojoules: 260,
+        protein: 3.4,
+        fat: 3.3,
+        fatSaturated: null,
+        carb: 4.4,
+        sugar: 4.3,
+        sodium: 36
       }
     }
     expect(productInfo).toEqual(expectedProductInfo)
@@ -59,13 +59,13 @@ describe("Coles product scraper", () => {
       unitPrice: 4.9,
       nutrition: {
         servingSize: 0.121,
-        kilojoules: 333.96,
-        protein: 0.73,
-        fat: 1.21,
+        kilojoules: 276,
+        protein: 0.6,
+        fat: 1,
         fatSaturated: 0,
-        carb: 18.15,
-        sugar: 18.15,
-        sodium: 4.84
+        carb: 15,
+        sugar: 15,
+        sodium: 4
       }
     }
     expect(productInfo).toEqual(expectedProductInfo)
