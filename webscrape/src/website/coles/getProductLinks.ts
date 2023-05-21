@@ -4,6 +4,7 @@ import * as cheerio from "cheerio";
 
 import { GetProductLinks } from "../interface";
 import { scrapeStatic } from "../../request/scrapeStatic";
+import { generateUniqueArray } from "../../util/dataCleaning";
 
 
 
@@ -54,5 +55,5 @@ export const getColesProductLinks:GetProductLinks = async() => {
     const productSubLinks = await getColesSectionProductLinks(pageLinks[productLinkIndex])
     productLinks = productLinks.concat(productSubLinks)
   }
-  return productLinks 
+  return generateUniqueArray(productLinks)
 }
