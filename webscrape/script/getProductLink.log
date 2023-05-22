@@ -6,14 +6,6 @@ Total CSV generation time, 1214.38
 Number of links, 1211
 Time per link, 1.003
 
-Writing file: ../dataProcess/data/colesLinks.csv
-Find link time, 355.873
-Process link time, 0.037
-Save link time, 0.004
-Total CSV generation time, 355.915
-Number of links, 2712
-Time per link, 0.131
-
 Writing file: ../dataProcess/data/woolworthsLinks.csv
 Find link time, 239.827
 Process link time, 0.016
@@ -21,4 +13,20 @@ Save link time, 0.002
 Total CSV generation time, 239.846
 Number of links, 1160
 Time per link, 0.207
+
+Writing file: ../dataProcess/data/aldiLinks.csv
+Find link time, 0.001
+Process link time, 0.007
+Save link time, 0.002
+Total CSV generation time, 0.01
+Number of links, 5
+Time per link, 0.002
+
+Writing file: ../dataProcess/data/colesLinks.csv
+Find link time, 343.23
+Process link time, 0.024
+Save link time, 0.005
+Total CSV generation time, 343.259
+Number of links, 3374
+Time per link, 0.102
 
