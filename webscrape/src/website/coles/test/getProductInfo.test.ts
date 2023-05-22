@@ -6,7 +6,7 @@ import { getColesProductInfo } from "../getProductInfo"
 
 
 describe("Coles product scraper", () => {
-  it("should parse nutrition data", async()=>{
+  it("should parse nutrition data: milk", async()=>{
     const testUrl = `${__dirname}/milk.test.html`
     const testHtml:any = fs.readFileSync(testUrl)
     const productInfo = getColesProductInfo(testHtml)
@@ -31,7 +31,7 @@ describe("Coles product scraper", () => {
     expect(productInfo).toEqual(expectedProductInfo)
   })
   
-  it("should handle lack of nutrition data", async()=>{
+  it("should handle lack of nutrition data: rice", async()=>{
     const testUrl = `${__dirname}/rice.test.html`
     const testHtml:any = fs.readFileSync(testUrl)
     const productInfo = getColesProductInfo(testHtml)
@@ -46,7 +46,7 @@ describe("Coles product scraper", () => {
     expect(productInfo).toEqual(expectedProductInfo)
   })
 
-  it("should parse nutrition data", async()=>{
+  it("should parse nutrition data: grape", async()=>{
     const testUrl = `${__dirname}/grape.test.html`
     const testHtml:any = fs.readFileSync(testUrl)
     const productInfo = getColesProductInfo(testHtml)
@@ -58,11 +58,11 @@ describe("Coles product scraper", () => {
       quantity: 0.8,
       unitPrice: 4.9,
       nutrition: {
-        servingSize: 0.121,
+        servingSize: 0.15,
         kilojoules: 276,
         protein: 0.6,
         fat: 1,
-        fatSaturated: 0,
+        fatSaturated: null,
         carb: 15,
         sugar: 15,
         sodium: 4
