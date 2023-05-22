@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getNumFromString, getUnitFromString, roundDecimal } from "../../util/dataCleaning";
+import { getMetricQuantity, getNumFromString, getUnitPriceFromString, roundDecimal } from "../../util/dataCleaning";
 import { scrapeStatic } from '../../request/scrapeStatic';
 
 
@@ -13,82 +13,79 @@ export const getColesProductInfo:GetProductInfo = (html) => {
   if (jsonString === '') return null
 
   const rawJson = JSON.parse(jsonString)
-  const rawProductJson = rawJson.props.pageProps.product
+  const rawProductJson = rawJson['props']['pageProps']['product']
 
-  // Calculate inaccurately provided info
-  const unitPriceString = $('span.price__calculation_method').first().text().split(' | ')[0]
-  const unitPriceMeasure = getUnitFromString(unitPriceString)
-  const unitPriceCalc = getNumFromString(unitPriceString)
-  let unitPrice = unitPriceCalc[0] / unitPriceCalc[1]
-  if (['g','ml'].includes(unitPriceMeasure)) {
-    unitPrice *= 1000
-  }
-
+  const unitPriceImplicitString = $('span.price__calculation_method').first().text().split(' | ')[0]
+  const unitPrice = getUnitPriceFromString(unitPriceImplicitString)
   const productTitleString = $('h1.product__title').first().text()
-  let quantity = getNumFromString(productTitleString).slice(-1)[0]
-  const quantityMeasure = getUnitFromString(productTitleString)
-  if (['g','ml'].includes(quantityMeasure)) {
-    quantity /= 1000
-  }
-
+  const quantity = getMetricQuantity(productTitleString)
 
   // Prefill mandatory values
   const productInfo:ProductInfo = {
-    name: rawProductJson.name,
-    url: `https://www.coles.com.au/product/${rawJson.query.slug}`,
-    img: `https://productimages.coles.com.au/productimages${rawProductJson.imageUris[0].uri}`,
-    price: rawProductJson.pricing.now,
+    name: rawProductJson['name'],
+    url: `https://www.coles.com.au/product/${rawJson['query']['slug']}`,
+    img: `https://productimages.coles.com.au/productimages${rawProductJson['imageUris'][0]['uri']}`,
+    price: rawProductJson['pricing']['now'],
     quantity: roundDecimal(quantity, 3),
     unitPrice: roundDecimal(unitPrice, 2)
   }
-  
-  // Add nutritional information if possible
-  try{
-    const servings = getNumFromString(rawProductJson.nutrition.servingsPerPackage)[0]
-    const nutrition:ProductNutrition = {
-      servingSize: roundDecimal(quantity / servings , 3),
-      kilojoules: 0,
-      protein: 0,
-      fat: 0,
-      fatSaturated: 0,
-      carb: 0,
-      sugar: 0,
-      sodium: 0
+
+  // Check if nutrition information is available
+  if (!rawProductJson['nutrition']) { return productInfo }
+
+  const servingsPerPack:number|null = getNumFromString(rawProductJson['nutrition']['servingsPerPackage'])[0]
+  let servingSize:number|null = getMetricQuantity(rawProductJson['nutrition']['servingSize'])
+  if (!servingSize && servingsPerPack) {
+    servingSize = roundDecimal(productInfo.quantity / servingsPerPack, 3)
+  } else if (!servingSize) {
+    servingSize = null
+  }
+
+  const nutrition:ProductNutrition = {
+    servingSize: servingSize,
+    kilojoules: null,
+    protein: null,
+    fat: null,
+    fatSaturated: null,
+    carb: null,
+    sugar: null,
+    sodium: null
+  }
+
+  // Extract 7 mandatory labeled nutirents
+  rawProductJson['nutrition']['breakdown'][0].nutrients.forEach((nutrient:any) => {
+    let nutrientQuantity:number|null = getNumFromString(nutrient.value)[0]
+    if (!nutrientQuantity) {
+      nutrientQuantity = null
     }
 
-    const nutritionSize = getNumFromString(rawProductJson.nutrition.breakdown[0].title)[0]
-    const scaleNutrient = 1000 * quantity / servings / nutritionSize
+    switch (nutrient.nutrient) {
+      case 'Energy':
+        nutrition.kilojoules = nutrientQuantity
+        break
+      case 'Protein':
+        nutrition.protein = nutrientQuantity
+        break
+      case 'Total Fat':
+        nutrition.fat = nutrientQuantity
+        break
+      case 'Saturated Fat':
+        nutrition.fatSaturated = nutrientQuantity
+        break
+      case 'Carbohydrate':
+        nutrition.carb = nutrientQuantity
+        break
+      case 'Sugars':
+        nutrition.sugar = nutrientQuantity
+        break
+      case 'Sodium':
+        nutrition.sodium = nutrientQuantity
+        break
+      default:
+    }
+  })
 
-    // Extract 7 mandatory labeled
-    rawProductJson.nutrition.breakdown[0].nutrients.forEach((nutrient:any) => {
-      switch (nutrient.nutrient) {
-        case 'Energy':
-          nutrition.kilojoules = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        case 'Protein':
-          nutrition.protein = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        case 'Total Fat':
-          nutrition.fat = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        case 'Saturated Fat':
-          nutrition.fatSaturated = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        case 'Carbohydrate':
-          nutrition.carb = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        case 'Sugars':
-          nutrition.sugar = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        case 'Sodium':
-          nutrition.sodium = roundDecimal(getNumFromString(nutrient.value)[0] * scaleNutrient, 2)
-          break
-        default:
-      }
-    })
-
-    productInfo.nutrition = nutrition
-  } catch (err:any) {}
+  productInfo.nutrition = nutrition
   return productInfo
 }
 
