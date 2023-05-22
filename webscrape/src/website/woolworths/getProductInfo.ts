@@ -1,5 +1,5 @@
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getMetricQuantity, getNumFromString, roundDecimal } from "../../util/dataCleaning";
+import { getMetricQuantity, getNumFromString, getUnitPriceFromString, roundDecimal } from "../../util/dataCleaning";
 import { getRequestJson } from '../../request/scrapeJson';
 import { getCookie } from "../../request/getCookie";
 
@@ -10,11 +10,9 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
   const productInfoJson = productJson['Product']
 
   const unitPriceImplicitString = productInfoJson['CupString']
-  const unitQuantityImplicit = getMetricQuantity(unitPriceImplicitString)
-  const unitPriceImplicit = getNumFromString(unitPriceImplicitString)[0]
-  const unitPrice = unitPriceImplicit / unitQuantityImplicit
-
-  const quantity = getMetricQuantity(productInfoJson['PackageSize'])
+  const unitPrice = getUnitPriceFromString(unitPriceImplicitString)
+  const packageSizeString = productInfoJson['PackageSize']
+  const quantity = getMetricQuantity(packageSizeString)
 
   // Prefill mandatory values
   const productInfo:ProductInfo = {
