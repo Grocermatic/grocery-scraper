@@ -69,3 +69,12 @@ export const getMetricQuantity = (quanityString:string):number => {
 
   return roundDecimal(metricQuantity, 3)
 }
+
+
+
+export const getUnitPriceFromString = (unitPriceImplicitString:string):number => {
+  const unitQuantityImplicit = getMetricQuantity(unitPriceImplicitString)
+  const unitPriceImplicit = getNumFromString(unitPriceImplicitString)[0]
+  const unitPrice = unitPriceImplicit / unitQuantityImplicit
+  return unitPrice
+}
