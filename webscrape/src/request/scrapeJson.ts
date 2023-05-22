@@ -13,7 +13,7 @@ export const getRequestJson = async(url:string, cookie?:string):Promise<string> 
   if (cookie != undefined) {
     headers.Cookie = cookie
   }
-  await wait(generateRandInt(1000,3000))
+  await wait(generateRandInt(1000,2000))
   
   const proxyClient = axios.create({
     baseURL: `https://${generatePublicIP()}`,
@@ -36,7 +36,7 @@ export const postRequestJson = async(url:string, postRequestPayload:any, cookie?
   if (cookie != undefined) {
     headers.Cookie = cookie
   }
-  await wait(generateRandInt(1000,3000))
+  await wait(generateRandInt(1000,2000))
   
   const proxyClient = axios.create({
     baseURL: `https://${generatePublicIP()}`,
