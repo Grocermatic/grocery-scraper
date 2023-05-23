@@ -17,10 +17,10 @@ Perhaps this could be attributed to the high cost of eating out, ranging from $1
 ### 3. Positive Environmental Impact
 Meal planning reduces food waste. Over 2.5 million tonnes of food is wasted by Australian households. These foods are dumped in landfills that release methane, which warms the planet 25x more than CO2. Additionally, healthier foods are usually more friendly for the environment.
 
-### 4. Decrease food prep time
+### 4. Decrease Food Prep Time
 Optimise for bulk buying and meal prepping. Healthy food should be convenient.
 
 <div>&nbsp</div>
 
-## Design docs
+## Design Docs
 The progress and design of the system are **[documented in the wiki](https://github.com/MengLinMaker/Grocery-Suggester/wiki)**.
