@@ -23,7 +23,7 @@ jobs:
         
       # Install npm modules
     - run: npm ci
-      working-directory: website
+      working-directory: webscrape
       
     - name: serverless deploy
       uses: serverless/github-action@v3.2
