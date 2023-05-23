@@ -1,0 +1,22 @@
+org: menglinmaker
+app: grocery-suggester
+service: getProductLink
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: ap-southeast-2
+  runtime: nodejs16.x
+
+functions:
+  index:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+      - schedule: cron(0 9 * * SAT *)
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
