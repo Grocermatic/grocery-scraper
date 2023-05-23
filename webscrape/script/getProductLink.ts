@@ -5,6 +5,7 @@ import { getWoolworthsProductLinks, getWoolworthsSectionProductLinks } from '../
 import { getColesProductLinks } from '../src/website/coles/getProductLinks'
 import { getCookie } from '../src/request/getCookie'
 import { roundDecimal } from '../src/util/dataCleaning'
+import { getAldiProductLinks } from '../src/website/aldi/getProductLinks'
 
 
 
@@ -63,9 +64,9 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
 
 (async() => {
 
-  const fileName = 'woolworthsLinks.csv'
+  const fileName = 'colesLinks.csv'
   const filePath = `../dataProcess/data/${fileName}`
   //clearLog()
-  saveProductLinksCsv(filePath, getWoolworthsProductLinks)
+  saveProductLinksCsv(filePath, getColesProductLinks)
 
 })()
