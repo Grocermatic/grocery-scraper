@@ -1,23 +1,18 @@
 org: menglinmaker
 app: grocery-suggester
-service: getProductLink
+service: webscrape
 frameworkVersion: '3'
 
 provider:
   name: aws
-  region: ap-southeast-2
   runtime: nodejs16.x
-  memorySize: 1024
-  timeout: 540
-  tracing:
-    lambda: true
 
 functions:
-  index:
+  getProductLink:
     name: grocery-suggester-getProductLink
     description: Gets links to grocery products
     timeout: 540
-    handler: index.handler
+    handler: getProductLink.serverlessHandler
     events:
       - httpApi:
           path: /
