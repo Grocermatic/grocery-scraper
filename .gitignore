@@ -1,6 +1,5 @@
 references
 node_modules
-package-lock.json
 coverage
 .build
 .DS_Store
