@@ -56,50 +56,36 @@ const testScrape = async(filePath:string, scraperFunction:any) => {
 
 (async() => {
 
-  let url = 'https://www.woolworths.com.au/shop/productdetails/888141'
-  const productCode = url.match(/\/[0-9]+/)?.toString().slice(1)
-  url = `https://www.woolworths.com.au/apis/ui/product/detail/${productCode}`
+  const desiredArrayLength = 3
 
-  const filePath = './src/website/woolworths/test/milk.test.json'
-  //const filePath = 'test.html'
+  const oldArrays:any[][] = [
+    [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+    [1,2,3,4,5,6,7,8],
+    [1],
+    [1,2,3,4,5]
+  ]
 
-  const woolworthsCookie = await getCookie('https://www.woolworths.com.au')
-  //const scrapeWoolworths = async(url:string) => {return await getRequestJson(url, woolworthsCookie)}
-  
-  //liveScrapeSave(url, filePath, scrapeWoolworths, getWoolworthsProductInfo)
-  //testScrape(filePath, getWoolworthsProductInfo)
-  //liveScrape([url], getWoolworthsBatchProductInfo)
+  const limitArrayLengths = (oldArrays:any[][], desiredArrayLength:number) => {
+    const newArrays:any[] = []
 
-  //const req = await getRequestJson(url, woolworthsCookie)
-  //console.log(req)
-  //fs.writeFileSync(filePath, req)
+    const lengthOfEachArray = oldArrays.map((val)=>{return val.length})
+    const maxArrayLength = Math.max(...lengthOfEachArray)
 
-
-  const payload = {
-    'categoryId': '1-E5BEE36E',
-    'filters': [
-        {
-            'Key': 'Healthstar',
-            'Items': [
-                {
-                    'Term': '5'
-                }
-            ]
+    for (let arrayLengthCounter = 0; arrayLengthCounter < maxArrayLength; arrayLengthCounter += desiredArrayLength) {
+      const subsetArrays = []
+      for (let arrayID = 0; arrayID < oldArrays.length; arrayID++) {
+        const arraySample = oldArrays[arrayID].slice(0,desiredArrayLength)
+        if (arraySample.length > 0) {
+          subsetArrays.push(arraySample)
         }
-    ],
-    'formatObject': '{}',
-    'gpBoost': 500,
-    'pageNumber': 1,
-    'pageSize': 36,
-    'url': ''
+        oldArrays[arrayID] = oldArrays[arrayID].slice(desiredArrayLength)
+      }
+      if (subsetArrays.length > 0) {
+        newArrays.push(subsetArrays)
+      }
+    }
+    return newArrays
   }
-  const listUrl = 'https://www.woolworths.com.au/apis/ui/browse/category'
-  //const req = await axios.post(listUrl, payload, {
-  //  headers:{cookie: woolworthsCookie} 
-  //})
+  console.log(limitArrayLengths(oldArrays,desiredArrayLength))
 
-  const req = await postRequestJson(listUrl, payload, await getCookie('https://www.woolworths.com.au'))
-  const productSummary = JSON.parse(req)['Bundles'][10]['Products'][0]
-  console.log(productSummary)
-  console.log(getUnitFromString(productSummary['CupString']))
 })()
