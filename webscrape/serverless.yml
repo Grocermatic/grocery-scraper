@@ -11,9 +11,8 @@ plugins:
 
 custom:
   esbuild:
-    bundle: true
+    packager: pnpm
     minify: true
-
 
 functions:
   getProductLink:
