@@ -67,9 +67,11 @@ export const getWoolworthsProductLinks:GetProductLinks = async() => {
   const woolworthsCookie = await getCookie('https://www.woolworths.com.au')
 
   let productLinks:string[] = []
-  for (const pageLinkRequestDatum of pageLinkRequestData) {
-    const productSubLinks = await getWoolworthsSectionProductLinks(pageLinkRequestDatum, woolworthsCookie)
-    productLinks = productLinks.concat(productSubLinks)
+  const productLinkPromiseArray = pageLinkRequestData.map(pageData => {return getWoolworthsSectionProductLinks(pageData, woolworthsCookie)})
+  const productSubLinks = await Promise.all(productLinkPromiseArray)
+  productSubLinks.map(subLinks => {productLinks.concat(subLinks)})
+  for (let i = 0; i < productSubLinks.length; i++) {
+    productLinks = productLinks.concat(productSubLinks[i])
   }
   return generateUniqueArray(productLinks)
 }
