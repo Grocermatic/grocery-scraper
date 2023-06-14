@@ -1,24 +1,22 @@
-org: menglinmaker
-app: grocery-suggester
-service: webscrape
-frameworkVersion: '3'
+service: Grocermatic
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
+  region: ap-southeast-2
+  stage: dev
+
+plugins:
+  - serverless-esbuild
+
+custom:
+  esbuild:
+    bundle: true
+    minify: true
+
 
 functions:
   getProductLink:
-    name: grocery-suggester-getProductLink
-    description: Gets links to grocery products
-    timeout: 540
     handler: getProductLink.serverlessHandler
-    events:
-      - httpApi:
-          path: /
-          method: get
-      - schedule: cron(0 9 * * SAT *)
-
-plugins:
-  - serverless-offline
-  - serverless-plugin-typescript
+    timeout: 900
+    description: Gets links to grocery products
