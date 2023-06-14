@@ -66,9 +66,11 @@ export const getColesProductLinks:GetProductLinks = async() => {
   ]
 
   let productLinks:string[] = []
-  for (let productLinkIndex = 0; productLinkIndex < pageLinks.length; productLinkIndex++) {
-    const productSubLinks = await getColesSectionProductLinks(pageLinks[productLinkIndex])
-    productLinks = productLinks.concat(productSubLinks)
+  const productLinkPromiseArray = pageLinks.map(pageUrl => {return getColesSectionProductLinks(pageUrl)})
+  const productSubLinks = await Promise.all(productLinkPromiseArray)
+  productSubLinks.map(subLinks => {productLinks.concat(subLinks)})
+  for (let i = 0; i < productSubLinks.length; i++) {
+    productLinks = productLinks.concat(productSubLinks[i])
   }
   return generateUniqueArray(productLinks)
 }
