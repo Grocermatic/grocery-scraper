@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@sparticuz/chromium':
+    specifier: 113.0.1
+    version: 113.0.1
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -12,7 +15,7 @@ dependencies:
     specifier: ^1.0.0-rc.12
     version: 1.0.0-rc.12
   puppeteer:
-    specifier: ^20.1.0
+    specifier: ^20.1
     version: 20.1.0(typescript@5.0.4)
 
 devDependencies:
@@ -1049,6 +1052,16 @@ packages:
       '@sinonjs/commons': 3.0.0
     dev: true
 
+  /@sparticuz/chromium@113.0.1:
+    resolution: {integrity: sha512-m64Nc58YObfCYkPbc8EBsnhWCFaw02dbXhWNOmx+OYoIPtIRar+reGYyAeGC0HD9RUZfPEwMHHSZ8MFxdSWXZQ==}
+    engines: {node: '>= 16'}
+    dependencies:
+      follow-redirects: 1.15.2
+      tar-fs: 2.1.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /@szmarczak/http-timer@4.0.6:
     resolution: {integrity: sha512-4BAffykYOgO+5nzBWYwE3W90sBgLJoUPRWWcL8wlyiM8IB8ipJz3UMJ9KXQd1RKQXpKp8Tutn80HZtWsu2u76w==}
     engines: {node: '>=10'}
@@ -1585,7 +1598,7 @@ packages:
     resolution: {integrity: sha512-xq+q3SRMOxGivLhBNaUdC64hDTQwejJ+H0T/NB1XMtTVEwNTrfFF3gAxiyW0Bu/xWEGhjVKgUcMhCrUy2+uCWg==}
     dependencies:
       base64-js: 1.5.1
-      ieee754: 1.1.13
+      ieee754: 1.2.1
       isarray: 1.0.0
     dev: true
 
