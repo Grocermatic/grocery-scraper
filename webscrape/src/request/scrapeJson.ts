@@ -21,7 +21,7 @@ export const getRequestJson = async(url:string, cookie?:string):Promise<string> 
   try {
     const response = await proxyClient.get(url)
     return JSON.stringify(response.data)
-  } catch(err) {
+  } catch {
     return ''
   } 
 }
@@ -43,7 +43,7 @@ export const postRequestJson = async(url:string, postRequestPayload:any, cookie?
   try {
     const response = await proxyClient.post(url, postRequestPayload)
     return JSON.stringify(response.data)
-  } catch(err) {
+  } catch {
     return ''
-  } 
+  }
 }
