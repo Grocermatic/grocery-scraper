@@ -1,17 +1,11 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda"
+import { getAldiProductLinks } from "./src/website/aldi/getProductLinks"
+import { getColesProductLinks } from "./src/website/coles/getProductLinks"
+import { getAllProductLinks } from "./src/website/getAllProductLink"
+import { getWoolworthsProductLinks } from "./src/website/woolworths/getProductLinks"
 
-import { getColesBatchProductInfo } from "./src/website/coles/getProductInfo"
 
 
-
-export const serverlessHandler = async (event: APIGatewayProxyEvent):Promise<APIGatewayProxyResult> => {
-  const info = await getColesBatchProductInfo([
-    'https://www.coles.com.au/product/coles-white-seedless-grapes-loose-approx.-800g-6706395'
-  ])
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-        productInfo: info
-    })
-  }
+export const serverlessHandler = async (event:any) => {
+  const info = await getAllProductLinks([getAldiProductLinks, getColesProductLinks, getWoolworthsProductLinks])
+  return info
 }
