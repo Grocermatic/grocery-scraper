@@ -98,17 +98,11 @@ export const getColesBatchProductInfo:GetBatchProductInfo = async(urls) => {
   })
   const htmlArray = await Promise.all(productHtmlPromiseArray)
 
-  const productInfoPromiseArray = htmlArray.map(html => {
-    return getColesProductInfo(html)
-  })
-  const productInfosTempArray = await Promise.all(productInfoPromiseArray)
-
   const productInfos:ProductInfo[] = []
-  for (let i = 0; i < productInfosTempArray.length; i++) {
-    const productInfo = productInfosTempArray[i]
-    if (productInfo) {
-      productInfos.push(productInfo)
-    }
+  for (let i = 0; i < htmlArray.length; i++) {
+    const html =  htmlArray[i]
+    const productInfo = getColesProductInfo(html)
+    if (productInfo) { productInfos.push(productInfo) }
   }
 
   return productInfos
