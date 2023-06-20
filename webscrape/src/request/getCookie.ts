@@ -2,19 +2,22 @@
 
 import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
 const chromium = require("@sparticuz/chromium");
+require('dotenv').config();
+
 
 import { generateHttpHeaders, generatePublicIP } from './proxy'
 
 
 
 export const getCookie = async(url:string):Promise<string> => {  
-  // Disable sandbox to decrease scrape time
   const launchOption:PuppeteerLaunchOptions = {
     defaultViewport: chromium.defaultViewport,
     headless: chromium.headless,
     args: [...chromium.args]
   }
-  launchOption.executablePath = await chromium.executablePath("/opt/bin")
+  if (process.env.LOCAL != "true") {
+    launchOption.executablePath = await chromium.executablePath("/opt/bin")
+  }
   const browser = await puppeteer.launch(launchOption)
   
   const page = await browser.newPage()
