@@ -6,6 +6,5 @@ import { getWoolworthsProductLinks } from "./website/woolworths/getProductLinks"
 
 
 export const serverlessHandler = async (event:any) => {
-  const info = await getAllProductLinks([getAldiProductLinks, getColesProductLinks, getWoolworthsProductLinks])
-  return info
+  return await getAllProductLinks([getAldiProductLinks, getColesProductLinks, getWoolworthsProductLinks])
 }
