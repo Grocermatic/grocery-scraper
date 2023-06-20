@@ -28,7 +28,11 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
   const productNutritionJson = productJson['NutritionalInformation']
 
   const servingsPerPack = productInfoJson['AdditionalAttributes']['servingsperpack-total-nip']
-  let servingSize:number | null = getMetricQuantity(productNutritionJson[0]['ServingSize'])
+  let servingSize:number|null = null
+
+  if (productNutritionJson) {
+    getMetricQuantity(productNutritionJson[0]['ServingSize'])
+  }
   if (!servingSize && servingsPerPack) {
     servingSize = roundDecimal(quantity / servingsPerPack, 3)
   } else if (!servingSize) {
@@ -48,43 +52,45 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
   }
     
   // Extract 7 mandatory labeled nutirents
-  productNutritionJson.forEach((singleNutrientInfo:any) => {
-    const nutrientValueJson = singleNutrientInfo['Values']
-    let nutrientQuantity:number|null = getNumFromString(nutrientValueJson['Quantity Per 100g / 100mL'])[0]
-    
-    // Extrapolate quantity from serving if possible
-    if (!nutrientQuantity && servingSize) {
-      const servingNutrientQuantity = getNumFromString(nutrientValueJson['Quantity Per Serving'])[0]
-      nutrientQuantity = roundDecimal(servingNutrientQuantity * 0.1 / servingSize, 2)
-    } else if (!nutrientQuantity) {
-      nutrientQuantity = null
-    }
+  if (productNutritionJson) {
+    productNutritionJson.forEach((singleNutrientInfo:any) => {
+      const nutrientValueJson = singleNutrientInfo['Values']
+      let nutrientQuantity:number|null = getNumFromString(nutrientValueJson['Quantity Per 100g / 100mL'])[0]
+      
+      // Extrapolate quantity from serving if possible
+      if (!nutrientQuantity && servingSize) {
+        const servingNutrientQuantity = getNumFromString(nutrientValueJson['Quantity Per Serving'])[0]
+        nutrientQuantity = roundDecimal(servingNutrientQuantity * 0.1 / servingSize, 2)
+      } else if (!nutrientQuantity) {
+        nutrientQuantity = null
+      }
 
-    switch (singleNutrientInfo['Name']) {
-      case 'Energy':
-        nutrition.kilojoules = nutrientQuantity
-        break
-      case 'Protein':
-        nutrition.protein = nutrientQuantity
-        break
-      case 'Fat, Total':
-        nutrition.fat = nutrientQuantity
-        break
-      case '– Saturated':
-        nutrition.fatSaturated = nutrientQuantity
-        break
-      case 'Carbohydrate':
-        nutrition.carb = nutrientQuantity
-        break
-      case '– Sugars':
-        nutrition.sugar = nutrientQuantity
-        break
-      case 'Sodium':
-        nutrition.sodium = nutrientQuantity
-        break
-      default:
-    }
-  })
+      switch (singleNutrientInfo['Name']) {
+        case 'Energy':
+          nutrition.kilojoules = nutrientQuantity
+          break
+        case 'Protein':
+          nutrition.protein = nutrientQuantity
+          break
+        case 'Fat, Total':
+          nutrition.fat = nutrientQuantity
+          break
+        case '– Saturated':
+          nutrition.fatSaturated = nutrientQuantity
+          break
+        case 'Carbohydrate':
+          nutrition.carb = nutrientQuantity
+          break
+        case '– Sugars':
+          nutrition.sugar = nutrientQuantity
+          break
+        case 'Sodium':
+          nutrition.sodium = nutrientQuantity
+          break
+        default:
+      }
+    })
+  }
 
   productInfo.nutrition = nutrition
   return productInfo
