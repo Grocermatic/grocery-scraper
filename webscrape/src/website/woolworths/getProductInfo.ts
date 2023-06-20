@@ -97,18 +97,25 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
 }
 
 
-
+let woolworthsCookie = ''
 export const getWoolworthsBatchProductInfo:GetBatchProductInfo = async(urls) => {
-  const woolworthsCookie = await getCookie('https://www.woolworths.com.au')
+  if (woolworthsCookie == '') {
+    woolworthsCookie = await getCookie('https://www.woolworths.com.au')
+  }
+
+  const productJsonPromiseArray = urls.map(productUrl => {
+    const productCode = productUrl.match(/\/[0-9]+/)?.toString().slice(1)
+    const jsonUrl = `https://www.woolworths.com.au/apis/ui/product/detail/${productCode}`
+    return getRequestJson(jsonUrl, woolworthsCookie)
+  })
+  const jsonArray = await Promise.all(productJsonPromiseArray)
 
   const productInfos:ProductInfo[] = []
-  for (const url of urls) {
-    const productCode = url.match(/\/[0-9]+/)?.toString().slice(1)
-
-    const jsonUrl = `https://www.woolworths.com.au/apis/ui/product/detail/${productCode}`
-    const productJson = await getRequestJson(jsonUrl, woolworthsCookie)
+  for (let i = 0; i < jsonArray.length; i++) {
+    const productJson = jsonArray[i]
     const productInfo = getWoolworthsProductInfo(productJson)
-    if (productInfo != null) { productInfos.push(productInfo) }
+    if (productInfo) { productInfos.push(productInfo) }
   }
+
   return productInfos
 }
