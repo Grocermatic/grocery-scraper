@@ -81,7 +81,7 @@ export const getUnitPriceFromString = (unitPriceImplicitString:string):number =>
 
 
 
-export const limitArrayLengths = (oldArrays:any[][], desiredArrayLength:number) => {
+export const limitArrayLengths = (oldArrays:any[][], desiredArrayLength:number):any[][][] => {
   const newArrays:any[] = []
 
   const lengthOfEachArray = oldArrays.map((val)=>{return val.length})
