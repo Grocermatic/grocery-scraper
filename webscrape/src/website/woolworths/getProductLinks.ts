@@ -69,7 +69,6 @@ export const getWoolworthsProductLinks:GetProductLinks = async() => {
   let productLinks:string[] = []
   const productLinkPromiseArray = pageLinkRequestData.map(pageData => {return getWoolworthsSectionProductLinks(pageData, woolworthsCookie)})
   const productSubLinks = await Promise.all(productLinkPromiseArray)
-  productSubLinks.map(subLinks => {productLinks.concat(subLinks)})
   for (let i = 0; i < productSubLinks.length; i++) {
     productLinks = productLinks.concat(productSubLinks[i])
   }

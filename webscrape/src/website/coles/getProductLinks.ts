@@ -68,7 +68,6 @@ export const getColesProductLinks:GetProductLinks = async() => {
   let productLinks:string[] = []
   const productLinkPromiseArray = pageLinks.map(pageUrl => {return getColesSectionProductLinks(pageUrl)})
   const productSubLinks = await Promise.all(productLinkPromiseArray)
-  productSubLinks.map(subLinks => {productLinks.concat(subLinks)})
   for (let i = 0; i < productSubLinks.length; i++) {
     productLinks = productLinks.concat(productSubLinks[i])
   }
