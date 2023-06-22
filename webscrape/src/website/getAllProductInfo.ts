@@ -1,13 +1,14 @@
 /* istanbul ignore file */
 
+import { limitArrayLengths } from "../util/dataCleaning"
 import { getAldiBatchProductInfo } from "./aldi/getProductInfo"
 import { getColesBatchProductInfo } from "./coles/getProductInfo"
-import { GetBatchProductInfo, GetProductLinks, ProductInfo } from "./interface"
+import { GetBatchProductInfo, ProductInfo } from "./interface"
 import { getWoolworthsBatchProductInfo } from "./woolworths/getProductInfo"
 
 
 
-export const productInfoScraperHash = new Map(Object.entries({
+const productInfoScraperHash = new Map(Object.entries({
   "coles": getColesBatchProductInfo,
   "aldi": getAldiBatchProductInfo,
   "woolworths": getWoolworthsBatchProductInfo
@@ -24,4 +25,22 @@ export const getAllProductInfo:GetBatchProductInfo = async(urls) => {
     }
   }
   return []
+}
+
+
+
+export const getAllProductInfos = async(urlsList:string[][], batchSize:number) => {
+  const limitedUrlsList = limitArrayLengths(urlsList, batchSize)
+  let productInfos:ProductInfo[] = []
+  for (let i = 0; i < limitedUrlsList.length; i++) {
+    for (let j = 0; j < limitedUrlsList[i].length; j++) {
+      const urls = limitedUrlsList[i][j]
+      const productInfoSubArray = await getAllProductInfo(urls)
+      if (productInfoSubArray.length > 0) {
+        productInfos = productInfos.concat(productInfoSubArray)
+      }
+    }
+  }
+
+  return productInfos
 }
