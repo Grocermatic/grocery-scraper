@@ -2,7 +2,7 @@
 
 import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
 const chromium = require("@sparticuz/chromium");
-require('dotenv').config();
+try { require('dotenv').config() } catch {}
 
 
 import { generateHttpHeaders, generatePublicIP } from './proxy'
