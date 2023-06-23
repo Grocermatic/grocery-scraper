@@ -13,85 +13,89 @@ export const getColesProductInfo:GetProductInfo = (html) => {
   if (jsonString === '') return null
 
   const rawJson = JSON.parse(jsonString)
-  console.log(`https://www.coles.com.au/product/${rawJson['query']['slug']}`)
 
-  const rawProductJson = rawJson['props']['pageProps']['product']
-  if (rawProductJson['pricing'] == null) return null
-
-  const unitPriceImplicitString = $('span.price__calculation_method').first().text().split(' | ')[0]
-  const unitPrice = getUnitPriceFromString(unitPriceImplicitString)
-  const productTitleString = $('h1.product__title').first().text()
-  const quantity = getMetricQuantity(productTitleString)
-  
-  // Prefill mandatory values
-  const productInfo:ProductInfo = {
-    name: rawProductJson['name'],
-    url: `https://www.coles.com.au/product/${rawJson['query']['slug']}`,
-    img: `https://productimages.coles.com.au/productimages${rawProductJson['imageUris'][0]['uri']}`,
-    price: rawProductJson['pricing']['now'],
-    quantity: roundDecimal(quantity, 3),
-    unitPrice: roundDecimal(unitPrice, 2)
-  }
-
-  // Check if nutrition information is available
-  if (!rawProductJson['nutrition']) { return productInfo }
-
-  const servingsPerPack:number|null = getNumFromString(rawProductJson['nutrition']['servingsPerPackage'])[0]
-  let servingSize:number|null = getMetricQuantity(rawProductJson['nutrition']['servingSize'])
-  if (!servingSize && servingsPerPack) {
-    servingSize = roundDecimal(productInfo.quantity / servingsPerPack, 3)
-  } else if (!servingSize) {
-    servingSize = null
-  }
-
-  const nutrition:ProductNutrition = {
-    servingSize: servingSize,
-    kilojoules: null,
-    protein: null,
-    fat: null,
-    fatSaturated: null,
-    carb: null,
-    sugar: null,
-    sodium: null
-  }
-
-  // Extract 7 mandatory labeled nutirents
   try {
-    rawProductJson['nutrition']['breakdown'][0].nutrients.forEach((nutrient:any) => {
-      let nutrientQuantity:number|null = getNumFromString(nutrient.value)[0]
-      if (!nutrientQuantity) {
-        nutrientQuantity = null
-      }
+    const rawProductJson = rawJson['props']['pageProps']['product']
+    if (rawProductJson['pricing'] == null) return null
 
-      switch (nutrient.nutrient) {
-        case 'Energy':
-          nutrition.kilojoules = nutrientQuantity
-          break
-        case 'Protein':
-          nutrition.protein = nutrientQuantity
-          break
-        case 'Total Fat':
-          nutrition.fat = nutrientQuantity
-          break
-        case 'Saturated Fat':
-          nutrition.fatSaturated = nutrientQuantity
-          break
-        case 'Carbohydrate':
-          nutrition.carb = nutrientQuantity
-          break
-        case 'Sugars':
-          nutrition.sugar = nutrientQuantity
-          break
-        case 'Sodium':
-          nutrition.sodium = nutrientQuantity
-          break
-        default:
-      }
-    })
-  } catch {}
+    const unitPriceImplicitString = $('span.price__calculation_method').first().text().split(' | ')[0]
+    const unitPrice = getUnitPriceFromString(unitPriceImplicitString)
+    const productTitleString = $('h1.product__title').first().text()
+    const quantity = getMetricQuantity(productTitleString)
+    
+    // Prefill mandatory values
+    const productInfo:ProductInfo = {
+      name: rawProductJson['name'],
+      url: `https://www.coles.com.au/product/${rawJson['query']['slug']}`,
+      img: `https://productimages.coles.com.au/productimages${rawProductJson['imageUris'][0]['uri']}`,
+      price: rawProductJson['pricing']['now'],
+      quantity: roundDecimal(quantity, 3),
+      unitPrice: roundDecimal(unitPrice, 2)
+    }
 
-  productInfo.nutrition = nutrition
-  return productInfo
+    // Check if nutrition information is available
+    if (!rawProductJson['nutrition']) { return productInfo }
+
+    const servingsPerPack:number|null = getNumFromString(rawProductJson['nutrition']['servingsPerPackage'])[0]
+    let servingSize:number|null = getMetricQuantity(rawProductJson['nutrition']['servingSize'])
+    if (!servingSize && servingsPerPack) {
+      servingSize = roundDecimal(productInfo.quantity / servingsPerPack, 3)
+    } else if (!servingSize) {
+      servingSize = null
+    }
+
+    const nutrition:ProductNutrition = {
+      servingSize: servingSize,
+      kilojoules: null,
+      protein: null,
+      fat: null,
+      fatSaturated: null,
+      carb: null,
+      sugar: null,
+      sodium: null
+    }
+
+    // Extract 7 mandatory labeled nutirents
+    try {
+      rawProductJson['nutrition']['breakdown'][0].nutrients.forEach((nutrient:any) => {
+        let nutrientQuantity:number|null = getNumFromString(nutrient.value)[0]
+        if (!nutrientQuantity) {
+          nutrientQuantity = null
+        }
+
+        switch (nutrient.nutrient) {
+          case 'Energy':
+            nutrition.kilojoules = nutrientQuantity
+            break
+          case 'Protein':
+            nutrition.protein = nutrientQuantity
+            break
+          case 'Total Fat':
+            nutrition.fat = nutrientQuantity
+            break
+          case 'Saturated Fat':
+            nutrition.fatSaturated = nutrientQuantity
+            break
+          case 'Carbohydrate':
+            nutrition.carb = nutrientQuantity
+            break
+          case 'Sugars':
+            nutrition.sugar = nutrientQuantity
+            break
+          case 'Sodium':
+            nutrition.sodium = nutrientQuantity
+            break
+          default:
+        }
+      })
+    } catch {}
+
+    productInfo.nutrition = nutrition
+    return productInfo
+  } catch {
+    console.log(`https://www.coles.com.au/product/${rawJson['query']['slug']}`)
+    return null
+  }
 }
 
 
