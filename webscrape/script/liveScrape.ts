@@ -12,7 +12,8 @@ import { getColesBatchProductInfo, getColesProductInfo } from '../src/website/co
 import { getWoolworthsProductInfo, getWoolworthsBatchProductInfo } from '../src/website/woolworths/getProductInfo'
 import axios from 'axios'
 import { getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
-import { getMetricQuantity, getUnitFromString } from '../src/util/dataCleaning'
+import { getMetricQuantity, getUnitFromString, roundDecimal } from '../src/util/dataCleaning'
+import { getAllProductInfo, getAllProductInfos } from '../src/website/getAllProductInfo'
 
 
 
@@ -54,38 +55,40 @@ const testScrape = async(filePath:string, scraperFunction:any) => {
 
 
 
+const logFilePath = './script/liveScrape.log'
+
+const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
+  console.log(performaneMeasure)
+  const duration = roundDecimal(performaneMeasure.duration / 1000, 3)
+  const logMessage = `${performaneMeasure.name}, ${duration}\n`
+  fs.appendFileSync(logFilePath, logMessage)
+}
+
+const writeMessageToLog = (message:string) => {
+  console.log(message)
+  fs.appendFileSync(logFilePath, `${message}\n`)
+}
+
+
+
 (async() => {
+ 
+  const filePath = `../dataProcess/data/`
+  const stores = ['aldi', 'coles', 'woolworths']
 
-  const desiredArrayLength = 3
+  stores.map(async(store) => {
+    const urlsList = fs.readFileSync(filePath + `${store}Links.csv`).toString().split('\n')
+    console.log(urlsList)
 
-  const oldArrays:any[][] = [
-    [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-    [1,2,3,4,5,6,7,8],
-    [1],
-    [1,2,3,4,5]
-  ]
-
-  const limitArrayLengths = (oldArrays:any[][], desiredArrayLength:number) => {
-    const newArrays:any[] = []
-
-    const lengthOfEachArray = oldArrays.map((val)=>{return val.length})
-    const maxArrayLength = Math.max(...lengthOfEachArray)
-
-    for (let arrayLengthCounter = 0; arrayLengthCounter < maxArrayLength; arrayLengthCounter += desiredArrayLength) {
-      const subsetArrays = []
-      for (let arrayID = 0; arrayID < oldArrays.length; arrayID++) {
-        const arraySample = oldArrays[arrayID].slice(0,desiredArrayLength)
-        if (arraySample.length > 0) {
-          subsetArrays.push(arraySample)
-        }
-        oldArrays[arrayID] = oldArrays[arrayID].slice(desiredArrayLength)
-      }
-      if (subsetArrays.length > 0) {
-        newArrays.push(subsetArrays)
-      }
-    }
-    return newArrays
-  }
-  console.log(limitArrayLengths(oldArrays,desiredArrayLength))
+    writeMessageToLog(`Scrape ${store} productInfo:`)
+    performance.mark('Start scraping')
+    const productInfos = await getAllProductInfos([urlsList], 20)
+    performance.mark('Finish scraping')
+    writePerformanceToLog(performance.measure('Scrape time (s)', 'Start scraping', 'Finish scraping'))
+    writeMessageToLog('')
+  
+    const content = JSON.stringify(productInfos, null, 2)
+    fs.writeFileSync(filePath + `${store}ProductInfo.json`, content)
+  })
 
 })()
