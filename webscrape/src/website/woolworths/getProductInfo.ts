@@ -33,7 +33,7 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
     let servingSize:number|null = null
 
     if (productNutritionJson) {
-      getMetricQuantity(productNutritionJson[0]['ServingSize'])
+      servingSize = getMetricQuantity(productNutritionJson[0]['ServingSize'])
     }
     if (!servingSize && servingsPerPack) {
       servingSize = roundDecimal(quantity / servingsPerPack, 3)
