@@ -10,6 +10,8 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
   if (productJsonString.length == 0) return null
   const productJson = JSON.parse(productJsonString)
   const productInfoJson = productJson['Product']
+  if (productInfoJson == null) return null
+
   try {
     const unitPriceImplicitString = productInfoJson['CupString']
     const unitPrice = getUnitPriceFromString(unitPriceImplicitString)
