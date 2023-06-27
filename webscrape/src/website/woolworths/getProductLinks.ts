@@ -3,7 +3,8 @@
 import { GetProductLinks } from "../interface";
 import { getCookie } from "../../request/getCookie";
 import { postRequestJson } from "../../request/scrapeJson";
-import { generateUniqueArray, getUnitFromString } from "../../dataCleaning/getUnitPriceFromString";
+import { getUnitFromString } from "../../dataCleaning/getUnitFromString";
+import { generateUniqueArray } from "../../dataCleaning/generateUniqueArray";
 
 
 
