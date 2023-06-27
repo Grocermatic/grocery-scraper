@@ -1,10 +1,11 @@
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getMetricQuantity, getUnitPriceFromString } from "../../dataCleaning/dataCleaning";
+import { getUnitPriceFromString } from "../../dataCleaning/dataCleaning";
 import { getRequestJson } from '../../request/scrapeJson';
 import { getCookie } from "../../request/getCookie";
 import { wait } from "../../request/wait";
 import { roundDecimal } from "../../dataCleaning/roundDecimal";
 import { getNumFromString } from "../../dataCleaning/getNumFromString";
+import { getMetricQuantity } from "../../dataCleaning/getMetricQuantity";
 
 
 
