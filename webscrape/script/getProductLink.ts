@@ -1,11 +1,10 @@
 import * as fs from 'fs'
 
+import { roundDecimal } from '../src/dataCleaning/roundDecimal'
 import { GetProductLinks } from '../src/website/interface'
-import { getWoolworthsProductLinks, getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
-import { getColesProductLinks } from '../src/website/coles/getProductLinks'
-import { getCookie } from '../src/request/getCookie'
-import { roundDecimal } from '../src/dataCleaning/getUnitPriceFromString'
 import { getAldiProductLinks } from '../src/website/aldi/getProductLinks'
+import { getColesProductLinks } from '../src/website/coles/getProductLinks'
+import { getWoolworthsProductLinks } from '../src/website/woolworths/getProductLinks'
 
 
 

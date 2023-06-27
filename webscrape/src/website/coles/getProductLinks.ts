@@ -4,7 +4,8 @@ import * as cheerio from "cheerio";
 
 import { GetProductLinks } from "../interface";
 import { scrapeStatic } from "../../request/scrapeStatic";
-import { generateUniqueArray, getUnitPriceFromString } from "../../dataCleaning/getUnitPriceFromString";
+import { getUnitPriceFromString } from "../../dataCleaning/getUnitPriceFromString";
+import { generateUniqueArray } from "../../dataCleaning/generateUniqueArray";
 
 
 
