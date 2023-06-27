@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 
 import {scrapeStatic} from '../scrapeStatic'
-import { hostHtml } from '../../util/hostHtml'
+import { hostHtml } from '../hostHtml'
 
 
 

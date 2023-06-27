@@ -2,7 +2,7 @@ import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } fr
 import { getMetricQuantity, getNumFromString, getUnitPriceFromString, roundDecimal } from "../../util/dataCleaning";
 import { getRequestJson } from '../../request/scrapeJson';
 import { getCookie } from "../../request/getCookie";
-import { wait } from "../../util/wait";
+import { wait } from "../../request/wait";
 
 
 

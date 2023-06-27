@@ -2,7 +2,7 @@ import * as fs from 'fs'
 
 import { ProductInfo } from "../../interface"
 import { getAldiBatchProductInfo, aldiPageProducts, getAldiProductInfo } from "../getProductInfo"
-import { hostHtml } from '../../../util/hostHtml'
+import { hostHtml } from '../../../request/hostHtml'
 
 
 
