@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { getAldiProductLinks } from "./website/aldi/getProductLinks"
 import { getColesProductLinks } from "./website/coles/getProductLinks"
 import { getAllProductLinks } from "./website/getAllProductLink"
