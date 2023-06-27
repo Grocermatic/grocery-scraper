@@ -8,6 +8,9 @@ devDependencies:
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
+  '@types/node':
+    specifier: ^20.3.1
+    version: 20.3.1
   jest:
     specifier: ^29.5.0
     version: 29.5.0(@types/node@20.3.1)(ts-node@10.9.1)
