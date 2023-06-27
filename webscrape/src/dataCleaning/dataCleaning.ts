@@ -1,8 +1,5 @@
 import { generateRandInt } from "./generateRandInt"
-
-export const roundDecimal = (decimal:number, places:number):number => {
-  return Math.round(decimal * 10**places) / 10**places
-}
+import { roundDecimal } from "./roundDecimal"
 
 
 

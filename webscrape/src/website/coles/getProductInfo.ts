@@ -1,8 +1,9 @@
 import * as cheerio from 'cheerio'
 
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getMetricQuantity, getNumFromString, getUnitPriceFromString, roundDecimal } from "../../dataCleaning/dataCleaning";
+import { getMetricQuantity, getNumFromString, getUnitPriceFromString } from "../../dataCleaning/dataCleaning";
 import { scrapeStatic } from '../../request/scrapeStatic';
+import { roundDecimal } from '../../dataCleaning/roundDecimal';
 
 
 
