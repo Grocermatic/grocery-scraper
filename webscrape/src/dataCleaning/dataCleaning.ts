@@ -1,9 +1,4 @@
-export const generateRandInt = (min:number, max:number):number => {
-  const randomInteger = min + Math.floor((max - min + 1) * Math.random())
-  return randomInteger <= max ? randomInteger : randomInteger - 1
-}
-
-
+import { generateRandInt } from "./generateRandInt"
 
 export const roundDecimal = (decimal:number, places:number):number => {
   return Math.round(decimal * 10**places) / 10**places
