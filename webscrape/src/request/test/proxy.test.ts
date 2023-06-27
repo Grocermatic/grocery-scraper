@@ -1,7 +1,7 @@
 import axios from "axios"
 
 import { generatePublicIP, generateHttpHeaders, httpHeaders } from "../proxy"
-import { generateRandInt } from "../../util/dataCleaning"
+import { generateRandInt } from "../../dataCleaning/dataCleaning"
 
 
 

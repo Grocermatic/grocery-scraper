@@ -1,4 +1,4 @@
-import { generateRandInt } from "../util/dataCleaning";
+import { generateRandInt } from "../dataCleaning/dataCleaning";
 
 
 

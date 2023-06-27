@@ -4,7 +4,7 @@ import { GetProductLinks } from '../src/website/interface'
 import { getWoolworthsProductLinks, getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
 import { getColesProductLinks } from '../src/website/coles/getProductLinks'
 import { getCookie } from '../src/request/getCookie'
-import { roundDecimal } from '../src/util/dataCleaning'
+import { roundDecimal } from '../src/dataCleaning/dataCleaning'
 import { getAldiProductLinks } from '../src/website/aldi/getProductLinks'
 
 

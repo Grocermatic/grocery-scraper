@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { limitArrayLengths } from "../util/dataCleaning"
+import { limitArrayLengths } from "../dataCleaning/dataCleaning"
 import { getAldiBatchProductInfo } from "./aldi/getProductInfo"
 import { getColesBatchProductInfo } from "./coles/getProductInfo"
 import { GetBatchProductInfo, ProductInfo } from "./interface"
