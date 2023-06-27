@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { ProductInfo, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getNumFromString, getUnitFromString, roundDecimal } from "../../util/dataCleaning";
+import { generateUniqueArray, getNumFromString, getUnitFromString, roundDecimal } from "../../util/dataCleaning";
 import { scrapeStatic } from '../../request/scrapeStatic';
 
 
@@ -31,11 +31,15 @@ export const getAldiProductInfo:GetProductInfo = (html) => {
     price = getNumFromString('0.' + $('.box--value').text())[0]
   }
 
+  const imgContent = $('.box--wrapper').toString().match(/src="[^ ]+/g)
+  let imgUrl = ''
+  if (imgContent) imgUrl = imgContent[0].slice(5, imgContent[0].length - 1)
+
   // Prefill mandatory values
   const productInfo:ProductInfo = {
     name: name,
     url: `${$('.box--wrapper').attr('href')}`,
-    img: `${$('.box--image-container').find('img').attr('src')}`,
+    img: `${imgUrl}`,
     price: price,
     quantity: quantity,
     unitPrice: roundDecimal(price / quantity, 2)
@@ -68,5 +72,5 @@ export const getAldiBatchProductInfo:GetBatchProductInfo = async(urls) => {
       productInfos = productInfos.concat(productInfoSublist)
     }
   }
-  return productInfos as ProductInfo[]
+  return generateUniqueArray(productInfos)
 }
