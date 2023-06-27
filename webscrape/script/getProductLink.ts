@@ -63,9 +63,8 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
 
 (async() => {
 
-  const fileName = 'colesLinks.csv'
-  const filePath = `../dataProcess/data/${fileName}`
-  //clearLog()
-  saveProductLinksCsv(filePath, getColesProductLinks)
+  let store = 'aldi'
+  const filePath = `./data`
+  saveProductLinksCsv(`${filePath}/${store}Links.csv`, getAldiProductLinks)
 
 })()
