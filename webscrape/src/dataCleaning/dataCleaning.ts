@@ -1,27 +1,7 @@
 import { generateRandInt } from "./generateRandInt"
 import { getNumFromString } from "./getNumFromString"
+import { getUnitFromString } from "./getUnitFromString"
 import { roundDecimal } from "./roundDecimal"
-
-
-
-export const getUnitFromString = (str:string):string => {
-  let unitMeasure = str.slice(-2).toLowerCase() // Units are assumed to be 1-2 characters
-  unitMeasure = unitMeasure.replace(/[^a-z]/g, '') // Only extract letters
-  if (!['l','ml','kg','g'].includes(unitMeasure)) { return '' }
-  return unitMeasure
-}
-
-
-
-export const shuffleArrayFisherYates = (array:any[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = generateRandInt(0, i)
-    const swapValue = array[i]
-    array[i] = array[j]
-    array[j] = swapValue
-  }
-  return array
-}
 
 
 

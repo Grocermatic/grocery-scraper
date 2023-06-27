@@ -1,35 +1,4 @@
-import { generateUniqueArray, getUnitFromString, limitArrayLengths, shuffleArrayFisherYates } from "../dataCleaning"
-
-
-
-describe("unit measure extractor for food", () => {
-  it("should extract 'kg', 'g', 'l' and 'ml' from end of text", async()=>{
-    expect(getUnitFromString('1.0 ml')).toEqual('ml')
-    expect(getUnitFromString('1.0 l')).toEqual('l')
-    expect(getUnitFromString('1.0ml')).toEqual('ml')
-    expect(getUnitFromString('1.0l')).toEqual('l')
-    expect(getUnitFromString('1.0 kg')).toEqual('kg')
-    expect(getUnitFromString('1.0 g')).toEqual('g')
-    expect(getUnitFromString('1.0 km')).toEqual('')
-    expect(getUnitFromString('')).toEqual('')
-  })
-})
-
-
-
-describe("Fisher-Yates array shuffling", () => {
-  it("should rearrange elements in an array", () => {
-    const originalArray = [1,2,3,4,5,6,7,8,9]
-    const shuffledArray = shuffleArrayFisherYates(originalArray)    
-    shuffledArray.map(shuffledArrayElement => expect(originalArray).toContain(shuffledArrayElement))
-  })
-
-  it("should produce an array with same original elements", () => {
-    const originalArray = [1,2,3,4,5,6,7,8,9]
-    const shuffledArray = shuffleArrayFisherYates(originalArray)
-    expect(shuffledArray.sort()).toEqual(originalArray)
-  })
-})
+import { generateUniqueArray, limitArrayLengths } from "../dataCleaning"
 
 
 
