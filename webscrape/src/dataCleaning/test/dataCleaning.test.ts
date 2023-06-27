@@ -1,4 +1,4 @@
-import { generateUniqueArray, getNumFromString, getUnitFromString, limitArrayLengths, roundDecimal, shuffleArrayFisherYates } from "./dataCleaning"
+import { generateUniqueArray, getNumFromString, getUnitFromString, limitArrayLengths, roundDecimal, shuffleArrayFisherYates } from "../dataCleaning"
 
 
 
