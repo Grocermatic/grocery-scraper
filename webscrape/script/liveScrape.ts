@@ -12,7 +12,7 @@ import { getColesBatchProductInfo, getColesProductInfo } from '../src/website/co
 import { getWoolworthsProductInfo, getWoolworthsBatchProductInfo } from '../src/website/woolworths/getProductInfo'
 import axios from 'axios'
 import { getWoolworthsSectionProductLinks } from '../src/website/woolworths/getProductLinks'
-import { getMetricQuantity, getUnitFromString, roundDecimal } from '../src/dataCleaning/dataCleaning'
+import { getMetricQuantity, getUnitFromString, roundDecimal } from '../src/dataCleaning/getUnitPriceFromString'
 import { getAllProductInfo, getAllProductInfos } from '../src/website/getAllProductInfo'
 
 

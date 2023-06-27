@@ -1,5 +1,5 @@
 import { ProductInfo, ProductNutrition, GetProductInfo, GetBatchProductInfo } from "../interface"
-import { getUnitPriceFromString } from "../../dataCleaning/dataCleaning";
+import { getUnitPriceFromString } from "../../dataCleaning/getUnitPriceFromString";
 import { getRequestJson } from '../../request/scrapeJson';
 import { getCookie } from "../../request/getCookie";
 import { wait } from "../../request/wait";
