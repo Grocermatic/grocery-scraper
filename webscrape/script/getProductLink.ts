@@ -26,12 +26,6 @@ const writeMessageToLog = (message:string) => {
 
 
 
-const clearLog = () => {
-  fs.writeFileSync(logFilePath, '')
-}
-
-
-
 const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLinks) => {
   writeMessageToLog(`Writing file: ${filePath}`)
 
@@ -61,10 +55,22 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
 
 
 
+export const getAllProductLinks = () => {
+  const filePath = `./data`
+  let store = 'aldi'
+  saveProductLinksCsv(`${filePath}/Links.csv`, getAldiProductLinks)
+  store = 'coles'
+  saveProductLinksCsv(`${filePath}/${store}Links.csv`, getColesProductLinks)
+  store = 'woolworths'
+  saveProductLinksCsv(`${filePath}/${store}Links.csv`, getWoolworthsProductLinks)
+}
+
+
+
 (async() => {
 
-  let store = 'aldi'
   const filePath = `./data`
+  let store = 'aldi'
   saveProductLinksCsv(`${filePath}/${store}Links.csv`, getAldiProductLinks)
 
 })()
