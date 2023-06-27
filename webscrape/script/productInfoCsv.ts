@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-import { objectToCsvLine, productInfoCsv } from "../src/productInfoCsv"
+import { objectToCsvLine, productInfoCsv } from "../src/dataCleaning/productInfoCsv"
 
 
 
