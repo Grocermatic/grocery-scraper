@@ -2,8 +2,8 @@
   "scripts": {
     "nodemon": "nodemon $1",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --maxWorkers=50% --watchAll",
-    "getProductInfo": "nodemon ./script/getProductInfo.ts",
-    "getProductLink": "nodemon ./script/getProductLink.ts"
+    "getProductInfo": "nodemon ./script/getProductInfo.ts --ignore 'data/*'",
+    "getProductLink": "nodemon ./script/getProductLink.ts --ignore 'data/*'"
   },
   "dependencies": {
     "@sparticuz/chromium": "113.0.1",
