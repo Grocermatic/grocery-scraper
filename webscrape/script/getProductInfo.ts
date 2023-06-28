@@ -5,7 +5,7 @@ import { roundDecimal } from '../src/dataCleaning/roundDecimal'
 
 
 
-const logFilePath = './script/liveScrape.log'
+const logFilePath = './script/getProductLink.log'
 
 const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
   console.log(performaneMeasure)
@@ -32,13 +32,13 @@ const filePath = `./data`
 
     writeMessageToLog(`Scrape ${store} productInfo:`)
     performance.mark('Start scraping')
-    const productInfos = await getAllProductInfos([urlsList], 10)
+    const productInfos = await getAllProductInfos([urlsList], 20)
     performance.mark('Finish scraping')
     writePerformanceToLog(performance.measure('Scrape time (s)', 'Start scraping', 'Finish scraping'))
     writeMessageToLog('')
   
     const content = JSON.stringify(productInfos, null, 2)
-    fs.writeFileSync(filePath + `${store}ProductInfo.json`, content)
+    fs.writeFileSync(`${filePath}/${store}ProductInfo.json`, content)
   })
 }
 
