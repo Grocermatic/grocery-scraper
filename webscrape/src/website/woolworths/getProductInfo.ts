@@ -110,7 +110,7 @@ export const getWoolworthsProductInfo:GetProductInfo = (productJsonString) => {
 
 let woolworthsCookie = ''
 export const getWoolworthsBatchProductInfo:GetBatchProductInfo = async(urls) => {
-  await wait(2000)
+  await wait(3000)
 
   if (woolworthsCookie == '') {
     woolworthsCookie = await getCookie('https://www.woolworths.com.au')
