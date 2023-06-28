@@ -46,3 +46,27 @@ Total CSV generation time, 7.718
 Number of links, 1262
 Time per link, 0.006
 
+Writing file: ./data/aldiLinks.csv
+Find link time, 0.003
+Process link time, 0.001
+Save link time, 0
+Total CSV generation time, 0.005
+Number of links, 6
+Time per link, 0.001
+
+Writing file: ./data/colesLinks.csv
+Find link time, 20.098
+Process link time, 0.002
+Save link time, 0.001
+Total CSV generation time, 20.1
+Number of links, 1249
+Time per link, 0.016
+
+Writing file: ./data/woolworthsLinks.csv
+Find link time, 29.748
+Process link time, 0.004
+Save link time, 0.001
+Total CSV generation time, 29.754
+Number of links, 2830
+Time per link, 0.011
+
