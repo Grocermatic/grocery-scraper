@@ -1,3 +1,8 @@
+import { ProductInfo } from "../website/interface"
+import { roundDecimal } from "../dataCleaning/roundDecimal"
+
+
+
 export const objectToCsvLine = (object:Object):string => {
   let csvLine = ''
   Object.entries(object).forEach(entry => {
@@ -13,14 +18,21 @@ export const objectToCsvLine = (object:Object):string => {
 
 
 
-export const productInfoCsv = (productInfos:Object[]):string => {
+export const productInfoCsv = (productInfos:ProductInfo[]):string => {
   let csv = ''
-  productInfos.forEach((object:Object) => {
-    csv += objectToCsvLine(object)
-    if (!object.hasOwnProperty("nutrition")) {
-      csv += ',,,,,,,,'
+  productInfos.forEach((productInfo:ProductInfo) => {
+    if (productInfo.unitPrice) {
+      productInfo.name = productInfo.name.replaceAll(',','')
+      const quantity = roundDecimal(productInfo.price / productInfo.unitPrice, 3)
+      if (productInfo.quantity == 0 || (productInfo.quantity > 1 && productInfo.quantity != quantity)) {
+        productInfo.quantity = quantity
+      }
+
+      // Filter outlier unitPrice
+      if (productInfo.unitPrice > 0.8 && productInfo.unitPrice <= 50) {
+        csv += `${objectToCsvLine(productInfo)}\n`
+      }
     }
-    csv += '\n'
   })
   return csv
 }
