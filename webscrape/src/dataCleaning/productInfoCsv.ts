@@ -1,5 +1,6 @@
 import { ProductInfo } from "../website/interface"
 import { roundDecimal } from "../dataCleaning/roundDecimal"
+import { nutritionixNlp } from "./nutritionixNLP"
 
 
 
@@ -20,7 +21,7 @@ export const objectToCsvLine = (object:Object):string => {
 
 export const productInfoCsv = (productInfos:ProductInfo[]):string => {
   let csv = ''
-  productInfos.forEach((productInfo:ProductInfo) => {
+  productInfos.slice(2800).forEach(async(productInfo:ProductInfo) => {
     if (productInfo.unitPrice) {
       productInfo.name = productInfo.name.replaceAll(',','')
       const quantity = roundDecimal(productInfo.price / productInfo.unitPrice, 3)
@@ -30,6 +31,11 @@ export const productInfoCsv = (productInfos:ProductInfo[]):string => {
 
       // Filter outlier unitPrice
       if (productInfo.unitPrice > 0.8 && productInfo.unitPrice <= 50) {
+        // Fill in missing nutrition
+        if (productInfo.nutrition == null) {
+          const nutrition = await nutritionixNlp(productInfo.name)
+          if (nutrition) productInfo.nutrition = nutrition
+        }
         csv += `${objectToCsvLine(productInfo)}\n`
       }
     }
