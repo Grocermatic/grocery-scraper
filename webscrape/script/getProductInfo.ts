@@ -24,7 +24,7 @@ const writeMessageToLog = (message:string) => {
 
 
 export const getProductInfo = () => {
-const filePath = `./data`
+  const filePath = `./data`
   const stores = ['aldi', 'coles', 'woolworths']
 
   stores.map(async(store) => {
