@@ -5,7 +5,7 @@ import { roundDecimal } from '../src/dataCleaning/roundDecimal'
 
 
 
-const logFilePath = './script/getProductLink.log'
+const logFilePath = './script/getProductInfo.log'
 
 const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
   console.log(performaneMeasure)
@@ -28,7 +28,7 @@ const filePath = `./data`
   const stores = ['aldi', 'coles', 'woolworths']
 
   stores.map(async(store) => {
-    const urlsList = fs.readFileSync(`${filePath}/${store}Links.csv`).toString().split('\n')
+    const urlsList = fs.readFileSync(`${filePath}/productLink/${store}.csv`).toString().split('\n')
 
     writeMessageToLog(`Scrape ${store} productInfo:`)
     performance.mark('Start scraping')
@@ -38,7 +38,7 @@ const filePath = `./data`
     writeMessageToLog('')
   
     const content = JSON.stringify(productInfos, null, 2)
-    fs.writeFileSync(`${filePath}/${store}ProductInfo.json`, content)
+    fs.writeFileSync(`${filePath}/productInfo/${store}.json`, content)
   })
 }
 
