@@ -1,4 +1,4 @@
-import { ProductInfo } from "../website/interface"
+import { ProductInfo, ProductNutrition } from "../website/interface"
 import { roundDecimal } from "../dataCleaning/roundDecimal"
 import { nutritionixNlp } from "./nutritionixNLP"
 
@@ -19,9 +19,33 @@ export const objectToCsvLine = (object:Object):string => {
 
 
 
-export const productInfoCsv = (productInfos:ProductInfo[]):string => {
+export const fillMissingNutrition = async(productInfo:ProductInfo) => {
+  // Fill in missing nutrition
+  if (productInfo.nutrition == null) {
+    const nutrition = await nutritionixNlp(productInfo.name)
+    if (nutrition) {
+      productInfo.nutrition = nutrition
+    }
+  } else if (Object.values(productInfo.nutrition).includes(null)) {
+    const nutrition = await nutritionixNlp(productInfo.name)
+    if (nutrition) {
+      Object.getOwnPropertyNames(nutrition).forEach((value) => {
+        const key = value as keyof ProductNutrition
+        if (productInfo.nutrition && productInfo.nutrition[key] == null) {
+          productInfo.nutrition[key] = nutrition[key]
+        }
+      })
+    }
+  }
+  return productInfo
+}
+
+
+
+export const productInfoCsv = async(productInfos:ProductInfo[]) => {
   let csv = ''
-  productInfos.slice(2800).forEach(async(productInfo:ProductInfo) => {
+  for (let i = 0; i < productInfos.length; i++) {
+    let productInfo = productInfos[i]
     if (productInfo.unitPrice) {
       productInfo.name = productInfo.name.replaceAll(',','')
       const quantity = roundDecimal(productInfo.price / productInfo.unitPrice, 3)
@@ -31,14 +55,11 @@ export const productInfoCsv = (productInfos:ProductInfo[]):string => {
 
       // Filter outlier unitPrice
       if (productInfo.unitPrice > 0.8 && productInfo.unitPrice <= 50) {
-        // Fill in missing nutrition
-        if (productInfo.nutrition == null) {
-          const nutrition = await nutritionixNlp(productInfo.name)
-          if (nutrition) productInfo.nutrition = nutrition
-        }
+        productInfo = await fillMissingNutrition(productInfo)
         csv += `${objectToCsvLine(productInfo)}\n`
+        
       }
     }
-  })
+  }
   return csv
 }
