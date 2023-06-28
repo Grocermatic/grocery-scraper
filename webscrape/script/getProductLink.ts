@@ -55,10 +55,10 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
 
 
 
-export const getAllProductLinks = () => {
+export const getProductLink = () => {
   const filePath = `./data`
   let store = 'aldi'
-  saveProductLinksCsv(`${filePath}/Links.csv`, getAldiProductLinks)
+  saveProductLinksCsv(`${filePath}/${store}Links.csv`, getAldiProductLinks)
   store = 'coles'
   saveProductLinksCsv(`${filePath}/${store}Links.csv`, getColesProductLinks)
   store = 'woolworths'
@@ -68,9 +68,5 @@ export const getAllProductLinks = () => {
 
 
 (async() => {
-
-  const filePath = `./data`
-  let store = 'aldi'
-  saveProductLinksCsv(`${filePath}/${store}Links.csv`, getAldiProductLinks)
-
+  getProductLink()
 })()
