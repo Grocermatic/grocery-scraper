@@ -1,7 +1,49 @@
 :root {
-  font-family: var(--primary-font);
+  --border-radius: 1.5rem;
+}
+
+body {
+  user-select: none;
+}
+
+* {
+  margin: 0;
+  line-height: 1.4;
+}
+
+h1 {
+  font-family: var(--secondary-font);
+  font-size: 3em;
+}
+
+h2 {
+  font-family: var(--secondary-font);
+  font-size: 2.5em;
 }
 
 h3 {
   font-family: var(--secondary-font);
+  font-size: 2em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+span {
+  color: gray;
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    font-size: 85%;
+  }
+}
+
+.container {
+  padding: 1rem;
 }
