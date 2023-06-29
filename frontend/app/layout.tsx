@@ -13,7 +13,7 @@ export const inter = Inter({
 
 export const lora = Lora(
   {subsets: ['latin'],
-  variable: '--primary-font'
+  variable: '--secondary-font'
 })
 
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className={lora.className}>
+        <main className={`${inter.className} ${lora.variable}`}>
           {children}
         </main>
       </body>
