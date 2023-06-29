@@ -1,11 +1,21 @@
+import { Inter, Lora } from 'next/font/google'
 import './global.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'Grocermatic',
   description: 'Grocermatic is a grocery suggestion app that helps you find the best deals on groceries.',
 }
+
+export const inter = Inter({
+  subsets: ['latin'],
+  variable: '--primary-font'
+})
+
+export const lora = Lora(
+  {subsets: ['latin'],
+  variable: '--primary-font'
+})
+
 
 export default function RootLayout({
   children,
@@ -15,11 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        <main>
+        <main className={lora.className}>
           {children}
         </main>
-        <Footer/>
       </body>
     </html>
   )

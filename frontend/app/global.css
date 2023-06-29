@@ -1,0 +1,7 @@
+:root {
+  font-family: var(--primary-font);
+}
+
+h3 {
+  font-family: var(--secondary-font);
+}
