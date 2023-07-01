@@ -1,5 +1,6 @@
 :root {
   --border-radius: 1.5rem;
+  --primary-color: silver;
 }
 
 body {
@@ -8,7 +9,7 @@ body {
 
 * {
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 h1 {
@@ -46,4 +47,16 @@ span {
 
 .container {
   padding: 1rem;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.flex {
+  display: flex;
 }

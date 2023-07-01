@@ -7,15 +7,15 @@ const Home = () => {
       "url": "https://www.woolworths.com.au/shop/productdetails/524336",
       "img": "https://cdn0.woolworths.media/content/wowproductimages/large/524336.jpg",
       "price": 4.5,
-      "quantity": 0.28,
-      "unitPrice": 16.07,
+      "quantity": 1,
+      "unitPrice": 1.5,
       "nutrition": {
         "servingSize": 0.07,
         "kilojoules": 83,
         "protein": 2.4,
         "fat": 1,
         "fatSaturated": 1,
-        "carb": 1,
+        "carb": null,
         "sugar": 1,
         "sodium": 21
       }
