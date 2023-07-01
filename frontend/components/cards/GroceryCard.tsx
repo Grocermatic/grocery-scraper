@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from './GroceryCard.module.css'
-import NutrientSlider from './NutrientSlider'
 import { motion, AnimatePresence } from "framer-motion"
+import NutrientInfo from './NutrientInfo'
 
 const GroceryCard = ({productInfo}:any) => {
   const [clicked, setClicked] = useState(false)
@@ -58,22 +58,7 @@ const GroceryCard = ({productInfo}:any) => {
           exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
           transition={{ type: 'tween', duration: 0.1}}
         >
-          { productInfo.nutrition &&
-            Object.getOwnPropertyNames(productInfo.nutrition).map((nutrition:Object, id:number) => {
-              const nutrient = nutrition as keyof Object
-              return (
-                <NutrientSlider
-                  key={id}
-                  nutrient={nutrient}
-                  value={productInfo.nutrition[nutrient]}
-                  rdi={100}
-                />
-              )
-            })
-          }
-          { !productInfo.nutrition &&
-            <span><p className='center-text italic-text'>Nutrition info available</p></span>
-          }
+          <NutrientInfo nutrition={productInfo.nutrition}/>
         </motion.div>
       }
     </AnimatePresence>
