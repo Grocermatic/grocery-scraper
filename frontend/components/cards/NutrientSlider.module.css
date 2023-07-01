@@ -1,0 +1,34 @@
+.nutrientSlider {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.nutrientSlider + .nutrientSlider {
+  margin-top: 0.5rem;
+}
+
+.labelText {
+  min-width: 7em;
+}
+
+.valueText {
+  min-width: 7em;
+  text-align: right;
+}
+
+.sliderBase {
+  width: 100%;
+  height: 5px;
+  background: silver;
+  border-radius: 1rem;
+}
+
+.sliderFill {
+  height: 100%;
+  background: green;
+  border-radius: 1rem;
+}
