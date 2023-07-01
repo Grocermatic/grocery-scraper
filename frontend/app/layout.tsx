@@ -24,11 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <main className={`${inter.className} ${lora.variable}`}>
-          {children}
-        </main>
-      </body>
+      <body className={`${inter.className} ${lora.variable}`}>
+        {children}
+        </body>
     </html>
   )
 }
