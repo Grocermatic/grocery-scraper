@@ -14,6 +14,7 @@
     "@types/react-dom": "18.2.6",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "framer-motion": "^10.12.17",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
