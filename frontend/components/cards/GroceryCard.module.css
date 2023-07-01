@@ -1,14 +1,17 @@
 .card {
-  display: flex;
   border-radius: var(--border-radius);
   box-shadow: 0.1rem 0.1rem 0.5rem silver;
   overflow: hidden;
   min-width: 24em;
 }
 
+.infoContainer {
+  padding: 1rem;
+}
+
 @media screen and (min-width: 48rem) {
   .card {
-    max-width: 30em;
+    max-width: 28em;
   }
 }
 
@@ -19,6 +22,7 @@
 .textContainer {
   margin: 1rem;
   margin-right: 1.5rem;
+  margin-left: 0;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -34,8 +38,8 @@
 
 .imageContainer {
   padding: 1rem;
-  height: 4.5em;
-  width: 4.5em;
+  height: 5em;
+  width: 5em;
 }
 
 .imagePadding {
