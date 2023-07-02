@@ -13,7 +13,7 @@ const GroceryCard = ({productInfo}:any) => {
 
   
   let productName = productInfo.name
-  const maxLength = 50;
+  const maxLength = clicked ? 80 : 50;
   if (productName.length > maxLength) {
     productName = productName.slice(0, maxLength - 3) + '...'
   }
