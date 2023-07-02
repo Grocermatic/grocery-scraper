@@ -11,7 +11,7 @@ const GroceryCard = ({productInfo}:any) => {
 
   let imageSize = clicked ? '9rem' : '4.5rem'
 
-
+  
   let productName = productInfo.name
   const maxLength = 50;
   if (productName.length > maxLength) {
@@ -54,7 +54,7 @@ const GroceryCard = ({productInfo}:any) => {
         <motion.div
           className={styles.infoContainer}
           initial={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
-          animate={{ opacity: 1, height: 'auto', paddingTop: '1rem', paddingBottom: '1rem' }}
+          animate={{ opacity: 1, height: 'auto', paddingBottom: '1rem' }}
           exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
           transition={{ type: 'tween', duration: 0.1}}
         >
