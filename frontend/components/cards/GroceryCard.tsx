@@ -45,9 +45,9 @@ const GroceryCard = ({ productInfo }: any) => {
           <p>{productName}</p>
           <div className={styles.priceContainer}>
             <h6>{`${productInfo.unitPrice} $/kg`}</h6>
-            <p
-              style={{ marginLeft: "1rem", textAlign: "right" }}
-            >{`$${productInfo.price} / ${productInfo.quantity}kg`}</p>
+            <p style={{ marginLeft: "1rem", textAlign: "right" }}>
+              {`$${productInfo.price} / ${productInfo.quantity}kg`}
+            </p>
           </div>
         </div>
       </div>
