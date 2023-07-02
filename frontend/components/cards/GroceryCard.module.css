@@ -27,7 +27,6 @@
   flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
-  user-select: text;
 }
 
 .priceContainer {
