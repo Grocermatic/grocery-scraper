@@ -15,20 +15,23 @@
   min-width: 7em;
 }
 
-.valueText {
-  min-width: 7em;
-  text-align: right;
-}
-
 .sliderBase {
+  position: relative;
   width: 100%;
-  height: 5px;
-  background: silver;
+  height: 0.5rem;
+  background: #88888844;
   border-radius: 1rem;
+  overflow: hidden;
 }
 
 .sliderFill {
   height: 100%;
   background: green;
+  border-radius: 1rem;
+}
+
+.sliderFillOver {
+  height: 100%;
+  background: red;
   border-radius: 1rem;
 }
