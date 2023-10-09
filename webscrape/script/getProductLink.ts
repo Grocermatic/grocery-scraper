@@ -8,7 +8,7 @@ import { getWoolworthsProductLinks } from '../src/website/woolworths/getProductL
 
 
 
-const logFilePath = './script/getProductLink.log'
+const logFilePath = 'webscrape/script/getProductLink.log'
 
 const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
   console.log(performaneMeasure)
@@ -56,7 +56,7 @@ const saveProductLinksCsv = async(filePath:string, getLinksFunction:GetProductLi
 
 
 export const getProductLink = () => {
-  const filePath = `./data/productLink`
+  const filePath = `webscrape/data/productLink`
   let store = 'aldi'
   saveProductLinksCsv(`${filePath}/${store}.csv`, getAldiProductLinks)
   store = 'coles'
