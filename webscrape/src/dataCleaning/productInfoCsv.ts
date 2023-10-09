@@ -1,6 +1,5 @@
 import { ProductInfo, ProductNutrition } from "../website/interface"
 import { roundDecimal } from "../dataCleaning/roundDecimal"
-import { nutritionixNlp } from "./nutritionixNLP"
 
 
 
@@ -19,35 +18,12 @@ export const objectToCsvLine = (object:Object):string => {
 
 
 
-export const fillMissingNutrition = async(productInfo:ProductInfo) => {
-  // Fill in missing nutrition
-  if (productInfo.nutrition == null) {
-    const nutrition = await nutritionixNlp(productInfo.name)
-    if (nutrition) {
-      productInfo.nutrition = nutrition
-    }
-  } else if (Object.values(productInfo.nutrition).includes(null)) {
-    const nutrition = await nutritionixNlp(productInfo.name)
-    if (nutrition) {
-      Object.getOwnPropertyNames(nutrition).forEach((value) => {
-        const key = value as keyof ProductNutrition
-        if (productInfo.nutrition && productInfo.nutrition[key] == null) {
-          productInfo.nutrition[key] = nutrition[key]
-        }
-      })
-    }
-  }
-  return productInfo
-}
-
-
-
-export const productInfoCsv = async(productInfos:ProductInfo[]) => {
+export const productInfoCsv = (productInfos:ProductInfo[]) => {
   let csv = ''
   for (let i = 0; i < productInfos.length; i++) {
     let productInfo = productInfos[i]
     if (productInfo.unitPrice) {
-      productInfo.name = productInfo.name.replaceAll(',','')
+      productInfo.name = productInfo.name.replace(',','')
       const quantity = roundDecimal(productInfo.price / productInfo.unitPrice, 3)
       if (productInfo.quantity == 0 || (productInfo.quantity > 1 && productInfo.quantity != quantity)) {
         productInfo.quantity = quantity
@@ -55,7 +31,6 @@ export const productInfoCsv = async(productInfos:ProductInfo[]) => {
 
       // Filter outlier unitPrice
       if (productInfo.unitPrice > 0.8 && productInfo.unitPrice <= 50) {
-        productInfo = await fillMissingNutrition(productInfo)
         csv += `${objectToCsvLine(productInfo)}\n`
         
       }
