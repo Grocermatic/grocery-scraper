@@ -1,7 +1,7 @@
 {
   "scripts": {
     "nodemon": "nodemon $1",
-    "test": "jest --verbose --coverage --maxWorkers=50% --watchAll",
+    "test": "jest --verbose --coverage --watchAll",
     "getProductInfo": "nodemon webscrape/script/getProductInfo.ts --ignore 'webscrape/data/*'",
     "getProductLink": "nodemon webscrape/script/getProductLink.ts --ignore 'webscrape/data/*'",
     "cleanProductInfo": "nodemon webscrape/script/cleanProductInfo.ts --ignore 'webscrape/data/*'",
