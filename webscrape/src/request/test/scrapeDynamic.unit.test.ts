@@ -11,7 +11,7 @@ describe("dynamic html scraper", () => {
 
     const data = await fs.readFileSync(testUrl)
     // Additional html is rendered through JavaScript
-    const expectedHTML = data.toString().replaceAll('</p>', 'Paragraph</p>')
+    const expectedHTML = data.toString().replace('</p>', 'Paragraph</p>')
 
     expect(html).toEqual(expectedHTML)
   })
