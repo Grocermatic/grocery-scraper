@@ -5,7 +5,7 @@ const chromium = require("@sparticuz/chromium");
 try { require('dotenv').config() } catch {}
 
 
-import { generateHttpHeaders, generatePublicIP } from './proxy'
+import { generateHttpHeaders } from './proxy'
 
 
 
@@ -15,9 +15,9 @@ export const getCookie = async(url:string):Promise<string> => {
     headless: chromium.headless,
     args: [...chromium.args]
   }
-  if (process.env.LOCAL != "true") {
+  try {
     launchOption.executablePath = await chromium.executablePath("/opt/bin")
-  }
+  } catch {}
   const browser = await puppeteer.launch(launchOption)
   
   const page = await browser.newPage()
