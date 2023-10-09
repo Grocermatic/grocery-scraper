@@ -5,7 +5,7 @@ import { roundDecimal } from '../src/dataCleaning/roundDecimal'
 
 
 
-const logFilePath = './script/getProductInfo.log'
+const logFilePath = 'webscrape/script/getProductInfo.log'
 
 const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
   console.log(performaneMeasure)
@@ -24,7 +24,7 @@ const writeMessageToLog = (message:string) => {
 
 
 export const getProductInfo = () => {
-  const filePath = `./data`
+  const filePath = `webscrape/data`
   const stores = ['aldi', 'coles', 'woolworths']
 
   stores.map(async(store) => {

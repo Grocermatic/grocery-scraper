@@ -5,7 +5,7 @@ import { productInfoCsv } from "../src/dataCleaning/productInfoCsv"
 
 
 export const cleanProductInfo = async() => {
-  const filePath = './data'
+  const filePath = 'webscrape/data'
   let csv:string = "name,url,img,price,quantity,unitPrice,servingSize,kilojoules,protein,fat,fatSaturated,carb,sugar,sodium\n"
   
   const stores = ['aldi', 'coles', 'woolworths']

@@ -2,9 +2,9 @@
   "scripts": {
     "nodemon": "nodemon $1",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --maxWorkers=50% --watchAll",
-    "getProductInfo": "nodemon ./script/getProductInfo.ts --ignore 'data/*'",
-    "getProductLink": "nodemon ./script/getProductLink.ts --ignore 'data/*'",
-    "cleanProductInfo": "nodemon ./script/cleanProductInfo.ts --ignore 'data/*'",
+    "getProductInfo": "nodemon webscrape/script/getProductInfo.ts --ignore 'webscrape/data/*'",
+    "getProductLink": "nodemon webscrape/script/getProductLink.ts --ignore 'webscrape/data/*'",
+    "cleanProductInfo": "nodemon webscrape/script/cleanProductInfo.ts --ignore 'webscrape/data/*'",
     "dev": "vite frontend",
     "build": "vite build frontend",
     "preview": "vite preview frontend"
