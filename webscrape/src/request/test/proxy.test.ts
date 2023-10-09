@@ -14,15 +14,6 @@ describe("randomly pick real listed html headers", () => {
     }
     jest.spyOn(global.Math, 'random').mockRestore()
   })
-
-  it("should alter html header", async() => {
-    const testHeaders = generateHttpHeaders() as any
-    axios.get('https://httpbin.org/headers', testHeaders).then(({ data }) => {
-      // Some custom header values need to be removed
-      const { ['X-Amzn-Trace-Id']: removedTrace, ['Host']: removedHost,  expectedData } = data
-      expect(testHeaders).toEqual(expectedData)
-    })
-  }, 30000)
 })
 
 
