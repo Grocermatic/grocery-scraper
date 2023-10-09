@@ -1,14 +1,4 @@
 // Standardize product
-export interface ProductNutrition {
-  servingSize: number | null,
-  kilojoules: number | null,
-  protein: number | null,
-  fat: number | null,
-  fatSaturated: number | null,
-  carb: number | null,
-  sugar: number | null,
-  sodium: number | null,
-}
 
 export interface ProductInfo {
   name: string
@@ -17,7 +7,6 @@ export interface ProductInfo {
   price: number
   quantity: number
   unitPrice: number
-  nutrition?: ProductNutrition
 }
 
 export interface GetProductInfo {
