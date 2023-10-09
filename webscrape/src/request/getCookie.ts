@@ -2,10 +2,6 @@
 
 import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
 const chromium = require("@sparticuz/chromium");
-try { require('dotenv').config() } catch {}
-
-
-import { generateHttpHeaders } from './proxy'
 
 
 
@@ -23,7 +19,6 @@ export const getCookie = async(url:string):Promise<string> => {
   const page = await browser.newPage()
   await page.setDefaultNavigationTimeout(0);
   await page.setRequestInterception(true)
-  await page.setExtraHTTPHeaders(generateHttpHeaders()['headers'])
 
   // Block extaneous information to decrease scrape time
   const excludeContentType = ['image', 'media', 'stylesheet']
