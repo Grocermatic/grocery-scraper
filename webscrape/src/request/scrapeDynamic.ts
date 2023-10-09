@@ -13,9 +13,9 @@ export const scrapeDynamic = async(url:string):Promise<string> => {
     headless: chromium.headless,
     args: [...chromium.args]
   }
-  if (process.env.LOCAL != "true") {
+  try {
     launchOption.executablePath = await chromium.executablePath("/opt/bin")
-  }
+  } catch {}
   const browser = await puppeteer.launch(launchOption)
 
   const page = await browser.newPage()
