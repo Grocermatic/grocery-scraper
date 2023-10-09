@@ -4,13 +4,17 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --coverage --maxWorkers=50% --watchAll",
     "getProductInfo": "nodemon ./script/getProductInfo.ts --ignore 'data/*'",
     "getProductLink": "nodemon ./script/getProductLink.ts --ignore 'data/*'",
-    "cleanProductInfo": "nodemon ./script/cleanProductInfo.ts --ignore 'data/*'"
+    "cleanProductInfo": "nodemon ./script/cleanProductInfo.ts --ignore 'data/*'",
+    "dev": "vite frontend",
+    "build": "vite build frontend",
+    "preview": "vite preview frontend"
   },
   "dependencies": {
     "@sparticuz/chromium": "113.0.1",
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
-    "puppeteer": "^20.1"
+    "puppeteer": "^20.1",
+    "solid-js": "^1.7.8"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.115",
@@ -22,6 +26,8 @@
     "serverless-esbuild": "^1.45.1",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "vite": "^4.4.5",
+    "vite-plugin-solid": "^2.7.0"
   }
 }
