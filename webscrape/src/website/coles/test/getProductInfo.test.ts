@@ -16,17 +16,7 @@ describe("Coles product scraper", () => {
       img: 'https://productimages.coles.com.au/productimages/8/8150288.jpg',
       price: 4.5,
       quantity: 3,
-      unitPrice: 1.5,
-      nutrition: {
-        servingSize: 0.25,
-        kilojoules: 260,
-        protein: 3.4,
-        fat: 3.3,
-        fatSaturated: null,
-        carb: 4.4,
-        sugar: 4.3,
-        sodium: 36
-      }
+      unitPrice: 1.5
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
@@ -56,17 +46,7 @@ describe("Coles product scraper", () => {
       img: 'https://productimages.coles.com.au/productimages/6/6706395.jpg',
       price: 3.92,
       quantity: 0.8,
-      unitPrice: 4.9,
-      nutrition: {
-        servingSize: 0.15,
-        kilojoules: 276,
-        protein: 0.6,
-        fat: 1,
-        fatSaturated: null,
-        carb: 15,
-        sugar: 15,
-        sodium: 4
-      }
+      unitPrice: 4.9
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })

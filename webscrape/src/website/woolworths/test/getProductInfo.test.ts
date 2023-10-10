@@ -16,17 +16,7 @@ describe("Woolworths product scraper", () => {
       img: 'https://cdn0.woolworths.media/content/wowproductimages/large/144336.jpg',
       price: 3.2,
       quantity: 1,
-      unitPrice: 3.2,
-      nutrition: {
-        servingSize: null,
-        kilojoules: 120,
-        protein: 1.6,
-        fat: 0.1,
-        fatSaturated: null,
-        carb: 4.3,
-        sugar: 4.3,
-        sodium: 10
-      }
+      unitPrice: 3.2
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
@@ -41,17 +31,7 @@ describe("Woolworths product scraper", () => {
       img: 'https://cdn0.woolworths.media/content/wowproductimages/large/888141.jpg',
       price: 4.5,
       quantity: 3,
-      unitPrice: 1.5,
-      nutrition: {
-        servingSize: 0.25,
-        kilojoules: 189,
-        protein: 3.4,
-        fat: 1.3,
-        fatSaturated: 0.9,
-        carb: 4.9,
-        sugar: 4.9,
-        sodium: 43
-      }
+      unitPrice: 1.5
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
@@ -66,17 +46,7 @@ describe("Woolworths product scraper", () => {
       img: 'https://cdn0.woolworths.media/content/wowproductimages/large/124831.jpg',
       price: 9,
       quantity: 4,
-      unitPrice: 2.25,
-      nutrition: {
-        servingSize: 0.075,
-        kilojoules: 246.67,
-        protein: 2.3,
-        fat: 0.1,
-        fatSaturated: 0.1,
-        carb: 12.9,
-        sugar: 0.67,
-        sodium: 4
-      }
+      unitPrice: 2.25
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })

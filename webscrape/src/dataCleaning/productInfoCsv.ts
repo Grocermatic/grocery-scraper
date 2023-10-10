@@ -1,4 +1,4 @@
-import { ProductInfo, ProductNutrition } from "../website/interface"
+import { ProductInfo } from "../website/interface"
 import { roundDecimal } from "../dataCleaning/roundDecimal"
 
 
