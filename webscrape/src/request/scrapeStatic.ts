@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { wait } from './wait'
 
 
 
@@ -8,6 +9,7 @@ export const scrapeStatic = async(url:string, cookie?:string):Promise<string> =>
   try {
     const proxyClient = axios.create({headers: headers})
     const response = await proxyClient.get(url)
+    await wait(1000)
     return response.data
   } catch (err:any) {
     return ''
