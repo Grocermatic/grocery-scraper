@@ -7,9 +7,7 @@ import { getProductInfo } from "./getProductInfo"
 export const getPageProductInfo = (productJson: string) => {
   const productInfos: ProductInfo[] = []
   const report = {
-    store: 'Woolworths',
     success: 0,
-    failure: 0,
     failedData: [] as any[]
   }
 
@@ -20,7 +18,6 @@ export const getPageProductInfo = (productJson: string) => {
       productInfos.push(productInfo)
       report.success += 1
     } catch {
-      report.failure += 1
       report.failedData.push(product)
     }
   }

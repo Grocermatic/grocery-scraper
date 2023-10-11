@@ -9,9 +9,7 @@ describe("Woolworths page scraper", () => {
     const expectedJson = fs.readFileSync(`${__dirname}/expected.test.json`).toString()
     const expectedPageProductInfo = JSON.parse(expectedJson)
     const expectedReport = {
-      store: 'Woolworths',
       success: 33,
-      failure: 0,
       failedData: []
     }
 
