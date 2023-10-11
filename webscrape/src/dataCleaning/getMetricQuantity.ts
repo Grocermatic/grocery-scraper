@@ -4,17 +4,18 @@ import { roundDecimal } from "./roundDecimal"
 
 
 
-export const getMetricQuantity = (quanityString:string):number => {
-  const numArray = getNumFromString(quanityString)
+export const getMetricQuantity = (quantityString:string):number => {
+  const numArray = getNumFromString(quantityString)
   if (numArray.length == 0) { return 0 }
 
   // Assume last number is associated with quantity
-  const unitMeasure = getUnitFromString(quanityString)
   let metricQuantity = numArray.slice(-1)[0]
 
-  if (['g', 'ml'].includes(unitMeasure)) {
-    metricQuantity /= 1000
-  }
+  // Get last 2 letters after quantity as units
+  const regex = new RegExp(`${metricQuantity}..?`)
+  const quantitySnippet = (quantityString.match(regex) as RegExpMatchArray)[0].split(' ').join('')
+  const unitMeasure = getUnitFromString(quantitySnippet)
 
+  if (['g', 'ml'].includes(unitMeasure)) metricQuantity /= 1000
   return roundDecimal(metricQuantity, 3)
 }
