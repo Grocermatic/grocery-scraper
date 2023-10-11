@@ -3,6 +3,11 @@ Minimise grocery cost and time, while meeting dietary guidelines.
 
 Disclaimer: I'm not a nutritionist, so I'm following the dietary guidelines.
 
+<div flex align="center">
+  <img src="https://img.shields.io/github/languages/code-size/menglinmaker/Grocermatic?style=flat-square">
+  <img src="https://img.shields.io/github/workflow/status/menglinmaker/Grocermatic/Continuous Integration?style=flat-square">
+</div>
+
 <div>&nbsp</div>
 
 ## Benefits
