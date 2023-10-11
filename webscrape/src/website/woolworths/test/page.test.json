@@ -274,7 +274,17 @@
           "WasPrice": 2.8,
           "InstoreWasPrice": 2.8,
           "QuantityInTrolley": 0,
-          "Unit": "Each"
+          "Unit": "Each",
+          "MinimumQuantity": 1,
+          "HasBeenBoughtBefore": false,
+          "IsInTrolley": false,
+          "Source": "Aisle.Freezer",
+          "SupplyLimit": 28,
+          "ProductLimit": 50,
+          "MaxSupplyLimitMessage": "28 item(s) left",
+          "IsRanged": true,
+          "IsInStock": true,
+          "PackageSize": "1Kg"
         }
       ]
     },
