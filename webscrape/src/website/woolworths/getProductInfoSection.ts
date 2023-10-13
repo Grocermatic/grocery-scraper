@@ -29,6 +29,8 @@ export const getProductInfoSection = async (pageLinkRequestDatum: [string, strin
     postRequestPayload['pageNumber'] = pageNumber
     const productJson = await postRequestJson(woolworthsProductListUrl, postRequestPayload, woolworthsCookie)
     if (productJson == '') { break }
+    const productListJson = JSON.parse(productJson)['Bundles']
+    if (productListJson.length == 0) { break }
 
     report.recordProductInfoPage(getProductInfoPage, productJson)
   }
