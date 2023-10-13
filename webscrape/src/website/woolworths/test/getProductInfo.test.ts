@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { getPageProductInfo } from '../getPageProductInfo'
+import { getProductInfoPage } from '../getProductInfoPage'
 
 
 
@@ -7,14 +7,9 @@ describe("Woolworths page scraper", () => {
   it("should parse product data", async () => {
     const testJson = fs.readFileSync(`${__dirname}/page.test.json`).toString()
     const expectedJson = fs.readFileSync(`${__dirname}/expected.test.json`).toString()
-    const expectedPageProductInfo = JSON.parse(expectedJson)
-    const expectedReport = {
-      success: 33,
-      failedData: []
-    }
+    const expectedReport = JSON.parse(expectedJson)
 
-    const { productInfos, report } = getPageProductInfo(testJson)
-    expect(productInfos).toEqual(expectedPageProductInfo)
-    expect(report).toEqual(expectedReport)
+    const report  = getProductInfoPage(testJson)
+    expect(report.get()).toEqual(expectedReport)
   })
 })
