@@ -7,11 +7,19 @@ export class ProductInfoReport {
   #report: {
     productInfo: ProductInfo[],
     failedProduct: any[],
-    failedSection: any[]
+    failedSection: any[],
+    scrapeSecond: number
   } = {
     productInfo: [],
     failedProduct: [],
-    failedSection: []
+    failedSection: [],
+    scrapeSecond: 0
+  }
+  #creationMilliSecond = Date.now()
+
+  recordScrapeSecond() {
+    this.#report.scrapeSecond = ( Date.now() - this.#creationMilliSecond ) / 1000
+    return this
   }
 
   get() { return this.#report }
@@ -41,7 +49,7 @@ export class ProductInfoReport {
 
   recordProductInfoPage(getPageProductInfo: any, rawPageData: string) {
     const page = getPageProductInfo(rawPageData)
-    this.#merge(page.report)
+    this.#merge(page)
   }
 
   async recordProductInfoSection(getSectionProductInfo: any, requestDatum: any, cookie: string) {

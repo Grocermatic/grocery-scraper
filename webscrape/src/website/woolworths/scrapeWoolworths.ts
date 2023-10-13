@@ -26,5 +26,5 @@ export const scrapeWoolworths = async (cookie: string) => {
   })
   await Promise.all(promiseArray)
 
-  return report.removeDuplicate()
+  return report.removeDuplicate().recordScrapeSecond()
 }
