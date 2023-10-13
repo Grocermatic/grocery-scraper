@@ -1,11 +1,11 @@
 /* istanbul ignore file */
 
 import { ProductInfoReport } from "../ProductInfoReport"
-import { getSectionProductInfo } from "./getSectionProductInfo"
+import { getProductInfoSection } from "./getProductInfoSection"
 
 
 
-export const getWoolworthsProductInfo = async (cookie: string) => {
+export const scrapeWoolworths = async (cookie: string) => {
   const report = new ProductInfoReport()
 
   // Page links with get request health star filters
@@ -22,7 +22,7 @@ export const getWoolworthsProductInfo = async (cookie: string) => {
   ]
 
   for (const pageRequestDatum of pageRequestData) {
-    await report.recordSectionProductInfo(getSectionProductInfo, pageRequestDatum, cookie)
+    await report.recordSectionProductInfo(getProductInfoSection, pageRequestDatum, cookie)
   }
   return report.removeDuplicate()
 }

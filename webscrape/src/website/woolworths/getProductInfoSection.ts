@@ -1,10 +1,10 @@
 import { postRequestJson } from "../../request/scrapeJson"
 import { ProductInfoReport } from "../ProductInfoReport"
-import { getPageProductInfo } from "./getPageProductInfo"
+import { getProductInfoPage } from "./getProductInfoPage"
 
 
 
-export const getSectionProductInfo = async (pageLinkRequestDatum: [string, string[]], woolworthsCookie: string) => {
+export const getProductInfoSection = async (pageLinkRequestDatum: [string, string[]], woolworthsCookie: string) => {
   const report = new ProductInfoReport()
 
   // Configure Woolworths post payload for section json
@@ -31,7 +31,7 @@ export const getSectionProductInfo = async (pageLinkRequestDatum: [string, strin
     const productJson = await postRequestJson(woolworthsProductListUrl, postRequestPayload, woolworthsCookie)
     if (productJson == '') { break }
 
-    report.recordPageProductInfo(getPageProductInfo, productJson)
+    report.recordPageProductInfo(getProductInfoPage, productJson)
   }
   return report
 }

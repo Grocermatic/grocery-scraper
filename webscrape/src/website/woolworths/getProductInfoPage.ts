@@ -4,7 +4,7 @@ import { getProductInfo } from "./getProductInfo"
 
 
 
-export const getPageProductInfo = (productJson: string) => {
+export const getProductInfoPage = (productJson: string) => {
   const report = new ProductInfoReport()
 
   const products = filterUncomparableProduct(productJson)
