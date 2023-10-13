@@ -3,19 +3,23 @@ import { GetProductInfo, ProductInfo } from "./interface"
 
 
 
+interface ProductInfoReportReport {
+  productInfo: ProductInfo[],
+  failedProduct: any[],
+  failedSection: any[],
+  scrapeSecond: number
+}
+
 export class ProductInfoReport {
-  #report: {
-    productInfo: ProductInfo[],
-    failedProduct: any[],
-    failedSection: any[],
-    scrapeSecond: number
-  } = {
+  #report: ProductInfoReportReport = {
     productInfo: [],
     failedProduct: [],
     failedSection: [],
     scrapeSecond: 0
   }
   #creationMilliSecond = Date.now()
+
+  constructor(report? : ProductInfoReportReport) { if (report) this.#report = report }
 
   recordScrapeSecond() {
     this.#report.scrapeSecond = ( Date.now() - this.#creationMilliSecond ) / 1000
