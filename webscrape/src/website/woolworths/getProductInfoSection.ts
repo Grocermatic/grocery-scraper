@@ -18,7 +18,6 @@ export const getProductInfoSection = async (pageLinkRequestDatum: [string, strin
       }
     ],
     'formatObject': '{}',
-    'gpBoost': 500,
     'pageNumber': 1,
     'pageSize': 36,
     'url': ''
