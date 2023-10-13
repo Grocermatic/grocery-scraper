@@ -1,5 +1,3 @@
-// Standardize product
-
 export interface ProductInfo {
   name: string
   url: string
@@ -10,13 +8,13 @@ export interface ProductInfo {
 }
 
 export interface GetProductInfo {
-  (html:string):ProductInfo | null
+  (product: any): ProductInfo
 }
 
 export interface GetBatchProductInfo {
-  (urls:string[]):Promise<ProductInfo[]>
+  (urls: string[]): Promise<ProductInfo[]>
 }
 
 export interface GetProductLinks {
-  ():Promise<string[]>
+  (): Promise<string[]>
 }

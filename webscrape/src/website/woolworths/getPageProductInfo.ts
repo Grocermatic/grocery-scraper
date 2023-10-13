@@ -1,25 +1,15 @@
-import { ProductInfo } from "../interface"
+import { ProductInfoReport } from "../ProductInfoReport"
 import { filterUncomparableProduct } from "./filterUncomparableProduct"
 import { getProductInfo } from "./getProductInfo"
 
 
 
 export const getPageProductInfo = (productJson: string) => {
-  const productInfos: ProductInfo[] = []
-  const report = {
-    success: 0,
-    failedData: [] as any[]
-  }
+  const report = new ProductInfoReport()
 
   const products = filterUncomparableProduct(productJson)
   for (const product of products) {
-    try {
-      const productInfo = getProductInfo(product)
-      productInfos.push(productInfo)
-      report.success += 1
-    } catch {
-      report.failedData.push(product)
-    }
+    report.recordProductInfo(getProductInfo, product)
   }
-  return { productInfos, report }
+  return report
 }
