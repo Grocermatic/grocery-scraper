@@ -21,8 +21,10 @@ export const scrapeWoolworths = async (cookie: string) => {
     ['1_5AF3A0A', ['4.5', '5', '5.0']] // 'https://www.woolworths.com.au/shop/browse/drinks?&filter=Healthstar(4.5%2C5%2C5.0)'
   ]
 
-  for (const pageRequestDatum of pageRequestData) {
-    await report.recordProductInfoSection(getProductInfoSection, pageRequestDatum, cookie)
-  }
+  const promiseArray = pageRequestData.map(pageData => {
+    return report.recordProductInfoSection(getProductInfoSection, pageData, cookie)
+  })
+  await Promise.all(promiseArray)
+
   return report.removeDuplicate()
 }
