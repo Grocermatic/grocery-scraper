@@ -33,7 +33,7 @@ export const getCookie = async(url:string):Promise<string> => {
 
   let cookies = ''
   try {
-    await page.goto(url, {waitUntil: 'load'})
+    await page.goto(url, {waitUntil: 'domcontentloaded'})
     const cookiesArray = await page.cookies(url)
     for (const cookieObject of cookiesArray) {
       cookies += `${cookieObject.name}=${cookieObject.value};`
