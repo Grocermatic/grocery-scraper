@@ -22,7 +22,7 @@ export const scrapeWoolworths = async (cookie: string) => {
   ]
 
   for (const pageRequestDatum of pageRequestData) {
-    await report.recordSectionProductInfo(getProductInfoSection, pageRequestDatum, cookie)
+    await report.recordProductInfoSection(getProductInfoSection, pageRequestDatum, cookie)
   }
   return report.removeDuplicate()
 }

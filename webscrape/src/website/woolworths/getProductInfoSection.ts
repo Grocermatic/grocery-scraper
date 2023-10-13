@@ -31,7 +31,7 @@ export const getProductInfoSection = async (pageLinkRequestDatum: [string, strin
     const productJson = await postRequestJson(woolworthsProductListUrl, postRequestPayload, woolworthsCookie)
     if (productJson == '') { break }
 
-    report.recordPageProductInfo(getProductInfoPage, productJson)
+    report.recordProductInfoPage(getProductInfoPage, productJson)
   }
   return report
 }

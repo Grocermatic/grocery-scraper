@@ -39,12 +39,12 @@ export class ProductInfoReport {
     }
   }
 
-  recordPageProductInfo(getPageProductInfo: any, rawPageData: string) {
+  recordProductInfoPage(getPageProductInfo: any, rawPageData: string) {
     const page = getPageProductInfo(rawPageData)
     this.#merge(page.report)
   }
 
-  async recordSectionProductInfo(getSectionProductInfo: any, requestDatum: any, cookie: string) {
+  async recordProductInfoSection(getSectionProductInfo: any, requestDatum: any, cookie: string) {
     try {
       const section = await getSectionProductInfo(requestDatum, cookie)
       this.#merge(section)
