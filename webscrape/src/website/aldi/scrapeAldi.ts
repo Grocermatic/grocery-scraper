@@ -1,12 +1,11 @@
-import { generateUniqueArray } from "../../dataCleaning/generateUniqueArray"
 import { scrapeStatic } from "../../request/scrapeStatic"
-import { ProductInfo } from "../interface"
+import { ProductInfoReport } from "../ProductInfoReport"
 import { aldiPageProducts } from "./getProductInfoPage"
 
 
 
-export const scrapeAldi = async(cookie?: string) => {
-  let productInfos:ProductInfo[] = []
+export const scrapeAldi = async (cookie?: string) => {
+  const report = new ProductInfoReport()
 
   const productLinks = [
     'https://www.aldi.com.au/en/groceries/super-savers/',
@@ -19,10 +18,7 @@ export const scrapeAldi = async(cookie?: string) => {
 
   for (const url of productLinks) {
     const html = await scrapeStatic(url, cookie)
-    const productInfoSublist = aldiPageProducts(html)
-    if (productInfoSublist.length > 0) {
-      productInfos = productInfos.concat(productInfoSublist)
-    }
+    report.recordProductInfoSection(aldiPageProducts, html, cookie)
   }
-  return generateUniqueArray(productInfos)
+  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }
