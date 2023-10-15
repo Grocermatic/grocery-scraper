@@ -51,12 +51,6 @@ describe("Aldi product scraper", () => {
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
-
-  it("should handle lack of JSON", async()=>{
-    const noJsonHtml = ''
-    const productInfo = getProductInfo(noJsonHtml)
-    expect(productInfo).toEqual(null)
-  })
 })
 
 
@@ -64,10 +58,10 @@ describe("Aldi product scraper", () => {
 describe("Aldi page scraper", () => {
   it("should parse product data", async()=>{
     const html = fs.readFileSync(`${__dirname}/freezer.test.html`).toString()
-    const productInfos = aldiPageProducts(html)
+    const report = aldiPageProducts(html)
     const expectedJson = fs.readFileSync(`${__dirname}/expected.test.json`).toString()
-    const expectedPageProductInfo = JSON.parse(expectedJson)
+    const expectedReport = JSON.parse(expectedJson)
 
-    expect(productInfos).toEqual(expectedPageProductInfo)
+    expect(report.get()).toEqual(expectedReport)
   })
 })

@@ -1,26 +1,22 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo, GetBatchProductInfo } from "../interface"
-import { scrapeStatic } from '../../request/scrapeStatic';
+import { ProductInfo } from "../interface"
 import { roundDecimal } from '../../dataCleaning/roundDecimal';
 import { getNumFromString } from '../../dataCleaning/getNumFromString';
-import { generateUniqueArray } from '../../dataCleaning/generateUniqueArray';
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
 
 
 
-export const getProductInfo = (html:string) => {
+export const getProductInfo = (html: string) => {
   // No json data is found for Aldi
   const $ = cheerio.load(html)
-  
-  const rawTitle = $('.box--description--header').text().trim()
-  if (rawTitle.length == 0) { return null }
 
+  const rawTitle = $('.box--description--header').text().trim()
   const rawTitleWords = rawTitle.split(' ')
 
   const rawQuantity = rawTitleWords[rawTitleWords.length - 1]
   let quantity = getMetricQuantity(rawQuantity)
-  
+
   // All price in dollars
   const smallNumbers = $('.box--decimal').text()
   let price = getNumFromString($('.box--value').text() + smallNumbers)[0]
@@ -33,7 +29,7 @@ export const getProductInfo = (html:string) => {
   if (imgContent) imgUrl = imgContent[0].slice(5, imgContent[0].length - 1)
 
   // Prefill mandatory values
-  const productInfo:ProductInfo = {
+  const productInfo: ProductInfo = {
     name: rawTitle.slice(0, -1 - rawQuantity.length),
     url: `${$('.box--wrapper').attr('href')}`,
     img: `${imgUrl}`,

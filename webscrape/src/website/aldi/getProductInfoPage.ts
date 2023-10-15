@@ -1,15 +1,16 @@
 import * as Cheerio from "cheerio"
 import { getProductInfo } from "./getProductInfo"
-import { ProductInfo } from "../interface"
+import { ProductInfoReport } from "../ProductInfoReport"
 
 
 
-export const aldiPageProducts = (html:string):ProductInfo[] => {
-  const productInfos:ProductInfo[] = []
+export const aldiPageProducts = (html:string) => {
+  const report = new ProductInfoReport()
+
   const $ = Cheerio.load(html)
   $('.box--wrapper').each((id, element: any) => {
-    const productInfo = getProductInfo($(element).toString())
-    if (productInfo != null) { productInfos.push(productInfo) }
+    report.recordProductInfo(getProductInfo, $(element).toString())
   })
-  return productInfos
+  console.log(report.get())
+  return report
 }
