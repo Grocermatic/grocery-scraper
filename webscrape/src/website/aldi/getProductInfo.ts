@@ -9,7 +9,7 @@ import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
 
 
 
-export const getAldiProductInfo = (html:string) => {
+export const getProductInfo = (html:string) => {
   // No json data is found for Aldi
   const $ = cheerio.load(html)
   
@@ -52,7 +52,7 @@ export const aldiPageProducts = (html:string):ProductInfo[] => {
   const productInfos:ProductInfo[] = []
   const $ = cheerio.load(html)
   $('.box--wrapper').each((index, element) => {
-    const productInfo = getAldiProductInfo($(element).toString())
+    const productInfo = getProductInfo($(element).toString())
     if (productInfo != null) { productInfos.push(productInfo) }
   })
   return productInfos
