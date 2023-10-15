@@ -1,6 +1,5 @@
-import { scrapeStatic } from "../../request/scrapeStatic"
 import { ProductInfoReport } from "../ProductInfoReport"
-import { aldiPageProducts } from "./getProductInfoPage"
+import { getProductInfoSection } from "./getProductInfoSection"
 
 
 
@@ -9,6 +8,7 @@ export const scrapeAldi = async (cookie?: string) => {
 
   const productLinks = [
     'https://www.aldi.com.au/en/groceries/super-savers/',
+    'https://www.aldi.com.au/en/groceries/limited-time-only/',
     'https://www.aldi.com.au/en/groceries/seasonal-range/',
     'https://www.aldi.com.au/en/groceries/price-reductions/',
     'https://www.aldi.com.au/en/groceries/freezer/',
@@ -16,9 +16,9 @@ export const scrapeAldi = async (cookie?: string) => {
     'https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/'
   ]
 
-  for (const url of productLinks) {
-    const html = await scrapeStatic(url, cookie)
-    report.recordProductInfoSection(aldiPageProducts, html, cookie)
-  }
+  const promiseArray = productLinks.map(url => {
+    return report.recordProductInfoSection(getProductInfoSection, url, cookie)
+  })
+  await Promise.all(promiseArray)
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }

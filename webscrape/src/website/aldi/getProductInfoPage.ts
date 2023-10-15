@@ -4,7 +4,7 @@ import { ProductInfoReport } from "../ProductInfoReport"
 
 
 
-export const aldiPageProducts = (html: string) => {
+export const getProductInfoPage = (html: string) => {
   const report = new ProductInfoReport()
 
   const $ = Cheerio.load(html)

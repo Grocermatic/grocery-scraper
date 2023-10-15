@@ -41,6 +41,14 @@
       "unitPrice": 0.35
     },
     {
+      "name": "Chocolate Stampede Dairy Snack",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/chocolate-stampede-dairy-snack-12pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/4/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_14_f56f1d7291.jpg",
+      "price": 4.99,
+      "quantity": 12,
+      "unitPrice": 0.42
+    },
+    {
       "name": "Expressi Peru #9 Coffee Capsules",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/expressi-peru-9-coffee-capsules-16pk/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/9/6/csm_10526_DE_Q_01_1x1_a5f49b671c.png",
@@ -73,12 +81,68 @@
       "unitPrice": 0.44
     },
     {
+      "name": "Expressi Peru #9 Coffee Capsules",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/expressi-peru-9-coffee-capsules-16pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/6/csm_10526_DE_Q_01_1x1_a5f49b671c.png",
+      "price": 6.99,
+      "quantity": 16,
+      "unitPrice": 0.44
+    },
+    {
+      "name": "Expressi Colombia #8 Coffee Capsules",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/expressi-colombia-8-coffee-capsules-16pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/a/csm_702051_DE_Q_01_1x1_6c070607da.png",
+      "price": 6.99,
+      "quantity": 16,
+      "unitPrice": 0.44
+    },
+    {
+      "name": "Expressi Cappuccino Capsules",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/expressi-cappuccino-capsules-16pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/6/csm_712133_DE_Q_01_1x1_b14f4b1c99.png",
+      "price": 6.99,
+      "quantity": 16,
+      "unitPrice": 0.44
+    },
+    {
+      "name": "Expressi Latte Macchiato Capsules",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/expressi-latte-macchiato-capsules-16pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/4/csm_712134_DE_Q_01_1x1_65992be9a4.png",
+      "price": 6.99,
+      "quantity": 16,
+      "unitPrice": 0.44
+    },
+    {
+      "name": "Marvellicious Choc Mousse",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/marvellicious-choc-mousse-12pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/f/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_47_7aedc4de26.jpg",
+      "price": 5.99,
+      "quantity": 12,
+      "unitPrice": 0.5
+    },
+    {
       "name": "Bakers Life Spiced Fruit Buns 450g",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/bakers-life-spiced-fruit-buns-450g-6pk/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/3/f/csm_1001961-2_SEASONAL_1x1_228x128_17_RET_930834d61e.png",
       "price": 3.69,
       "quantity": 6,
       "unitPrice": 0.62
+    },
+    {
+      "name": "Bakers Life Spiced Fruit Buns 450g",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/bakers-life-spiced-fruit-buns-450g-6pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/f/csm_1001961-2_SEASONAL_1x1_228x128_17_RET_930834d61e.png",
+      "price": 3.69,
+      "quantity": 6,
+      "unitPrice": 0.62
+    },
+    {
+      "name": "Snackers Market Tasty Cheese and Crackers",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-tasty-cheese-and-crackers-4pk/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/c/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_31_RET_6fde0cfbb4.png",
+      "price": 3.99,
+      "quantity": 4,
+      "unitPrice": 1
     },
     {
       "name": "Who Gives a Crap Recycled Toilet Paper",
@@ -97,6 +161,22 @@
       "unitPrice": 1.1
     },
     {
+      "name": "UHT Milk Soy",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-milk-soy-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/8/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_11_RET_47bf97c34a.png",
+      "price": 1.15,
+      "quantity": 1,
+      "unitPrice": 1.15
+    },
+    {
+      "name": "UHT Milk Soy Light",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-milk-soy-light-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_12_RET_53baee0459.png",
+      "price": 1.15,
+      "quantity": 1,
+      "unitPrice": 1.15
+    },
+    {
       "name": "Who Gives a Crap Bamboo Toilet Paper",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/who-gives-a-crap-bamboo-toilet-paper-12pk/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/6/3/csm_1000341-1_REDUCTIONS_FUTURE-PRICE-_RND2__1x1_228x128__7fcc0766bb.jpg",
@@ -113,11 +193,123 @@
       "unitPrice": 1.2
     },
     {
+      "name": "UHT Soy Organic Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-soy-organic-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/d/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_10_RET_14f70552c2.png",
+      "price": 1.49,
+      "quantity": 1,
+      "unitPrice": 1.49
+    },
+    {
+      "name": "Farmdale Lactose Free UHT Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-lactose-free-uht-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/6/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_7_RET_e6e8895d80.png",
+      "price": 1.59,
+      "quantity": 1,
+      "unitPrice": 1.59
+    },
+    {
+      "name": "Farmdale Lactose Free Low Fat UHT Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-lactose-free-low-fat-uht-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/f/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_8_RET_3cc8e62ef2.png",
+      "price": 1.59,
+      "quantity": 1,
+      "unitPrice": 1.59
+    },
+    {
+      "name": "Farmdale Full Cream Milk UHT",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-full-cream-milk-uht-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/e/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_35_073873fd3b.jpg",
+      "price": 3.29,
+      "quantity": 2,
+      "unitPrice": 1.65
+    },
+    {
+      "name": "Farmdale Skim Milk UHT",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-skim-milk-uht-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/d/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_36_c27bd65a6f.jpg",
+      "price": 3.29,
+      "quantity": 2,
+      "unitPrice": 1.65
+    },
+    {
+      "name": "Farmdale Full Cream Milk UHT",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-full-cream-milk-uht-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/4/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_4_RET_bd357744be.png",
+      "price": 1.69,
+      "quantity": 1,
+      "unitPrice": 1.69
+    },
+    {
+      "name": "Farmdale Light Milk UHT",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-light-milk-uht-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/5/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_5_RET_b51e979885.png",
+      "price": 1.69,
+      "quantity": 1,
+      "unitPrice": 1.69
+    },
+    {
+      "name": "Farmdale Skim Milk UHT",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-skim-milk-uht-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_6_RET_5d84f7cd95.png",
+      "price": 1.69,
+      "quantity": 1,
+      "unitPrice": 1.69
+    },
+    {
+      "name": "Milk UHT Almond Unsweetened",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/milk-uht-almond-unsweetened-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/1/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_13_RET_913ef0beac.png",
+      "price": 1.89,
+      "quantity": 1,
+      "unitPrice": 1.89
+    },
+    {
+      "name": "Milk UHT Almond Original",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/milk-uht-almond-original-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/7/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_14_RET_3863ec3afc.png",
+      "price": 1.89,
+      "quantity": 1,
+      "unitPrice": 1.89
+    },
+    {
+      "name": "UHT Oat Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-oat-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/d/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_15_RET_d17668900e.png",
+      "price": 1.89,
+      "quantity": 1,
+      "unitPrice": 1.89
+    },
+    {
+      "name": "Inner Goodness Long Life Rice Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-long-life-rice-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_51_RET_58c9a7da0a.png",
+      "price": 1.99,
+      "quantity": 1,
+      "unitPrice": 1.99
+    },
+    {
       "name": "Tricare Foaming Hand Wash Refill",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/tricare-foaming-hand-wash-refill-500ml-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/0/3/csm_1002153_REDUCTIONS_R19_1x1_228x128_1_RET_b97254b120.png",
       "price": 1,
       "quantity": 0.5,
+      "unitPrice": 2
+    },
+    {
+      "name": "CHAMP Iced Coffee Flavoured Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-iced-coffee-flavoured-milk-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/6/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_27_ba75f0363a.jpg",
+      "price": 3.99,
+      "quantity": 2,
+      "unitPrice": 2
+    },
+    {
+      "name": "CHAMP Chocolate Flavoured Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-chocolate-flavoured-milk-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/3/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_27_RET_8bea269896.png",
+      "price": 3.99,
+      "quantity": 2,
       "unitPrice": 2
     },
     {
@@ -137,6 +329,78 @@
       "unitPrice": 2.2
     },
     {
+      "name": "Inner Goodness Soy Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-soy-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/5/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_15_fa2f3a7c9d.jpg",
+      "price": 2.29,
+      "quantity": 1,
+      "unitPrice": 2.29
+    },
+    {
+      "name": "Farmdale Long Life Organic Full Cream Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-long-life-organic-full-cream-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/5/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_13_8f225738fc.jpg",
+      "price": 2.29,
+      "quantity": 1,
+      "unitPrice": 2.29
+    },
+    {
+      "name": "Pick’d Orange Pulp",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-orange-pulp-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/f/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_25_RET_4513897aeb.png",
+      "price": 4.69,
+      "quantity": 2,
+      "unitPrice": 2.35
+    },
+    {
+      "name": "Pick’d Orange Pulp Free",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-orange-pulp-free-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/7/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_26_RET_ad1fd85ee7.png",
+      "price": 4.69,
+      "quantity": 2,
+      "unitPrice": 2.35
+    },
+    {
+      "name": "Pick'd Cloudy Apple",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-cloudy-apple-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/b/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_39_RET_8698276636.png",
+      "price": 4.69,
+      "quantity": 2,
+      "unitPrice": 2.35
+    },
+    {
+      "name": "Farmdale Organic Full Cream Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-organic-full-cream-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/e/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_18_f7da08b286.jpg",
+      "price": 2.39,
+      "quantity": 1,
+      "unitPrice": 2.39
+    },
+    {
+      "name": "Farmdale Organic Light Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-organic-light-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/b/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_19_94ba911628.jpg",
+      "price": 2.39,
+      "quantity": 1,
+      "unitPrice": 2.39
+    },
+    {
+      "name": "Farmdale Custard",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-custard-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/e/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_53_f096b2a33b.jpg",
+      "price": 2.49,
+      "quantity": 1,
+      "unitPrice": 2.49
+    },
+    {
+      "name": "Pick'd Apple Mango",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-apple-mango-2l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_38_RET_3b18f0e83f.png",
+      "price": 4.99,
+      "quantity": 2,
+      "unitPrice": 2.5
+    },
+    {
       "name": "Market Fare Garden Frozen Peas",
       "url": "https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-garden-peas-1kg-3/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/4/a/csm_ALN2853_AWARDS_FROZEN_FOOD_1x1_228x128_3_591795a34d.jpg",
@@ -151,6 +415,54 @@
       "price": 2.79,
       "quantity": 1,
       "unitPrice": 2.79
+    },
+    {
+      "name": "Inner Goodness Almond Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-almond-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/6/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_16_c7b5136051.jpg",
+      "price": 2.79,
+      "quantity": 1,
+      "unitPrice": 2.79
+    },
+    {
+      "name": "Farmdale Lactose Free Full Cream Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-lactose-free-full-cream-milk-1l-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/d/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_37_e84441f66e.jpg",
+      "price": 2.79,
+      "quantity": 1,
+      "unitPrice": 2.79
+    },
+    {
+      "name": "Vanilla Flavoured Custard",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/vanilla-flavoured-custard-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/6/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_15_87e4eee3c0.jpg",
+      "price": 2.79,
+      "quantity": 1,
+      "unitPrice": 2.79
+    },
+    {
+      "name": "Inner Goodness - Barista Long Life Almond Unsweetened Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-barista-long-life-almond-unsweetene/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_47_RET_16adbbfb90.png",
+      "price": 2.99,
+      "quantity": 1,
+      "unitPrice": 2.99
+    },
+    {
+      "name": "Inner Goodness - Barista Long Life Oat Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-barista-long-life-oat-milk-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/8/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_48_RET_7da43b7a05.png",
+      "price": 2.99,
+      "quantity": 1,
+      "unitPrice": 2.99
+    },
+    {
+      "name": "Pick'd Orange Pulp",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-orange-pulp-1l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/5/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_40_RET_9ff36d0b91.png",
+      "price": 2.99,
+      "quantity": 1,
+      "unitPrice": 2.99
     },
     {
       "name": "Flying Power Energy Drink Guarana",
@@ -177,6 +489,22 @@
       "unitPrice": 3.29
     },
     {
+      "name": "Sunnyvale Table Spread",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-table-spread-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/6/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_43_3592ccb6b4.jpg",
+      "price": 3.29,
+      "quantity": 1,
+      "unitPrice": 3.29
+    },
+    {
+      "name": "Ocean Spray Classic Cranberry Drink",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/ocean-spray-classic-cranberry-drink-15l/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_711103_DE_Q_01_1x1_702f8b2db7.png",
+      "price": 4.99,
+      "quantity": 1.5,
+      "unitPrice": 3.33
+    },
+    {
       "name": "Ocean Spray Classic Cranberry Drink",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/ocean-spray-classic-cranberry-drink-15l/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_711103_DE_Q_01_1x1_702f8b2db7.png",
@@ -199,6 +527,22 @@
       "price": 0.89,
       "quantity": 0.25,
       "unitPrice": 3.56
+    },
+    {
+      "name": "Brooklea Joi Mango Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-joi-mango-yogurt-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/e/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_5_RET_7e3a6d1a41.png",
+      "price": 3.79,
+      "quantity": 1,
+      "unitPrice": 3.79
+    },
+    {
+      "name": "Brooklea Family Lite Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-family-lite-yogurt-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/b/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_6_RET_968b822e15.png",
+      "price": 3.79,
+      "quantity": 1,
+      "unitPrice": 3.79
     },
     {
       "name": "World Kitchen Fresh Noodles",
@@ -281,6 +625,14 @@
       "unitPrice": 4.5
     },
     {
+      "name": "Farmdale Sweetened Condensed Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-sweetened-condensed-milk-397g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/e/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_52_RET_6c158353e6.png",
+      "price": 1.79,
+      "quantity": 0.397,
+      "unitPrice": 4.51
+    },
+    {
       "name": "Seasons Pride Potato Wedges",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/seasons-pride-potato-wedges-750g-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/3/2/csm_1002153_REDUCTIONS_R30_1x1_228x128_2_RET_66345d529f.png",
@@ -289,12 +641,60 @@
       "unitPrice": 4.53
     },
     {
+      "name": "CHAMP Iced Coffee Flavoured Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-iced-coffee-flavoured-milk-600ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/a/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_29_ce2393340d.jpg",
+      "price": 2.79,
+      "quantity": 0.6,
+      "unitPrice": 4.65
+    },
+    {
+      "name": "CHAMP Chocolate Flavoured Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-chocolate-flavoured-milk-600ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/3/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_28_3ffb0dbb2f.jpg",
+      "price": 2.79,
+      "quantity": 0.6,
+      "unitPrice": 4.65
+    },
+    {
       "name": "Earth Grown Firm Tofu",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/earth-grown-firm-tofu-450g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/3/3/csm_1002153_REDUCTIONS_R22_1x1_228x128_6_RET_a88b51d922.png",
       "price": 2.2,
       "quantity": 0.45,
       "unitPrice": 4.89
+    },
+    {
+      "name": "Farmdale Evaporated Milk",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-evaporated-milk-384ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/7/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_53_RET_6fc04a4d68.png",
+      "price": 1.89,
+      "quantity": 0.384,
+      "unitPrice": 4.92
+    },
+    {
+      "name": "Beautifully Butterfully Caterer’s Selection Buttery Spread",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/beautifully-butterfully-caterers-selection-buttery/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/4/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_16_5126aa3593.jpg",
+      "price": 4.99,
+      "quantity": 1,
+      "unitPrice": 4.99
+    },
+    {
+      "name": "Brooklea Organic Natural Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-organic-natural-yogurt-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/9/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_7_RET_89c641d073.png",
+      "price": 4.99,
+      "quantity": 1,
+      "unitPrice": 4.99
+    },
+    {
+      "name": "Brooklea Organic Vanilla Bean Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-organic-vanilla-bean-yogurt-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/1/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_8_RET_8faff75aa5.png",
+      "price": 4.99,
+      "quantity": 1,
+      "unitPrice": 4.99
     },
     {
       "name": "Market Fare Frozen Stir Fry Vegetables",
@@ -313,6 +713,22 @@
       "unitPrice": 5.2
     },
     {
+      "name": "Sunnyvale Original Spread",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-original-spread-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/c/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_41_e24e8d04bc.jpg",
+      "price": 2.69,
+      "quantity": 0.5,
+      "unitPrice": 5.38
+    },
+    {
+      "name": "Lyttos Greek Style Natural Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lyttos-greek-style-natural-yogurt-2kg-3/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/2/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_4_RET_a785f0c55e.png",
+      "price": 11.49,
+      "quantity": 2,
+      "unitPrice": 5.75
+    },
+    {
       "name": "Market Fare Broccoli",
       "url": "https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-broccoli-500g-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/c/b/csm_ALN2853_AWARDS_FROZEN_FOOD_1x1_228x128_6_31d847d825.jpg",
@@ -327,6 +743,30 @@
       "price": 11.99,
       "quantity": 2,
       "unitPrice": 6
+    },
+    {
+      "name": "Premiere Indulgent Tropical",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-indulgent-tropical-990g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_44_RET_8e567cf879.png",
+      "price": 5.99,
+      "quantity": 0.99,
+      "unitPrice": 6.05
+    },
+    {
+      "name": "Premiere Indulgent Vanilla Bean",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-indulgent-vanilla-bean-990g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/d/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_45_RET_6edd9e37c8.png",
+      "price": 5.99,
+      "quantity": 0.99,
+      "unitPrice": 6.05
+    },
+    {
+      "name": "Premiere Indulgent Mix Berry",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-indulgent-mix-berry-990g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/c/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_46_RET_01524ac4e2.png",
+      "price": 5.99,
+      "quantity": 0.99,
+      "unitPrice": 6.05
     },
     {
       "name": "World Kitchen Lasagne",
@@ -345,12 +785,36 @@
       "unitPrice": 6.57
     },
     {
+      "name": "Brooklea Greek Style Yoghurt No Added Sugar",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-greek-style-yoghurt-no-added-sugar-750g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_3_RET_e649062582.png",
+      "price": 4.99,
+      "quantity": 0.75,
+      "unitPrice": 6.65
+    },
+    {
       "name": "The Pond Merlot",
       "url": "https://www.aldi.com.au/en/groceries/super-savers/super-savers-detail/ps/p/the-pond-merlot-750ml-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/6/7/csm_1002494_1x1_OCT-B1_228x128__12_RET_8bb98a2aab.png",
       "price": 5,
       "quantity": 0.75,
       "unitPrice": 6.67
+    },
+    {
+      "name": "Sunnyvale Olive Spread Regular",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-olive-spread-regular-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/e/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_39_59a4098933.jpg",
+      "price": 3.49,
+      "quantity": 0.5,
+      "unitPrice": 6.98
+    },
+    {
+      "name": "Sunnyvale Olive Spread Light",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-olive-spread-light-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/4/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_40_dfa3d78ec7.jpg",
+      "price": 3.49,
+      "quantity": 0.5,
+      "unitPrice": 6.98
     },
     {
       "name": "Atlas Kill & Protect Flying Insect Spray",
@@ -361,12 +825,28 @@
       "unitPrice": 7.33
     },
     {
+      "name": "Lodge Farms Extra Large Free Range Eggs",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lodge-farms-extra-large-free-range-eggs-12pk700g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/8/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_2_RET_f7b71fe940.png",
+      "price": 5.19,
+      "quantity": 0.7,
+      "unitPrice": 7.41
+    },
+    {
       "name": "Elmsbury Crispy Microwave Sausage Roll",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/elmsbury-crispy-microwave-sausage-roll-1pk175g-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/2/1/csm_1000341-6_REDUCTIONS_FUTURE-PRICE-_RND6__1x1_228x128__3dc28c84e5.jpg",
       "price": 1.3,
       "quantity": 0.175,
       "unitPrice": 7.43
+    },
+    {
+      "name": "FARMDALE Thickened Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-thickened-cream-600ml-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/4/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_30_8db06f2cb0.jpg",
+      "price": 4.49,
+      "quantity": 0.6,
+      "unitPrice": 7.48
     },
     {
       "name": "World Kitchen Pasta Sauces",
@@ -388,6 +868,22 @@
       "name": "Westacre Dairy Wrapped Cheese Slices",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/westacre-dairy-wrapped-cheese-slices-432g-2/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/6/1/csm_1002153_REDUCTIONS_R29_1x1_228x128_2_RET_324b23500b.png",
+      "price": 3.3,
+      "quantity": 0.432,
+      "unitPrice": 7.64
+    },
+    {
+      "name": "Westacre Dairy Wrapped Cheese Slices",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-wrapped-cheese-slices-432g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/2/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_17_RET_f2457fcd4d.png",
+      "price": 3.3,
+      "quantity": 0.432,
+      "unitPrice": 7.64
+    },
+    {
+      "name": "Westacre Dairy Wrapped Cheese Slices",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-wrapped-cheese-slices-432g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_18_RET_574fb09426.png",
       "price": 3.3,
       "quantity": 0.432,
       "unitPrice": 7.64
@@ -417,12 +913,44 @@
       "unitPrice": 8
     },
     {
+      "name": "Premiere Fruit Swirl Blueberry Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-fruit-swirl-blueberry-yogurt-720g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/c/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_9_RET_92604227bf.png",
+      "price": 5.79,
+      "quantity": 0.72,
+      "unitPrice": 8.04
+    },
+    {
       "name": "Sweet Vine Sweetened Dried Cranberries",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/sweet-vine-sweetened-dried-cranberries-170g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/d/a/csm_1002153_REDUCTIONS_R30_1x1_228x128_3_RET_0731e3700a.png",
       "price": 1.4,
       "quantity": 0.17,
       "unitPrice": 8.24
+    },
+    {
+      "name": "Food Envy Sweet Crepes",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-sweet-crepes-8pk480g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/0/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_17_73f0b20c55.jpg",
+      "price": 3.99,
+      "quantity": 0.48,
+      "unitPrice": 8.31
+    },
+    {
+      "name": "Café Series Mashed Potato Cheddar Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/caf-series-mashed-potato-cheddar-cheese-600g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/d/csm_712671_DE_Q_01_1x1_d7b4a0496a.png",
+      "price": 4.99,
+      "quantity": 0.6,
+      "unitPrice": 8.32
+    },
+    {
+      "name": "Lodge Farms Large Free Range Eggs",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lodge-farms-large-free-range-eggs-12pk600g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_1_RET_7e823d24d7.png",
+      "price": 4.99,
+      "quantity": 0.6,
+      "unitPrice": 8.32
     },
     {
       "name": "Café Series Mashed Potato Cheddar Cheese",
@@ -497,6 +1025,14 @@
       "unitPrice": 8.75
     },
     {
+      "name": "Westacre Dairy Smooth Ricotta",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-smooth-ricotta-375g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/c/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_2_RET_23a3c7d10a.png",
+      "price": 3.29,
+      "quantity": 0.375,
+      "unitPrice": 8.77
+    },
+    {
       "name": "Choceur Chocolate Bits",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/choceur-chocolate-bits-250g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/0/0/csm_1002153_REDUCTIONS_R21_1x1_228x128_1_RET_9c31ce54c9.png",
@@ -511,6 +1047,14 @@
       "price": 1.5,
       "quantity": 0.168,
       "unitPrice": 8.93
+    },
+    {
+      "name": "Sunnyvale Cholesterol Spread",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-cholesterol-spread-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/2/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_42_55ffc04f12.jpg",
+      "price": 4.49,
+      "quantity": 0.5,
+      "unitPrice": 8.98
     },
     {
       "name": "Atlas Multi Insect Spray",
@@ -553,6 +1097,30 @@
       "unitPrice": 9.3
     },
     {
+      "name": "FARMDALE Light Thickened Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-light-thickened-cream-300ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/a/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_31_768538229c.jpg",
+      "price": 2.79,
+      "quantity": 0.3,
+      "unitPrice": 9.3
+    },
+    {
+      "name": "Farmdale Pouring Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-pouring-cream-300ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/5/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_29_RET_5766ce02ce.png",
+      "price": 2.79,
+      "quantity": 0.3,
+      "unitPrice": 9.3
+    },
+    {
+      "name": "Farmdale Thickened Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-thickened-cream-300ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/5/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_30_RET_1efa46919e.png",
+      "price": 2.79,
+      "quantity": 0.3,
+      "unitPrice": 9.3
+    },
+    {
       "name": "Belmont Biscuit Co. Choco Bars",
       "url": "https://www.aldi.com.au/en/groceries/super-savers/super-savers-detail/ps/p/belmont-biscuit-co-choco-bars-9pk375g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/0/1/csm_1002494_1x1_OCT-B1_228x128__3_RET_e32e102432.png",
@@ -569,12 +1137,44 @@
       "unitPrice": 9.33
     },
     {
+      "name": "Beautifully Butterfully Dairy Spread",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/beautifully-butterfully-dairy-spread-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/7/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_14_RET_2e8ddf19ca.png",
+      "price": 4.79,
+      "quantity": 0.5,
+      "unitPrice": 9.58
+    },
+    {
       "name": "Westacre Dairy Tasty Cheese Block",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/westacre-dairy-tasty-cheese-block-1kg-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/4/9/csm_1002153_REDUCTIONS_R31_1x1_228x128_3_RET_5d6d1ba5a4.png",
       "price": 9.8,
       "quantity": 1,
       "unitPrice": 9.8
+    },
+    {
+      "name": "Brooklea Yogurt Squishies",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-yogurt-squishies-70g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/e/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_12_RET_cc0b55ce80.png",
+      "price": 0.69,
+      "quantity": 0.07,
+      "unitPrice": 9.86
+    },
+    {
+      "name": "Farmdale Full Cream Milk Powder",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-full-cream-milk-powder-1kg-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/b/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_9_RET_46e2e1eef4.png",
+      "price": 9.99,
+      "quantity": 1,
+      "unitPrice": 9.99
+    },
+    {
+      "name": "Westacre Dairy Tasty Cheese Block",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-block-1kg/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/6/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_13_90aec3596e.jpg",
+      "price": 9.99,
+      "quantity": 1,
+      "unitPrice": 9.99
     },
     {
       "name": "Ocean Royale Southern Blue Whiting Fillets Skin On",
@@ -609,6 +1209,22 @@
       "unitPrice": 10.58
     },
     {
+      "name": "FARMDALE Sour Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-sour-cream-300g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/f/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_33_687ba50e06.jpg",
+      "price": 3.19,
+      "quantity": 0.3,
+      "unitPrice": 10.63
+    },
+    {
+      "name": "FARMDALE Light Sour Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-light-sour-cream-300g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/9/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_34_d1ae85f778.jpg",
+      "price": 3.19,
+      "quantity": 0.3,
+      "unitPrice": 10.63
+    },
+    {
       "name": "Loire Valley Cabernet Franc Rosé",
       "url": "https://www.aldi.com.au/en/groceries/super-savers/super-savers-detail/ps/p/loire-valley-cabernet-franc-ros-750ml-2/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/0/d/csm_1002494_1x1_OCT-B1_228x128__11_RET_39b024abee.png",
@@ -625,12 +1241,28 @@
       "unitPrice": 10.98
     },
     {
+      "name": "Manhattan Cottage Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/manhattan-cottage-cheese-500g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/5/csm_ALN2853_AWARDS_CHEESE_1x1_228x128_4_03b377115d.jpg",
+      "price": 5.49,
+      "quantity": 0.5,
+      "unitPrice": 10.98
+    },
+    {
       "name": "The Olive Tree Extra Virgin Olive Oil",
       "url": "https://www.aldi.com.au/en/groceries/pantry/olive-oil/olive-oil-detail/ps/p/the-olive-tree-extra-virgin-olive-oil-1l/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/2/c/csm_1001829-1_Q1-WEB-AUDIT_OLIVE-OIL_1x1_228x128_1_RET_3b44b5f8e2.png",
       "price": 10.99,
       "quantity": 1,
       "unitPrice": 10.99
+    },
+    {
+      "name": "Sonora Foods Flatbread Slider",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/sonora-foods-flatbread-slider-8pk360g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/7/csm_714026_DE_Q_01_1x1_de4e270433.png",
+      "price": 3.99,
+      "quantity": 0.36,
+      "unitPrice": 11.08
     },
     {
       "name": "Sonora Foods Flatbread Slider",
@@ -662,6 +1294,14 @@
       "img": "https://www.aldi.com.au/fileadmin/_processed_/5/7/csm_1000341-8_REDUCTIONS_FUTURE-PRICE-_RND8__1x1_228x128_RET_ba412f86ea.png",
       "price": 4.5,
       "quantity": 0.4,
+      "unitPrice": 11.25
+    },
+    {
+      "name": "World Kitchen Sweet & Sour Chicken",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/world-kitchen-sweet-sour-chicken-800g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/1/csm_1000274-1_LTO_1x1__W34__228x128_7_RET_b83b4ed5b2.png",
+      "price": 9,
+      "quantity": 0.8,
       "unitPrice": 11.25
     },
     {
@@ -697,6 +1337,22 @@
       "unitPrice": 11.56
     },
     {
+      "name": "Sweet Haven Sticky Date Pudding",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/sweet-haven-sticky-date-pudding-475g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_1000274-1_LTO_1x1__W32__228x128_8_RET_59e4a50537.png",
+      "price": 5.49,
+      "quantity": 0.475,
+      "unitPrice": 11.56
+    },
+    {
+      "name": "Monarc Utopia Choc Cookie Ice Cream",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/monarc-utopia-choc-cookie-ice-cream-4pk428ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/2/csm_1000274-1_LTO_1x1__W32__228x128_7_RET_e2ce5bbc2f.png",
+      "price": 4.99,
+      "quantity": 0.428,
+      "unitPrice": 11.66
+    },
+    {
       "name": "Monarc Utopia Choc Cookie Ice Cream",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/monarc-utopia-choc-cookie-ice-cream-4pk428ml/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/e/2/csm_1000274-1_LTO_1x1__W32__228x128_7_RET_e2ce5bbc2f.png",
@@ -719,6 +1375,30 @@
       "price": 5.99,
       "quantity": 0.5,
       "unitPrice": 11.98
+    },
+    {
+      "name": "Food Envy Italian Family Desserts",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-italian-family-desserts-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/7/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_20_ef22d1b70f.jpg",
+      "price": 5.99,
+      "quantity": 0.5,
+      "unitPrice": 11.98
+    },
+    {
+      "name": "Della Rosa Stone Baked BBQ Chicken & Pineapple Pizza",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/della-rosa-stone-baked-bbq-chicken-pineapple-pizza/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/d/csm_1000274-1_LTO_1x1__W32__228x128_10_RET_70a9c075b9.png",
+      "price": 5.99,
+      "quantity": 0.5,
+      "unitPrice": 11.98
+    },
+    {
+      "name": "Urban Eats Greek Tiropita",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/urban-eats-greek-tiropita-750g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/5/csm_706294_DE_Q_01_1x1_f4ee6f2f7e.png",
+      "price": 8.99,
+      "quantity": 0.75,
+      "unitPrice": 11.99
     },
     {
       "name": "Urban Eats Greek Tiropita",
@@ -785,6 +1465,30 @@
       "unitPrice": 12.73
     },
     {
+      "name": "World Kitchen Italian Feast Pizza",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/world-kitchen-italian-feast-pizza-510g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/4/csm_1000274-1_LTO_1x1__W34__228x128_5_RET_3293d56e8b.png",
+      "price": 6.49,
+      "quantity": 0.51,
+      "unitPrice": 12.73
+    },
+    {
+      "name": "Pure Valley Salted Butter",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-salted-butter-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/d/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_17_RET_d8e87e919a.png",
+      "price": 6.39,
+      "quantity": 0.5,
+      "unitPrice": 12.78
+    },
+    {
+      "name": "Pure Valley Unsalted Butter",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-unsalted-butter-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/a/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_18_RET_e96d59f184.png",
+      "price": 6.39,
+      "quantity": 0.5,
+      "unitPrice": 12.78
+    },
+    {
       "name": "Ready, Set…Cook! Beef Burgers",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/ready-setcook-beef-burgers-4pk500g-2/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/9/e/csm_1002153_REDUCTIONS_R35_1x1_228x128_1_RET_22976c21f2.png",
@@ -817,6 +1521,22 @@
       "unitPrice": 13.3
     },
     {
+      "name": "Mon Since 1899 Flavoured Mayonnaise",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/mon-since-1899-flavoured-mayonnaise-300ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/3/csm_708746_DE_Q_01_1x1_8b0438d34e.png",
+      "price": 3.99,
+      "quantity": 0.3,
+      "unitPrice": 13.3
+    },
+    {
+      "name": "Aunty Kath's Cookie Dough Choc Chip",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/aunty-kaths-cookie-dough-choc-chip-450g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/9/csm_713696_DE_Q_01_1x1_65cf50c258.png",
+      "price": 5.99,
+      "quantity": 0.45,
+      "unitPrice": 13.31
+    },
+    {
       "name": "Aunty Kath's Cookie Dough Choc Chip",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/aunty-kaths-cookie-dough-choc-chip-450g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/a/9/csm_713696_DE_Q_01_1x1_65cf50c258.png",
@@ -833,12 +1553,44 @@
       "unitPrice": 13.33
     },
     {
+      "name": "Westacre Dairy Shredded Tasty Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-shredded-tasty-cheese-700g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/f/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_9_3304c6548d.jpg",
+      "price": 9.49,
+      "quantity": 0.7,
+      "unitPrice": 13.56
+    },
+    {
       "name": "Oh So Natural Organic Extra Virgin Coconut Oil",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/oh-so-natural-organic-extra-virgin-coconut-oil-300/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/c/0/csm_1002153_REDUCTIONS_R46_1x1_228x128_5_RET_af5f84a229.png",
       "price": 4.1,
       "quantity": 0.3,
       "unitPrice": 13.67
+    },
+    {
+      "name": "Yoguri High Protein Cup Vanilla",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/yoguri-high-protein-cup-vanilla-160g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/9/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_41_RET_1a7f0942f4.png",
+      "price": 2.19,
+      "quantity": 0.16,
+      "unitPrice": 13.69
+    },
+    {
+      "name": "Yoguri High Protein Cup Strawberry",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/yoguri-high-protein-cup-strawberry-160g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/1/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_42_RET_96dc85aedb.png",
+      "price": 2.19,
+      "quantity": 0.16,
+      "unitPrice": 13.69
+    },
+    {
+      "name": "Yoguri High Protein Cup Salted Caramel",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/yoguri-high-protein-cup-salted-caramel-160g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/c/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_43_RET_bff8281ae5.png",
+      "price": 2.19,
+      "quantity": 0.16,
+      "unitPrice": 13.69
     },
     {
       "name": "Specially Selected Potato Gratin Mushroom & Truffle",
@@ -857,12 +1609,52 @@
       "unitPrice": 13.73
     },
     {
+      "name": "Specially Selected Potato Gratin Mushroom & Truffle",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/specially-selected-potato-gratin-mushroom-truffle/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/7/csm_701304_DE_Q_01_1x1_af468beb34.png",
+      "price": 5.49,
+      "quantity": 0.4,
+      "unitPrice": 13.73
+    },
+    {
       "name": "Ocean Royale Marinara Mix",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/ocean-royale-marinara-mix-800g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/a/3/csm_1002153_REDUCTIONS_R34_1x1_228x128_1_RET_c4998530a3.png",
       "price": 11,
       "quantity": 0.8,
       "unitPrice": 13.75
+    },
+    {
+      "name": "Westacre Dairy Tasty Cheese Block",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-block-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/f/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_12_08d2db3efa.jpg",
+      "price": 6.99,
+      "quantity": 0.5,
+      "unitPrice": 13.98
+    },
+    {
+      "name": "Westacre Dairy Vintage Cheese Block",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-vintage-cheese-block-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/0/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_14_92d3a61363.jpg",
+      "price": 6.99,
+      "quantity": 0.5,
+      "unitPrice": 13.98
+    },
+    {
+      "name": "Westacre Colby Cheese Block",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-colby-cheese-block-500g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/0/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_16_RET_060a5543cd.png",
+      "price": 6.99,
+      "quantity": 0.5,
+      "unitPrice": 13.98
+    },
+    {
+      "name": "Urban Eats Spinach Pakora or Onion Bhaji",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/urban-eats-spinach-pakora-or-onion-bhaji-283g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/3/csm_1000274-1_LTO_1x1__W32__228x128_2_RET_da79eb536e.png",
+      "price": 3.99,
+      "quantity": 0.283,
+      "unitPrice": 14.1
     },
     {
       "name": "Urban Eats Spinach Pakora or Onion Bhaji",
@@ -879,6 +1671,14 @@
       "price": 1.2,
       "quantity": 0.085,
       "unitPrice": 14.12
+    },
+    {
+      "name": "Chocolate Stampede Dairy Snack",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/chocolate-stampede-dairy-snack-140g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/c/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_44_565cb72d82.jpg",
+      "price": 1.99,
+      "quantity": 0.14,
+      "unitPrice": 14.21
     },
     {
       "name": "Sunny Brand Korean Beef Dumplings",
@@ -905,6 +1705,38 @@
       "unitPrice": 14.72
     },
     {
+      "name": "Pure Valley Salted Butter",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-salted-butter-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/b/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_16_RET_c57c0b709d.png",
+      "price": 3.69,
+      "quantity": 0.25,
+      "unitPrice": 14.76
+    },
+    {
+      "name": "Pure Valley Unsalted Butter",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-unsalted-butter-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/9/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_1_RET_c09bb28b42.png",
+      "price": 3.69,
+      "quantity": 0.25,
+      "unitPrice": 14.76
+    },
+    {
+      "name": "Emporium Selection Danish Style Fetta Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-danish-style-fetta-cheese-200g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/a/csm_ALN1000838-3_AWARDS_1x1_228x128_2_877d7f684f.jpg",
+      "price": 2.99,
+      "quantity": 0.2,
+      "unitPrice": 14.95
+    },
+    {
+      "name": "Emporium Selection Greek Style Fetta Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-greek-style-fetta-cheese-200g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/c/csm_ALN1000838-3_AWARDS_1x1_228x128_3_6211a449db.jpg",
+      "price": 2.99,
+      "quantity": 0.2,
+      "unitPrice": 14.95
+    },
+    {
       "name": "Protane Keratin Shampoo or Conditioner",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/protane-keratin-shampoo-or-conditioner-400ml/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/6/7/csm_713111_DE_Q_01_1x1_0afa23c115.png",
@@ -918,6 +1750,14 @@
       "img": "https://www.aldi.com.au/fileadmin/_processed_/f/b/csm_1001829-1_Q1-WEB-AUDIT_OLIVE-OIL_1x1_228x128_6_RET_df25927383.png",
       "price": 7.49,
       "quantity": 0.5,
+      "unitPrice": 14.98
+    },
+    {
+      "name": "Protane Keratin Shampoo or Conditioner",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/protane-keratin-shampoo-or-conditioner-400ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/7/csm_713111_DE_Q_01_1x1_0afa23c115.png",
+      "price": 5.99,
+      "quantity": 0.4,
       "unitPrice": 14.98
     },
     {
@@ -953,12 +1793,52 @@
       "unitPrice": 15.59
     },
     {
+      "name": "Urban Eats Cauliflower Buffalo Wings",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/urban-eats-cauliflower-buffalo-wings-320g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/c/csm_704495_DE_Q_01_1x1_c01a57a40d.png",
+      "price": 4.99,
+      "quantity": 0.32,
+      "unitPrice": 15.59
+    },
+    {
+      "name": "Food Envy Mini Dutch Pancakes",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-mini-dutch-pancakes-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/7/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_18_6fb664c9f3.jpg",
+      "price": 3.99,
+      "quantity": 0.25,
+      "unitPrice": 15.96
+    },
+    {
       "name": "Bundaberg Spiced Ginger Beer",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/bundaberg-spiced-ginger-beer-4x375ml/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/8/f/csm_707339_DE_Q_01_1x1_f0c33b5e91.png",
       "price": 5.99,
       "quantity": 0.375,
       "unitPrice": 15.97
+    },
+    {
+      "name": "Bundaberg Spiced Ginger Beer",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/bundaberg-spiced-ginger-beer-4x375ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/f/csm_707339_DE_Q_01_1x1_f0c33b5e91.png",
+      "price": 5.99,
+      "quantity": 0.375,
+      "unitPrice": 15.97
+    },
+    {
+      "name": "Soupcon De Fruit Rosé",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/soupcon-de-fruit-ros-750ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/6/csm_712934_DE_Q_01_1x1_e8e446f798.png",
+      "price": 11.99,
+      "quantity": 0.75,
+      "unitPrice": 15.99
+    },
+    {
+      "name": "L'Expression Pinot Gris",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/lexpression-pinot-gris-750ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/e/csm_702857_DE_Q_01_1x1_58a9f37f7c.png",
+      "price": 11.99,
+      "quantity": 0.75,
+      "unitPrice": 15.99
     },
     {
       "name": "Soupcon De Fruit Rosé",
@@ -1001,12 +1881,52 @@
       "unitPrice": 16.67
     },
     {
+      "name": "Food Envy Crème Caramel 2 x",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-creme-caramel-2-x-150g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/1/csm_ALN3248_Q1_WEB-AUDIT__DAIRY_EGGS__1x1_228x128_6_07c958019c.jpg",
+      "price": 2.5,
+      "quantity": 0.15,
+      "unitPrice": 16.67
+    },
+    {
+      "name": "Brooklea Yogurt Assorted Varieties",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-yogurt-assorted-varieties-100g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/7/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_13_RET_R_99ff7c7c64.png",
+      "price": 1.69,
+      "quantity": 0.1,
+      "unitPrice": 16.9
+    },
+    {
+      "name": "Westacre Dairy Tasty Cheese Slices",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-slices-500g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/5/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_11_a1f9ab4c69.jpg",
+      "price": 8.49,
+      "quantity": 0.5,
+      "unitPrice": 16.98
+    },
+    {
       "name": "Ombra Sunscreen SPF 50+",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/ombra-sunscreen-spf-50-500ml/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/1/5/csm_11562_DE_Q_01_1x1_0d1bea2048.png",
       "price": 8.69,
       "quantity": 0.5,
       "unitPrice": 17.38
+    },
+    {
+      "name": "Ombra Sunscreen SPF 50+",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/ombra-sunscreen-spf-50-500ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/5/csm_11562_DE_Q_01_1x1_0d1bea2048.png",
+      "price": 8.69,
+      "quantity": 0.5,
+      "unitPrice": 17.38
+    },
+    {
+      "name": "Blackstone Gourmet Snack Co. Black Edition Deli Style Chips",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/blackstone-gourmet-snack-co-black-edition-deli-sty/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/4/csm_713073_DE_Q_01_1x1_5d048f697b.png",
+      "price": 3.49,
+      "quantity": 0.2,
+      "unitPrice": 17.45
     },
     {
       "name": "Blackstone Gourmet Snack Co. Black Edition Deli Style Chips",
@@ -1033,6 +1953,30 @@
       "unitPrice": 17.5
     },
     {
+      "name": "Forresters Sweet & Salty Snack Mix",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/forresters-sweet-salty-snack-mix-200g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/9/csm_1001961-2_SEASONAL_1x1_228x128_B4_12_RET_0d91b21b40.png",
+      "price": 3.5,
+      "quantity": 0.2,
+      "unitPrice": 17.5
+    },
+    {
+      "name": "Food Envy Rice Pudding Vanilla Bean 2 x",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-rice-pudding-vanilla-bean-2-x-170g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/c/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_19_223a4235f9.jpg",
+      "price": 2.99,
+      "quantity": 0.17,
+      "unitPrice": 17.59
+    },
+    {
+      "name": "Choceur Peanut & Caramel Chocolate Block",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/choceur-peanut-caramel-chocolate-block-197g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/8/csm_1001961-2_SEASONAL_1x1_228x128_B4_6_RET_9cea69aa56.png",
+      "price": 3.49,
+      "quantity": 0.197,
+      "unitPrice": 17.72
+    },
+    {
       "name": "Choceur Peanut & Caramel Chocolate Block",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/choceur-peanut-caramel-chocolate-block-197g-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/c/8/csm_1001961-2_SEASONAL_1x1_228x128_B4_6_RET_9cea69aa56.png",
@@ -1057,6 +2001,22 @@
       "unitPrice": 17.78
     },
     {
+      "name": "Emporium Selection Apricot & Almond Cream Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-apricot-almond-cream-cheese-200-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/2/csm_ALN2853_AWARDS_CHEESE_1x1_228x128_5_45551ddf4a.jpg",
+      "price": 3.59,
+      "quantity": 0.2,
+      "unitPrice": 17.95
+    },
+    {
+      "name": "Pure Valley Salted Organic Butter",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-salted-organic-butter-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/5/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_15_RET_83f486cedd.png",
+      "price": 4.49,
+      "quantity": 0.25,
+      "unitPrice": 17.96
+    },
+    {
       "name": "White Mill Cake in a Mug",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/white-mill-cake-in-a-mug-55g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/b/3/csm_709129_DE_Q_01_1x1_d77f456bf4.png",
@@ -1071,6 +2031,22 @@
       "price": 4.5,
       "quantity": 0.25,
       "unitPrice": 18
+    },
+    {
+      "name": "White Mill Cake in a Mug",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/white-mill-cake-in-a-mug-55g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/3/csm_709129_DE_Q_01_1x1_d77f456bf4.png",
+      "price": 0.99,
+      "quantity": 0.055,
+      "unitPrice": 18
+    },
+    {
+      "name": "World Kitchen Pork & Ginger Dumplings",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/world-kitchen-pork-ginger-dumplings-300g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/0/csm_1000274-1_LTO_1x1__W34__228x128_3_RET_4f0da407d2.png",
+      "price": 5.49,
+      "quantity": 0.3,
+      "unitPrice": 18.3
     },
     {
       "name": "World Kitchen Pork & Ginger Dumplings",
@@ -1097,6 +2073,14 @@
       "unitPrice": 18.65
     },
     {
+      "name": "Collezione Oro Prosecco DOC Rosé",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/collezione-oro-prosecco-doc-ros-750ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/d/csm_705823_DE_Q_01_1x1_f19553ed1e.png",
+      "price": 13.99,
+      "quantity": 0.75,
+      "unitPrice": 18.65
+    },
+    {
       "name": "Freedom Farms RSPCA Approved Chicken Marinated Breast Fillet Steaks",
       "url": "https://www.aldi.com.au/en/groceries/super-savers/super-savers-detail/ps/p/freedom-farms-rspca-approved-chicken-marinated-bre/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/3/e/csm_4223_SSV_MEAT_1x1_3_RET_6fcc20b99b.png",
@@ -1111,6 +2095,14 @@
       "price": 1.6,
       "quantity": 0.085,
       "unitPrice": 18.82
+    },
+    {
+      "name": "Choceur Cookies & Cream Chocolate Block",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/choceur-cookies-cream-chocolate-block-185g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/c/csm_1001961-2_SEASONAL_1x1_228x128_B4_5_RET_84a1517478.png",
+      "price": 3.49,
+      "quantity": 0.185,
+      "unitPrice": 18.86
     },
     {
       "name": "Choceur Cookies & Cream Chocolate Block",
@@ -1151,6 +2143,22 @@
       "price": 2.99,
       "quantity": 0.15,
       "unitPrice": 19.93
+    },
+    {
+      "name": "Sweet Vine Apricot Delights",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/sweet-vine-apricot-delights-150g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/2/csm_1001961-2_SEASONAL_1x1_228x128_B4_10_RET_fb48dc4594.png",
+      "price": 2.99,
+      "quantity": 0.15,
+      "unitPrice": 19.93
+    },
+    {
+      "name": "Westacre Dairy Shredded Tasty Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-shredded-tasty-cheese-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/a/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_8_e8b92300cc.jpg",
+      "price": 4.99,
+      "quantity": 0.25,
+      "unitPrice": 19.96
     },
     {
       "name": "Cobram Estate  Australia Extra Virgin Olive Oil",
@@ -1201,6 +2209,14 @@
       "unitPrice": 20.66
     },
     {
+      "name": "Farmdale Whipped Cream",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-whipped-cream-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/9/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_17_47dad4f98a.jpg",
+      "price": 5.29,
+      "quantity": 0.25,
+      "unitPrice": 21.16
+    },
+    {
       "name": "Ocean Royale Salmon Wellington",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/ocean-royale-salmon-wellington-280g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/5/a/csm_1000341-7_REDUCTIONS_FUTURE-PRICE-_RND7__1x1_228x128_2_b296e20085.jpg",
@@ -1209,12 +2225,100 @@
       "unitPrice": 21.43
     },
     {
+      "name": "Westacre Dairy Tasty Cheese Block",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-block-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/1/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_20_24ef4dfcd1.jpg",
+      "price": 5.49,
+      "quantity": 0.25,
+      "unitPrice": 21.96
+    },
+    {
+      "name": "Westacre Dairy Vintage Cheese Slices",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-vintage-cheese-slices-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/a/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_6_f09f0ae7fa.jpg",
+      "price": 5.49,
+      "quantity": 0.25,
+      "unitPrice": 21.96
+    },
+    {
+      "name": "Westacre Dairy Tasty Cheese Slices",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-slices-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/2/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_7_90227986ed.jpg",
+      "price": 5.49,
+      "quantity": 0.25,
+      "unitPrice": 21.96
+    },
+    {
       "name": "Ocean Royale Cooked Prawn Cutlets",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/ocean-royale-cooked-prawn-cutlets-500g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/c/7/csm_1000341-6_REDUCTIONS_FUTURE-PRICE-_RND6__1x1_228x128_3_78074ae919.jpg",
       "price": 11,
       "quantity": 0.5,
       "unitPrice": 22
+    },
+    {
+      "name": "Emporium Selection Persian Fetta",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-persian-fetta-180g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/4/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_6_344e6445f9.jpg",
+      "price": 3.99,
+      "quantity": 0.18,
+      "unitPrice": 22.17
+    },
+    {
+      "name": "Emporium Selection Camembert",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-camembert-125g-2/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_4_63d9773acf.jpg",
+      "price": 2.79,
+      "quantity": 0.125,
+      "unitPrice": 22.32
+    },
+    {
+      "name": "Emporium Selection Brie",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-brie-125g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_5_9bfbfcabf7.jpg",
+      "price": 2.79,
+      "quantity": 0.125,
+      "unitPrice": 22.32
+    },
+    {
+      "name": "Snackers Market Cheese Strips",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-strips-8pk168g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/0/csm_1001605-11_1x1_Q4_WEB-AUDIT_SNACKS_228x128_6_88316db964.jpg",
+      "price": 3.79,
+      "quantity": 0.168,
+      "unitPrice": 22.56
+    },
+    {
+      "name": "Vanilla Flavoured Custard Pouch",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/vanilla-flavoured-custard-pouch-70g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/2/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_45_b5f0367005.jpg",
+      "price": 1.59,
+      "quantity": 0.07,
+      "unitPrice": 22.71
+    },
+    {
+      "name": "Chocolate Flavoured Custard Pouch",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/chocolate-flavoured-custard-pouch-70g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/1/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_46_a160a8745f.jpg",
+      "price": 1.59,
+      "quantity": 0.07,
+      "unitPrice": 22.71
+    },
+    {
+      "name": "Westacre Dairy Shredded Parmesan Cheese",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-shredded-parmesan-cheese-250g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/7/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_10_17ec841a87.jpg",
+      "price": 5.69,
+      "quantity": 0.25,
+      "unitPrice": 22.76
+    },
+    {
+      "name": "Mini Croissants",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/mini-croissants-8pk160g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/c/csm_714248_DE_Q_01_1x1_ed4176ca6e.png",
+      "price": 3.69,
+      "quantity": 0.16,
+      "unitPrice": 23.06
     },
     {
       "name": "Mini Croissants",
@@ -1249,12 +2353,44 @@
       "unitPrice": 23.92
     },
     {
+      "name": "Moser Roth Dark Ginger Lime Chocolate Block",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/moser-roth-dark-ginger-lime-chocolate-block-125g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/6/csm_1001961-2_SEASONAL_1x1_228x128_B4_7_RET_28a2e9fa01.png",
+      "price": 2.99,
+      "quantity": 0.125,
+      "unitPrice": 23.92
+    },
+    {
+      "name": "Moser Roth Dark Cranberry Chocolate Block",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/moser-roth-dark-cranberry-chocolate-block-125g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/b/csm_1001961-2_SEASONAL_1x1_228x128_B4_8_RET_05136c3f38.png",
+      "price": 2.99,
+      "quantity": 0.125,
+      "unitPrice": 23.92
+    },
+    {
       "name": "Berg Diced Bacon Pieces 2 x",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/berg-diced-bacon-pieces-2-x-150g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/4/7/csm_1000341-1_REDUCTIONS_FUTURE-PRICE-_RND2__1x1_228x128_5_38a86ca059.jpg",
       "price": 3.7,
       "quantity": 0.15,
       "unitPrice": 24.67
+    },
+    {
+      "name": "Emporium Selection Double Cream Camembert",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-double-cream-camembert-200g-7/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_2_1144bfa615.jpg",
+      "price": 4.99,
+      "quantity": 0.2,
+      "unitPrice": 24.95
+    },
+    {
+      "name": "Emporium Selection Triple Cream Brie",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-triple-cream-brie-200g-7/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/5/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_3_c81c34a3e7.jpg",
+      "price": 4.99,
+      "quantity": 0.2,
+      "unitPrice": 24.95
     },
     {
       "name": "Moser Roth Organic Single Origin Chocolate",
@@ -1273,6 +2409,30 @@
       "unitPrice": 25
     },
     {
+      "name": "Snackers Market Dip & Crackers",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-dip-crackers-65g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/5/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_19_RET_c83515a354.png",
+      "price": 1.69,
+      "quantity": 0.065,
+      "unitPrice": 26
+    },
+    {
+      "name": "Brooklea Joi Deluxe Yogurt Classics 6 x",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-joi-deluxe-yogurt-classics-6-x-150g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/b/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_11_RET_0c87f6f972.png",
+      "price": 3.99,
+      "quantity": 0.15,
+      "unitPrice": 26.6
+    },
+    {
+      "name": "Snackers Market Cheese Streamers",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-streamers-160g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/2/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_32_RET_4ffd57aba7.png",
+      "price": 4.29,
+      "quantity": 0.16,
+      "unitPrice": 26.81
+    },
+    {
       "name": "Urban Food Co Pigs in Blankets",
       "url": "https://www.aldi.com.au/en/groceries/super-savers/super-savers-detail/ps/p/urban-food-co-pigs-in-blankets-original-290g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/4/f/csm_4223_SSV_MEAT_1x1_1_RET_9c41779397.png",
@@ -1281,12 +2441,36 @@
       "unitPrice": 27.55
     },
     {
+      "name": "Snackers Market Edam Gouda Squares",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-edam-gouda-squares-100g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/7/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_34_RET_3bab19f358.png",
+      "price": 2.99,
+      "quantity": 0.1,
+      "unitPrice": 29.9
+    },
+    {
+      "name": "Emporium Selection Ash Brie",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-ash-brie-150g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/3/csm_ALN2793_CHEESE_DAIRY_AWARDS_1x1_228x128_7_49255c4472.jpg",
+      "price": 4.49,
+      "quantity": 0.15,
+      "unitPrice": 29.93
+    },
+    {
       "name": "Ocean Royale Wild Raw Peeled Prawns",
       "url": "https://www.aldi.com.au/en/groceries/price-reductions/reductions-detail/ps/p/ocean-royale-wild-raw-peeled-prawns-500g-3/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/1/1/csm_1002153_REDUCTIONS_R42_1x1_228x128_1_RET_137dc035db.png",
       "price": 15,
       "quantity": 0.5,
       "unitPrice": 30
+    },
+    {
+      "name": "Premiére Mango Yogurt",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premire-mango-yogurt-4x115g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/7/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_10_RET_3d637e8e37.png",
+      "price": 3.49,
+      "quantity": 0.115,
+      "unitPrice": 30.35
     },
     {
       "name": "Forresters Roasted & Salted Macadamias",
@@ -1303,6 +2487,30 @@
       "price": 13,
       "quantity": 0.4,
       "unitPrice": 32.5
+    },
+    {
+      "name": "Food Envy Chocolate Mousse 2 x",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-chocolate-mousse-2-x-62g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/e/csm_ALN3248_Q1_WEB-AUDIT__DAIRY_EGGS__1x1_228x128_4_e3a0ee5c70.jpg",
+      "price": 2.49,
+      "quantity": 0.062,
+      "unitPrice": 40.16
+    },
+    {
+      "name": "Food Envy Chocolate Mousse with Salted Caramel 2 x",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-chocolate-mousse-with-salted-caramel-2-x/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/b/csm_ALN3248_Q1_WEB-AUDIT__DAIRY_EGGS__1x1_228x128_5_edbf29aec3.jpg",
+      "price": 2.49,
+      "quantity": 0.062,
+      "unitPrice": 40.16
+    },
+    {
+      "name": "Nescafé Blend 43 Classic or Espresso Instant Coffee",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/nescaf-blend-43-classic-or-espresso-instant-coffee/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/3/csm_1001961-2_SEASONAL_1x1_228x128_B4_23_RET_cf62fd6f42.png",
+      "price": 15.99,
+      "quantity": 0.36,
+      "unitPrice": 44.42
     },
     {
       "name": "Nescafé Blend 43 Classic or Espresso Instant Coffee",
@@ -1329,12 +2537,60 @@
       "unitPrice": 46.6
     },
     {
+      "name": "Sartori Cheddar Cheese with Red Wine",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/sartori-cheddar-cheese-with-red-wine-150g-1/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/3/csm_702942_DE_Q_01_1x1_b29ae3defc.png",
+      "price": 6.99,
+      "quantity": 0.15,
+      "unitPrice": 46.6
+    },
+    {
+      "name": "Biocult Fermented Milk 5 x",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/biocult-fermented-milk-5-x-65ml/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/c/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_28_RET_d3beeaf0c6.png",
+      "price": 3.19,
+      "quantity": 0.065,
+      "unitPrice": 49.08
+    },
+    {
+      "name": "Snackers Market Cheese & Pretzels",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-pretzels-40g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/4/csm_1001605-11_1x1_Q4_WEB-AUDIT_SNACKS_228x128_2_7ea210ebc3.jpg",
+      "price": 1.99,
+      "quantity": 0.04,
+      "unitPrice": 49.75
+    },
+    {
       "name": "Snackers Market Salami, Cheese and Crackers",
       "url": "https://www.aldi.com.au/en/groceries/super-savers/super-savers-detail/ps/p/snackers-market-salami-cheese-and-crackers-50g-1/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/4/7/csm_1002494_1x1_OCT-B1_228x128__7_RET_6fe2ca7155.png",
       "price": 2.5,
       "quantity": 0.05,
       "unitPrice": 50
+    },
+    {
+      "name": "Snackers Market Salami, Cheese and Crackers",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-salami-cheese-and-crackers-50g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/5/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_1_RET_ed6429311a.png",
+      "price": 2.5,
+      "quantity": 0.05,
+      "unitPrice": 50
+    },
+    {
+      "name": "Snackers Market Cheese and Cabanossi",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-and-cabanossi-50g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/a/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_33_RET_bff6c41a9e.png",
+      "price": 2.79,
+      "quantity": 0.05,
+      "unitPrice": 55.8
+    },
+    {
+      "name": "Snackers Market Cheese & Mini Crackers",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-mini-crackers-35g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/4/csm_1001605-11_1x1_Q4_WEB-AUDIT_SNACKS_228x128_3_d79229784a.jpg",
+      "price": 1.99,
+      "quantity": 0.035,
+      "unitPrice": 56.86
     },
     {
       "name": "Rexona Anti Perspirant Roll On Deodorant",
@@ -1353,12 +2609,36 @@
       "unitPrice": 57.78
     },
     {
+      "name": "Snackers Market Ham, Cheese and Crackers",
+      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-ham-cheese-and-crackers-50g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/6/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_3_RET_de3f19b9ea.png",
+      "price": 2.99,
+      "quantity": 0.05,
+      "unitPrice": 59.8
+    },
+    {
       "name": "The Fishmonger Smoked Salmon",
       "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/the-fishmonger-smoked-salmon-150g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/0/f/csm_1000274-1_LTO_1x1__W34__228x128_1_RET_61b773e3d6.png",
       "price": 8.99,
       "quantity": 0.15,
       "unitPrice": 59.93
+    },
+    {
+      "name": "The Fishmonger Smoked Salmon",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/the-fishmonger-smoked-salmon-150g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/f/csm_1000274-1_LTO_1x1__W34__228x128_1_RET_61b773e3d6.png",
+      "price": 8.99,
+      "quantity": 0.15,
+      "unitPrice": 59.93
+    },
+    {
+      "name": "Specially Selected French Macarons",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/specially-selected-french-macarons-12pk144g/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/4/csm_713144_DE_Q_01_1x1_6cccdedf5f.png",
+      "price": 8.99,
+      "quantity": 0.144,
+      "unitPrice": 62.43
     },
     {
       "name": "Specially Selected French Macarons",
@@ -1449,972 +2729,12 @@
       "unitPrice": null
     },
     {
-      "name": "Inner Goodness Soy Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-soy-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/5/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_15_fa2f3a7c9d.jpg",
-      "price": 2.29,
-      "quantity": 1,
-      "unitPrice": 2.29
-    },
-    {
-      "name": "Inner Goodness Almond Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-almond-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/6/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_16_c7b5136051.jpg",
-      "price": 2.79,
-      "quantity": 1,
-      "unitPrice": 2.79
-    },
-    {
-      "name": "Farmdale Organic Full Cream Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-organic-full-cream-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/e/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_18_f7da08b286.jpg",
-      "price": 2.39,
-      "quantity": 1,
-      "unitPrice": 2.39
-    },
-    {
-      "name": "Farmdale Organic Light Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-organic-light-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/b/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_19_94ba911628.jpg",
-      "price": 2.39,
-      "quantity": 1,
-      "unitPrice": 2.39
-    },
-    {
-      "name": "Farmdale Full Cream Milk UHT",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-full-cream-milk-uht-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/4/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_4_RET_bd357744be.png",
-      "price": 1.69,
-      "quantity": 1,
-      "unitPrice": 1.69
-    },
-    {
-      "name": "Farmdale Light Milk UHT",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-light-milk-uht-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/5/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_5_RET_b51e979885.png",
-      "price": 1.69,
-      "quantity": 1,
-      "unitPrice": 1.69
-    },
-    {
-      "name": "Farmdale Skim Milk UHT",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-skim-milk-uht-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_6_RET_5d84f7cd95.png",
-      "price": 1.69,
-      "quantity": 1,
-      "unitPrice": 1.69
-    },
-    {
-      "name": "Farmdale Full Cream Milk UHT",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-full-cream-milk-uht-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/e/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_35_073873fd3b.jpg",
-      "price": 3.29,
-      "quantity": 2,
-      "unitPrice": 1.65
-    },
-    {
-      "name": "Farmdale Skim Milk UHT",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-skim-milk-uht-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/d/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_36_c27bd65a6f.jpg",
-      "price": 3.29,
-      "quantity": 2,
-      "unitPrice": 1.65
-    },
-    {
-      "name": "Farmdale Lactose Free UHT Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-lactose-free-uht-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/6/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_7_RET_e6e8895d80.png",
-      "price": 1.59,
-      "quantity": 1,
-      "unitPrice": 1.59
-    },
-    {
-      "name": "Farmdale Lactose Free Low Fat UHT Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-lactose-free-low-fat-uht-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/f/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_8_RET_3cc8e62ef2.png",
-      "price": 1.59,
-      "quantity": 1,
-      "unitPrice": 1.59
-    },
-    {
-      "name": "Farmdale Lactose Free Full Cream Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-lactose-free-full-cream-milk-1l-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/d/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_37_e84441f66e.jpg",
-      "price": 2.79,
-      "quantity": 1,
-      "unitPrice": 2.79
-    },
-    {
-      "name": "Farmdale Long Life Organic Full Cream Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-long-life-organic-full-cream-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/5/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_13_8f225738fc.jpg",
-      "price": 2.29,
-      "quantity": 1,
-      "unitPrice": 2.29
-    },
-    {
-      "name": "CHAMP Iced Coffee Flavoured Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-iced-coffee-flavoured-milk-600ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/a/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_29_ce2393340d.jpg",
-      "price": 2.79,
-      "quantity": 0.6,
-      "unitPrice": 4.65
-    },
-    {
-      "name": "CHAMP Iced Coffee Flavoured Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-iced-coffee-flavoured-milk-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/6/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_27_ba75f0363a.jpg",
-      "price": 3.99,
-      "quantity": 2,
-      "unitPrice": 2
-    },
-    {
-      "name": "CHAMP Chocolate Flavoured Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-chocolate-flavoured-milk-600ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/3/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_28_3ffb0dbb2f.jpg",
-      "price": 2.79,
-      "quantity": 0.6,
-      "unitPrice": 4.65
-    },
-    {
-      "name": "CHAMP Chocolate Flavoured Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/champ-chocolate-flavoured-milk-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/3/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_27_RET_8bea269896.png",
-      "price": 3.99,
-      "quantity": 2,
-      "unitPrice": 2
-    },
-    {
-      "name": "Farmdale Full Cream Milk Powder",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-full-cream-milk-powder-1kg-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/b/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_9_RET_46e2e1eef4.png",
-      "price": 9.99,
-      "quantity": 1,
-      "unitPrice": 9.99
-    },
-    {
-      "name": "UHT Soy Organic Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-soy-organic-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/d/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_10_RET_14f70552c2.png",
-      "price": 1.49,
-      "quantity": 1,
-      "unitPrice": 1.49
-    },
-    {
-      "name": "UHT Milk Soy",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-milk-soy-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/8/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_11_RET_47bf97c34a.png",
-      "price": 1.15,
-      "quantity": 1,
-      "unitPrice": 1.15
-    },
-    {
-      "name": "UHT Milk Soy Light",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-milk-soy-light-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_12_RET_53baee0459.png",
-      "price": 1.15,
-      "quantity": 1,
-      "unitPrice": 1.15
-    },
-    {
-      "name": "Milk UHT Almond Unsweetened",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/milk-uht-almond-unsweetened-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/1/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_13_RET_913ef0beac.png",
-      "price": 1.89,
-      "quantity": 1,
-      "unitPrice": 1.89
-    },
-    {
-      "name": "Milk UHT Almond Original",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/milk-uht-almond-original-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/7/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_14_RET_3863ec3afc.png",
-      "price": 1.89,
-      "quantity": 1,
-      "unitPrice": 1.89
-    },
-    {
-      "name": "UHT Oat Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/uht-oat-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/d/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_15_RET_d17668900e.png",
-      "price": 1.89,
-      "quantity": 1,
-      "unitPrice": 1.89
-    },
-    {
-      "name": "Inner Goodness Long Life Rice Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-long-life-rice-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_51_RET_58c9a7da0a.png",
-      "price": 1.99,
-      "quantity": 1,
-      "unitPrice": 1.99
-    },
-    {
-      "name": "Inner Goodness - Barista Long Life Almond Unsweetened Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-barista-long-life-almond-unsweetene/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_47_RET_16adbbfb90.png",
+      "name": "Funtime Bath",
+      "url": "https://www.aldi.com.au/en/groceries/limited-time-only/limited-time-only-detail/ps/p/funtime-bath-puff/",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/f/csm_713528_DE_Q_01_1x1_0ed00e79b4.png",
       "price": 2.99,
-      "quantity": 1,
-      "unitPrice": 2.99
-    },
-    {
-      "name": "Inner Goodness - Barista Long Life Oat Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-barista-long-life-oat-milk-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/8/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_48_RET_7da43b7a05.png",
-      "price": 2.99,
-      "quantity": 1,
-      "unitPrice": 2.99
-    },
-    {
-      "name": "Biocult Fermented Milk 5 x",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/biocult-fermented-milk-5-x-65ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/c/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_28_RET_d3beeaf0c6.png",
-      "price": 3.19,
-      "quantity": 0.065,
-      "unitPrice": 49.08
-    },
-    {
-      "name": "Farmdale Sweetened Condensed Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-sweetened-condensed-milk-397g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/e/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_52_RET_6c158353e6.png",
-      "price": 1.79,
-      "quantity": 0.397,
-      "unitPrice": 4.51
-    },
-    {
-      "name": "Farmdale Evaporated Milk",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-evaporated-milk-384ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/7/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_53_RET_6fc04a4d68.png",
-      "price": 1.89,
-      "quantity": 0.384,
-      "unitPrice": 4.92
-    },
-    {
-      "name": "Lodge Farms Large Free Range Eggs",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lodge-farms-large-free-range-eggs-12pk600g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_1_RET_7e823d24d7.png",
-      "price": 4.99,
-      "quantity": 0.6,
-      "unitPrice": 8.32
-    },
-    {
-      "name": "Lodge Farms Extra Large Free Range Eggs",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lodge-farms-extra-large-free-range-eggs-12pk700g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/8/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_2_RET_f7b71fe940.png",
-      "price": 5.19,
-      "quantity": 0.7,
-      "unitPrice": 7.41
-    },
-    {
-      "name": "Sunnyvale Olive Spread Regular",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-olive-spread-regular-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/e/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_39_59a4098933.jpg",
-      "price": 3.49,
-      "quantity": 0.5,
-      "unitPrice": 6.98
-    },
-    {
-      "name": "Sunnyvale Olive Spread Light",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-olive-spread-light-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/4/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_40_dfa3d78ec7.jpg",
-      "price": 3.49,
-      "quantity": 0.5,
-      "unitPrice": 6.98
-    },
-    {
-      "name": "Sunnyvale Original Spread",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-original-spread-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/c/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_41_e24e8d04bc.jpg",
-      "price": 2.69,
-      "quantity": 0.5,
-      "unitPrice": 5.38
-    },
-    {
-      "name": "Sunnyvale Cholesterol Spread",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-cholesterol-spread-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/2/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_42_55ffc04f12.jpg",
-      "price": 4.49,
-      "quantity": 0.5,
-      "unitPrice": 8.98
-    },
-    {
-      "name": "Sunnyvale Table Spread",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/sunnyvale-table-spread-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/6/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_43_3592ccb6b4.jpg",
-      "price": 3.29,
-      "quantity": 1,
-      "unitPrice": 3.29
-    },
-    {
-      "name": "Beautifully Butterfully Dairy Spread",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/beautifully-butterfully-dairy-spread-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/7/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_14_RET_2e8ddf19ca.png",
-      "price": 4.79,
-      "quantity": 0.5,
-      "unitPrice": 9.58
-    },
-    {
-      "name": "Pure Valley Salted Organic Butter",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-salted-organic-butter-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/5/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_15_RET_83f486cedd.png",
-      "price": 4.49,
-      "quantity": 0.25,
-      "unitPrice": 17.96
-    },
-    {
-      "name": "Pure Valley Salted Butter",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-salted-butter-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/b/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_16_RET_c57c0b709d.png",
-      "price": 3.69,
-      "quantity": 0.25,
-      "unitPrice": 14.76
-    },
-    {
-      "name": "Pure Valley Unsalted Butter",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-unsalted-butter-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/9/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_1_RET_c09bb28b42.png",
-      "price": 3.69,
-      "quantity": 0.25,
-      "unitPrice": 14.76
-    },
-    {
-      "name": "Pure Valley Salted Butter",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-salted-butter-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/d/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_17_RET_d8e87e919a.png",
-      "price": 6.39,
-      "quantity": 0.5,
-      "unitPrice": 12.78
-    },
-    {
-      "name": "Pure Valley Unsalted Butter",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pure-valley-unsalted-butter-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/a/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_18_RET_e96d59f184.png",
-      "price": 6.39,
-      "quantity": 0.5,
-      "unitPrice": 12.78
-    },
-    {
-      "name": "Beautifully Butterfully Caterer’s Selection Buttery Spread",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/beautifully-butterfully-caterers-selection-buttery/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/4/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_16_5126aa3593.jpg",
-      "price": 4.99,
-      "quantity": 1,
-      "unitPrice": 4.99
-    },
-    {
-      "name": "Westacre Dairy Tasty Cheese Block",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-block-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/1/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_20_24ef4dfcd1.jpg",
-      "price": 5.49,
-      "quantity": 0.25,
-      "unitPrice": 21.96
-    },
-    {
-      "name": "Westacre Dairy Shredded Tasty Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-shredded-tasty-cheese-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/a/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_8_e8b92300cc.jpg",
-      "price": 4.99,
-      "quantity": 0.25,
-      "unitPrice": 19.96
-    },
-    {
-      "name": "Westacre Dairy Shredded Tasty Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-shredded-tasty-cheese-700g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/f/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_9_3304c6548d.jpg",
-      "price": 9.49,
-      "quantity": 0.7,
-      "unitPrice": 13.56
-    },
-    {
-      "name": "Westacre Dairy Shredded Parmesan Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-shredded-parmesan-cheese-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/7/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_10_17ec841a87.jpg",
-      "price": 5.69,
-      "quantity": 0.25,
-      "unitPrice": 22.76
-    },
-    {
-      "name": "Westacre Dairy Tasty Cheese Slices",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-slices-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/5/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_11_a1f9ab4c69.jpg",
-      "price": 8.49,
-      "quantity": 0.5,
-      "unitPrice": 16.98
-    },
-    {
-      "name": "Westacre Dairy Tasty Cheese Block",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-block-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/f/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_12_08d2db3efa.jpg",
-      "price": 6.99,
-      "quantity": 0.5,
-      "unitPrice": 13.98
-    },
-    {
-      "name": "Westacre Dairy Tasty Cheese Block",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-block-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/6/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_13_90aec3596e.jpg",
-      "price": 9.99,
-      "quantity": 1,
-      "unitPrice": 9.99
-    },
-    {
-      "name": "Westacre Dairy Vintage Cheese Block",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-vintage-cheese-block-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/0/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_14_92d3a61363.jpg",
-      "price": 6.99,
-      "quantity": 0.5,
-      "unitPrice": 13.98
-    },
-    {
-      "name": "Emporium Selection Ash Brie",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-ash-brie-150g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/3/csm_ALN2793_CHEESE_DAIRY_AWARDS_1x1_228x128_7_49255c4472.jpg",
-      "price": 4.49,
-      "quantity": 0.15,
-      "unitPrice": 29.93
-    },
-    {
-      "name": "Emporium Selection Double Cream Camembert",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-double-cream-camembert-200g-7/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_2_1144bfa615.jpg",
-      "price": 4.99,
-      "quantity": 0.2,
-      "unitPrice": 24.95
-    },
-    {
-      "name": "Emporium Selection Triple Cream Brie",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-triple-cream-brie-200g-7/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/5/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_3_c81c34a3e7.jpg",
-      "price": 4.99,
-      "quantity": 0.2,
-      "unitPrice": 24.95
-    },
-    {
-      "name": "Emporium Selection Camembert",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-camembert-125g-2/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_4_63d9773acf.jpg",
-      "price": 2.79,
-      "quantity": 0.125,
-      "unitPrice": 22.32
-    },
-    {
-      "name": "Emporium Selection Brie",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-brie-125g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_5_9bfbfcabf7.jpg",
-      "price": 2.79,
-      "quantity": 0.125,
-      "unitPrice": 22.32
-    },
-    {
-      "name": "Emporium Selection Persian Fetta",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-persian-fetta-180g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/4/csm_ALN2364_AWARDS_CHEESE_1x1_228x128_6_344e6445f9.jpg",
-      "price": 3.99,
-      "quantity": 0.18,
-      "unitPrice": 22.17
-    },
-    {
-      "name": "Emporium Selection Danish Style Fetta Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-danish-style-fetta-cheese-200g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/a/csm_ALN1000838-3_AWARDS_1x1_228x128_2_877d7f684f.jpg",
-      "price": 2.99,
-      "quantity": 0.2,
-      "unitPrice": 14.95
-    },
-    {
-      "name": "Emporium Selection Greek Style Fetta Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-greek-style-fetta-cheese-200g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/c/csm_ALN1000838-3_AWARDS_1x1_228x128_3_6211a449db.jpg",
-      "price": 2.99,
-      "quantity": 0.2,
-      "unitPrice": 14.95
-    },
-    {
-      "name": "Westacre Colby Cheese Block",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-colby-cheese-block-500g-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/0/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_16_RET_060a5543cd.png",
-      "price": 6.99,
-      "quantity": 0.5,
-      "unitPrice": 13.98
-    },
-    {
-      "name": "Westacre Dairy Wrapped Cheese Slices",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-wrapped-cheese-slices-432g-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/2/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_17_RET_f2457fcd4d.png",
-      "price": 3.3,
-      "quantity": 0.432,
-      "unitPrice": 7.64
-    },
-    {
-      "name": "Westacre Dairy Wrapped Cheese Slices",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-wrapped-cheese-slices-432g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_18_RET_574fb09426.png",
-      "price": 3.3,
-      "quantity": 0.432,
-      "unitPrice": 7.64
-    },
-    {
-      "name": "Westacre Dairy Vintage Cheese Slices",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-vintage-cheese-slices-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/a/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_6_f09f0ae7fa.jpg",
-      "price": 5.49,
-      "quantity": 0.25,
-      "unitPrice": 21.96
-    },
-    {
-      "name": "Westacre Dairy Tasty Cheese Slices",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-tasty-cheese-slices-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/2/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_7_90227986ed.jpg",
-      "price": 5.49,
-      "quantity": 0.25,
-      "unitPrice": 21.96
-    },
-    {
-      "name": "Manhattan Cottage Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/manhattan-cottage-cheese-500g-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/5/csm_ALN2853_AWARDS_CHEESE_1x1_228x128_4_03b377115d.jpg",
-      "price": 5.49,
-      "quantity": 0.5,
-      "unitPrice": 10.98
-    },
-    {
-      "name": "Westacre Dairy Smooth Ricotta",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/westacre-dairy-smooth-ricotta-375g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/c/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_2_RET_23a3c7d10a.png",
-      "price": 3.29,
-      "quantity": 0.375,
-      "unitPrice": 8.77
-    },
-    {
-      "name": "Emporium Selection Apricot & Almond Cream Cheese",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/emporium-selection-apricot-almond-cream-cheese-200-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/2/csm_ALN2853_AWARDS_CHEESE_1x1_228x128_5_45551ddf4a.jpg",
-      "price": 3.59,
-      "quantity": 0.2,
-      "unitPrice": 17.95
-    },
-    {
-      "name": "Snackers Market Salami, Cheese and Crackers",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-salami-cheese-and-crackers-50g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/5/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_1_RET_ed6429311a.png",
-      "price": 2.5,
-      "quantity": 0.05,
-      "unitPrice": 50
-    },
-    {
-      "name": "Snackers Market Cheese & Pretzels",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-pretzels-40g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/4/csm_1001605-11_1x1_Q4_WEB-AUDIT_SNACKS_228x128_2_7ea210ebc3.jpg",
-      "price": 1.99,
-      "quantity": 0.04,
-      "unitPrice": 49.75
-    },
-    {
-      "name": "Snackers Market Cheese & Mini Crackers",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-mini-crackers-35g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/4/csm_1001605-11_1x1_Q4_WEB-AUDIT_SNACKS_228x128_3_d79229784a.jpg",
-      "price": 1.99,
-      "quantity": 0.035,
-      "unitPrice": 56.86
-    },
-    {
-      "name": "Snackers Market Cheese Strips",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-strips-8pk168g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/0/csm_1001605-11_1x1_Q4_WEB-AUDIT_SNACKS_228x128_6_88316db964.jpg",
-      "price": 3.79,
-      "quantity": 0.168,
-      "unitPrice": 22.56
-    },
-    {
-      "name": "Snackers Market Ham, Cheese and Crackers",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-ham-cheese-and-crackers-50g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/6/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_3_RET_de3f19b9ea.png",
-      "price": 2.99,
-      "quantity": 0.05,
-      "unitPrice": 59.8
-    },
-    {
-      "name": "Snackers Market Dip & Crackers",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-dip-crackers-65g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/5/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_19_RET_c83515a354.png",
-      "price": 1.69,
-      "quantity": 0.065,
-      "unitPrice": 26
-    },
-    {
-      "name": "Snackers Market Tasty Cheese and Crackers",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-tasty-cheese-and-crackers-4pk/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/c/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_31_RET_6fde0cfbb4.png",
-      "price": 3.99,
-      "quantity": 4,
-      "unitPrice": 1
-    },
-    {
-      "name": "Snackers Market Cheese Streamers",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-streamers-160g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/2/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_32_RET_4ffd57aba7.png",
-      "price": 4.29,
-      "quantity": 0.16,
-      "unitPrice": 26.81
-    },
-    {
-      "name": "Snackers Market Cheese and Cabanossi",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-cheese-and-cabanossi-50g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/a/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_33_RET_bff6c41a9e.png",
-      "price": 2.79,
-      "quantity": 0.05,
-      "unitPrice": 55.8
-    },
-    {
-      "name": "Snackers Market Edam Gouda Squares",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/snackers-market-edam-gouda-squares-100g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/7/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_34_RET_3bab19f358.png",
-      "price": 2.99,
-      "quantity": 0.1,
-      "unitPrice": 29.9
-    },
-    {
-      "name": "FARMDALE Thickened Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-thickened-cream-600ml-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/4/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_30_8db06f2cb0.jpg",
-      "price": 4.49,
-      "quantity": 0.6,
-      "unitPrice": 7.48
-    },
-    {
-      "name": "FARMDALE Light Thickened Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-light-thickened-cream-300ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/a/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_31_768538229c.jpg",
-      "price": 2.79,
-      "quantity": 0.3,
-      "unitPrice": 9.3
-    },
-    {
-      "name": "FARMDALE Sour Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-sour-cream-300g-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/f/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_33_687ba50e06.jpg",
-      "price": 3.19,
-      "quantity": 0.3,
-      "unitPrice": 10.63
-    },
-    {
-      "name": "FARMDALE Light Sour Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-light-sour-cream-300g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/9/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_34_d1ae85f778.jpg",
-      "price": 3.19,
-      "quantity": 0.3,
-      "unitPrice": 10.63
-    },
-    {
-      "name": "Farmdale Whipped Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-whipped-cream-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/9/csm_1001605-3_1x1_Q4_WEB-AUDIT_DAIRY_228x128_17_47dad4f98a.jpg",
-      "price": 5.29,
-      "quantity": 0.25,
-      "unitPrice": 21.16
-    },
-    {
-      "name": "Farmdale Pouring Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-pouring-cream-300ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/5/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_29_RET_5766ce02ce.png",
-      "price": 2.79,
-      "quantity": 0.3,
-      "unitPrice": 9.3
-    },
-    {
-      "name": "Farmdale Thickened Cream",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-thickened-cream-300ml/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/d/5/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_30_RET_1efa46919e.png",
-      "price": 2.79,
-      "quantity": 0.3,
-      "unitPrice": 9.3
-    },
-    {
-      "name": "Lyttos Greek Style Natural Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/lyttos-greek-style-natural-yogurt-2kg-3/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/2/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_4_RET_a785f0c55e.png",
-      "price": 11.49,
-      "quantity": 2,
-      "unitPrice": 5.75
-    },
-    {
-      "name": "Brooklea Joi Mango Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-joi-mango-yogurt-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/e/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_5_RET_7e3a6d1a41.png",
-      "price": 3.79,
-      "quantity": 1,
-      "unitPrice": 3.79
-    },
-    {
-      "name": "Brooklea Family Lite Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-family-lite-yogurt-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/b/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_6_RET_968b822e15.png",
-      "price": 3.79,
-      "quantity": 1,
-      "unitPrice": 3.79
-    },
-    {
-      "name": "Brooklea Organic Natural Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-organic-natural-yogurt-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/9/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_7_RET_89c641d073.png",
-      "price": 4.99,
-      "quantity": 1,
-      "unitPrice": 4.99
-    },
-    {
-      "name": "Brooklea Organic Vanilla Bean Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-organic-vanilla-bean-yogurt-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/1/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_8_RET_8faff75aa5.png",
-      "price": 4.99,
-      "quantity": 1,
-      "unitPrice": 4.99
-    },
-    {
-      "name": "Premiere Fruit Swirl Blueberry Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-fruit-swirl-blueberry-yogurt-720g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/c/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_9_RET_92604227bf.png",
-      "price": 5.79,
-      "quantity": 0.72,
-      "unitPrice": 8.04
-    },
-    {
-      "name": "Brooklea Greek Style Yoghurt No Added Sugar",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-greek-style-yoghurt-no-added-sugar-750g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/0/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_3_RET_e649062582.png",
-      "price": 4.99,
-      "quantity": 0.75,
-      "unitPrice": 6.65
-    },
-    {
-      "name": "Premiére Mango Yogurt",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premire-mango-yogurt-4x115g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/7/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_10_RET_3d637e8e37.png",
-      "price": 3.49,
-      "quantity": 0.115,
-      "unitPrice": 30.35
-    },
-    {
-      "name": "Brooklea Joi Deluxe Yogurt Classics 6 x",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-joi-deluxe-yogurt-classics-6-x-150g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/b/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_11_RET_0c87f6f972.png",
-      "price": 3.99,
-      "quantity": 0.15,
-      "unitPrice": 26.6
-    },
-    {
-      "name": "Brooklea Yogurt Squishies",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-yogurt-squishies-70g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/e/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_12_RET_cc0b55ce80.png",
-      "price": 0.69,
-      "quantity": 0.07,
-      "unitPrice": 9.86
-    },
-    {
-      "name": "Brooklea Yogurt Assorted Varieties",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/brooklea-yogurt-assorted-varieties-100g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/7/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_13_RET_R_99ff7c7c64.png",
-      "price": 1.69,
-      "quantity": 0.1,
-      "unitPrice": 16.9
-    },
-    {
-      "name": "Yoguri High Protein Cup Vanilla",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/yoguri-high-protein-cup-vanilla-160g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/9/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_41_RET_1a7f0942f4.png",
-      "price": 2.19,
-      "quantity": 0.16,
-      "unitPrice": 13.69
-    },
-    {
-      "name": "Yoguri High Protein Cup Strawberry",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/yoguri-high-protein-cup-strawberry-160g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/1/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_42_RET_96dc85aedb.png",
-      "price": 2.19,
-      "quantity": 0.16,
-      "unitPrice": 13.69
-    },
-    {
-      "name": "Yoguri High Protein Cup Salted Caramel",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/yoguri-high-protein-cup-salted-caramel-160g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/c/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_43_RET_bff8281ae5.png",
-      "price": 2.19,
-      "quantity": 0.16,
-      "unitPrice": 13.69
-    },
-    {
-      "name": "Premiere Indulgent Tropical",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-indulgent-tropical-990g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_44_RET_8e567cf879.png",
-      "price": 5.99,
-      "quantity": 0.99,
-      "unitPrice": 6.05
-    },
-    {
-      "name": "Premiere Indulgent Vanilla Bean",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-indulgent-vanilla-bean-990g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/d/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_45_RET_6edd9e37c8.png",
-      "price": 5.99,
-      "quantity": 0.99,
-      "unitPrice": 6.05
-    },
-    {
-      "name": "Premiere Indulgent Mix Berry",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/premiere-indulgent-mix-berry-990g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/c/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_46_RET_01524ac4e2.png",
-      "price": 5.99,
-      "quantity": 0.99,
-      "unitPrice": 6.05
-    },
-    {
-      "name": "Chocolate Stampede Dairy Snack",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/chocolate-stampede-dairy-snack-12pk/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/4/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_14_f56f1d7291.jpg",
-      "price": 4.99,
-      "quantity": 12,
-      "unitPrice": 0.42
-    },
-    {
-      "name": "Chocolate Stampede Dairy Snack",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/chocolate-stampede-dairy-snack-140g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/c/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_44_565cb72d82.jpg",
-      "price": 1.99,
-      "quantity": 0.14,
-      "unitPrice": 14.21
-    },
-    {
-      "name": "Vanilla Flavoured Custard Pouch",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/vanilla-flavoured-custard-pouch-70g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/2/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_45_b5f0367005.jpg",
-      "price": 1.59,
-      "quantity": 0.07,
-      "unitPrice": 22.71
-    },
-    {
-      "name": "Chocolate Flavoured Custard Pouch",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/chocolate-flavoured-custard-pouch-70g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/9/1/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_46_a160a8745f.jpg",
-      "price": 1.59,
-      "quantity": 0.07,
-      "unitPrice": 22.71
-    },
-    {
-      "name": "Marvellicious Choc Mousse",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/marvellicious-choc-mousse-12pk/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/f/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_47_7aedc4de26.jpg",
-      "price": 5.99,
-      "quantity": 12,
-      "unitPrice": 0.5
-    },
-    {
-      "name": "Food Envy Chocolate Mousse 2 x",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-chocolate-mousse-2-x-62g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/e/csm_ALN3248_Q1_WEB-AUDIT__DAIRY_EGGS__1x1_228x128_4_e3a0ee5c70.jpg",
-      "price": 2.49,
-      "quantity": 0.062,
-      "unitPrice": 40.16
-    },
-    {
-      "name": "Food Envy Chocolate Mousse with Salted Caramel 2 x",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-chocolate-mousse-with-salted-caramel-2-x/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/b/csm_ALN3248_Q1_WEB-AUDIT__DAIRY_EGGS__1x1_228x128_5_edbf29aec3.jpg",
-      "price": 2.49,
-      "quantity": 0.062,
-      "unitPrice": 40.16
-    },
-    {
-      "name": "Food Envy Crème Caramel 2 x",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-creme-caramel-2-x-150g-1/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/1/csm_ALN3248_Q1_WEB-AUDIT__DAIRY_EGGS__1x1_228x128_6_07c958019c.jpg",
-      "price": 2.5,
-      "quantity": 0.15,
-      "unitPrice": 16.67
-    },
-    {
-      "name": "Vanilla Flavoured Custard",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/vanilla-flavoured-custard-1kg/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/6/csm_1000855_ALN-10_1x1_Q1_WEB-AUDIT_228x128_15_87e4eee3c0.jpg",
-      "price": 2.79,
-      "quantity": 1,
-      "unitPrice": 2.79
-    },
-    {
-      "name": "Food Envy Sweet Crepes",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-sweet-crepes-8pk480g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/e/0/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_17_73f0b20c55.jpg",
-      "price": 3.99,
-      "quantity": 0.48,
-      "unitPrice": 8.31
-    },
-    {
-      "name": "Food Envy Mini Dutch Pancakes",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-mini-dutch-pancakes-250g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/7/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_18_6fb664c9f3.jpg",
-      "price": 3.99,
-      "quantity": 0.25,
-      "unitPrice": 15.96
-    },
-    {
-      "name": "Food Envy Rice Pudding Vanilla Bean 2 x",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-rice-pudding-vanilla-bean-2-x-170g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/c/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_19_223a4235f9.jpg",
-      "price": 2.99,
-      "quantity": 0.17,
-      "unitPrice": 17.59
-    },
-    {
-      "name": "Food Envy Italian Family Desserts",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/food-envy-italian-family-desserts-500g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/7/csm_ALN3354_Q2-WEB-AUDIT_1x1_228x128_20_ef22d1b70f.jpg",
-      "price": 5.99,
-      "quantity": 0.5,
-      "unitPrice": 11.98
-    },
-    {
-      "name": "Farmdale Custard",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/farmdale-custard-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/6/e/csm_1001349_ALN-1_1x1_Q3_WEB-AUDIT_228x128_53_f096b2a33b.jpg",
-      "price": 2.49,
-      "quantity": 1,
-      "unitPrice": 2.49
-    },
-    {
-      "name": "Pick’d Orange Pulp",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-orange-pulp-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/f/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_25_RET_4513897aeb.png",
-      "price": 4.69,
-      "quantity": 2,
-      "unitPrice": 2.35
-    },
-    {
-      "name": "Pick’d Orange Pulp Free",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-orange-pulp-free-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/7/csm_1002179-1_Q2_WEB_AUDIT_1x1_228x128_26_RET_ad1fd85ee7.png",
-      "price": 4.69,
-      "quantity": 2,
-      "unitPrice": 2.35
-    },
-    {
-      "name": "Pick'd Apple Mango",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-apple-mango-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_38_RET_3b18f0e83f.png",
-      "price": 4.99,
-      "quantity": 2,
-      "unitPrice": 2.5
-    },
-    {
-      "name": "Pick'd Cloudy Apple",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-cloudy-apple-2l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/b/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_39_RET_8698276636.png",
-      "price": 4.69,
-      "quantity": 2,
-      "unitPrice": 2.35
-    },
-    {
-      "name": "Pick'd Orange Pulp",
-      "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/pickd-orange-pulp-1l/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/5/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_40_RET_9ff36d0b91.png",
-      "price": 2.99,
-      "quantity": 1,
-      "unitPrice": 2.99
+      "quantity": 0,
+      "unitPrice": null
     }
   ],
   "failedProductInfo": [
@@ -2561,9 +2881,81 @@
       "price": 0,
       "quantity": 0,
       "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/e/csm_1001961-9_HEADING_DESK_948x63_2_RET_3869b333a2.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/8/csm_1001961-9_HEADING_DESK_948x63_1_RET_8b3a2ba5ae.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/0/csm_1001961-9_HEADING_DESK_948x63_4_RET_f2d4c8f2ec.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/3/csm_1001961-9_HEADING_DESK_948x63_7_RET_c73e84cf93.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/0/csm_1002154-1_LTO_MEAT-SEAFOOD_HEADING_DESK_948x63_1_RET_1372ec65f9.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/1/csm_1001961-9_HEADING_DESK_948x63_3_RET_be80e0b5c4.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/2/csm_1001961-7_SEASONAL_HEADING_DESK_948x63_2_RET_e1f150b0ae.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/f/csm_1001961-9_HEADING_DESK_948x63_6_RET_36b44f36f3.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
+    },
+    {
+      "name": "",
+      "url": "undefined",
+      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/c/csm_1001961-7_SEASONAL_HEADING_DESK_948x63_3_RET_R_c6a4f3c875.jpg",
+      "price": 0,
+      "quantity": 0,
+      "unitPrice": null
     }
   ],
   "failedProduct": [],
   "failedSection": [],
-  "scrapeSecond": 6.519
+  "scrapeSecond": 1.807
 }
