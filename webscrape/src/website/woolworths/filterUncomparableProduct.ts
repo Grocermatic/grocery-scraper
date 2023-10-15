@@ -7,7 +7,10 @@ export const filterUncomparableProduct = (productJson: string) => {
   const products = JSON.parse(productJson).Bundles.map((product: any) => {
     return product.Products[0]
   }).filter((product: any) => {
-    return getUnitFromString(product.DisplayName) && product.IsInStock
+    return getUnitFromString(product.DisplayName)
+    && getUnitFromString(product.CupMeasure)
+    && getUnitFromString(product.CupString)
+    && product.IsInStock
   })
   return products
 }
