@@ -4,22 +4,16 @@ import { getProductInfoPage } from "./getProductInfoPage"
 
 
 
-export const getProductInfoSection = async (pageLinkRequestDatum: [string, string[]], woolworthsCookie: string) => {
+export const getProductInfoSection = async (sectionId: string, woolworthsCookie: string) => {
   const report = new ProductInfoReport()
 
   // Configure Woolworths post payload for section json
-  const foodHealthStarRatings = pageLinkRequestDatum[1].map(foodStarRating => { return { 'Term': foodStarRating } })
   const postRequestPayload = {
-    'categoryId': pageLinkRequestDatum[0],
-    'filters': [
-      {
-        'Key': 'Healthstar',
-        'Items': foodHealthStarRatings
-      }
-    ],
+    'categoryId': sectionId,
     'formatObject': '{}',
     'pageNumber': 1,
     'pageSize': 36,
+    'sortType': 'CUPAsc',
     'url': ''
   }
   const woolworthsProductListUrl = 'https://www.woolworths.com.au/apis/ui/browse/category'
