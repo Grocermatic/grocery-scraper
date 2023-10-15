@@ -30,6 +30,7 @@ export class ProductInfoReport {
     this.#report.productInfo.sort((a: ProductInfo, b: ProductInfo) => {
       return a.unitPrice - b.unitPrice
     })
+    return this
   }
 
   get() { return this.#report }
