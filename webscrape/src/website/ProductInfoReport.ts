@@ -60,6 +60,7 @@ export class ProductInfoReport {
 
     // Ensure valid string data
     if (typeof name != 'string') return false
+    if (name.length == 0) return false
     try { new URL(url) } catch { return false }
     try { new URL(img) } catch { return false }
 
