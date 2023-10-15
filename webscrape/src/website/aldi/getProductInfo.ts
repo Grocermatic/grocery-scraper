@@ -1,31 +1,25 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo, GetProductInfo, GetBatchProductInfo } from "../interface"
+import { ProductInfo, GetBatchProductInfo } from "../interface"
 import { scrapeStatic } from '../../request/scrapeStatic';
 import { roundDecimal } from '../../dataCleaning/roundDecimal';
 import { getNumFromString } from '../../dataCleaning/getNumFromString';
-import { getUnitFromString } from '../../dataCleaning/getUnitFromString';
 import { generateUniqueArray } from '../../dataCleaning/generateUniqueArray';
+import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
 
 
 
-export const getAldiProductInfo:GetProductInfo = (html) => {
-  // Aldi provides product html in boxes - product urls don't provide much info
+export const getAldiProductInfo = (html:string) => {
+  // No json data is found for Aldi
   const $ = cheerio.load(html)
   
   const rawTitle = $('.box--description--header').text().trim()
   if (rawTitle.length == 0) { return null }
 
   const rawTitleWords = rawTitle.split(' ')
-  const rawQuantity = rawTitleWords[rawTitleWords.length - 1]
-  const name = rawTitle.slice(0, -1 - rawQuantity.length)
 
-  // Calculate quantity in 'kg' or 'l'
-  let quantity = getNumFromString(rawQuantity).slice(-1)[0]
-  const unit = getUnitFromString(rawQuantity)
-  if (['g','ml'].includes(unit)) { 
-    quantity /= 1000
-  }
+  const rawQuantity = rawTitleWords[rawTitleWords.length - 1]
+  let quantity = getMetricQuantity(rawQuantity)
   
   // All price in dollars
   const smallNumbers = $('.box--decimal').text()
@@ -40,7 +34,7 @@ export const getAldiProductInfo:GetProductInfo = (html) => {
 
   // Prefill mandatory values
   const productInfo:ProductInfo = {
-    name: name,
+    name: rawTitle.slice(0, -1 - rawQuantity.length),
     url: `${$('.box--wrapper').attr('href')}`,
     img: `${imgUrl}`,
     price: price,
