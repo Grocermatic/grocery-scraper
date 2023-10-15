@@ -265,6 +265,8 @@
       "unitPrice": 11
     }
   ],
+  "failedProductInfo": [],
   "failedProduct": [],
-  "failedSection": []
+  "failedSection": [],
+  "scrapeSecond": 0
 }
