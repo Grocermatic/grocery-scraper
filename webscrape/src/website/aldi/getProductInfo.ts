@@ -45,29 +45,3 @@ export const getProductInfo = (html:string) => {
   // No nutritional information provided by Aldi
   return productInfo
 }
-
-
-
-export const aldiPageProducts = (html:string):ProductInfo[] => {
-  const productInfos:ProductInfo[] = []
-  const $ = cheerio.load(html)
-  $('.box--wrapper').each((index, element) => {
-    const productInfo = getProductInfo($(element).toString())
-    if (productInfo != null) { productInfos.push(productInfo) }
-  })
-  return productInfos
-}
-
-
-
-export const getAldiBatchProductInfo:GetBatchProductInfo = async(urls) => {
-  let productInfos:ProductInfo[] = []
-  for (const url of urls) {
-    const html = await scrapeStatic(url)
-    const productInfoSublist = aldiPageProducts(html)
-    if (productInfoSublist.length > 0) {
-      productInfos = productInfos.concat(productInfoSublist)
-    }
-  }
-  return generateUniqueArray(productInfos)
-}

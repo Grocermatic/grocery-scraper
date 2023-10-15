@@ -1,7 +1,8 @@
 import * as fs from 'fs'
 
 import { ProductInfo } from "../../interface"
-import { aldiPageProducts, getProductInfo } from "../getProductInfo"
+import { getProductInfo } from "../getProductInfo"
+import { aldiPageProducts } from '../getProductInfoPage'
 
 
 
