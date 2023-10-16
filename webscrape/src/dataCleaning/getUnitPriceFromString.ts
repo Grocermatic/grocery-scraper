@@ -6,7 +6,8 @@ import { roundDecimal } from "./roundDecimal"
 
 export const getUnitPriceFromString = (unitPriceImplicitString:string):number => {
   const unitQuantityImplicit = getMetricQuantity(unitPriceImplicitString)
-  const unitPriceImplicit = getNumFromString(unitPriceImplicitString)[0]
+  let unitPriceImplicit = getNumFromString(unitPriceImplicitString)[0]
+  if (!unitPriceImplicitString.includes('$')) unitPriceImplicit /= 100
   const unitPrice = roundDecimal(unitPriceImplicit / unitQuantityImplicit, 2)
   return unitPrice
 }
