@@ -1,11 +1,10 @@
-import { ProductInfo, GetBatchProductInfo } from "../interface"
+import { ProductInfo } from "../interface"
 import { getUnitPriceFromString } from "../../dataCleaning/getUnitPriceFromString";
-import { scrapeStatic } from '../../request/scrapeStatic';
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
 
 
 
-export const getColesProductInfo = (product: any) => {
+export const getProductInfo = (product: any) => {
   const urlSlug = `${product.brand}-${product.name}-${product.size}-${product.id}`.toLowerCase().split(' ').join('-')
 
   const productUnit = product.pricing.unit
@@ -35,12 +34,13 @@ export const filterUncomparableProduct = (jsonData: any) => {
 }
 
 
-export const colesPageProducts = (jsonData: any) => {
+
+export const getProductInfoPage = (jsonData: any) => {
   const productInfos: ProductInfo[] = []
 
   const products = filterUncomparableProduct(jsonData)
   for (const product of products) {
-    const productInfo = getColesProductInfo(product)
+    const productInfo = getProductInfo(product)
     productInfos.push(productInfo)
   }
   return productInfos
@@ -48,20 +48,3 @@ export const colesPageProducts = (jsonData: any) => {
 
 // const $ = cheerio.load(html)
 // const jsonData = JSON.parse($('#__NEXT_DATA__').text())
-
-export const getColesBatchProductInfo: GetBatchProductInfo = async (urls) => {
-
-  const productHtmlPromiseArray = urls.map(productUrl => {
-    return scrapeStatic(productUrl)
-  })
-  const htmlArray = await Promise.all(productHtmlPromiseArray)
-
-  const productInfos: ProductInfo[] = []
-  for (let i = 0; i < htmlArray.length; i++) {
-    const html = htmlArray[i]
-    const productInfo = getColesProductInfo(html)
-    if (productInfo) { productInfos.push(productInfo) }
-  }
-
-  return productInfos
-}

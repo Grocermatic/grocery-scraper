@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { colesPageProducts } from "../getProductInfo"
+import { getProductInfoPage } from "../getProductInfo"
 
 
 
@@ -9,7 +9,7 @@ describe("Coles page scraper", () => {
     const expectedJson = fs.readFileSync(`${__dirname}/expected.test.json`).toString()
     const expectedPageProductInfo = JSON.parse(expectedJson)
 
-    const testPageProductInfo = colesPageProducts(testJson)
+    const testPageProductInfo = getProductInfoPage(testJson)
     expect(testPageProductInfo).toEqual(expectedPageProductInfo)
   })
 })
