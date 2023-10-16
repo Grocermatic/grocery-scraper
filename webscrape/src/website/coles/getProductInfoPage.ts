@@ -1,18 +1,17 @@
-import { ProductInfo } from "../interface"
+import { ProductInfoReport } from "../ProductInfoReport"
 import { filterUncomparableProduct } from "./filterUncomparableProduct"
 import { getProductInfo } from "./getProductInfo"
 
 
 
 export const getProductInfoPage = (jsonData: any) => {
-  const productInfos: ProductInfo[] = []
+  const report = new ProductInfoReport()
 
   const products = filterUncomparableProduct(jsonData)
   for (const product of products) {
-    const productInfo = getProductInfo(product)
-    productInfos.push(productInfo)
+    report.recordProductInfo(getProductInfo, product)
   }
-  return productInfos
+  return report
 }
 
 // const $ = cheerio.load(html)
