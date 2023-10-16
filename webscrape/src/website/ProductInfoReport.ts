@@ -33,6 +33,9 @@ export class ProductInfoReport {
     this.#report.productInfo.sort((a: ProductInfo, b: ProductInfo) => {
       return a.unitPrice - b.unitPrice
     })
+    this.#report.failedProductInfo.sort((a: ProductInfo, b: ProductInfo) => {
+      return a.unitPrice - b.unitPrice
+    })
     return this
   }
 
