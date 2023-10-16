@@ -58,7 +58,8 @@ export class ProductInfoReport {
   recordProductInfo(getProductInfo: GetProductInfo, product: any) {
     try {
       let productInfo = getProductInfo(product)
-      validProductInfo(productInfo) ? this.#addProductInfo(productInfo) : this.#addFailedProductInfo(productInfo)
+      const validatedProductInfo = validProductInfo(productInfo)
+      validatedProductInfo ? this.#addProductInfo(validatedProductInfo) : this.#addFailedProductInfo(productInfo)
     } catch {
       this.#addFailedProduct(product)
     }
