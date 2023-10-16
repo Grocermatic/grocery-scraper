@@ -5,6 +5,7 @@ import { roundDecimal } from "./roundDecimal"
 
 
 export const getMetricQuantity = (quantityString:string):number => {
+  quantityString = quantityString.toLowerCase()
   if (quantityString.slice(-6) == 'per kg') return 1
   if (quantityString.slice(-9) == 'per litre') return 1
   const numArray = getNumFromString(quantityString)
