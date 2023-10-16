@@ -9,5 +9,5 @@ export const getProductInfoSection = async (url: string, cookie?: string) => {
 
   const html = await scrapeStatic(url)
   report.recordProductInfoSection(getProductInfoPage, html)
-  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
+  return report
 }
