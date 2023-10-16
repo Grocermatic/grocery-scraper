@@ -13,6 +13,3 @@ export const getProductInfoPage = (jsonData: any) => {
   }
   return report
 }
-
-// const $ = cheerio.load(html)
-// const jsonData = JSON.parse($('#__NEXT_DATA__').text())
