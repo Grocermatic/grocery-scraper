@@ -1,3 +1,4 @@
+import { wait } from "../../request/wait"
 import { ProductInfoReport } from "../ProductInfoReport"
 import { getProductInfoSection } from "./getProductInfoSection"
 
@@ -11,13 +12,7 @@ export const scrapeColes = async (cookie?: string) => {
     // fruit-vegetables
     'https://www.coles.com.au/browse/fruit-vegetables',
     // dairy-eggs-fridge
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/cheese',
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/dairy',
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/eggs',
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/fresh-pasta-sauces',
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/long-life-milk',
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/milk',
-    'https://www.coles.com.au/browse/dairy-eggs-fridge/vegetarian-vegan',
+    'https://www.coles.com.au/browse/dairy-eggs-fridge',
     // bakery
     'https://www.coles.com.au/browse/bakery',
     // deli
@@ -41,10 +36,15 @@ export const scrapeColes = async (cookie?: string) => {
     'https://www.coles.com.au/browse/meat-seafood'
   ]
 
+  /*
   const promiseArray = sectionLinks.map(sectionLink => {
     return report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
   })
   await Promise.all(promiseArray)
+  //*/
+  for (const sectionLink of sectionLinks) {
+    await report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
+  }
 
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }
