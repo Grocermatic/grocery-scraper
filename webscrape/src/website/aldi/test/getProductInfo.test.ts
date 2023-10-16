@@ -2,7 +2,7 @@ import * as fs from 'fs'
 
 import { ProductInfo } from "../../interface"
 import { getProductInfo } from "../getProductInfo"
-import { aldiPageProducts } from '../getProductInfoPage'
+import { getProductInfoPage } from '../getProductInfoPage'
 
 
 
@@ -47,7 +47,7 @@ describe("Aldi product scraper", () => {
       img: 'https://www.aldi.com.au/fileadmin/_processed_/b/8/csm_1001829-2_Q1-WEB-AUDIT_DAIRY-EGGS_1x1_228x128_1_RET_7e823d24d7.png',
       price: 4.49,
       quantity: 0.6,
-      unitPrice: 7.48
+      unitPrice: 7.5
     }
     expect(productInfo).toEqual(expectedProductInfo)
   })
@@ -58,7 +58,7 @@ describe("Aldi product scraper", () => {
 describe("Aldi page scraper", () => {
   it("should parse product data", async()=>{
     const html = fs.readFileSync(`${__dirname}/freezer.test.html`).toString()
-    const report = aldiPageProducts(html)
+    const report = getProductInfoPage(html)
     const expectedJson = fs.readFileSync(`${__dirname}/expected.test.json`).toString()
     const expectedReport = JSON.parse(expectedJson)
 

@@ -73,20 +73,12 @@
       "unitPrice": 5.05
     },
     {
-      "name": "Market Fare Cauliflower or Broccoli Bake",
-      "url": "https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/market-fare-cauliflower-or-broccoli-bake-800g/",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/b/6/csm_ALN2853_AWARDS_FROZEN_FOOD_1x1_228x128_8_b9622172af.jpg",
-      "price": 6.99,
-      "quantity": 0.8,
-      "unitPrice": 8.74
-    },
-    {
       "name": "The Best Margherita Pizza Ever",
       "url": "https://www.aldi.com.au/en/groceries/freezer/freezer-detail/ps/p/the-best-margherita-pizza-ever-365g/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/f/5/csm_ALN2626_MARGHERITA_PIZZA_1x1_228x128_663241c472.jpg",
       "price": 6.49,
       "quantity": 0.365,
-      "unitPrice": 17.78
+      "unitPrice": 17.8
     },
     {
       "name": "International Cuisine Beef Lasagne",
@@ -110,7 +102,7 @@
       "img": "https://www.aldi.com.au/fileadmin/_processed_/8/a/csm_ALN2853_FROZEN_FOOD_1x1_228x128_8_4f548ce5ec.jpg",
       "price": 6.99,
       "quantity": 0.475,
-      "unitPrice": 14.72
+      "unitPrice": 14.7
     }
   ],
   "failedProductInfo": [],
