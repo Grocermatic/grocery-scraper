@@ -5,7 +5,7 @@ import { getProductInfoSection } from "./getProductInfoSection"
 
 
 
-export const scrapeWoolworths = async (cookie: string) => {
+export const scrapeWoolworths = async (cookie?: string) => {
   const report = new ProductInfoReport()
 
   // Page links with get request health star filters
