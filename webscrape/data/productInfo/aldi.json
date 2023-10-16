@@ -1547,76 +1547,6 @@
   ],
   "failedProductInfo": [
     {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/e/csm_1001961-9_HEADING_DESK_948x63_2_RET_3869b333a2.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/8/csm_1001961-9_HEADING_DESK_948x63_1_RET_8b3a2ba5ae.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/0/csm_1001961-9_HEADING_DESK_948x63_4_RET_f2d4c8f2ec.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/3/csm_1001961-9_HEADING_DESK_948x63_7_RET_c73e84cf93.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/0/csm_1002154-1_LTO_MEAT-SEAFOOD_HEADING_DESK_948x63_1_RET_1372ec65f9.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/1/csm_1001961-9_HEADING_DESK_948x63_3_RET_be80e0b5c4.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/2/csm_1001961-7_SEASONAL_HEADING_DESK_948x63_2_RET_e1f150b0ae.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/f/csm_1001961-9_HEADING_DESK_948x63_6_RET_36b44f36f3.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/c/csm_1001961-7_SEASONAL_HEADING_DESK_948x63_3_RET_R_c6a4f3c875.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/c/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298__700cf0851f.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
       "name": "Inner Goodness - Barista Long Life Almond Unsweetened Milk",
       "url": "https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs/dairy-eggs-detail/ps/p/inner-goodness-barista-long-life-almond-unsweetene/",
       "img": "https://www.aldi.com.au/fileadmin/_processed_/a/3/csm_1002370-4_Q3_WEB_AUDIT_1x1_228x128_47_RET_16adbbfb90.png",
@@ -1655,34 +1585,6 @@
       "price": 3.19,
       "quantity": 0.065,
       "unitPrice": 9.82
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/9/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298_2_a60d69c0a7.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/5/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298_3_393f5db436.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/5/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298_4_b103e8d414.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/1/csm_1001605-12_SNACKS_THEME_HEADINGS_298x298_1ecd48a3fd.jpg",
-      "quantity": 0,
-      "unitPrice": null
     },
     {
       "name": "Snackers Market Cheese Streamers",
@@ -1731,100 +1633,9 @@
       "price": 1.69,
       "quantity": 0.065,
       "unitPrice": 260
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/7/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298_5_193be208e3.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/8/8/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298_6_7218d7fd85.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/f/b/csm_ALN2793_CHEESE_DAIRY_AWARDS_THEME_HEADINGS_298x298_7_bf9bf7e40c.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/c/5/csm_1002179-8_Q2_WEB_AUDIT_THEME_HEADINGS_298x298_RET_2e91211e1e.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/2/e/csm_1001961-9_HEADING_DESK_948x63_2_RET_3869b333a2.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/8/csm_1001961-9_HEADING_DESK_948x63_1_RET_8b3a2ba5ae.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/a/0/csm_1001961-9_HEADING_DESK_948x63_4_RET_f2d4c8f2ec.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/4/3/csm_1001961-9_HEADING_DESK_948x63_7_RET_c73e84cf93.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/1/0/csm_1002154-1_LTO_MEAT-SEAFOOD_HEADING_DESK_948x63_1_RET_1372ec65f9.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/7/1/csm_1001961-9_HEADING_DESK_948x63_3_RET_be80e0b5c4.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/5/2/csm_1001961-7_SEASONAL_HEADING_DESK_948x63_2_RET_e1f150b0ae.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/3/f/csm_1001961-9_HEADING_DESK_948x63_6_RET_36b44f36f3.jpg",
-      "quantity": 0,
-      "unitPrice": null
-    },
-    {
-      "name": "",
-      "url": "undefined",
-      "img": "https://www.aldi.com.au/fileadmin/_processed_/0/c/csm_1001961-7_SEASONAL_HEADING_DESK_948x63_3_RET_R_c6a4f3c875.jpg",
-      "quantity": 0,
-      "unitPrice": null
     }
   ],
   "failedProduct": [],
   "failedSection": [],
-  "scrapeSecond": 5.601
+  "scrapeSecond": 1.904
 }
