@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { getProductInfoPage } from "../getProductInfo"
+import { getProductInfoPage } from '../getProductInfoPage'
 
 
 

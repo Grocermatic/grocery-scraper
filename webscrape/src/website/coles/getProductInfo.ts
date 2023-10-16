@@ -21,30 +21,3 @@ export const getProductInfo = (product: any) => {
   }
   return productInfo
 }
-
-
-
-export const filterUncomparableProduct = (jsonData: any) => {
-  // Filter non-available products and quantities with each
-  const products = JSON.parse(jsonData).props.pageProps.searchResults.results.filter((product: any) => {
-    return product.availability == true
-      && product.pricing.unit.ofMeasureUnits != 'ea'
-  })
-  return products
-}
-
-
-
-export const getProductInfoPage = (jsonData: any) => {
-  const productInfos: ProductInfo[] = []
-
-  const products = filterUncomparableProduct(jsonData)
-  for (const product of products) {
-    const productInfo = getProductInfo(product)
-    productInfos.push(productInfo)
-  }
-  return productInfos
-}
-
-// const $ = cheerio.load(html)
-// const jsonData = JSON.parse($('#__NEXT_DATA__').text())
