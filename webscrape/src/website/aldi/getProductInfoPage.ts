@@ -9,7 +9,9 @@ export const getProductInfoPage = (html: string) => {
 
   const $ = Cheerio.load(html)
   $('.box--wrapper').each((id, element: any) => {
-    report.recordProductInfo(getProductInfo, $(element).toString())
+    const $ = Cheerio.load(element)
+    const unit = $('.box--amount').text().slice(-2).toLowerCase()
+    if (!['ea', 'pk'].includes(unit)) report.recordProductInfo(getProductInfo, $(element).toString())
   })
   return report
 }
