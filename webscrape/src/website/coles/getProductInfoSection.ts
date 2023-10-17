@@ -2,20 +2,38 @@ import * as Cheerio from "cheerio"
 import { scrapeStatic } from "../../request/scrapeStatic"
 import { ProductInfoReport } from "../ProductInfoReport"
 import { getProductInfoPage } from "./getProductInfoPage"
+import { getNumFromString } from "../../dataCleaning/getNumFromString"
+import { wait } from "../../request/wait"
 
 
 
 export const getProductInfoSection = async (url: string, cookie?: string) => {
   const report = new ProductInfoReport()
 
-  for (let pageNumber = 1; ; pageNumber++) {
-    const html = await scrapeStatic(url + `?sortBy=unitPriceAscending&page=${pageNumber}`)
-    const $ = Cheerio.load(html)
-    const sectionElement = $('section.coles-targeting-ProductTileProductTileWrapper')
-    if (sectionElement.length == 0) { break }
+  let pageLimit = Infinity
+  for (let pageNumber = 1; pageNumber <= pageLimit; pageNumber++) {
+    let jsonData = ''
+    while (jsonData == '') {
+      try {
+        const html = await scrapeStatic(url + `?sortBy=unitPriceAscending&page=${pageNumber}`)
+        const $ = Cheerio.load(html)
 
-    const jsonData = $('#__NEXT_DATA__').text()
+        if (pageLimit == Infinity) {
+          const paginationHtml = $('nav.coles-targeting-PaginationPaginationRoot').toString()
+          const $$ = Cheerio.load(paginationHtml)
+          const newPageLimit = getNumFromString($$('span').text())[1]
+          if (newPageLimit) pageLimit = newPageLimit
+        }
+
+        jsonData = $('#__NEXT_DATA__').text()
+      } catch {
+        wait(15000)
+      }
+    }
     report.recordProductInfoPage(getProductInfoPage, jsonData)
+
+    const numProducts = report.get().productInfo.length
+    console.log(`Page ${pageNumber}/${pageLimit} - ${url.split('/').slice(-1)[0]} - ${numProducts} products`)
   }
   return report
 }
