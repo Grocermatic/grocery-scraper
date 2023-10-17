@@ -11,7 +11,7 @@ export const getRequestJson = async(url:string, cookie?:string):Promise<string> 
   try {
     const proxyClient = axios.create({headers: headers})
     const response = await proxyClient.get(url)
-    await wait(1000)
+    await wait(2000)
     return JSON.stringify(response.data)
   } catch {
     return ''
