@@ -14,7 +14,7 @@ export const getProductInfoSection = async (url: string, cookie?: string) => {
     const sectionElement = $('section.coles-targeting-ProductTileProductTileWrapper')
     if (sectionElement.length == 0) { break }
 
-    const jsonData = JSON.parse($('#__NEXT_DATA__').text())
+    const jsonData = $('#__NEXT_DATA__').text()
     report.recordProductInfoPage(getProductInfoPage, jsonData)
   }
   return report
