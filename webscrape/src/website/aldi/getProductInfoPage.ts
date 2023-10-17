@@ -8,7 +8,7 @@ export const getProductInfoPage = (html: string) => {
   const report = new ProductInfoReport()
 
   const $ = Cheerio.load(html)
-  $('.box--wrapper').each((id, element: any) => {
+  $('.box--wrapper').each((_id, element: Cheerio.Element) => {
     const $ = Cheerio.load(element)
     const unit = $('.box--amount').text().slice(-2).toLowerCase()
     const rawTitle = $('.box--description--header').first().text().trim()
