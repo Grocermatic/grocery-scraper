@@ -12,7 +12,6 @@ export const scrapeStatic = async(url:string, cookie?:string):Promise<string> =>
       headers: headers
     })
     const response = await proxyClient.get(url)
-    await wait(2000)
     return response.data
   } catch (err:any) {
     return ''
