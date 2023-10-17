@@ -8,6 +8,9 @@ export const getProductInfoSection = async (url: string, cookie?: string) => {
   const report = new ProductInfoReport()
 
   const html = await scrapeStatic(url)
-  report.recordProductInfoSection(getProductInfoPage, html)
+  await report.recordProductInfoSection(getProductInfoPage, html)
+
+  const numProducts = report.get().productInfo.length
+  console.log(`${url.split('/').slice(-1)[0]} - ${numProducts} products`)
   return report
 }
