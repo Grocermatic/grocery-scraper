@@ -1,4 +1,3 @@
-import { wait } from "../../request/wait"
 import { ProductInfoReport } from "../ProductInfoReport"
 import { getProductInfoSection } from "./getProductInfoSection"
 
@@ -36,15 +35,8 @@ export const scrapeColes = async (cookie?: string) => {
     'https://www.coles.com.au/browse/meat-seafood'
   ]
 
-  /*
-  const promiseArray = sectionLinks.map(sectionLink => {
-    return report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
-  })
-  await Promise.all(promiseArray)
-  //*/
   for (const sectionLink of sectionLinks) {
     await report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
   }
-
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }
