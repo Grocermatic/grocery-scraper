@@ -15,8 +15,9 @@ export const scrapeAldi = async (cookie?: string) => {
     'https://www.aldi.com.au/en/groceries/fresh-produce/dairy-eggs'
   ]
 
-  for (const url of productLinks) {
-    await report.recordProductInfoSection(getProductInfoSection, url, cookie)
-  }
+  const promiseArray = productLinks.map(url => {
+    return report.recordProductInfoSection(getProductInfoSection, url, cookie)
+  })
+  await Promise.all(promiseArray)
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }
