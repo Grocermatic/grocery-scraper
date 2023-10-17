@@ -27,6 +27,9 @@ export const getProductInfoSection = async (sectionId: string, woolworthsCookie:
     if (productListJson.length == 0) { break }
 
     report.recordProductInfoPage(getProductInfoPage, productJson)
+
+    const numProducts = report.get().productInfo.length
+    console.log(`Page ${pageNumber} - ${sectionId} - ${numProducts} products`)
   }
   return report
 }
