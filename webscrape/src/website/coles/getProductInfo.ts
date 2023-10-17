@@ -7,10 +7,6 @@ import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
 export const getProductInfo = (product: any) => {
   const urlSlug = `${product.brand}-${product.name}-${product.size}-${product.id}`.toLowerCase().split(' ').join('-')
 
-  const productUnit = product.pricing.unit
-  let quantity = getMetricQuantity(`${productUnit.quantity * productUnit.ofMeasureQuantity}${productUnit.ofMeasureUnits}`)
-  try { quantity = getMetricQuantity(product.size) } catch { }
-
   const productInfo: ProductInfo = {
     name: product.name,
     url: `https://www.coles.com.au/product/${urlSlug}`,
