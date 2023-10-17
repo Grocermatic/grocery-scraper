@@ -75,8 +75,9 @@ export class ProductInfoReport {
 
   async recordProductInfoSection(getSectionProductInfo: any, requestDatum: any, cookie?: string) {
     try {
-      const section = await getSectionProductInfo(requestDatum, cookie)
-      this.#merge(section)
+      const report = await getSectionProductInfo(requestDatum, cookie)
+      if (report.get().productInfo.length == 0) throw(`Section failed: ${requestDatum}`)
+      this.#merge(report)
     } catch {
       this.#addFailedSection(requestDatum)
     }
