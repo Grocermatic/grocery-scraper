@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { wait } from './wait'
 import { randHttpHeader } from '../proxy/randHttpHeader'
 
 
