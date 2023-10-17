@@ -1,49 +1,31 @@
-import * as fs from 'fs'
+import { scrapeWoolworths } from '../src/website/woolworths/scrapeWoolworths'
+import { getCookie } from '../src/request/getCookie'
+import { scrapeAldi } from '../src/website/aldi/scrapeAldi'
+import { scrapeColes } from '../src/website/coles/scrapeColes'
+import { saveJson } from '../src/dataCleaning/saveJson'
 
-import { getAllProductInfos } from '../src/website/getAllProductInfo'
-import { roundDecimal } from '../src/dataCleaning/roundDecimal'
 
 
+const basePath = 'webscrape/data/productInfo'
 
-const logFilePath = 'webscrape/script/getProductInfo.log'
-
-const writePerformanceToLog = (performaneMeasure:PerformanceMeasure) => {
-  console.log(performaneMeasure)
-  const duration = roundDecimal(performaneMeasure.duration / 1000, 3)
-  const logMessage = `${performaneMeasure.name}, ${duration}\n`
-  fs.appendFileSync(logFilePath, logMessage)
+const aldiProductInfo = async() => {
+  const report = await scrapeAldi()
+  saveJson(`${basePath}/aldi.json`, report.get())
 }
 
-
-
-const writeMessageToLog = (message:string) => {
-  console.log(message)
-  fs.appendFileSync(logFilePath, `${message}\n`)
+const colesProductInfo = async() => {
+  const report = await scrapeColes()
+  saveJson(`${basePath}/aldi.json`, report.get())
 }
 
-
-
-export const getProductInfo = () => {
-  const filePath = `webscrape/data`
-  const stores = ['aldi', 'coles', 'woolworths']
-
-  stores.map(async(store) => {
-    const urlsList = fs.readFileSync(`${filePath}/productLink/${store}.csv`).toString().split('\n')
-
-    writeMessageToLog(`Scrape ${store} productInfo:`)
-    performance.mark('Start scraping')
-    const productInfos = await getAllProductInfos([urlsList], 20)
-    performance.mark('Finish scraping')
-    writePerformanceToLog(performance.measure('Scrape time (s)', 'Start scraping', 'Finish scraping'))
-    writeMessageToLog('')
-  
-    const content = JSON.stringify(productInfos, null, 2)
-    fs.writeFileSync(`${filePath}/productInfo/${store}.json`, content)
-  })
+const woolworthsProductInfo = async() => {
+  const cookie = await getCookie('https://www.woolworths.com.au')
+  const report = await scrapeWoolworths(cookie)
+  saveJson(`${basePath}/woolworths.json`, report.get())
 }
-
-
 
 (async() => {
-  getProductInfo()
+  await woolworthsProductInfo()
+  await colesProductInfo()
+  await aldiProductInfo
 })()
