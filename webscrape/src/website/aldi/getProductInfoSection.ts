@@ -4,7 +4,7 @@ import { getProductInfoPage } from "./getProductInfoPage"
 
 
 
-export const getProductInfoSection = async (url: string, cookie?: string) => {
+export const getProductInfoSection = async (url: string, _cookie?: string) => {
   const report = new ProductInfoReport()
 
   const html = await scrapeStatic(url)

@@ -7,7 +7,7 @@ import { wait } from "../../request/wait"
 
 
 
-export const getProductInfoSection = async (url: string, cookie?: string) => {
+export const getProductInfoSection = async (url: string, _cookie?: string) => {
   const report = new ProductInfoReport()
 
   let pageLimit = Infinity
