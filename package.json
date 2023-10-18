@@ -6,7 +6,8 @@
     "dev": "vite frontend",
     "build": "vite build frontend",
     "preview": "vite preview frontend",
-    "start": "pnpm run clean && pnpm run build && pnpm run preview"
+    "start": "pnpm run clean && pnpm run build && pnpm run preview",
+    "prettier": "prettier . -write"
   },
   "dependencies": {
     "@sparticuz/chromium": "113.0.1",
@@ -20,9 +21,11 @@
     "@types/jest": "^29.5.1",
     "@types/node": "^20.3.2",
     "jest": "^29.5.0",
+    "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "vite": "^4.4.5",
+    "vite-plugin-singlefile": "^0.13.5",
     "vite-plugin-solid": "^2.7.0"
   }
 }
