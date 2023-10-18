@@ -1,7 +1,7 @@
 {
   "scripts": {
     "nodemon": "nodemon $1",
-    "test": "jest --verbose --coverage --watchAll",
+    "test": "jest --watchAll",
     "getProductInfo": "nodemon webscrape/script/getProductInfo.ts --ignore 'webscrape/data/*'",
     "cleanProductInfo": "nodemon webscrape/script/cleanProductInfo.ts --ignore 'webscrape/data/*'",
     "dev": "vite frontend",
