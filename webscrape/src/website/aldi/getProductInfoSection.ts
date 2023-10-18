@@ -11,6 +11,6 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
   await report.recordProductInfoSection(getProductInfoPage, html)
 
   const numProducts = report.get().productInfo.length
-  console.log(`${url.split('/').slice(-1)[0]} - ${numProducts} products`)
+  console.debug(`${url.split('/').slice(-1)[0]} - ${numProducts} products`)
   return report
 }

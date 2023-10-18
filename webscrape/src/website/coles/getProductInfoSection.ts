@@ -33,7 +33,7 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
     report.recordProductInfoPage(getProductInfoPage, jsonData)
 
     const numProducts = report.get().productInfo.length
-    console.log(`Page ${pageNumber}/${pageLimit} - ${url.split('/').slice(-1)[0]} - ${numProducts} products`)
+    console.debug(`Page ${pageNumber}/${pageLimit} - ${url.split('/').slice(-1)[0]} - ${numProducts} products`)
   }
   return report
 }
