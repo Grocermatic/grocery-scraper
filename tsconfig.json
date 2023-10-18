@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "moduleResolution": "node",
+    "module": "CommonJS",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
 
     /* Bundler mode */
     "allowImportingTsExtensions": true,
@@ -20,7 +21,7 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "allowArbitraryExtensions": false,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "allowUmdGlobalAccess": false,
     "allowJs": false,
   }
