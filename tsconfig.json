@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "CommonJS",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
 
     /* Bundler mode */
     "allowImportingTsExtensions": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
@@ -27,6 +23,5 @@
     "allowSyntheticDefaultImports": false,
     "allowUmdGlobalAccess": false,
     "allowJs": false,
-
   }
 }
