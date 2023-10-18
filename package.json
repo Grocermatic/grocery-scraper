@@ -1,29 +1,25 @@
 {
   "scripts": {
-    "nodemon": "nodemon $1",
     "test": "jest --watchAll",
-    "scrape": "nodemon webscrape/script/scrapeProductInfo.ts --ignore 'webscrape/data/*'",
-    "clean": "nodemon webscrape/script/cleanProductInfo.ts --ignore 'webscrape/data/*'",
+    "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
+    "clean": "ts-node webscrape/script/cleanProductInfo.ts",
     "dev": "vite frontend",
     "build": "vite build frontend",
-    "preview": "vite preview frontend"
+    "preview": "vite preview frontend",
+    "start": "pnpm run clean && pnpm run build && pnpm run preview"
   },
   "dependencies": {
     "@sparticuz/chromium": "113.0.1",
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
     "puppeteer": "^20.1",
-    "solid-js": "^1.7.8"
+    "solid-js": "^1.7.8",
+    "ts-jest": "^29.1.1"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.115",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.3.2",
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22",
-    "serverless": "^3.31.0",
-    "serverless-esbuild": "^1.45.1",
-    "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "vite": "^4.4.5",
