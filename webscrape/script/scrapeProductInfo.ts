@@ -15,7 +15,7 @@ const aldiProductInfo = async() => {
 
 const colesProductInfo = async() => {
   const report = await scrapeColes()
-  saveJson(`${basePath}/aldi.json`, report.get())
+  saveJson(`${basePath}/coles.json`, report.get())
 }
 
 const woolworthsProductInfo = async() => {
