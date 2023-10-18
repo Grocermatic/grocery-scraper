@@ -38,6 +38,8 @@ export const getCookie = async (url: string): Promise<string> => {
     for (const cookieObject of cookiesArray) {
       cookies += `${cookieObject.name}=${cookieObject.value};`
     }
+    console.debug(`Cookie for ${url}`)
+    console.debug(cookies)
   } finally {
     browser.close()
   }
