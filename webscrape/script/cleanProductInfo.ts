@@ -1,4 +1,4 @@
-import * as fs from 'fs'
+import { readFileSync, readdirSync, rmSync } from 'fs'
 import { ProductInfo } from '../src/website/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
@@ -22,14 +22,15 @@ const splitArray = (array: any[], maxLength: number) => {
 
 const basePath = 'webscrape/data'
 const sourcePath = `${basePath}/productInfo`
+const productionPath = `${basePath}/production`
 const maxUnitPrice = 30
 const minUnitPrice = 0.5
 
 const report = new ProductInfoReport()
 
-const files = fs.readdirSync(sourcePath)
+const files = readdirSync(sourcePath)
 for (const file of files) {
-  const reportJson = fs.readFileSync(`${sourcePath}/${file}`).toString()
+  const reportJson = readFileSync(`${sourcePath}/${file}`).toString()
   const productInfoReport = new ProductInfoReport(JSON.parse(reportJson))
   report.merge(productInfoReport)
 }
@@ -52,6 +53,7 @@ console.debug(`Output data size: ${stringKiloByte(JSON.stringify(productInfos))}
 
 saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
+readdirSync(productionPath).forEach(f => rmSync(`${productionPath}/${f}`))
 const productInfosBatch: ProductInfo[][] = splitArray(productInfos, 1000)
 productInfosBatch.map((productInfo, id) => {
   saveJson(`${basePath}/production/product${id}.json`, productInfo)

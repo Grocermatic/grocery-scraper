@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js'
-import productInfos from '../../webscrape/data/cleanProductInfo.json'
+import productInfos from '../../webscrape/data/production/product0.json'
 import { ProductCard } from './ProductCard'
 
 
