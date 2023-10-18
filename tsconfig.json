@@ -17,15 +17,16 @@
 
     /* Linting */
     "strict": true,
+    "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "preserveConstEnums": true,
-    "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "allowArbitraryExtensions": false,
+    "allowSyntheticDefaultImports": false,
+    "allowUmdGlobalAccess": false,
+    "allowJs": false,
 
-    "sourceMap": true,
-    "allowJs": true,
-    "outDir": "./build",
-    "rootDir": "./",
   }
 }
