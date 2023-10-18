@@ -1,4 +1,8 @@
 import { createSignal } from 'solid-js'
+import productInfos from '../../webscrape/data/cleanProductInfo.json'
+import { ProductCard } from './ProductCard'
+
+
 
 function App() {
   const [count, setCount] = createSignal(0)
@@ -17,6 +21,7 @@ function App() {
       <p class="read-the-docs">
         Click on the Vite and Solid logos to learn more
       </p>
+      <ProductCard productInfo={productInfos[0]}/>
     </>
   )
 }
