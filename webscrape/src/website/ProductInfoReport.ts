@@ -49,7 +49,7 @@ export class ProductInfoReport {
 
   #addFailedSection(section: string) { this.#report.failedSection.push(section) }
 
-  #merge(anotherScrapeReport: ProductInfoReport) {
+  merge(anotherScrapeReport: ProductInfoReport) {
     const report = anotherScrapeReport.get()
 
     this.#report.productInfo = [...this.#report.productInfo, ...report.productInfo]
@@ -70,14 +70,14 @@ export class ProductInfoReport {
 
   recordProductInfoPage(getPageProductInfo: any, rawPageData: string) {
     const page = getPageProductInfo(rawPageData)
-    this.#merge(page)
+    this.merge(page)
   }
 
   async recordProductInfoSection(getSectionProductInfo: any, requestDatum: any, cookie?: string) {
     try {
       const report = await getSectionProductInfo(requestDatum, cookie)
       if (report.get().productInfo.length == 0) throw(`Section failed: ${requestDatum}`)
-      this.#merge(report)
+      this.merge(report)
     } catch {
       this.#addFailedSection(requestDatum)
     }
