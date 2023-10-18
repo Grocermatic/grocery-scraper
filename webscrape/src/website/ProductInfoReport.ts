@@ -1,14 +1,12 @@
-import { generateUniqueArray } from "../dataCleaning/generateUniqueArray"
-import { GetProductInfo, ProductInfo } from "./interface"
-import { validProductInfo } from "./validProductInfo"
-
-
+import { generateUniqueArray } from '../dataCleaning/generateUniqueArray'
+import { GetProductInfo, ProductInfo } from './interface'
+import { validProductInfo } from './validProductInfo'
 
 interface ProductInfoReportReport {
-  productInfo: ProductInfo[],
-  failedProductInfo: ProductInfo[],
-  failedProduct: any[],
-  failedSection: any[],
+  productInfo: ProductInfo[]
+  failedProductInfo: ProductInfo[]
+  failedProduct: any[]
+  failedSection: any[]
   scrapeSecond: number
 }
 
@@ -18,11 +16,13 @@ export class ProductInfoReport {
     failedProductInfo: [],
     failedProduct: [],
     failedSection: [],
-    scrapeSecond: 0
+    scrapeSecond: 0,
   }
   #creationMilliSecond = Date.now()
 
-  constructor(report?: ProductInfoReportReport) { if (report) this.#report = report }
+  constructor(report?: ProductInfoReportReport) {
+    if (report) this.#report = report
+  }
 
   recordScrapeSecond() {
     this.#report.scrapeSecond = (Date.now() - this.#creationMilliSecond) / 1000
@@ -39,30 +39,54 @@ export class ProductInfoReport {
     return this
   }
 
-  get() { return this.#report }
+  get() {
+    return this.#report
+  }
 
-  #addProductInfo(productInfo: ProductInfo) { this.#report.productInfo.push(productInfo) }
+  #addProductInfo(productInfo: ProductInfo) {
+    this.#report.productInfo.push(productInfo)
+  }
 
-  #addFailedProductInfo(productInfo: ProductInfo) { this.#report.failedProductInfo.push(productInfo) }
+  #addFailedProductInfo(productInfo: ProductInfo) {
+    this.#report.failedProductInfo.push(productInfo)
+  }
 
-  #addFailedProduct(product: any) { this.#report.failedProduct.push(product) }
+  #addFailedProduct(product: any) {
+    this.#report.failedProduct.push(product)
+  }
 
-  #addFailedSection(section: string) { this.#report.failedSection.push(section) }
+  #addFailedSection(section: string) {
+    this.#report.failedSection.push(section)
+  }
 
   merge(anotherScrapeReport: ProductInfoReport) {
     const report = anotherScrapeReport.get()
 
-    this.#report.productInfo = [...this.#report.productInfo, ...report.productInfo]
-    this.#report.failedProductInfo = [...this.#report.failedProductInfo, ...report.failedProductInfo]
-    this.#report.failedProduct = [...this.#report.failedProduct, ...report.failedProduct]
-    this.#report.failedSection = [...this.#report.failedSection, ...report.failedSection]
+    this.#report.productInfo = [
+      ...this.#report.productInfo,
+      ...report.productInfo,
+    ]
+    this.#report.failedProductInfo = [
+      ...this.#report.failedProductInfo,
+      ...report.failedProductInfo,
+    ]
+    this.#report.failedProduct = [
+      ...this.#report.failedProduct,
+      ...report.failedProduct,
+    ]
+    this.#report.failedSection = [
+      ...this.#report.failedSection,
+      ...report.failedSection,
+    ]
   }
 
   recordProductInfo(getProductInfo: GetProductInfo, product: any) {
     try {
       let productInfo = getProductInfo(product)
       const validatedProductInfo = validProductInfo(productInfo)
-      validatedProductInfo ? this.#addProductInfo(validatedProductInfo) : this.#addFailedProductInfo(productInfo)
+      validatedProductInfo
+        ? this.#addProductInfo(validatedProductInfo)
+        : this.#addFailedProductInfo(productInfo)
     } catch {
       this.#addFailedProduct(product)
     }
@@ -73,10 +97,15 @@ export class ProductInfoReport {
     this.merge(page)
   }
 
-  async recordProductInfoSection(getSectionProductInfo: any, requestDatum: any, cookie?: string) {
+  async recordProductInfoSection(
+    getSectionProductInfo: any,
+    requestDatum: any,
+    cookie?: string,
+  ) {
     try {
       const report = await getSectionProductInfo(requestDatum, cookie)
-      if (report.get().productInfo.length == 0) throw(`Section failed: ${requestDatum}`)
+      if (report.get().productInfo.length == 0)
+        throw `Section failed: ${requestDatum}`
       this.merge(report)
     } catch {
       this.#addFailedSection(requestDatum)
@@ -85,7 +114,9 @@ export class ProductInfoReport {
 
   removeDuplicate() {
     this.#report.productInfo = generateUniqueArray(this.#report.productInfo)
-    this.#report.failedProductInfo = generateUniqueArray(this.#report.failedProductInfo)
+    this.#report.failedProductInfo = generateUniqueArray(
+      this.#report.failedProductInfo,
+    )
     this.#report.failedProduct = generateUniqueArray(this.#report.failedProduct)
     this.#report.failedSection = generateUniqueArray(this.#report.failedSection)
     return this

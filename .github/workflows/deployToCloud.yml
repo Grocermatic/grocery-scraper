@@ -2,11 +2,11 @@ name: Deploy serverless app
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
-      
+    branches: ['main']
+
 jobs:
   deploy:
     name: DeployToCloud
@@ -15,19 +15,19 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        
-      # Install npm modules
-    - run: npm ci; npm run test
-      working-directory: webscrape
-      
-    - name: serverless deploy
-      uses: serverless/github-action@v3.2
-      with:
-        args: deploy
-      env:
-        SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+        # Install npm modules
+      - run: npm ci; npm run test
+        working-directory: webscrape
+
+      - name: serverless deploy
+        uses: serverless/github-action@v3.2
+        with:
+          args: deploy
+        env:
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}

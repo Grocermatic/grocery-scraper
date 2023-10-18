@@ -1,8 +1,6 @@
-import { ProductInfoReport } from "../ProductInfoReport"
-import { filterUncomparableProduct } from "./filterUncomparableProduct"
-import { getProductInfo } from "./getProductInfo"
-
-
+import { ProductInfoReport } from '../ProductInfoReport'
+import { filterUncomparableProduct } from './filterUncomparableProduct'
+import { getProductInfo } from './getProductInfo'
 
 export const getProductInfoPage = (productJson: string) => {
   const report = new ProductInfoReport()

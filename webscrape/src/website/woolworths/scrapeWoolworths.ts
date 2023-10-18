@@ -1,9 +1,7 @@
 /* istanbul ignore file */
 
-import { ProductInfoReport } from "../ProductInfoReport"
-import { getProductInfoSection } from "./getProductInfoSection"
-
-
+import { ProductInfoReport } from '../ProductInfoReport'
+import { getProductInfoSection } from './getProductInfoSection'
 
 export const scrapeWoolworths = async (cookie?: string) => {
   const report = new ProductInfoReport()
@@ -41,13 +39,20 @@ export const scrapeWoolworths = async (cookie?: string) => {
     '1_E216643', // https://www.woolworths.com.au/shop/browse/pantry/oil-vinegar
     // freezer
     '1_A96D7F8', // https://www.woolworths.com.au/shop/browse/freezer/frozen-vegetables
-    '1_4B53D5A' // https://www.woolworths.com.au/shop/browse/freezer/frozen-fruit
+    '1_4B53D5A', // https://www.woolworths.com.au/shop/browse/freezer/frozen-fruit
   ]
 
-  const promiseArray = sectionIds.map(sectionId => {
-    return report.recordProductInfoSection(getProductInfoSection, sectionId, cookie)
+  const promiseArray = sectionIds.map((sectionId) => {
+    return report.recordProductInfoSection(
+      getProductInfoSection,
+      sectionId,
+      cookie,
+    )
   })
   await Promise.all(promiseArray)
 
-  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
+  return report
+    .removeDuplicate()
+    .sortProductInfoUnitPrice()
+    .recordScrapeSecond()
 }

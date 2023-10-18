@@ -1,7 +1,5 @@
-import { ProductInfoReport } from "../ProductInfoReport"
-import { getProductInfoSection } from "./getProductInfoSection"
-
-
+import { ProductInfoReport } from '../ProductInfoReport'
+import { getProductInfoSection } from './getProductInfoSection'
 
 export const scrapeColes = async (cookie?: string) => {
   const report = new ProductInfoReport()
@@ -32,11 +30,18 @@ export const scrapeColes = async (cookie?: string) => {
     // frozen
     'https://www.coles.com.au/browse/frozen',
     // meat-seafood
-    'https://www.coles.com.au/browse/meat-seafood'
+    'https://www.coles.com.au/browse/meat-seafood',
   ]
 
   for (const sectionLink of sectionLinks) {
-    await report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
+    await report.recordProductInfoSection(
+      getProductInfoSection,
+      sectionLink,
+      cookie,
+    )
   }
-  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
+  return report
+    .removeDuplicate()
+    .sortProductInfoUnitPrice()
+    .recordScrapeSecond()
 }

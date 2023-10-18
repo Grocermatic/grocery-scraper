@@ -23,6 +23,6 @@
     "allowArbitraryExtensions": false,
     "allowSyntheticDefaultImports": true,
     "allowUmdGlobalAccess": false,
-    "allowJs": false,
+    "allowJs": false
   }
 }

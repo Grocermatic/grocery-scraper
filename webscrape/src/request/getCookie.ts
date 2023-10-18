@@ -1,22 +1,33 @@
 /* istanbul ignore file */
 
 import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
-const chromium = require("@sparticuz/chromium")
-
-
+const chromium = require('@sparticuz/chromium')
 
 const launchOption: PuppeteerLaunchOptions = {
   defaultViewport: chromium.defaultViewport,
-  headless: 'new'
+  headless: 'new',
 }
 
-chromium.executablePath("/opt/bin").then((path: string) => {
-  launchOption.executablePath = path
-}).catch(() => {})
+chromium
+  .executablePath('/opt/bin')
+  .then((path: string) => {
+    launchOption.executablePath = path
+  })
+  .catch(() => {})
 
-const excludeContentType = ['EventSource', 'Fetch', 'Font', 'Image', 'Manifest', 'Media', 'Script', 'Stylesheet', 'TextTrack', 'WebSocket', 'XHR']
-
-
+const excludeContentType = [
+  'EventSource',
+  'Fetch',
+  'Font',
+  'Image',
+  'Manifest',
+  'Media',
+  'Script',
+  'Stylesheet',
+  'TextTrack',
+  'WebSocket',
+  'XHR',
+]
 
 export const getCookie = async (url: string): Promise<string> => {
   let cookies = ''
@@ -28,8 +39,11 @@ export const getCookie = async (url: string): Promise<string> => {
 
   // Block extaneous information to decrease scrape time
   page.on('request', (req: any) => {
-    if (excludeContentType.includes(req.resourceType())) { req.abort() }
-    else { req.continue() }
+    if (excludeContentType.includes(req.resourceType())) {
+      req.abort()
+    } else {
+      req.continue()
+    }
   })
 
   try {

@@ -3,8 +3,6 @@ import { ProductInfo } from '../src/website/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
 
-
-
 const stringKiloByte = (val: string) => {
   return Math.round(val.length * 0.001)
 }
@@ -13,7 +11,7 @@ const splitArray = (array: any[], maxLength: number) => {
   const newArrays: any[][] = []
   while (true) {
     const newArray = array.slice(0, maxLength)
-    if (newArray.length ==0 ) break
+    if (newArray.length == 0) break
     newArrays.push(newArray)
     array = array.slice(maxLength)
   }
@@ -34,26 +32,33 @@ for (const file of files) {
   const productInfoReport = new ProductInfoReport(JSON.parse(reportJson))
   report.merge(productInfoReport)
 }
-const productInfoReport = report.removeDuplicate().sortProductInfoUnitPrice().get()
+const productInfoReport = report
+  .removeDuplicate()
+  .sortProductInfoUnitPrice()
+  .get()
 
 console.table({
-  "Success": productInfoReport.productInfo.length,
-  "Invalid data": productInfoReport.failedProductInfo.length,
-  "Failed to scrape": productInfoReport.failedProduct.length,
-  "Failed sections": productInfoReport.failedSection.length
+  Success: productInfoReport.productInfo.length,
+  'Invalid data': productInfoReport.failedProductInfo.length,
+  'Failed to scrape': productInfoReport.failedProduct.length,
+  'Failed sections': productInfoReport.failedSection.length,
 })
 
-const productInfos = productInfoReport.productInfo.filter((productInfo: ProductInfo) => {
-  if (productInfo.unitPrice > maxUnitPrice) return false
-  if (productInfo.unitPrice < minUnitPrice) return false
-  return true
-})
+const productInfos = productInfoReport.productInfo.filter(
+  (productInfo: ProductInfo) => {
+    if (productInfo.unitPrice > maxUnitPrice) return false
+    if (productInfo.unitPrice < minUnitPrice) return false
+    return true
+  },
+)
 
-console.debug(`Output data size: ${stringKiloByte(JSON.stringify(productInfos))} kb`)
+console.debug(
+  `Output data size: ${stringKiloByte(JSON.stringify(productInfos))} kb`,
+)
 
 saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
-readdirSync(productionPath).forEach(f => rmSync(`${productionPath}/${f}`))
+readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
 const productInfosBatch: ProductInfo[][] = splitArray(productInfos, 1000)
 productInfosBatch.map((productInfo, id) => {
   saveJson(`${basePath}/production/product${id}.json`, productInfo)

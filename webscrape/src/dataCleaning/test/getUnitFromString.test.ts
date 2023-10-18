@@ -1,9 +1,7 @@
-import { getUnitFromString } from "../getUnitFromString"
+import { getUnitFromString } from '../getUnitFromString'
 
-
-
-describe("unit measure extractor for food", () => {
-  it("should extract 'kg', 'g', 'l' and 'ml' from end of text", async()=>{
+describe('unit measure extractor for food', () => {
+  it("should extract 'kg', 'g', 'l' and 'ml' from end of text", async () => {
     expect(getUnitFromString('1.0 ml')).toEqual('ml')
     expect(getUnitFromString('1.0 l')).toEqual('l')
     expect(getUnitFromString('1.0ml')).toEqual('ml')

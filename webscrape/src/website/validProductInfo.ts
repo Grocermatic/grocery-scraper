@@ -1,7 +1,5 @@
-import { roundDecimal } from "../dataCleaning/roundDecimal"
-import { ProductInfo } from "./interface"
-
-
+import { roundDecimal } from '../dataCleaning/roundDecimal'
+import { ProductInfo } from './interface'
 
 export const validProductInfo = (productInfo: ProductInfo) => {
   const { name, url, img, price, quantity, unitPrice } = productInfo
@@ -9,8 +7,16 @@ export const validProductInfo = (productInfo: ProductInfo) => {
   // Ensure valid string data
   if (typeof name != 'string') return null
   if (name.length == 0) return null
-  try { new URL(url) } catch { return null }
-  try { new URL(img) } catch { return null }
+  try {
+    new URL(url)
+  } catch {
+    return null
+  }
+  try {
+    new URL(img)
+  } catch {
+    return null
+  }
 
   // Repair invalid numeric data if possible
   const validNum = (val: any) => {
@@ -25,12 +31,18 @@ export const validProductInfo = (productInfo: ProductInfo) => {
     const ratio = price / quantity / unitPrice
     if (roundDecimal(ratio, 1) != 1) return null
   }
-  if (!validNum(productInfo.price)) productInfo.price = roundDecimal(unitPrice * quantity, 2)
-  if (!validNum(productInfo.quantity)) productInfo.quantity = roundDecimal(price / unitPrice, 3)
-  if (!validNum(productInfo.unitPrice)) productInfo.unitPrice = roundDecimal(price / quantity, 2)
+  if (!validNum(productInfo.price))
+    productInfo.price = roundDecimal(unitPrice * quantity, 2)
+  if (!validNum(productInfo.quantity))
+    productInfo.quantity = roundDecimal(price / unitPrice, 3)
+  if (!validNum(productInfo.unitPrice))
+    productInfo.unitPrice = roundDecimal(price / quantity, 2)
 
-  const validCount2 = validNum(productInfo.price) + validNum(productInfo.quantity) + validNum(productInfo.unitPrice)
+  const validCount2 =
+    validNum(productInfo.price) +
+    validNum(productInfo.quantity) +
+    validNum(productInfo.unitPrice)
   if (validCount2 < 3) return null
-  
+
   return productInfo
 }

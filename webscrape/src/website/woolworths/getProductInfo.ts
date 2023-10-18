@@ -1,8 +1,6 @@
-import { GetProductInfo, ProductInfo } from "../interface"
-import { getUnitPriceFromString } from "../../dataCleaning/getUnitPriceFromString";
-import { getMetricQuantity } from "../../dataCleaning/getMetricQuantity";
-
-
+import { GetProductInfo, ProductInfo } from '../interface'
+import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
+import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
 
 export const getProductInfo: GetProductInfo = (product) => {
   const unitPriceString = product['CupString']
@@ -14,7 +12,7 @@ export const getProductInfo: GetProductInfo = (product) => {
     img: product['MediumImageFile'],
     price: product['Price'],
     quantity: getMetricQuantity(quantityString),
-    unitPrice: getUnitPriceFromString(unitPriceString)
+    unitPrice: getUnitPriceFromString(unitPriceString),
   }
   return productInfo
 }

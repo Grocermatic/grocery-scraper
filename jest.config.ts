@@ -1,11 +1,9 @@
-import type {Config} from 'jest';
+import type { Config } from 'jest'
 
-
-
-const config:Config = {
+const config: Config = {
   verbose: true,
   transform: {
-    '^.+\\.(ts|tsx)?$': 'ts-jest'
-  }
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+  },
 }
-export default config;
+export default config

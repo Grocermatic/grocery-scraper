@@ -1,12 +1,10 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo } from "../interface"
-import { roundDecimal } from '../../dataCleaning/roundDecimal';
-import { getNumFromString } from '../../dataCleaning/getNumFromString';
-import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
-import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString';
-
-
+import { ProductInfo } from '../interface'
+import { roundDecimal } from '../../dataCleaning/roundDecimal'
+import { getNumFromString } from '../../dataCleaning/getNumFromString'
+import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
+import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
 
 export const getProductInfo = (html: string) => {
   // No json data is found for Aldi
@@ -26,7 +24,10 @@ export const getProductInfo = (html: string) => {
     price = getNumFromString('0.' + dollars)[0]
   }
 
-  const imgContent = $('.box--wrapper').first().toString().match(/src="[^ ]+/g)
+  const imgContent = $('.box--wrapper')
+    .first()
+    .toString()
+    .match(/src="[^ ]+/g)
   let imgUrl = ''
   if (imgContent) imgUrl = imgContent[0].slice(5, imgContent[0].length - 1)
 
@@ -41,7 +42,7 @@ export const getProductInfo = (html: string) => {
     img: `${imgUrl}`,
     price: price,
     quantity: quantity,
-    unitPrice: unitPrice
+    unitPrice: unitPrice,
   }
 
   // No nutritional information provided by Aldi

@@ -1,11 +1,13 @@
-import { ProductInfo } from "../interface"
-import { getUnitPriceFromString } from "../../dataCleaning/getUnitPriceFromString";
-import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity';
-
-
+import { ProductInfo } from '../interface'
+import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
+import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
 
 export const getProductInfo = (product: any) => {
-  const urlSlug = `${product.brand}-${product.name}-${product.size}-${product.id}`.toLowerCase().split(' ').join('-')
+  const urlSlug =
+    `${product.brand}-${product.name}-${product.size}-${product.id}`
+      .toLowerCase()
+      .split(' ')
+      .join('-')
 
   const productInfo: ProductInfo = {
     name: product.name,
@@ -13,7 +15,7 @@ export const getProductInfo = (product: any) => {
     img: `https://productimages.coles.com.au/productimages${product.imageUris[0].uri}`,
     price: product.pricing.now,
     quantity: getMetricQuantity(product.size),
-    unitPrice: getUnitPriceFromString(product.pricing.comparable)
+    unitPrice: getUnitPriceFromString(product.pricing.comparable),
   }
   return productInfo
 }
