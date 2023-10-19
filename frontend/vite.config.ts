@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [
     solid(),
     VitePWA({
+      injectRegister: 'inline',
       includeAssets: [faviconUrl],
       manifest: {
         name: 'Grocermatic',
