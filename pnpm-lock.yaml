@@ -37,9 +37,6 @@ devDependencies:
   jest:
     specifier: ^29.5.0
     version: 29.5.0(@types/node@20.3.2)(ts-node@10.9.1)
-  postcss:
-    specifier: ^8.4.31
-    version: 8.4.31
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
