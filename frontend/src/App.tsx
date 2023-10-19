@@ -1,25 +1,23 @@
-import { createSignal } from 'solid-js'
+import { For } from 'solid-js'
 import productInfos from '../../webscrape/data/production/product0.json'
-import { ProductCard } from './ProductCard'
+import { ProductCard } from './components/ProductCard'
 
 function App() {
-  const [count, setCount] = createSignal(0)
-
   return (
     <>
-      <h1>Vite + Solid</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count()}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
-      </p>
-      <ProductCard productInfo={productInfos[0]} />
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" aria-label="Product image"></th>
+            <th scope="col" aria-label="Product text information"></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          <For each={productInfos.slice(0, 16)}>
+            {(productInfo, i) => <ProductCard productInfo={productInfo} />}
+          </For>
+        </tbody>
+      </table>
     </>
   )
 }
