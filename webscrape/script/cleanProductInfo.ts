@@ -3,6 +3,13 @@ import { ProductInfo } from '../src/website/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
 
+const basePath = 'webscrape/data'
+const sourcePath = `${basePath}/productInfo`
+const productionPath = `${basePath}/production`
+const maxUnitPrice = 30
+const minUnitPrice = 0.5
+const productInfoChunkLength = 1000
+
 const stringKiloByte = (val: string) => {
   return Math.round(val.length * 0.001)
 }
@@ -17,12 +24,6 @@ const splitArray = (array: any[], maxLength: number) => {
   }
   return newArrays
 }
-
-const basePath = 'webscrape/data'
-const sourcePath = `${basePath}/productInfo`
-const productionPath = `${basePath}/production`
-const maxUnitPrice = 30
-const minUnitPrice = 0.5
 
 const report = new ProductInfoReport()
 
@@ -59,7 +60,10 @@ console.debug(
 saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
 readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
-const productInfosBatch: ProductInfo[][] = splitArray(productInfos, 1000)
+const productInfosBatch: ProductInfo[][] = splitArray(
+  productInfos,
+  productInfoChunkLength,
+)
 productInfosBatch.map((productInfo, id) => {
   saveJson(`${basePath}/production/product${id}.json`, productInfo)
 })
