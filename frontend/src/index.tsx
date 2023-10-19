@@ -1,5 +1,6 @@
 /* @refresh reload */
 import { render } from 'solid-js/web'
+import './tailwind.css'
 
 import App from './App'
 

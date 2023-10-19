@@ -13,13 +13,16 @@
     "@sparticuz/chromium": "113.0.1",
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
+    "preline": "^1.9.0",
     "puppeteer": "^20.1",
     "solid-js": "^1.7.8"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
     "@types/node": "^20.3.2",
+    "autoprefixer": "^10.4.16",
     "jest": "^29.5.0",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.3.3",
     "ts-jest": "^29.1.1",
