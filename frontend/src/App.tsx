@@ -1,6 +1,6 @@
-import { For } from "solid-js"
-import productInfos from "../../webscrape/data/production/product0.json"
-import { ProductCard } from "./components/ProductCard"
+import { For } from 'solid-js'
+import productInfos from '../../webscrape/data/production/product0.json'
+import { ProductCard } from './components/ProductCard'
 
 function App() {
   return (

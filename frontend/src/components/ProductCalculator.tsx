@@ -71,12 +71,15 @@ export const ProductCalculator = (props: any) => {
         <Show when={quantity() > 0}>
           <ActionButton
             onClick={subtractQuantity}
-            class="flex-grow p-2 bg-light"
+            class="flex-grow p-2 bg-light active:border-dark"
           >
             <MinusIcon class="fill-dark m-auto" />
           </ActionButton>
         </Show>
-        <ActionButton onClick={addQuantity} class="flex-grow p-2 bg-light">
+        <ActionButton
+          onClick={addQuantity}
+          class="flex-grow p-2 bg-light active:border-dark"
+        >
           <PlusIcon class="fill-dark m-auto" />
         </ActionButton>
       </div>
