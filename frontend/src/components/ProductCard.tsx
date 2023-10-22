@@ -5,9 +5,7 @@ import { ProductCalculator } from './ProductCalculator'
 export const ProductCard = (props: any) => {
   const { name, img } = props
 
-  const [isActive, setIsActive] = createSignal(
-    Math.round(Math.random() % 2) ? true : false,
-  )
+  const [isActive, setIsActive] = createSignal(false)
 
   return (
     <>
