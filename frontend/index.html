@@ -19,19 +19,25 @@
       @tailwind utilities;
 
       * {
-        @apply transition-all duration-75
+        @apply transition-all duration-75;
       }
 
       body {
-        @apply font-sans
+        @apply font-sans;
       }
 
       .card {
-        @apply overflow-clip border border-neutral-200 shadow-neutral-200 dark:border-neutral-600 dark:shadow-neutral-600
+        @apply overflow-clip rounded-lg border border-neutral-200 shadow-neutral-200;
       }
 
-      h1, h2, h3, h4, h5, h6, p {
-        @apply text-dark dark:text-light
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        @apply text-dark;
       }
     </style>
   </head>
