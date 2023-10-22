@@ -1,33 +1,56 @@
-export const ProductCard = (prop: any) => {
-  const { productInfo } = prop
-  const maxNameLength = 40
-  let productName = productInfo.name
-  if (productInfo.name.length > maxNameLength)
-    productName = productInfo.name.slice(0, maxNameLength) + '...'
+import { Show, createSignal } from 'solid-js'
+import { limitStringLength } from '../logic/limitStringLength'
+import { ActionButton } from './ActionButton'
+
+export const ProductCard = (props: any) => {
+  const { name, url, img, price, quantity, unitPrice } = props
+  const productName = limitStringLength(name, 40)
+
+  const [isActive, setIsActive] = createSignal(
+    Math.round(Math.random() % 2) ? true : false,
+  )
+
   return (
-    <tr class="p-2 dark:bg-slate-900 flex justify-between items-center gap-1">
-      <td class="p-1 bg-white rounded-lg shrink-0 dark:brightness-90">
-        <img
-          class="object-cover h-20 w-20"
-          src={productInfo.img}
-          loading="lazy"
-          alt={productInfo.name}
-          aria-label={`Image of: ${productInfo.name}`}
-        />
-      </td>
-      <td class="flex-grow h-20 flex flex-col justify-between">
-        <h3 class="font-semibold text-gray-800 dark:text-gray-200">
-          {productName}
-        </h3>
-        <div class="flex justify-between">
-          <p class="text-sm text-gray-800 dark:text-gray-200">
-            ${productInfo.price} / {productInfo.quantity} kg
-          </p>
-          <p class="text-sm text-gray-800 dark:text-gray-200">
-            ${productInfo.unitPrice} per kg
-          </p>
+    <>
+      <div class="h-2 shrink-0 snap-start"></div>
+      <div
+        onclick={() => setIsActive(!isActive())}
+        class={`card ${
+          isActive() ? 'h-48' : 'h-24'
+        } max-w-96 shrink-0 flex justify-between`}
+      >
+        <div
+          class={`${
+            isActive() ? 'p-6' : 'p-3'
+          } h-full shrink-0 rounded-lg bg-white border-r`}
+        >
+          <img
+            class="object-cover h-full aspect-square"
+            src={img}
+            loading="lazy"
+            alt={name}
+            aria-label={`Image of: ${name}`}
+          />
         </div>
-      </td>
-    </tr>
+        <div class="p-3 h-full flex-grow flex flex-col">
+          <a href={url} target="blank">
+            <h2 class="underline font-semibold">{productName}</h2>
+          </a>
+          <div class="flex-grow"></div>
+          <Show
+            when={isActive()}
+            fallback={
+              <div class="flex justify-between gap-4">
+                <p class="">${price}</p>
+                <p class="">{quantity} kg</p>
+                <p class="">{unitPrice} $/kg</p>
+              </div>
+            }
+          >
+            <ActionButton class="bg-dark text-light">+</ActionButton>
+          </Show>
+        </div>
+      </div>
+    </>
   )
 }
