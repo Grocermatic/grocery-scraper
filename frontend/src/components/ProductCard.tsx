@@ -1,12 +1,12 @@
-import { Show, createSignal } from "solid-js"
-import { ProductCardInfo } from "./ProductCardInfo"
-import { ProductCalculator } from "./ProductCalculator"
+import { Show, createSignal } from 'solid-js'
+import { ProductCardInfo } from './ProductCardInfo'
+import { ProductCalculator } from './ProductCalculator'
 
 export const ProductCard = (props: any) => {
   const { name, img } = props
 
   const [isActive, setIsActive] = createSignal(
-    Math.round(Math.random() % 2) ? true : false
+    Math.round(Math.random() % 2) ? true : false,
   )
 
   return (
@@ -14,12 +14,12 @@ export const ProductCard = (props: any) => {
       <div class="h-2 shrink-0 snap-start"></div>
       <div
         class={`card transition-all duration-75 ease-out max-w-96 shrink-0 flex justify-between ${
-          isActive() ? "h-48" : "h-28"
+          isActive() ? 'h-48' : 'h-28'
         }`}
       >
         <div
           class={`h-full shrink-0 rounded-lg bg-white border-r ${
-            isActive() ? "p-6" : "p-3"
+            isActive() ? 'p-6' : 'p-3'
           }`}
         >
           <img
