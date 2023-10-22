@@ -1,14 +1,18 @@
-import { Show, createSignal } from 'solid-js'
-import { limitStringLength } from '../logic/limitStringLength'
-import { ActionButton } from './ActionButton'
+import { Show, createSignal } from "solid-js"
+import { limitStringLength } from "../logic/limitStringLength"
+import { ActionButton } from "./ActionButton"
+import { MinusIcon } from "../svg/MinusIcon"
+import { PlusIcon } from "../svg/PlusIcon"
 
 export const ProductCard = (props: any) => {
   const { name, url, img, price, quantity, unitPrice } = props
   const productName = limitStringLength(name, 40)
 
   const [isActive, setIsActive] = createSignal(
-    Math.round(Math.random() % 2) ? true : false,
+    Math.round(Math.random() % 2) ? true : false
   )
+
+  const amount = 2
 
   return (
     <>
@@ -16,12 +20,12 @@ export const ProductCard = (props: any) => {
       <div
         onclick={() => setIsActive(!isActive())}
         class={`card ${
-          isActive() ? 'h-48' : 'h-24'
+          isActive() ? "h-48" : "h-24"
         } max-w-96 shrink-0 flex justify-between`}
       >
         <div
           class={`${
-            isActive() ? 'p-6' : 'p-3'
+            isActive() ? "p-6" : "p-3"
           } h-full shrink-0 rounded-lg bg-white border-r`}
         >
           <img
@@ -47,7 +51,18 @@ export const ProductCard = (props: any) => {
               </div>
             }
           >
-            <ActionButton class="bg-dark text-light">+</ActionButton>
+            <div class="flex justify-between gap-2">
+              <p class="">${price * amount}</p>
+              <p class="">{quantity * amount} kg</p>
+            </div>
+            <div class="flex gap-1">
+              <ActionButton class="flex-grow p-2 bg-light">
+                <MinusIcon class="fill-dark m-auto"/>
+              </ActionButton>
+              <ActionButton class="flex-grow p-2 bg-light">
+                <PlusIcon class="fill-dark m-auto"/>
+              </ActionButton>
+            </div>
           </Show>
         </div>
       </div>

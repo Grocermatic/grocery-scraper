@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.green[500],
-        light: colors.neutral[100],
+        light: colors.neutral[200],
         dark: colors.neutral[800],
       },
       fontFamily: {
