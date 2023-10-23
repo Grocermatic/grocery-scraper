@@ -26,7 +26,7 @@ export const ProductCard = (props: any) => {
             src={img}
             loading="lazy"
             alt={name}
-            aria-label={`Image of: ${name}`}
+            aria-label={`${name}. Click to open`}
           />
         </div>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">

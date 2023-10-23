@@ -7,6 +7,7 @@ import { roundDecimal } from '../logic/roundDecimal'
 
 export const ProductCalculator = (props: any) => {
   const [local, others] = splitProps(props, [
+    'name',
     'url',
     'price',
     'quantity',
@@ -44,7 +45,7 @@ export const ProductCalculator = (props: any) => {
 
   return (
     <>
-      <div class="flex justify-between gap-2">
+      <div class="flex flex-grow justify-between gap-2">
         <LabelledInput
           type="number"
           id={local.url + ' price input'}
@@ -60,27 +61,35 @@ export const ProductCalculator = (props: any) => {
           onChange={inputWeight}
         />
       </div>
-      <LabelledInput
-        type="number"
-        id={local.url + ' quantity input'}
-        label="Quantity"
-        value={quantity()}
-        onChange={inputQuantity}
-      />
-      <div class="flex gap-2">
+      <div class="flex flex-grow justify-between gap-2">
+        <LabelledInput
+          type="number"
+          id={local.url + ' quantity input'}
+          label="Quantity"
+          value={quantity()}
+          onChange={inputQuantity}
+        />
+      </div>
+      <div class="flex flex-grow gap-2">
         <Show when={quantity() > 0}>
           <ActionButton
+            aria-label={`Remove 1 item to list, currently ${quantity()} items in list: ${
+              local.name
+            }`}
             onClick={subtractQuantity}
-            class="flex-grow p-2 bg-light active:border-dark"
+            class="flex-grow p-2 bg-dark active:border-light active:contrast-75"
           >
-            <MinusIcon class="fill-dark m-auto" />
+            <MinusIcon class="fill-light m-auto h-4" />
           </ActionButton>
         </Show>
         <ActionButton
+          aria-label={`Remove 1 item to list, currently ${quantity()} items in list: ${
+            local.name
+          }`}
           onClick={addQuantity}
-          class="flex-grow p-2 bg-light active:border-dark"
+          class="flex-grow p-2 bg-dark active:border-light active:contrast-75"
         >
-          <PlusIcon class="fill-dark m-auto" />
+          <PlusIcon class="fill-light m-auto h-4" />
         </ActionButton>
       </div>
     </>
