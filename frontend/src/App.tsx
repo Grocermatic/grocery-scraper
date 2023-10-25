@@ -1,17 +1,67 @@
-import { For } from 'solid-js'
-import productInfos from '../../webscrape/data/production/product0.json'
-import { ProductCard } from './components/ProductCard'
+import { For, createEffect, createSignal } from "solid-js"
+import productInfos from "../../webscrape/data/production/product0.json"
+import { ProductCard } from "./components/ProductCard"
+import { StoreSelection } from "./components/StoreSelection"
+import { SearchBar } from "./components/SearchBar"
+import MiniSearch from "minisearch"
 
-function App() {
+export const App = () => {
+  const miniSearch = new MiniSearch({
+    fields: ["name"],
+    storeFields: ["name", "url", "img", "price", "quantity", "unitPrice"],
+  })
+
+  miniSearch.addAll(
+    productInfos.map((productInfo, id) => {
+      return { ...productInfo, id: id }
+    })
+  )
+
+  const [searchResults, setSearchResults] = createSignal<any[]>([])
+  const [suggestions, setSuggestions] = createSignal<any[]>([])
+
+  const searchBarChange = (searchQuery: string) => {
+    setSearchResults(miniSearch.search(searchQuery))
+  }
+
+  const searchBarInput = (searchQuery: string) => {
+    const rawSuggestions = miniSearch
+      .autoSuggest(searchQuery)
+      .map((sug) => sug.suggestion)
+    setSuggestions(rawSuggestions.slice(0, 5))
+  }
+
+  let productListref: HTMLDivElement | undefined
+  createEffect(() => {
+    searchResults()
+    productListref?.scrollTo(0, 0)
+  })
+
   return (
-    <>
-      <section class="flex animate-none flex-col p-2 overflow-scroll snap-mandatory snap-both h-screen">
-        <For each={productInfos.slice(0, 16)}>
-          {(productInfo, i) => <ProductCard {...productInfo} />}
-        </For>
+    <div class="h-screen flex flex-col">
+      <section class="relative z-10 flex flex-col p-2 gap-2 shadow-md">
+        <StoreSelection />
+        <SearchBar
+          onChange={searchBarChange}
+          onInput={searchBarInput}
+          suggestions={suggestions()}
+          placeholder="Search product..."
+          id="search"
+        />
       </section>
-    </>
+      <section
+        ref={productListref}
+        class="flex animate-none h-full flex-col p-2 overflow-scroll snap-mandatory snap-both no-scrollbar"
+      >
+        <For each={searchResults()}>
+          {(productInfo, id) => <ProductCard {...productInfo} />}
+        </For>
+        <div class="h-2 shrink-0"></div>
+        <div class="card flex-shrink-0 grid place-content-center snap-start w-full h-full">
+          <h1 class="text-center font-bold text-2xl">No more results</h1>
+          <h1 class="text-center font-bold text-2xl">Alternative prompts</h1>
+        </div>
+      </section>
+    </div>
   )
 }
-
-export default App
