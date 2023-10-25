@@ -19,12 +19,29 @@
       @tailwind components;
       @tailwind utilities;
 
+      @media (max-width: 640px) {
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+      }
+
+      [list]::-webkit-calendar-picker-indicator {
+        display: none !important;
+      }
+
       body {
         @apply font-sans overflow-hidden;
       }
 
       .card {
-        @apply overflow-clip rounded-lg border border-light shadow-light;
+        @apply rounded-lg border border-light shadow-light;
       }
 
       h1,
