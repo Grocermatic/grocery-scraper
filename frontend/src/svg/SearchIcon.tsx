@@ -1,7 +1,7 @@
 import { splitProps } from 'solid-js'
 
 export const SearchIcon = (props: any) => {
-  const [local, others] = splitProps(props, ['class'])
+  const [local, _] = splitProps(props, ['class'])
   return (
     <svg role="img" viewBox="0 0 15 15" class={local.class}>
       <path
