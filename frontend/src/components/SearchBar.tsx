@@ -100,8 +100,8 @@ export const SearchBar = (props: any) => {
               <>
                 <li
                   value={id().toString()}
-                  onMouseEnter={e => selectListElementToggle(e.target, true)}
-                  onMouseLeave={e => selectListElementToggle(e.target, false)}
+                  onMouseEnter={(e) => selectListElementToggle(e.target, true)}
+                  onMouseLeave={(e) => selectListElementToggle(e.target, false)}
                   onclick={() => {
                     setSearchQuery(suggestion)
                     search()

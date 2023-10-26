@@ -6,14 +6,7 @@ import { LabelledInput } from './LabelledInput'
 import { roundDecimal } from '../logic/roundDecimal'
 
 export const ProductCalculator = (props: any) => {
-  const [local, _] = splitProps(props, [
-    'name',
-    'url',
-    'price',
-    'quantity',
-    'unitPrice',
-    'amount',
-  ])
+  const [local, _] = splitProps(props, ['name', 'url', 'price', 'quantity', 'unitPrice', 'amount'])
   const [quantity, setQuantity] = createSignal(local.amount)
 
   const addQuantity = () => {
