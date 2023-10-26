@@ -1,5 +1,2 @@
-User-agent: *
-Disallow: /
-
-User-agent: Googlebot
+User-agent: Googlebot, bingbot, DuckDuckBot, archive.org_bot
 Allow: /
