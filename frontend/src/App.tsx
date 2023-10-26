@@ -51,7 +51,7 @@ export const App = () => {
       </section>
       <section
         ref={productListref}
-        class="flex animate-none h-full flex-col p-2 overflow-scroll snap-mandatory snap-both no-scrollbar"
+        class="flex animate-none h-full flex-col p-2 overflow-y-auto snap-mandatory snap-both no-scrollbar"
       >
         <For each={searchResults()}>
           {(productInfo, id) => <ProductCard {...productInfo} />}

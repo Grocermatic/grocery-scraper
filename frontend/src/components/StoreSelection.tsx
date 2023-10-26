@@ -28,7 +28,7 @@ export const StoreSelection = (props: any) => {
 
   return (
     <>
-      <div class="flex gap-2 overflow-scroll no-scrollbar">
+      <div class="flex gap-2 overflow-x-auto no-scrollbar">
         <For each={stores}>
           {(store, i) => (
             <ActionButton
