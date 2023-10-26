@@ -3,7 +3,6 @@ import { SearchIcon } from "../svg/SearchIcon"
 
 export const SearchBar = (props: any) => {
   const [local, others] = splitProps(props, [
-    "label",
     "id",
     "placeholder",
     "onChange",
@@ -11,90 +10,82 @@ export const SearchBar = (props: any) => {
     "suggestions",
   ])
   const [searchQuery, setSearchQuery] = createSignal("")
+  const [suggestions, setSuggestions] = createSignal([])
+  const [selectedId, setSelectedId] = createSignal(0)
+  let listRef: HTMLUListElement | undefined
+
+  const search = () => {
+    // Allow other events to complete before searching
+    setTimeout(() => {
+      local.onChange(searchQuery())
+      setSuggestions([])
+    }, 50)
+  }
+
+  const selectListElement = (listRef: HTMLUListElement, diff: number) => {
+    const newSelectedId = (selectedId() + diff) % (suggestions().length + 1)
+
+    // Update selected styles
+    const listItemElement = listRef.getElementsByTagName("li")[selectedId()]
+    const newListItemElement = listRef.getElementsByTagName("li")[newSelectedId]
+    if (selectedId() != 0) listItemElement.classList.remove("font-bold")
+    if (newSelectedId != 0) newListItemElement.classList.add("font-bold")
+
+    setSelectedId(newSelectedId)
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (!listRef) return
+    if (suggestions().length == 0) return
+
+    if (event.code === "ArrowDown") selectListElement(listRef, 1)
+    else if (event.code === "ArrowUp") selectListElement(listRef, -1)
+    else if (event.code === "Enter" && selectedId() > 0) {
+      const listItemElement = listRef.getElementsByTagName("li")[selectedId()]
+      setSearchQuery(listItemElement.innerHTML)
+      setSelectedId(0)
+    }
+  })
 
   return (
     <>
-      <label
-        for={local.id}
-        class="card relative px-4 p-2 !border-dark ring-2 ring-inset ring-dark"
+      <ul
+        ref={listRef}
+        class="card px-2 !border-dark ring-2 ring-inset ring-dark divide-y"
       >
-        <input
-          onChange={() => {
-            local.onChange(searchQuery())
-            local.onInput("")
-          }}
-          onInput={(e) => {
-            setSearchQuery(e.target.value)
-            local.onInput(e.target.value)
-          }}
-          type="text"
-          value={searchQuery()}
-          spellcheck={true}
-          autocorrect="on"
-          id={local.id}
-          list={local.id}
-          placeholder={local.placeholder}
-          class="w-full focus:border-transparent focus:outline-none focus:ring-0"
-        />
-        <button
-          onClick={() => local.onChange(searchQuery())}
-          type="button"
-          class="absolute inset-y-0 end-0 grid w-10 place-content-center"
-        >
-          <SearchIcon class="h-5" />
-        </button>
-      </label>
-      <Show when={local.suggestions.length > 0}>
-        <datalist
-          id={local.id}
-          class="card flex flex-col w-full bg-white !border-dark ring-2 ring-inset ring-dark"
-        >
-          <For each={local.suggestions}>
+        <li class="flex">
+          <input
+            onChange={search}
+            onInput={(e) => {
+              setSearchQuery(e.target.value)
+              setSuggestions(local.suggestions)
+              local.onInput(e.target.value)
+            }}
+            value={searchQuery()}
+            id={local.id}
+            placeholder={local.placeholder}
+            type="text"
+            autocorrect="on"
+            autocomplete="off"
+            class="w-full p-2 bg-transparent focus:border-transparent focus:outline-none focus:ring-0"
+          />
+          <button aria-label="Search product" onClick={search} class="w-10">
+            <SearchIcon class="m-auto h-5" />
+          </button>
+        </li>
+        <Show when={local.suggestions.length > 0}>
+          <For each={suggestions()}>
             {(suggestion, id) => (
-              <option
-                onClick={() => {
-                  setSearchQuery(suggestion)
-                  local.onChange(suggestion)
-                  local.onInput("")
-                }}
-                value={suggestion}
-                class="flex px-4 py-2 hover:font-bold"
+              <li
+                onclick={() => setSearchQuery(suggestion)}
+                class="flex p-2 hover:font-bold"
               >
                 {suggestion}
-              </option>
+              </li>
             )}
           </For>
-        </datalist>
-      </Show>
-      <div class="flex-shrink-0 h-full">
-        <input
-          class="card relative px-4 p-2 !border-dark ring-2 ring-inset ring-dark"
-          list="browsers"
-          onChange={() => {
-            console.log("search" + searchQuery())
-            local.onChange(searchQuery())
-            local.onInput("")
-          }}
-        />
-        <datalist class="block" id="browsers">
-          <For each={["apple", "bread", "bannana", "cake"]}>
-            {(suggestion, id) => (
-              <button
-                onClick={() => {
-                  console.log("sug" + suggestion)
-                  setSearchQuery(suggestion)
-                  local.onChange(suggestion)
-                  local.onInput("")
-                }}
-                class="flex px-4 py-2 hover:font-bold"
-                value={suggestion}
-              >
-                {suggestion}
-              </button>
-            )}
-          </For>
-        </datalist>
-      </div>
+        </Show>
+      </ul>
     </>
   )
 }
