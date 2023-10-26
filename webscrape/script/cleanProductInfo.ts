@@ -8,20 +8,21 @@ const sourcePath = `${basePath}/productInfo`
 const productionPath = `${basePath}/production`
 const maxUnitPrice = 30
 const minUnitPrice = 0.5
-const productInfoChunkLength = 1000
+const productInfoChunkLengths = [1000, 2000, 4000, 8000]
 
 const stringKiloByte = (val: string) => {
   return Math.round(val.length * 0.001)
 }
 
-const splitArray = (array: any[], maxLength: number) => {
+const splitArray = (array: any[], lengths: number[]) => {
   const newArrays: any[][] = []
-  while (true) {
-    const newArray = array.slice(0, maxLength)
+  for (const length of lengths) {
+    const newArray = array.slice(0, length)
     if (newArray.length == 0) break
     newArrays.push(newArray)
-    array = array.slice(maxLength)
+    array = array.slice(length)
   }
+  if (array.length != 0) newArrays.push(array)
   return newArrays
 }
 
@@ -62,7 +63,7 @@ saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
 const productInfosBatch: ProductInfo[][] = splitArray(
   productInfos,
-  productInfoChunkLength,
+  productInfoChunkLengths,
 )
 productInfosBatch.map((productInfo, id) => {
   saveJson(`${basePath}/production/product${id}.json`, productInfo)
