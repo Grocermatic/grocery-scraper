@@ -1,14 +1,14 @@
-import { Show, splitProps } from 'solid-js'
+import { Show, splitProps } from "solid-js"
 
 export const LabelledInput = (props: any) => {
   const [local, others] = splitProps(props, [
-    'type',
-    'label',
-    'value',
-    'id',
-    'placeholder',
-    'onChange',
-    'onInput',
+    "type",
+    "label",
+    "value",
+    "id",
+    "placeholder",
+    "onChange",
+    "onInput",
   ])
   return (
     <label
@@ -16,7 +16,7 @@ export const LabelledInput = (props: any) => {
       class="card text-center px-2 focus-within:border-dark focus-within:ring-0"
     >
       <Show when={local.label}>
-        <span class="text-xs font-medium text-dark">{local.label}</span>
+        <span class="text-xs font-semibold text-dark">{local.label}</span>
       </Show>
       <input
         onChange={local.onChange}
