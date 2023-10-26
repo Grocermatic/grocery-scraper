@@ -10,18 +10,17 @@ export const SearchBar = (props: any) => {
   let listRef: HTMLUListElement | undefined
 
   const search = () => {
-    // Allow other events to complete before searching
     local.onChange(searchQuery())
     setSuggestions([])
-    setSelectedId(0)
   }
 
   const input = (e: any) => {
     const query = e.target.value
+    local.onInput(query)
     setSearchQuery(query)
     setTypedInput(query)
-    local.onInput(query)
     setSuggestions(local.suggestions)
+    setSelectedId(0)
   }
 
   const mod = (n: number, m: number) => {
@@ -31,8 +30,8 @@ export const SearchBar = (props: any) => {
 
   const selectListElementToggle = (listElement: any, on: boolean) => {
     if (on) {
-      selectListElementToggle(listElement, false)
       setSelectedId(Number(listElement.value))
+      selectListElementToggle(listElement, false)
       listElement.classList.add('bg-light')
     } else if (listRef) {
       for (const listItemElement of listRef.getElementsByTagName('li')) {
@@ -90,8 +89,8 @@ export const SearchBar = (props: any) => {
               <>
                 <li
                   value={id().toString()}
-                  onMouseEnter={e => selectListElementToggle(e.target, true)}
-                  onMouseLeave={e => selectListElementToggle(e.target, false)}
+                  onMouseEnter={(e) => selectListElementToggle(e.target, true)}
+                  onMouseLeave={(e) => selectListElementToggle(e.target, false)}
                   onclick={() => {
                     setSearchQuery(suggestion)
                     search()
