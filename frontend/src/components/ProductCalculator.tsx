@@ -83,9 +83,7 @@ export const ProductCalculator = (props: any) => {
           </ActionButton>
         </Show>
         <ActionButton
-          aria-label={`Remove 1 item to list, currently ${quantity()} items in list: ${
-            local.name
-          }`}
+          aria-label={`Remove 1 item to list, currently ${quantity()} items in list: ${local.name}`}
           onClick={addQuantity}
           class="flex-grow p-2 bg-dark active:border-light active:contrast-75"
         >

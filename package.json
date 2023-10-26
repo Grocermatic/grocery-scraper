@@ -7,7 +7,7 @@
     "build": "vite build frontend",
     "preview": "vite preview frontend",
     "start": "pnpm run clean && pnpm run build && pnpm run preview",
-    "prettier": "prettier . --write --cache --no-semi --single-quote"
+    "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100"
   },
   "dependencies": {
     "@solidjs/router": "^0.8.3",

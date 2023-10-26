@@ -34,14 +34,7 @@ export const scrapeColes = async (cookie?: string) => {
   ]
 
   for (const sectionLink of sectionLinks) {
-    await report.recordProductInfoSection(
-      getProductInfoSection,
-      sectionLink,
-      cookie,
-    )
+    await report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
   }
-  return report
-    .removeDuplicate()
-    .sortProductInfoUnitPrice()
-    .recordScrapeSecond()
+  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }

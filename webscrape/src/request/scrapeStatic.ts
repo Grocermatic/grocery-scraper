@@ -1,10 +1,7 @@
 import axios from 'axios'
 import { randHttpHeader } from '../proxy/randHttpHeader'
 
-export const scrapeStatic = async (
-  url: string,
-  cookie?: string,
-): Promise<string> => {
+export const scrapeStatic = async (url: string, cookie?: string): Promise<string> => {
   const headers: any = randHttpHeader()
   if (cookie != undefined) headers.Cookie = cookie
   try {

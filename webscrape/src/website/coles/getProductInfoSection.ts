@@ -13,15 +13,11 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
     let jsonData = ''
     while (jsonData == '') {
       try {
-        const html = await scrapeStatic(
-          url + `?sortBy=unitPriceAscending&page=${pageNumber}`,
-        )
+        const html = await scrapeStatic(url + `?sortBy=unitPriceAscending&page=${pageNumber}`)
         const $ = Cheerio.load(html)
 
         if (pageLimit == Infinity) {
-          const paginationHtml = $(
-            'nav.coles-targeting-PaginationPaginationRoot',
-          ).toString()
+          const paginationHtml = $('nav.coles-targeting-PaginationPaginationRoot').toString()
           const $$ = Cheerio.load(paginationHtml)
           const newPageLimit = getNumFromString($$('span').text())[1]
           if (newPageLimit) pageLimit = newPageLimit
@@ -36,9 +32,7 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
 
     const numProducts = report.get().productInfo.length
     console.debug(
-      `Page ${pageNumber}/${pageLimit} - ${
-        url.split('/').slice(-1)[0]
-      } - ${numProducts} products`,
+      `Page ${pageNumber}/${pageLimit} - ${url.split('/').slice(-1)[0]} - ${numProducts} products`,
     )
   }
   return report

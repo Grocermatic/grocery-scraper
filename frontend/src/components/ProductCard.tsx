@@ -15,11 +15,7 @@ export const ProductCard = (props: any) => {
           isActive() ? 'h-48' : 'h-28'
         }`}
       >
-        <div
-          class={`h-full shrink-0 rounded-lg bg-white border-r ${
-            isActive() ? 'p-6' : 'p-3'
-          }`}
-        >
+        <div class={`h-full shrink-0 rounded-lg bg-white border-r ${isActive() ? 'p-6' : 'p-3'}`}>
           <img
             class="object-cover h-full aspect-square"
             onclick={() => setIsActive(!isActive())}

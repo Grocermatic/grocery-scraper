@@ -31,17 +31,12 @@ export const validProductInfo = (productInfo: ProductInfo) => {
     const ratio = price / quantity / unitPrice
     if (roundDecimal(ratio, 1) != 1) return null
   }
-  if (!validNum(productInfo.price))
-    productInfo.price = roundDecimal(unitPrice * quantity, 2)
-  if (!validNum(productInfo.quantity))
-    productInfo.quantity = roundDecimal(price / unitPrice, 3)
-  if (!validNum(productInfo.unitPrice))
-    productInfo.unitPrice = roundDecimal(price / quantity, 2)
+  if (!validNum(productInfo.price)) productInfo.price = roundDecimal(unitPrice * quantity, 2)
+  if (!validNum(productInfo.quantity)) productInfo.quantity = roundDecimal(price / unitPrice, 3)
+  if (!validNum(productInfo.unitPrice)) productInfo.unitPrice = roundDecimal(price / quantity, 2)
 
   const validCount2 =
-    validNum(productInfo.price) +
-    validNum(productInfo.quantity) +
-    validNum(productInfo.unitPrice)
+    validNum(productInfo.price) + validNum(productInfo.quantity) + validNum(productInfo.unitPrice)
   if (validCount2 < 3) return null
 
   return productInfo

@@ -62,22 +62,13 @@ export class ProductInfoReport {
   merge(anotherScrapeReport: ProductInfoReport) {
     const report = anotherScrapeReport.get()
 
-    this.#report.productInfo = [
-      ...this.#report.productInfo,
-      ...report.productInfo,
-    ]
+    this.#report.productInfo = [...this.#report.productInfo, ...report.productInfo]
     this.#report.failedProductInfo = [
       ...this.#report.failedProductInfo,
       ...report.failedProductInfo,
     ]
-    this.#report.failedProduct = [
-      ...this.#report.failedProduct,
-      ...report.failedProduct,
-    ]
-    this.#report.failedSection = [
-      ...this.#report.failedSection,
-      ...report.failedSection,
-    ]
+    this.#report.failedProduct = [...this.#report.failedProduct, ...report.failedProduct]
+    this.#report.failedSection = [...this.#report.failedSection, ...report.failedSection]
   }
 
   recordProductInfo(getProductInfo: GetProductInfo, product: any) {
@@ -97,15 +88,10 @@ export class ProductInfoReport {
     this.merge(page)
   }
 
-  async recordProductInfoSection(
-    getSectionProductInfo: any,
-    requestDatum: any,
-    cookie?: string,
-  ) {
+  async recordProductInfoSection(getSectionProductInfo: any, requestDatum: any, cookie?: string) {
     try {
       const report = await getSectionProductInfo(requestDatum, cookie)
-      if (report.get().productInfo.length == 0)
-        throw `Section failed: ${requestDatum}`
+      if (report.get().productInfo.length == 0) throw `Section failed: ${requestDatum}`
       this.merge(report)
     } catch {
       this.#addFailedSection(requestDatum)
@@ -114,9 +100,7 @@ export class ProductInfoReport {
 
   removeDuplicate() {
     this.#report.productInfo = generateUniqueArray(this.#report.productInfo)
-    this.#report.failedProductInfo = generateUniqueArray(
-      this.#report.failedProductInfo,
-    )
+    this.#report.failedProductInfo = generateUniqueArray(this.#report.failedProductInfo)
     this.#report.failedProduct = generateUniqueArray(this.#report.failedProduct)
     this.#report.failedSection = generateUniqueArray(this.#report.failedSection)
     return this

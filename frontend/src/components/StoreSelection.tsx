@@ -1,26 +1,26 @@
-import { createStore } from "solid-js/store"
-import { AldiLogo } from "../svg/AldiLogo"
-import { ColesLogo } from "../svg/ColesLogo"
-import { WoolworthsLogo } from "../svg/WoolworthsLogo"
-import { ActionButton } from "./ActionButton"
-import { For, Show } from "solid-js"
-import { CheckCircleIcon } from "../svg/CheckCircleIcon"
-import { PlusCircleIcon } from "../svg/PlusCircleIcon"
+import { createStore } from 'solid-js/store'
+import { AldiLogo } from '../svg/AldiLogo'
+import { ColesLogo } from '../svg/ColesLogo'
+import { WoolworthsLogo } from '../svg/WoolworthsLogo'
+import { ActionButton } from './ActionButton'
+import { For, Show } from 'solid-js'
+import { CheckCircleIcon } from '../svg/CheckCircleIcon'
+import { PlusCircleIcon } from '../svg/PlusCircleIcon'
 
 export const StoreSelection = (props: any) => {
   const [stores, setStores] = createStore([
     {
-      name: "Aldi",
+      name: 'Aldi',
       logo: <AldiLogo class="h-5" />,
       active: true,
     },
     {
-      name: "Coles",
+      name: 'Coles',
       logo: <ColesLogo class="h-5" />,
       active: true,
     },
     {
-      name: "Woolworths",
+      name: 'Woolworths',
       logo: <WoolworthsLogo class="h-5" />,
       active: true,
     },
@@ -32,17 +32,13 @@ export const StoreSelection = (props: any) => {
         <For each={stores}>
           {(store, i) => (
             <ActionButton
-              onClick={() => setStores(i(), "active", !store.active)}
+              onClick={() => setStores(i(), 'active', !store.active)}
               class={`card relative gap-2 flex flex-col flex-grow flex-shrink-0 items-center w-40 p-4 ${
-                store.active ? "fill-light bg-dark" : "fill-shade"
+                store.active ? 'fill-light bg-dark' : 'fill-shade'
               }`}
             >
               {store.logo}
-              <p
-                class={`font-bold text-xs ${
-                  store.active ? "text-light" : "text-shade"
-                }`}
-              >
+              <p class={`font-bold text-xs ${store.active ? 'text-light' : 'text-shade'}`}>
                 {store.name}
               </p>
               <Show

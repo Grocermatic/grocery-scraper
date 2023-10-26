@@ -34,10 +34,7 @@ for (const file of files) {
   const productInfoReport = new ProductInfoReport(JSON.parse(reportJson))
   report.merge(productInfoReport)
 }
-const productInfoReport = report
-  .removeDuplicate()
-  .sortProductInfoUnitPrice()
-  .get()
+const productInfoReport = report.removeDuplicate().sortProductInfoUnitPrice().get()
 
 console.table({
   Success: productInfoReport.productInfo.length,
@@ -46,25 +43,18 @@ console.table({
   'Failed sections': productInfoReport.failedSection.length,
 })
 
-const productInfos = productInfoReport.productInfo.filter(
-  (productInfo: ProductInfo) => {
-    if (productInfo.unitPrice > maxUnitPrice) return false
-    if (productInfo.unitPrice < minUnitPrice) return false
-    return true
-  },
-)
+const productInfos = productInfoReport.productInfo.filter((productInfo: ProductInfo) => {
+  if (productInfo.unitPrice > maxUnitPrice) return false
+  if (productInfo.unitPrice < minUnitPrice) return false
+  return true
+})
 
-console.debug(
-  `Output data size: ${stringKiloByte(JSON.stringify(productInfos))} kb`,
-)
+console.debug(`Output data size: ${stringKiloByte(JSON.stringify(productInfos))} kb`)
 
 saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
 readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
-const productInfosBatch: ProductInfo[][] = splitArray(
-  productInfos,
-  productInfoChunkLengths,
-)
+const productInfosBatch: ProductInfo[][] = splitArray(productInfos, productInfoChunkLengths)
 productInfosBatch.map((productInfo, id) => {
   saveJson(`${basePath}/production/product${id}.json`, productInfo)
 })

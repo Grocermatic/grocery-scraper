@@ -3,10 +3,7 @@
 import axios from 'axios'
 import { wait } from './wait'
 
-export const getRequestJson = async (
-  url: string,
-  cookie?: string,
-): Promise<string> => {
+export const getRequestJson = async (url: string, cookie?: string): Promise<string> => {
   const headers: any = {}
   if (cookie != undefined) headers['Cookie'] = cookie
   try {

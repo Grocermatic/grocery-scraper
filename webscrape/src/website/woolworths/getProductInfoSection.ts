@@ -2,10 +2,7 @@ import { postRequestJson } from '../../request/scrapeJson'
 import { ProductInfoReport } from '../ProductInfoReport'
 import { getProductInfoPage } from './getProductInfoPage'
 
-export const getProductInfoSection = async (
-  sectionId: string,
-  woolworthsCookie: string,
-) => {
+export const getProductInfoSection = async (sectionId: string, woolworthsCookie: string) => {
   const report = new ProductInfoReport()
 
   // Configure Woolworths post payload for section json
@@ -17,8 +14,7 @@ export const getProductInfoSection = async (
     sortType: 'CUPAsc',
     url: '',
   }
-  const woolworthsProductListUrl =
-    'https://www.woolworths.com.au/apis/ui/browse/category'
+  const woolworthsProductListUrl = 'https://www.woolworths.com.au/apis/ui/browse/category'
 
   // Loop until no products show
   for (let pageNumber = 1; ; pageNumber++) {

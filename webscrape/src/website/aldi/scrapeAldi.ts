@@ -17,8 +17,5 @@ export const scrapeAldi = async (cookie?: string) => {
     return report.recordProductInfoSection(getProductInfoSection, url, cookie)
   })
   await Promise.all(promiseArray)
-  return report
-    .removeDuplicate()
-    .sortProductInfoUnitPrice()
-    .recordScrapeSecond()
+  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }

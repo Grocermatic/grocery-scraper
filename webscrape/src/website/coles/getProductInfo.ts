@@ -3,11 +3,10 @@ import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromStrin
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
 
 export const getProductInfo = (product: any) => {
-  const urlSlug =
-    `${product.brand}-${product.name}-${product.size}-${product.id}`
-      .toLowerCase()
-      .split(' ')
-      .join('-')
+  const urlSlug = `${product.brand}-${product.name}-${product.size}-${product.id}`
+    .toLowerCase()
+    .split(' ')
+    .join('-')
 
   const productInfo: ProductInfo = {
     name: product.name,

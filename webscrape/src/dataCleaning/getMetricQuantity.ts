@@ -14,9 +14,7 @@ export const getMetricQuantity = (quantityString: string): number => {
 
   // Get last 2 letters after quantity as units
   const regex = new RegExp(`${metricQuantity}..?`)
-  const quantitySnippet = (quantityString.match(regex) as RegExpMatchArray)[0]
-    .split(' ')
-    .join('')
+  const quantitySnippet = (quantityString.match(regex) as RegExpMatchArray)[0].split(' ').join('')
   const unitMeasure = getUnitFromString(quantitySnippet)
 
   if (['g', 'ml'].includes(unitMeasure)) metricQuantity /= 1000
