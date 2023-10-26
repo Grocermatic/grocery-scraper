@@ -51,9 +51,15 @@ export const SearchBar = (props: any) => {
 
   const selectSuggestion = (e: KeyboardEvent) => {
     if (!listRef) return
-    if (e.code === 'ArrowDown') selectListElement(listRef, 1)
-    else if (e.code === 'ArrowUp') selectListElement(listRef, -1)
-    else if (e.code === 'Enter') search()
+    const searchElement = listRef.getElementsByTagName('input')[0]
+    if (e.key === 'ArrowDown') selectListElement(listRef, 1)
+    else if (e.key === 'ArrowUp') selectListElement(listRef, -1)
+    else if (e.key === 'Enter') search()
+    else if (e.key.match(/[a-zA-Z ]/gi)?.length == 1 && listRef) {
+      searchElement.focus()
+    } else if (e.key === 'Escape') {
+      searchElement.blur()
+    }
   }
 
   onMount(() => {
@@ -89,8 +95,8 @@ export const SearchBar = (props: any) => {
               <>
                 <li
                   value={id().toString()}
-                  onMouseEnter={(e) => selectListElementToggle(e.target, true)}
-                  onMouseLeave={(e) => selectListElementToggle(e.target, false)}
+                  onMouseEnter={e => selectListElementToggle(e.target, true)}
+                  onMouseLeave={e => selectListElementToggle(e.target, false)}
                   onclick={() => {
                     setSearchQuery(suggestion)
                     search()
