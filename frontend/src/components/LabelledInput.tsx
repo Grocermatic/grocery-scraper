@@ -1,7 +1,7 @@
 import { Show, splitProps } from 'solid-js'
 
 export const LabelledInput = (props: any) => {
-  const [local, others] = splitProps(props, [
+  const [local, _] = splitProps(props, [
     'type',
     'label',
     'value',

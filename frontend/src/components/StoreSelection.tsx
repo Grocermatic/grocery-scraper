@@ -7,7 +7,7 @@ import { For, Show } from 'solid-js'
 import { CheckCircleIcon } from '../svg/CheckCircleIcon'
 import { PlusCircleIcon } from '../svg/PlusCircleIcon'
 
-export const StoreSelection = (props: any) => {
+export const StoreSelection = () => {
   const [stores, setStores] = createStore([
     {
       name: 'Aldi',
