@@ -1,9 +1,9 @@
 import { Show, createSignal, splitProps } from 'solid-js'
-import { MinusIcon } from '../svg/MinusIcon'
-import { PlusIcon } from '../svg/PlusIcon'
-import { ActionButton } from './ActionButton'
+import { MinusIcon } from '../../svg/MinusIcon'
+import { PlusIcon } from '../../svg/PlusIcon'
+import { ActionButton } from '../../components/ActionButton'
 import { LabelledInput } from './LabelledInput'
-import { roundDecimal } from '../logic/roundDecimal'
+import { roundDecimal } from '../../logic/roundDecimal'
 
 export const ProductCalculator = (props: any) => {
   const [local, _] = splitProps(props, ['name', 'url', 'price', 'quantity', 'unitPrice', 'amount'])

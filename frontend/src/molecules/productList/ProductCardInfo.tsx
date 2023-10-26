@@ -1,4 +1,4 @@
-import { limitStringLength } from '../logic/limitStringLength'
+import { limitStringLength } from '../../logic/limitStringLength'
 
 export const ProductCardInfo = (props: any) => {
   const { name, url, price, quantity, unitPrice } = props
