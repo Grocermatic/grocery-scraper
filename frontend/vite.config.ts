@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
 import { VitePWA } from 'vite-plugin-pwa'
+import { viteSingleFile } from "vite-plugin-singlefile"
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
@@ -14,6 +15,7 @@ export default defineConfig({
   },
   plugins: [
     solid(),
+    viteSingleFile({ useRecommendedBuildConfig: false }),
     VitePWA({
       injectRegister: 'inline',
       includeAssets: [faviconUrl],
