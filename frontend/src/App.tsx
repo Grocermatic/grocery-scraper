@@ -1,22 +1,10 @@
 import { For, createEffect, createSignal } from 'solid-js'
-import productInfos from '../../webscrape/data/production/product0.json'
 import { ProductCard } from './molecules/productList/ProductCard'
 import { StoreSelection } from './molecules/filter/StoreSelection'
 import { SearchBar } from './components/SearchBar'
-import MiniSearch from 'minisearch'
+import { miniSearch } from '../store/product'
 
 export const App = () => {
-  const miniSearch = new MiniSearch({
-    fields: ['name'],
-    storeFields: ['name', 'url', 'img', 'price', 'quantity', 'unitPrice'],
-  })
-
-  miniSearch.addAll(
-    productInfos.map((productInfo, id) => {
-      return { ...productInfo, id: id }
-    }),
-  )
-
   const [searchResults, setSearchResults] = createSignal<any[]>([])
   const [suggestions, setSuggestions] = createSignal<any[]>([])
 
