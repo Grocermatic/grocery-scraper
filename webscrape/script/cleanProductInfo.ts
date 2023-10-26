@@ -6,9 +6,9 @@ import { ProductInfoReport } from '../src/website/ProductInfoReport'
 const basePath = 'webscrape/data'
 const sourcePath = `${basePath}/productInfo`
 const productionPath = `${basePath}/production`
-const maxUnitPrice = 30
+const maxUnitPrice = 50
 const minUnitPrice = 0.5
-const productInfoChunkLengths = [1000, 2000, 4000, 8000]
+const productInfoChunkLengths = [1000, 2000, 4000]
 
 const stringKiloByte = (val: string) => {
   return Math.round(val.length * 0.001)
