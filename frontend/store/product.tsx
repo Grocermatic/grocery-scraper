@@ -1,6 +1,5 @@
 import { ulid } from 'ulid'
 import MiniSearch from 'minisearch'
-import Dexie from 'dexie'
 
 // @ts-ignore
 import productUrl0 from '../../webscrape/data/production/product0.json?url'
@@ -16,25 +15,24 @@ export const miniSearch = new MiniSearch({
   storeFields: ['name', 'url', 'img', 'price', 'quantity', 'unitPrice'],
 })
 
-const db = new Dexie('productDatabase')
-db.version(1).stores({
-  products: `url, name, image, price, quantity, unitPrice`,
-})
+let products: any[] = []
 
 const loadProducts = new Promise(async () => {
-  let products: any[] = []
-  const storedProducts = await db.products.toArray()
-  console.log(storedProducts)
-  if (storedProducts.length > 0) {
-    miniSearch.addAll(
-      storedProducts.map((productInfo) => {
-        return { ...productInfo, id: ulid() }
-      }),
-    )
-    return
+  const localStore = localStorage.getItem('products')
+  if (localStore) {
+    products = JSON.parse(localStore)
+    if (products.length > 0) {
+      console.info('Loading productInfo from local storage')
+      miniSearch.addAll(
+        products.map((productInfo: any) => {
+          return { ...productInfo, id: ulid() }
+        }),
+      )
+      return
+    }
   }
 
-  const getAllproducts: any[] = []
+  const getAllProducts: any[] = []
   for (const url of [productUrl0, productUrl1, productUrl2, productUrl3]) {
     const getProductSegment = async () => {
       const res = await fetch(url)
@@ -44,13 +42,12 @@ const loadProducts = new Promise(async () => {
           return { ...productInfo, id: ulid() }
         }),
       )
-      products = [...products, ...productJson]
+      products = products.concat(productJson)
     }
-    const promiseFunc = new Promise(getProductSegment)
-    getAllproducts.push(promiseFunc)
+    getAllProducts.push(getProductSegment())
   }
-  await Promise.all(getAllproducts)
-  await db.products.bulkPut([...products])
+  await Promise.all(getAllProducts)
+  localStorage.setItem('products', JSON.stringify(products))
 })
 
 Promise.all([loadProducts])
