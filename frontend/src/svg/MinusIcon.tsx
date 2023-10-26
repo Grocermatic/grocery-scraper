@@ -1,10 +1,10 @@
-import { splitProps } from 'solid-js'
+import { splitProps } from "solid-js"
 
 export const MinusIcon = (props: any) => {
-  const [local, others] = splitProps(props, ['class'])
+  const [local, others] = splitProps(props, ["class"])
   return (
     <svg role="img" viewBox="0 0 15 15" class={local.class}>
-      <path d="M2.25 7.5C2.25 7.22386 2.47386 7 2.75 7H12.25C12.5261 7 12.75 7.22386 12.75 7.5C12.75 7.77614 12.5261 8 12.25 8H2.75C2.47386 8 2.25 7.77614 2.25 7.5Z" />
+      <path d="M2.25 7.5a.5.5 0 0 1 .5-.5h9.5a.5.5 0 1 1 0 1h-9.5a.5.5 0 0 1-.5-.5z" />
     </svg>
   )
 }
