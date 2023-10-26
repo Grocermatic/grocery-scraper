@@ -53,8 +53,13 @@ export const SearchBar = (props: any) => {
     if (!listRef) return
     const searchElement = listRef.getElementsByTagName('input')[0]
     if (e.key === 'ArrowDown') selectListElement(listRef, 1)
-    else if (e.key === 'ArrowUp') selectListElement(listRef, -1)
-    else if (e.key === 'Enter') search()
+    else if (e.key === 'ArrowUp') {
+      selectListElement(listRef, -1)
+      searchElement.blur()
+      setTimeout(() => {
+        searchElement.focus()
+      }, 0)
+    } else if (e.key === 'Enter') search()
     else if (e.key.match(/[a-zA-Z ]/gi)?.length == 1 && listRef) {
       searchElement.focus()
     } else if (e.key === 'Escape') {
