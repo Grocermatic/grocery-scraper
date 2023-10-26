@@ -1,11 +1,11 @@
 import { createStore } from 'solid-js/store'
-import { AldiLogo } from '../svg/AldiLogo'
-import { ColesLogo } from '../svg/ColesLogo'
-import { WoolworthsLogo } from '../svg/WoolworthsLogo'
-import { ActionButton } from './ActionButton'
+import { AldiLogo } from '../../svg/AldiLogo'
+import { ColesLogo } from '../../svg/ColesLogo'
+import { WoolworthsLogo } from '../../svg/WoolworthsLogo'
+import { ActionButton } from '../../components/ActionButton'
 import { For, Show } from 'solid-js'
-import { CheckCircleIcon } from '../svg/CheckCircleIcon'
-import { PlusCircleIcon } from '../svg/PlusCircleIcon'
+import { CheckCircleIcon } from '../../svg/CheckCircleIcon'
+import { PlusCircleIcon } from '../../svg/PlusCircleIcon'
 
 export const StoreSelection = () => {
   const [stores, setStores] = createStore([

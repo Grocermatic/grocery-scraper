@@ -1,7 +1,7 @@
 import { For, createEffect, createSignal } from 'solid-js'
 import productInfos from '../../webscrape/data/production/product0.json'
 import { ProductCard } from './molecules/productList/ProductCard'
-import { StoreSelection } from './components/StoreSelection'
+import { StoreSelection } from './molecules/filter/StoreSelection'
 import { SearchBar } from './components/SearchBar'
 import MiniSearch from 'minisearch'
 
