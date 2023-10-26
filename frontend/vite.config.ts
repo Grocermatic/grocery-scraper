@@ -17,11 +17,14 @@ export default defineConfig({
     solid(),
     viteSingleFile({ useRecommendedBuildConfig: false }),
     VitePWA({
+      strategies: 'injectManifest',
+      srcDir: './',
+      filename: 'sw.js',
       injectRegister: 'inline',
       includeAssets: [faviconUrl],
       manifest: {
         name: 'Grocermatic',
-        theme_color: '#22C55E',
+        theme_color: '#FFFFFF',
         icons: [
           {
             src: faviconUrl,
