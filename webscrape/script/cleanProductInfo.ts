@@ -1,11 +1,11 @@
-import { readFileSync, readdirSync, rmSync } from 'fs'
+import { readFileSync, readdirSync } from 'fs'
 import { ProductInfo } from '../src/website/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
 
 const basePath = 'webscrape/data'
 const sourcePath = `${basePath}/productInfo`
-const productionPath = `${basePath}/production`
+const productionPath = `frontend/public`
 const maxUnitPrice = 50
 const minUnitPrice = 0.5
 const productInfoChunkLengths = [1000, 2000, 4000]
@@ -53,8 +53,8 @@ console.debug(`Output data size: ${stringKiloByte(JSON.stringify(productInfos))}
 
 saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
-readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
+//readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
 const productInfosBatch: ProductInfo[][] = splitArray(productInfos, productInfoChunkLengths)
 productInfosBatch.map((productInfo, id) => {
-  saveJson(`${basePath}/production/product${id}.json`, productInfo)
+  saveJson(`${productionPath}/product${id}.json`, productInfo)
 })
