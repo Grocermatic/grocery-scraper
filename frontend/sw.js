@@ -15,7 +15,7 @@ precacheAndRoute(self.__WB_MANIFEST)
 
 console.info('Prefer latest cache for assets')
 registerRoute(
-  /\.(?:css|js|html|json)$/,
+  /\.(?:css|js|html|json|br)$/,
   new StaleWhileRevalidate({
     cacheName: 'assets',
     plugins: [{ maxAgeSeconds: config.maxAgeSeconds }],
