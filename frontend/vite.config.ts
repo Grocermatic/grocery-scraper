@@ -5,7 +5,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
-let faviconUrl = '/favicon.svg'
+const faviconUrl = '/favicon.svg'
 
 export default defineConfig({
   css: {
@@ -20,6 +20,7 @@ export default defineConfig({
       strategies: 'injectManifest',
       srcDir: './',
       filename: 'sw.js',
+      registerType: 'autoUpdate',
       injectRegister: 'inline',
       includeAssets: [faviconUrl],
       manifest: {
