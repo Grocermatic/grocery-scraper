@@ -5,7 +5,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
-const faviconUrl = '/favicon.svg'
+const faviconUrl = '/favicon.ico'
 const appleTouchIconUrl = '/apple-touch-icon.png'
 const androidIconUrl = '/android-icon.png'
 const safariPinnedTabUrl = '/safari-pinned-tab.svg'
