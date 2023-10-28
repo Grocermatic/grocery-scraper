@@ -17,8 +17,7 @@
     "minisearch": "^6.1.0",
     "puppeteer": "^20.1",
     "solid-js": "^1.7.8",
-    "ulid": "^2.3.0",
-    "zlib": "^1.0.5"
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",

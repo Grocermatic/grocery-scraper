@@ -2,7 +2,6 @@ import { readFileSync, readdirSync } from 'fs'
 import { ProductInfo } from '../src/website/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
-import { saveBrotli } from '../src/dataCleaning/saveBrotli'
 
 const basePath = 'webscrape/data'
 const sourcePath = `${basePath}/productInfo`
@@ -59,5 +58,4 @@ const productInfosBatch: ProductInfo[][] = splitArray(productInfos, productInfoC
 productInfosBatch.map((productInfo, id) => {
   const file = `${productionPath}/product${id}.json`
   saveJson(file, productInfo)
-  saveBrotli(file)
 })

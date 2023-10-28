@@ -16,12 +16,9 @@ export const fillSearchEngineWithProduct = (products: any[]) => {
 }
 
 // Fill search engin fast from parallel loaded JSON
-const urls = ['/product0.json.br', '/product1.json.br', '/product2.json.br', '/product3.json.br']
-const getAllProducts = urls.map((url) => {
-  const getProductsFromUrl = async () => {
-    const products = await (await fetch(url)).json()
-    fillSearchEngineWithProduct(products)
-  }
-  return getProductsFromUrl()
+const urls = ['/product0.json', '/product1.json', '/product2.json', '/product3.json']
+const getAllProducts = urls.map(async (url) => {
+  const res = await fetch(url)
+  const products = await res.json()
+  fillSearchEngineWithProduct(products)
 })
-Promise.all(getAllProducts)
