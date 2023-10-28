@@ -6,6 +6,7 @@ import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
 const faviconUrl = '/favicon.svg'
+const mobileFaviconUrl = '/mobile-favicon.svg'
 
 export default defineConfig({
   css: {
@@ -22,23 +23,29 @@ export default defineConfig({
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
-      includeAssets: [faviconUrl],
+      includeAssets: [faviconUrl, mobileFaviconUrl],
       manifest: {
         name: 'Grocermatic',
         theme_color: '#FFFFFF',
+        background_color: "#ffffff",
         icons: [
           {
-            src: faviconUrl,
-            sizes: '512x512',
-            type: 'image/svg+xml',
-            purpose: 'any maskable',
+            "src": faviconUrl,
+            "sizes": "32x32",
+            "type": "image/svg"
           },
           {
-            src: faviconUrl,
-            sizes: '512x512',
-            type: 'image/png',
+            "src": mobileFaviconUrl,
+            "sizes": "192x192",
+            "type": "image/svg"
           },
+          {
+            "src": mobileFaviconUrl,
+            "sizes": "512x512",
+            "type": "image/svg"
+          }
         ],
+        display: "standalone"
       },
     }),
   ],
