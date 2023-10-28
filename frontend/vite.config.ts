@@ -7,7 +7,7 @@ import autoprefixer from 'autoprefixer'
 
 const faviconUrl = '/favicon.ico'
 const appleTouchIconUrl = '/apple-touch-icon.png'
-const androidIconUrl = '/android-icon.png'
+const androidIconUrl = '/android-chrome-512x512.png'
 const safariPinnedTabUrl = '/safari-pinned-tab.svg'
 
 export default defineConfig({
