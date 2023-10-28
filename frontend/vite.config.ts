@@ -7,6 +7,7 @@ import autoprefixer from 'autoprefixer'
 
 const faviconUrl = '/favicon.svg'
 const mobileFaviconUrl = '/mobile-favicon.svg'
+const appleTouchIconUrl = '/apple-touch-icon.png'
 
 export default defineConfig({
   css: {
@@ -35,15 +36,10 @@ export default defineConfig({
             type: 'image/svg',
           },
           {
-            src: mobileFaviconUrl,
-            sizes: '192x192',
-            type: 'image/svg',
-          },
-          {
-            src: mobileFaviconUrl,
-            sizes: '512x512',
-            type: 'image/svg',
-          },
+            src: appleTouchIconUrl,
+            sizes: '180x180',
+            type: 'image/png',
+          }
         ],
         display: 'standalone',
       },
