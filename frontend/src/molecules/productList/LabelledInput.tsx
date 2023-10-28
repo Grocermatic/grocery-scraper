@@ -13,7 +13,7 @@ export const LabelledInput = (props: any) => {
   return (
     <label
       for={local.id}
-      class="card text-center px-2 focus-within:border-dark focus-within:ring-0"
+      class="w-full card text-center px-2 focus-within:border-dark focus-within:ring-0"
     >
       <Show when={local.label}>
         <span class="text-xs font-semibold text-dark">{local.label}</span>
