@@ -15,9 +15,9 @@ export const ProductCard = (props: any) => {
           isActive() ? 'h-48' : 'h-28'
         }`}
       >
-        <div
+        <button
           onclick={() => setIsActive(!isActive())}
-          class={`h-full shrink-0 rounded-lg bg-white border-r ${isActive() ? 'p-6' : 'p-3'}`}
+          class={`h-full aspect-square shrink-0 rounded-lg bg-white border-r ${isActive() ? 'p-6' : 'p-3'}`}
         >
           <img
             class="object-cover h-full aspect-square"
@@ -26,7 +26,7 @@ export const ProductCard = (props: any) => {
             alt={name}
             aria-label={`${name}. Click to open`}
           />
-        </div>
+        </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
           <Show when={isActive()} fallback={<ProductCardInfo {...props} />}>
             <ProductCalculator {...props} amount={2} />
