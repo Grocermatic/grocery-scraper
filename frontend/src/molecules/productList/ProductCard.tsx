@@ -11,7 +11,7 @@ export const ProductCard = (props: any) => {
     <>
       <div class="h-2 shrink-0 snap-start"></div>
       <div
-        class={`card transition-all duration-75 ease-out max-w-96 shrink-0 flex justify-between ${
+        class={`card max-w-96 shrink-0 flex justify-between ${
           isActive() ? 'h-48' : 'h-28'
         }`}
       >
