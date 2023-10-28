@@ -25,13 +25,7 @@ export default defineConfig({
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
-      includeAssets: [
-        faviconUrl,
-        androidIcon192Url,
-        androidIcon512Url,
-        appleTouchIconUrl,
-        safariPinnedTabUrl,
-      ],
+      includeAssets: [faviconUrl, androidIcon192Url, androidIcon512Url, appleTouchIconUrl],
       manifest: {
         name: 'Grocermatic',
         theme_color: '#FFFFFF',
@@ -56,7 +50,7 @@ export default defineConfig({
             src: appleTouchIconUrl,
             sizes: '180x180',
             type: 'image/png',
-          }
+          },
         ],
         display: 'standalone',
       },
