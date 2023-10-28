@@ -9,7 +9,6 @@ const faviconUrl = '/favicon.ico'
 const androidIcon192Url = '/android-chrome-192x192.png'
 const androidIcon512Url = '/android-chrome-512x512.png'
 const appleTouchIconUrl = '/apple-touch-icon.png'
-const safariPinnedTabUrl = '/safari-pinned-tab.svg'
 
 export default defineConfig({
   css: {
@@ -57,12 +56,7 @@ export default defineConfig({
             src: appleTouchIconUrl,
             sizes: '180x180',
             type: 'image/png',
-          },
-          {
-            src: safariPinnedTabUrl,
-            sizes: '16x16',
-            type: 'image/png',
-          },
+          }
         ],
         display: 'standalone',
       },
