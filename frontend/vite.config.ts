@@ -45,7 +45,7 @@ export default defineConfig({
           },
           {
             src: androidIcon192Url,
-            sizes: '512x512',
+            sizes: '192x192',
             type: 'image/png',
           },
           {
