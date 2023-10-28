@@ -18,11 +18,11 @@ export const ProductCard = (props: any) => {
           }`}
         >
           <img
-            class="object-cover h-full aspect-square"
+            class="object-cover select-none h-full aspect-square"
             src={img}
             loading="lazy"
             alt={name}
-            aria-label={`${name}. Click to open`}
+            aria-label={name}
           />
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
