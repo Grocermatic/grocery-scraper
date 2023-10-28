@@ -6,6 +6,7 @@ import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
 const faviconUrl = '/favicon.ico'
+const faviconSvgUrl = 'favicon.svg'
 const androidIcon192Url = '/android-chrome-192x192.png'
 const androidIcon512Url = '/android-chrome-512x512.png'
 const appleTouchIconUrl = '/apple-touch-icon.png'
@@ -25,7 +26,13 @@ export default defineConfig({
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
-      includeAssets: [faviconUrl, androidIcon192Url, androidIcon512Url, appleTouchIconUrl],
+      includeAssets: [
+        faviconUrl,
+        faviconSvgUrl,
+        androidIcon192Url,
+        androidIcon512Url,
+        appleTouchIconUrl,
+      ],
       manifest: {
         name: 'Grocermatic',
         theme_color: '#FFFFFF',
@@ -33,6 +40,11 @@ export default defineConfig({
         icons: [
           {
             src: faviconUrl,
+            sizes: '32x32',
+            type: 'image/svg',
+          },
+          {
+            src: faviconSvgUrl,
             sizes: '32x32',
             type: 'image/svg',
           },
