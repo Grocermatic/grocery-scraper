@@ -1,5 +1,5 @@
 import MiniSearch from 'minisearch'
-import { config } from '../../global'
+import { config } from '../../../global'
 
 export const miniSearch = new MiniSearch({
   fields: ['name'],

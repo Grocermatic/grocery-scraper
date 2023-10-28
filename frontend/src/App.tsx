@@ -2,7 +2,7 @@ import { For, createEffect, createSignal } from 'solid-js'
 import { ProductCard } from './molecules/productList/ProductCard'
 import { StoreSelection } from './molecules/filter/StoreSelection'
 import { SearchBar } from './components/SearchBar'
-import { miniSearch } from '../store/search'
+import { miniSearch } from './store/search'
 
 export const App = () => {
   const [searchResults, setSearchResults] = createSignal<any[]>([])
