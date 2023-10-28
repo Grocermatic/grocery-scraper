@@ -59,7 +59,7 @@ export const SearchBar = (props: any) => {
       setTimeout(() => {
         searchElement.focus()
       }, 0)
-    } else if (e.key === 'Enter') search()
+    } else if (document.activeElement === searchElement && e.key === 'Enter') search()
     else if (e.key.match(/[a-zA-Z ]/gi)?.length == 1 && listRef) {
       searchElement.focus()
     } else if (e.key === 'Escape') {
