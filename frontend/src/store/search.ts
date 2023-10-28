@@ -16,7 +16,7 @@ const fillSearchEngineWithProduct = (products: any[]) => {
 }
 
 // Fetch products with non-blocking webworker
-const fetchJsonWorker = new Worker('fetchJsonWorker.js')
+const fetchJsonWorker = new Worker('/json/fetchJson.js')
 fetchJsonWorker.onmessage = (e: MessageEvent) => {
   const json: string = e.data
   const products = json as any

@@ -59,7 +59,7 @@ const chunkLengths = Array.from({ length: config.numChunks }, (_, i) =>
 )
 const productInfosBatch: ProductInfo[][] = splitArray(productInfos, chunkLengths)
 productInfosBatch.map((productInfo, id) => {
-  const file = `${productionPath}/product${id}.json`
+  const file = `${productionPath}/json/product${id}.json`
   saveJson(file, productInfo)
 })
 console.table({ 'Production chunk sizes': chunkLengths })
