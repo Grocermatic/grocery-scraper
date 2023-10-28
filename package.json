@@ -6,7 +6,7 @@
     "dev": "vite frontend",
     "build": "vite build frontend",
     "preview": "vite preview frontend",
-    "start": "pnpm run clean && pnpm run build && pnpm run preview",
+    "start": "pnpm run prettier & pnpm run clean && pnpm run build && pnpm run preview",
     "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100"
   },
   "dependencies": {
