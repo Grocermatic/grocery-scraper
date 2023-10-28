@@ -27,25 +27,25 @@ export default defineConfig({
       manifest: {
         name: 'Grocermatic',
         theme_color: '#FFFFFF',
-        background_color: "#ffffff",
+        background_color: '#ffffff',
         icons: [
           {
-            "src": faviconUrl,
-            "sizes": "32x32",
-            "type": "image/svg"
+            src: faviconUrl,
+            sizes: '32x32',
+            type: 'image/svg',
           },
           {
-            "src": mobileFaviconUrl,
-            "sizes": "192x192",
-            "type": "image/svg"
+            src: mobileFaviconUrl,
+            sizes: '192x192',
+            type: 'image/svg',
           },
           {
-            "src": mobileFaviconUrl,
-            "sizes": "512x512",
-            "type": "image/svg"
-          }
+            src: mobileFaviconUrl,
+            sizes: '512x512',
+            type: 'image/svg',
+          },
         ],
-        display: "standalone"
+        display: 'standalone',
       },
     }),
   ],
