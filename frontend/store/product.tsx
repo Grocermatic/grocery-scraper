@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { ulid } from 'ulid'
 import MiniSearch from 'minisearch'
+import { config } from '../../global'
 
 export const miniSearch = new MiniSearch({
   fields: ['name'],
@@ -15,10 +16,10 @@ export const fillSearchEngineWithProduct = (products: any[]) => {
   )
 }
 
-// Fill search engin fast from parallel loaded JSON
-const urls = ['/product0.json', '/product1.json', '/product2.json', '/product3.json']
+// Fill search engine fast from parallel loaded JSON
+const urls = Array.from({ length: config.numChunks }, (_, i) => `/product${i}.json`)
+let i = 0
 const getAllProducts = urls.map(async (url) => {
   const res = await fetch(url)
   const products = await res.json()
-  fillSearchEngineWithProduct(products)
 })

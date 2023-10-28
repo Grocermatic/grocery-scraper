@@ -2,13 +2,13 @@ import { readFileSync, readdirSync } from 'fs'
 import { ProductInfo } from '../src/website/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
+import { config } from '../../global'
 
 const basePath = 'webscrape/data'
 const sourcePath = `${basePath}/productInfo`
 const productionPath = `frontend/public`
 const maxUnitPrice = 50
 const minUnitPrice = 0.5
-const productInfoChunkLengths = [1000, 2000, 4000]
 
 const stringKiloByte = (val: string) => {
   return Math.round(val.length * 0.001)
@@ -53,9 +53,13 @@ console.debug(`Output data size: ${stringKiloByte(JSON.stringify(productInfos))}
 
 saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
-//readdirSync(productionPath).forEach((f) => rmSync(`${productionPath}/${f}`))
-const productInfosBatch: ProductInfo[][] = splitArray(productInfos, productInfoChunkLengths)
+const sumConsecutive = 0.5 * config.numChunks * (config.numChunks + 1)
+const chunkLengths = Array.from({ length: config.numChunks }, (_, i) =>
+  Math.ceil((++i * productInfos.length) / sumConsecutive),
+)
+const productInfosBatch: ProductInfo[][] = splitArray(productInfos, chunkLengths)
 productInfosBatch.map((productInfo, id) => {
   const file = `${productionPath}/product${id}.json`
   saveJson(file, productInfo)
 })
+console.table({ 'Production chunk sizes': chunkLengths })
