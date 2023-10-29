@@ -1,4 +1,4 @@
-name: Deploy serverless app
+name: Scrape
 
 on:
   schedule:
