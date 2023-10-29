@@ -8,9 +8,6 @@ dependencies:
   '@solidjs/router':
     specifier: ^0.8.3
     version: 0.8.3(solid-js@1.7.8)
-  '@sparticuz/chromium':
-    specifier: 113.0.1
-    version: 113.0.1
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -2582,19 +2579,6 @@ packages:
       solid-js: ^1.5.3
     dependencies:
       solid-js: 1.7.8
-    dev: false
-
-  /@sparticuz/chromium@113.0.1:
-    resolution:
-      {
-        integrity: sha512-m64Nc58YObfCYkPbc8EBsnhWCFaw02dbXhWNOmx+OYoIPtIRar+reGYyAeGC0HD9RUZfPEwMHHSZ8MFxdSWXZQ==,
-      }
-    engines: { node: '>= 16' }
-    dependencies:
-      follow-redirects: 1.15.2
-      tar-fs: 2.1.1
-    transitivePeerDependencies:
-      - debug
     dev: false
 
   /@surma/rollup-plugin-off-main-thread@2.2.3:

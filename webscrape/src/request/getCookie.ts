@@ -1,19 +1,8 @@
-/* istanbul ignore file */
-
 import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
-const chromium = require('@sparticuz/chromium')
 
 const launchOption: PuppeteerLaunchOptions = {
-  defaultViewport: chromium.defaultViewport,
   headless: 'new',
 }
-
-chromium
-  .executablePath('/opt/bin')
-  .then((path: string) => {
-    launchOption.executablePath = path
-  })
-  .catch(() => {})
 
 const excludeContentType = [
   'EventSource',
