@@ -14,23 +14,23 @@ jobs:
         node-version: [18.x]
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Install Node.js ${{ matrix.node-version }} modules
-      uses: actions/setup-node@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
-    - run: pnpm i; pnpm run test;
+    
+    - name: Install Node.js ${{ matrix.node-version }} modules
+      run: pnpm i && pnpm run test
     
     - name: Scrape products
-    - run: pnpm run scrape; pnpm run clean;
+      run: pnpm run scrape && pnpm run clean
 
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
     - name: Upload scrape result artifact
-    - uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: scrape-${{ steps.date.outputs.date }}
         path: |
