@@ -39,12 +39,12 @@ export const App = () => {
         ref={productListref}
         class="flex animate-none h-full flex-col p-2 overflow-y-auto snap-mandatory snap-both no-scrollbar"
       >
-        <For each={searchResults()}>{(productInfo, id) => <ProductCard {...productInfo} />}</For>
+        <For each={searchResults()}>{(productInfo, _) => <ProductCard {...productInfo} />}</For>
         <div class="h-2 shrink-0"></div>
         <div class="card flex-shrink-0 grid place-content-center snap-start w-full h-full">
           <h1 class="text-center font-bold text-2xl">No more results</h1>
-          <h1 class="text-center font-bold text-2xl">Alternative prompts</h1>
         </div>
+        <div class="h-2 shrink-0"></div>
       </section>
     </div>
   )
