@@ -24,7 +24,7 @@ export const App = () => {
   })
 
   return (
-    <div class="h-screen flex flex-col">
+    <div class="h-full flex flex-col">
       <section class="relative z-10 flex flex-col p-2 gap-2 shadow-md">
         <StoreSelection />
         <SearchBar

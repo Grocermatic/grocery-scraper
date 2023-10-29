@@ -47,7 +47,7 @@ export default defineConfig({
             src: faviconSvgUrl,
             sizes: '32x32',
             type: 'image/svg',
-            purpose: "any maskable"
+            purpose: 'any maskable',
           },
           {
             src: androidIcon192Url,
