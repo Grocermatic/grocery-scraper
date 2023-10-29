@@ -3,6 +3,12 @@ name: Scrape
 on:
   schedule:
     - cron: '0 5 */3 * *' # Run every 3 days at 5am
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        options:
+        - debug
       
 jobs:
   scrape:
