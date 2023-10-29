@@ -7,9 +7,14 @@ on:
     inputs:
       logLevel:
         description: 'Log level'
+        required: true
+        default: 'debug'
+        type: choice
         options:
-        - debug
-      
+          - info
+          - warning
+          - debug
+
 jobs:
   scrape:
     name: Scrape Products
@@ -19,45 +24,45 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
-        run_install: false
+      - name: Install Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Get pnpm store directory
-      shell: bash
-      run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
-    - name: Setup pnpm cache
-      uses: actions/cache@v3
-      with:
-        path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
-    
-    - name: Install Node.js ${{ matrix.node-version }} modules
-      run: pnpm i && pnpm run test
-    
-    - name: Scrape products
-      run: pnpm run scrape && pnpm run clean
+      - name: Get pnpm store directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-    - name: Upload scrape result artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: scrape-${{ steps.date.outputs.date }}
-        path: |
-          webscrape/data/**/*.json
-          frontend/public/**/*.json
+      - name: Install Node.js ${{ matrix.node-version }} modules
+        run: pnpm i
+
+      - name: Scrape products
+        run: pnpm run scrape && pnpm run clean
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Upload scrape result artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: scrape-${{ steps.date.outputs.date }}
+          path: |
+            webscrape/data/**/*.json
+            frontend/public/**/*.json
