@@ -22,8 +22,8 @@ const woolworthsProductInfo = async () => {
   saveJson(`${basePath}/woolworths.json`, report.get())
 }
 
-;(async () => {
-  await woolworthsProductInfo()
-  await colesProductInfo()
-  await aldiProductInfo
-})()
+Promise.all([
+  woolworthsProductInfo(),
+  colesProductInfo(),
+  aldiProductInfo(),
+])
