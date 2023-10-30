@@ -1,5 +1,6 @@
 import MiniSearch from 'minisearch'
 import { config } from '../../../global'
+import { webWorkerFactory } from './webWorkerFactory'
 
 export const miniSearch = new MiniSearch({
   fields: ['name'],
@@ -15,13 +16,24 @@ const fillSearchEngineWithProduct = (products: any[]) => {
   )
 }
 
+const fetchJson = () => {
+  self.onmessage = async (e: MessageEvent) => {
+    const url: string = e.data
+    const res = await fetch(url)
+    const json = await res.json()
+    postMessage(json)
+  }
+}
+
 // Fetch products with non-blocking webworker
-const fetchJsonWorker = new Worker('/json/fetchJson.js')
+const fetchJsonWorker = webWorkerFactory(fetchJson)
 fetchJsonWorker.onmessage = (e: MessageEvent) => {
-  const json: string = e.data
-  const products = json as any
+  const products: any = e.data
   fillSearchEngineWithProduct(products)
 }
 
-const urls = Array.from({ length: config.numChunks }, (_, i) => `product${i}.json`)
+const urls = Array.from(
+  { length: config.numChunks },
+  (_, i) => `${config.productBaseUrl}/product${i}.json`,
+)
 urls.map(async (url) => fetchJsonWorker.postMessage(url))
