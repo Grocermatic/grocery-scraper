@@ -10,6 +10,7 @@ const faviconSvgUrl = 'favicon.svg'
 const androidIcon192Url = '/android-chrome-192x192.png'
 const androidIcon512Url = '/android-chrome-512x512.png'
 const appleTouchIconUrl = '/apple-touch-icon.png'
+const safariTabIconUrl = 'safari-pinned-tab.svg'
 
 export default defineConfig({
   css: {
@@ -32,6 +33,7 @@ export default defineConfig({
         androidIcon192Url,
         androidIcon512Url,
         appleTouchIconUrl,
+        safariTabIconUrl,
       ],
       manifest: {
         name: 'Grocermatic',
@@ -63,6 +65,11 @@ export default defineConfig({
             src: appleTouchIconUrl,
             sizes: '180x180',
             type: 'image/png',
+          },
+          {
+            src: safariTabIconUrl,
+            sizes: '16x16',
+            type: 'image/svg',
           },
         ],
         display: 'standalone',
