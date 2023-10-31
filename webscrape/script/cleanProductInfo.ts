@@ -4,9 +4,9 @@ import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
 import { config } from '../../global'
 
-const basePath = 'webscrape/data'
+const basePath = 'data'
 const sourcePath = `${basePath}/productInfo`
-const productionPath = `webscrape/data/production`
+const productionPath = `data/production`
 const maxUnitPrice = 50
 const minUnitPrice = 0.5
 

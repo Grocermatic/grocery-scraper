@@ -4,7 +4,7 @@ import { scrapeAldi } from '../src/website/aldi/scrapeAldi'
 import { scrapeColes } from '../src/website/coles/scrapeColes'
 import { saveJson } from '../src/dataCleaning/saveJson'
 
-const basePath = 'webscrape/data/productInfo'
+const basePath = 'data/productInfo'
 
 const aldiProductInfo = async () => {
   const report = await scrapeAldi()
