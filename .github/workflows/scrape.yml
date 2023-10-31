@@ -53,7 +53,7 @@ jobs:
         run: pnpm i
 
       - name: Scrape products
-        run: pnpm run scrape && pnpm run clean
+        run: pnpm run scrape && pnpm run clean && pnpm run upload
 
       - name: Get current date
         id: date
