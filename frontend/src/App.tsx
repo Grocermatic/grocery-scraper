@@ -1,6 +1,5 @@
 import { For, createEffect, createSignal } from 'solid-js'
 import { ProductCard } from './molecules/productList/ProductCard'
-import { StoreSelection } from './molecules/filter/StoreSelection'
 import { SearchBar } from './components/SearchBar'
 import { miniSearch } from './store/search'
 
@@ -26,7 +25,6 @@ export const App = () => {
   return (
     <div class="h-full flex flex-col">
       <section class="relative z-10 flex flex-col p-2 gap-2 shadow-md">
-        <StoreSelection />
         <SearchBar
           onChange={searchBarChange}
           onInput={searchBarInput}

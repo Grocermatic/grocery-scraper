@@ -1,9 +1,9 @@
-import { Show, createSignal } from 'solid-js'
+import { Show, createSignal, splitProps } from 'solid-js'
 import { ProductCardInfo } from './ProductCardInfo'
 import { ProductCalculator } from './ProductCalculator'
 
 export const ProductCard = (props: any) => {
-  const { name, img } = props
+  const [local, _] = splitProps(props, ['name', 'img', 'amount'])
 
   const [isActive, setIsActive] = createSignal(false)
 
@@ -19,15 +19,15 @@ export const ProductCard = (props: any) => {
         >
           <img
             class="object-cover select-none h-full aspect-square"
-            src={img}
+            src={local.img}
             loading="lazy"
-            alt={name}
-            aria-label={name}
+            alt={local.name}
+            aria-label={local.name}
           />
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
-          <Show when={isActive()} fallback={<ProductCardInfo {...props} />}>
-            <ProductCalculator {...props} amount={2} />
+          <Show when={false} fallback={<ProductCardInfo {...props} />}>
+            <ProductCalculator {...props} amount={local.amount} />
           </Show>
         </div>
       </div>
