@@ -8,7 +8,7 @@
 </div>
 <div flex align="center">
   <img src="https://img.shields.io/mozilla-observatory/grade-score/grocermatic.pages.dev?style=for-the-badge">
-  <img src="https://img.shields.io/hsts/preload/grocermatic.org?style=for-the-badge&label=hsts">
+  <img src="https://img.shields.io/hsts/preload/grocermatic.pages.dev?style=for-the-badge&label=hsts">
   <img src="https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fwww.grocermatic.org&style=for-the-badge">
 </div>
 
