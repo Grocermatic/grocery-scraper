@@ -54,6 +54,10 @@ jobs:
 
       - name: Scrape products
         run: pnpm run scrape && pnpm run clean && pnpm run upload
+        env:
+          CLOUDFLARE_ID: ${{ secrets.CLOUDFLARE_ID }}
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
 
       - name: Get current date
         id: date
