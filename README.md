@@ -1,12 +1,15 @@
-# Grocermatic: Grocery Automation Tool
-
-Minimise grocery cost and time, while meeting dietary guidelines.
-
-Disclaimer: I'm not a nutritionist, so I'm following the dietary guidelines.
+<h1 align="center">
+ Grocermatic: Find the cheapest groceries in Australia
+</h1>
 
 <div flex align="center">
-  <img src="https://img.shields.io/github/languages/code-size/menglinmaker/Grocermatic?style=flat-square">
-  <img src="https://img.shields.io/github/workflow/status/menglinmaker/Grocermatic/Continuous Integration?style=flat-square">
+  <img src="https://img.shields.io/github/actions/workflow/status/MengLinMaker/Grocermatic/scrape.yml?style=for-the-badge&label=Webscrape">
+  <img src="https://img.shields.io/website?url=https%3A%2F%2Fwww.grocermatic.org&style=for-the-badge">
+</div>
+<div flex align="center">
+  <img src="https://img.shields.io/mozilla-observatory/grade-score/grocermatic.pages.dev?style=for-the-badge">
+  <img src="https://img.shields.io/hsts/preload/grocermatic.org?style=for-the-badge&label=hsts">
+  <img src="https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fwww.grocermatic.org&style=for-the-badge">
 </div>
 
 <div>&nbsp</div>
