@@ -6,7 +6,7 @@ import { config } from '../../global'
 
 const basePath = 'webscrape/data'
 const sourcePath = `${basePath}/productInfo`
-const productionPath = `frontend/public`
+const productionPath = `webscrape/data/production`
 const maxUnitPrice = 50
 const minUnitPrice = 0.5
 
@@ -58,8 +58,9 @@ const chunkLengths = Array.from({ length: config.numChunks }, (_, i) =>
   Math.ceil((++i * productInfos.length) / sumConsecutive),
 )
 const productInfosBatch: ProductInfo[][] = splitArray(productInfos, chunkLengths)
-productInfosBatch.map((productInfo, id) => {
-  const file = `${productionPath}/json/product${id}.json`
-  saveJson(file, productInfo)
+productInfosBatch.map(async (productInfo, id) => {
+  const name = `product${id}.json`
+  const filePath = `${productionPath}/${name}`
+  saveJson(filePath, productInfo)
 })
 console.table({ 'Production chunk sizes': chunkLengths })
