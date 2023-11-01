@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
 import { VitePWA } from 'vite-plugin-pwa'
 import { viteSingleFile } from 'vite-plugin-singlefile'
+import { viteSri } from './viteSri'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
@@ -75,5 +76,6 @@ export default defineConfig({
         display: 'standalone',
       },
     }),
+    viteSri(),
   ],
 })
