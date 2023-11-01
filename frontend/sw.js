@@ -3,19 +3,23 @@ import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { CacheOnly, StaleWhileRevalidate } from 'workbox-strategies'
 
-const config = {
-  maxAgeSeconds: 60 * 60 * 24,
-}
-
 cleanupOutdatedCaches()
 
 precacheAndRoute(self.__WB_MANIFEST)
 
 registerRoute(
-  /\.(?:css|js|html|json|br)$/,
+  /\.(?:css|js|html)$/,
   new StaleWhileRevalidate({
     cacheName: 'assets',
-    plugins: [{ maxAgeSeconds: config.maxAgeSeconds }],
+    plugins: [{ maxAgeSeconds: 60 * 60 }],
+  }),
+)
+
+registerRoute(
+  /\.(?:json)$/,
+  new StaleWhileRevalidate({
+    cacheName: 'product',
+    plugins: [{ maxAgeSeconds: 60 * 60 * 12 }],
   }),
 )
 
