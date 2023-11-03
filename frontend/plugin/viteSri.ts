@@ -34,7 +34,7 @@ export const viteSri = () => {
       contentSecurityPolicy += `img-src 'self' https://*;`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
-      contentSecurityPolicy += `connect-src product.grocermatic.org static.cloudflareinsights.com;`
+      contentSecurityPolicy += `connect-src product.grocermatic.org static.cloudflareinsights.com cloudflareinsights.com;`
       contentSecurityPolicy += await scripts.asyncForEach(
         `script-src-elem static.cloudflareinsights.com cloudflareinsights.com`,
       )
