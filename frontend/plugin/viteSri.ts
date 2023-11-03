@@ -35,7 +35,9 @@ export const viteSri = () => {
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
       contentSecurityPolicy += `connect-src product.grocermatic.org static.cloudflareinsights.com;`
-      contentSecurityPolicy += await scripts.asyncForEach(`script-src-elem 'strict-dynamic'`)
+      contentSecurityPolicy += await scripts.asyncForEach(
+        `script-src-elem 'strict-dynamic' static.cloudflareinsights.com`,
+      )
       contentSecurityPolicy += await stylesheets.asyncForEach('style-src')
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]
