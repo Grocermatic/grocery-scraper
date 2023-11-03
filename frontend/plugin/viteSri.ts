@@ -20,8 +20,6 @@ export const viteSri = () => {
           const sourceType = cspType.split('-')[0]
           const source = await getSource($, element, bundle, sourceType)
           const hash = `sha512-${sha512(source)}`
-          delete element.attribs.type
-          delete element.attribs.crossorigin
           csp += ` '${hash}'`
         }
         return csp + ';'
