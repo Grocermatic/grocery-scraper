@@ -5,7 +5,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile'
 import { viteSri } from './plugin/viteSri'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-import { icons, manifest } from './manifest'
+import { icons, manifest } from './plugin/manifest'
 
 export default defineConfig({
   css: {
@@ -18,7 +18,7 @@ export default defineConfig({
     viteSingleFile({ useRecommendedBuildConfig: false }),
     VitePWA({
       strategies: 'injectManifest',
-      srcDir: './',
+      srcDir: './plugin',
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
