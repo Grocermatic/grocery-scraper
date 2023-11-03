@@ -1,4 +1,4 @@
-import { ManifestOptions } from "vite-plugin-pwa"
+import { ManifestOptions } from 'vite-plugin-pwa'
 
 const faviconUrl = 'favicon.ico'
 const faviconSvgUrl = 'favicon.svg'

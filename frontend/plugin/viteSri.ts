@@ -2,6 +2,7 @@ import { load } from 'cheerio'
 import { PluginOption } from 'vite'
 import { sha512 } from './hash'
 import { getSource } from './getSource'
+import { generateHeaders } from './generateHeaders'
 
 export const viteSri = () => {
   return {
@@ -39,6 +40,7 @@ export const viteSri = () => {
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]
       cspElement.attribs['content'] = contentSecurityPolicy
+      generateHeaders(contentSecurityPolicy)
 
       return $.html()
     },
