@@ -20,6 +20,7 @@ const fetchJson = () => {
   self.onmessage = async (e: MessageEvent) => {
     const url: string = e.data
     const res = await fetch(url)
+    if (!res) return
     const json = await res.json()
     postMessage(json)
   }
