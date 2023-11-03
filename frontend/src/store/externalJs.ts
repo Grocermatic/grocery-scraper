@@ -1,7 +1,7 @@
 import { webWorkerFactory } from './webWorkerFactory'
 
 // Load dependencies
-const externalJs = ['https://static.cloudflareinsights.com/beacon.min.js']
+const externalJs: string[] = []
 
 const fetchJs = () => {
   self.onmessage = async (e: MessageEvent) => {
