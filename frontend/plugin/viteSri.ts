@@ -4,7 +4,7 @@ import { sha512 } from './hash'
 import { getSource } from './getSource'
 import { generateHeaders } from './generateHeaders'
 
-export const viteSri = () => {
+export const viteSri = (origins: string[]) => {
   return {
     name: 'sri',
     enforce: 'post',
@@ -34,10 +34,8 @@ export const viteSri = () => {
       contentSecurityPolicy += `img-src 'self' https://*;`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
-      contentSecurityPolicy += `connect-src product.grocermatic.org static.cloudflareinsights.com cloudflareinsights.com;`
-      contentSecurityPolicy += await scripts.asyncForEach(
-        `script-src-elem static.cloudflareinsights.com cloudflareinsights.com`,
-      )
+      contentSecurityPolicy += `connect-src ${origins.join(' ')};`
+      contentSecurityPolicy += await scripts.asyncForEach(`script-src-elem ${origins.join(' ')}`)
       contentSecurityPolicy += await stylesheets.asyncForEach('style-src')
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]

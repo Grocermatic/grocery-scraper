@@ -25,7 +25,12 @@ export default defineConfig({
       includeAssets: icons,
       manifest: manifest,
     }),
-    viteSri(),
+    viteSri([
+      'product.grocermatic.org',
+      'static.cloudflareinsights.com',
+      'cloudflareinsights.com',
+      'www.google-analytics.com',
+    ]),
   ],
   build: {
     chunkSizeWarningLimit: 50,
