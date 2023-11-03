@@ -36,7 +36,7 @@ export const viteSri = () => {
       contentSecurityPolicy += `manifest-src 'self';`
       contentSecurityPolicy += `connect-src product.grocermatic.org static.cloudflareinsights.com;`
       contentSecurityPolicy += await scripts.asyncForEach(
-        `script-src-elem static.cloudflareinsights.com`,
+        `script-src-elem static.cloudflareinsights.com cloudflareinsights.com`,
       )
       contentSecurityPolicy += await stylesheets.asyncForEach('style-src')
 
