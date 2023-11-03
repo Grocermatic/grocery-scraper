@@ -1,6 +1,5 @@
 // @ts-ignore
 import { transformSync } from 'esbuild'
-import { minify } from 'html-minifier'
 
 export const minifyJs = (sourceJs: string) => {
   return transformSync(sourceJs, {
@@ -15,13 +14,10 @@ export const minifyCss = (sourceCss: string) => {
   }).code
 }
 
-export const minifyHtml = (sourceHtml: string) => {
-  return minify(sourceHtml, {
-    minifyCSS: true,
-    minifyURLs: true,
-    removeComments: true,
-    sortAttributes: true,
-    sortClassName: true,
-    collapseWhitespace: true,
-  })
+export const minify = (source: string, sourceType: string) => {
+  if (sourceType === 'script') {
+    return minifyJs(source)
+  } else if (sourceType === 'style') {
+    return minifyCss(source)
+  }
 }
