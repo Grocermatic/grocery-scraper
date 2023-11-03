@@ -31,6 +31,8 @@ export const viteSri = () => {
       const scripts = $('script') as any
       const stylesheets = $('style') as any
       let contentSecurityPolicy = `default-src 'none';`
+      contentSecurityPolicy += `base-uri 'none';`
+      contentSecurityPolicy += `form-action 'none';`
       contentSecurityPolicy += `img-src 'self' https://*;`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`

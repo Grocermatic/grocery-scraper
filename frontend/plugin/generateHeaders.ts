@@ -8,6 +8,7 @@ export const generateHeaders = (csp: string) => {
       'Referrer-Policy': 'no-referrer',
       'Permissions-Policy': 'microphone=(),camera=()',
       'Content-Security-Policy': csp,
+      'X-XSS-Protection': '1',
     },
   }
   let _headers = ''
