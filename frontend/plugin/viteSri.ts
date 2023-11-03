@@ -20,8 +20,8 @@ export const viteSri = () => {
           const sourceType = cspType.split('-')[0]
           const source = await getSource($, element, bundle, sourceType)
           const hash = `sha512-${sha512(source)}`
-          element.attribs.integrity = hash
-          element.attribs.crossorigin = 'anonymous'
+          delete element.attribs.type
+          delete element.attribs.crossorigin
           csp += ` '${hash}'`
         }
         return csp + ';'
@@ -36,8 +36,8 @@ export const viteSri = () => {
       contentSecurityPolicy += `img-src 'self' https://*;`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
-      contentSecurityPolicy += `connect-src product.grocermatic.org;`
-      contentSecurityPolicy += await scripts.asyncForEach('script-src-elem')
+      contentSecurityPolicy += `connect-src product.grocermatic.org static.cloudflareinsights.com;`
+      contentSecurityPolicy += await scripts.asyncForEach(`script-src-elem 'strict-dynamic'`)
       contentSecurityPolicy += await stylesheets.asyncForEach('style-src')
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]

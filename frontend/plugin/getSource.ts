@@ -8,20 +8,16 @@ export const getSource = async (
   sourceType: string,
 ) => {
   let source
-  const attributeName = element.attribs.src ? 'src' : 'href'
-  const resourcePath = element.attribs[attributeName]
-  if (resourcePath?.startsWith('http')) {
-    // Load JS from URL.
-    source = await (await fetch(resourcePath)).text()
-  } else if (element.attribs.src || element.attribs.href) {
-    // Load local JS from bundle.
+  if (element.attribs.src || element.attribs.href) {
+    // Inline local source from bundle.
+    const attributeName = element.attribs.src ? 'src' : 'href'
     const resourcePathWithoutLeadingSlash = element.attribs[attributeName].slice(1)
     const bundleItem = bundle[resourcePathWithoutLeadingSlash]
     delete element.attribs[attributeName]
     source = minify(bundleItem.code, sourceType)
     $(element).text(source)
   } else {
-    // Load inline CSS from Html
+    // Load inline source
     source = minify($(element).text(), sourceType)
     $(element).text(source)
   }
