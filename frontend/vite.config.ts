@@ -30,6 +30,7 @@ export default defineConfig({
       'static.cloudflareinsights.com',
       'cloudflareinsights.com',
       'www.google-analytics.com',
+      'www.googletagmanager.com',
     ]),
   ],
   build: {
