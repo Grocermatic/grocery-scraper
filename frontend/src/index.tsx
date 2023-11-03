@@ -3,8 +3,11 @@ import { For, createEffect, createSignal } from 'solid-js'
 import { ProductCard } from './molecules/productList/ProductCard'
 import { SearchBar } from './components/SearchBar'
 import { miniSearch } from './store/search'
+import { loadExternaljs } from './store/externalJs'
 
 const App = () => {
+  loadExternaljs()
+
   const [searchResults, setSearchResults] = createSignal<any[]>([])
   const [suggestions, setSuggestions] = createSignal<any[]>([])
 
