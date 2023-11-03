@@ -1,3 +1,5 @@
+import { ManifestOptions } from "vite-plugin-pwa"
+
 const faviconUrl = 'favicon.ico'
 const faviconSvgUrl = 'favicon.svg'
 const androidIcon192Url = 'android-chrome-192x192.png'
@@ -52,4 +54,4 @@ export const manifest = {
     },
   ],
   display: 'standalone',
-}
+} as Partial<ManifestOptions>
