@@ -13,6 +13,8 @@ export const getSource = async (
   if (resourcePath?.startsWith('http')) {
     // Load JS from URL.
     source = await (await fetch(resourcePath)).text()
+    delete element.attribs[attributeName]
+    $(element).text(source)
   } else if (element.attribs.src || element.attribs.href) {
     // Load local JS from bundle.
     const resourcePathWithoutLeadingSlash = element.attribs[attributeName].slice(1)
