@@ -11,7 +11,11 @@
     "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100"
   },
   "dependencies": {
+    "@analytics/activity-utils": "^0.1.15",
+    "@analytics/google-analytics": "^1.0.7",
+    "@analytics/router-utils": "^0.1.1",
     "@solidjs/router": "^0.8.3",
+    "analytics": "^0.8.9",
     "minisearch": "^6.2.0",
     "solid-js": "^1.8.5"
   },

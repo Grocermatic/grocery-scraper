@@ -4,9 +4,11 @@ import { ProductCard } from './molecules/productList/ProductCard'
 import { SearchBar } from './components/SearchBar'
 import { miniSearch } from './store/search'
 import { loadExternaljs } from './store/externalJs'
+import { analytics } from './store/analytics'
 
 const App = () => {
   loadExternaljs()
+  analytics
 
   const [searchResults, setSearchResults] = createSignal<any[]>([])
   const [suggestions, setSuggestions] = createSignal<any[]>([])
