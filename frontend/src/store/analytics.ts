@@ -17,7 +17,7 @@ export const analytics = Analytics({
 })
 
 // Session tracking
-addEventListener("load", () => analytics.track('open session'))
+addEventListener('load', () => analytics.track('open session'))
 addEventListener('beforeunload', () => analytics.track('close session'))
 
 // URI tracking
@@ -33,8 +33,8 @@ onIdle((activeTime: number) => analytics.track('idle', { 'active time (s)': acti
 onWakeUp(() => analytics.track('active'), opts)
 
 // Page show tracking
-addEventListener("pagehide", () => analytics.track('pagehide'))
-addEventListener("pageshow", () => analytics.track('pageshow'))
+addEventListener('pagehide', () => analytics.track('pagehide'))
+addEventListener('pageshow', () => analytics.track('pageshow'))
 
 // Mouse tracking
 for (const eventName of ['click', 'dblclick']) {

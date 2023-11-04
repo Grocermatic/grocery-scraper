@@ -1,6 +1,6 @@
 import MiniSearch from 'minisearch'
 import { config } from '../../../global'
-import { webWorkerFactory } from './webWorkerFactory'
+import { webWorkerFactory } from '../logic/webWorkerFactory'
 
 export const miniSearch = new MiniSearch({
   fields: ['name'],
