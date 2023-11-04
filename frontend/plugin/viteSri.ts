@@ -8,6 +8,7 @@ export const viteSri = (origins: string[]) => {
   return {
     name: 'sri',
     enforce: 'post',
+    apply: 'build',
 
     async transformIndexHtml(html: string, context: any) {
       const bundle = context.bundle
