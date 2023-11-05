@@ -27,12 +27,12 @@ export default defineConfig({
     }),
     viteSri([
       'product.grocermatic.org',
-      'static.cloudflareinsights.com',
+      '*.cloudflareinsights.com',
       'cloudflareinsights.com',
-      'www.google-analytics.com',
-      'www.googletagmanager.com',
-      'fonts.googleapis.com',
-      'fonts.gstatic.com',
+      '*.google-analytics.com',
+      '*.googletagmanager.com',
+      '*.googleapis.com',
+      '*.gstatic.com',
     ]),
   ],
   build: {
