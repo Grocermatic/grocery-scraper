@@ -37,7 +37,7 @@ export const viteSri = (origins: string[]) => {
       contentSecurityPolicy += `manifest-src 'self';`
       contentSecurityPolicy += `connect-src ${origins.join(' ')};`
       contentSecurityPolicy += await scripts.asyncForEach(`script-src-elem ${origins.join(' ')}`)
-      contentSecurityPolicy += await stylesheets.asyncForEach('style-src')
+      contentSecurityPolicy += await stylesheets.asyncForEach(`style-src ${origins.join(' ')}`)
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]
       cspElement.attribs['content'] = contentSecurityPolicy
