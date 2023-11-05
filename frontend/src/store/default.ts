@@ -1,5 +1,5 @@
-export const storeSelection = {
-  'Aldi': true,
-  'Coles': true,
-  'Woolworths': true,
+export const defaultStoreSelection = {
+  Aldi: true,
+  Coles: true,
+  Woolworths: true,
 }
