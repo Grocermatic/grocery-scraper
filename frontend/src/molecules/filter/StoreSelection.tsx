@@ -7,29 +7,30 @@ import { StoreLogo } from '../../svg/StoreLogo'
 export const StoreSelection = (props: any) => {
   const [local, _] = splitProps(props, ['stores', 'setStores'])
 
-  const storeOnClick = (id: number) => {
+  const storeOnClick = (storeName: string) => {
     let tempStore = JSON.parse(JSON.stringify(local.stores))
-    tempStore[id].active = !local.stores[id].active
+    tempStore[storeName] = !tempStore[storeName]
     local.setStores(tempStore)
   }
+  console.log()
 
   return (
     <>
       <div class="flex gap-2 overflow-x-auto no-scrollbar">
-        <For each={local.stores}>
-          {(store, i) => (
+        <For each={Object.keys(local.stores)}>
+          {(storeName, _) => (
             <ActionButton
-              onClick={() => storeOnClick(i())}
+              onClick={() => storeOnClick(storeName)}
               class={`card relative gap-2 flex flex-col flex-grow flex-shrink-0 items-center w-40 p-4 ${
-                store.active ? 'fill-light bg-dark' : 'fill-shade'
+                local.stores[storeName] ? 'fill-light bg-dark' : 'fill-shade'
               }`}
             >
-              <StoreLogo storeName={store.name} class="h-5" />
-              <p class={`font-bold text-xs ${store.active ? 'text-light' : 'text-shade'}`}>
-                {store.name}
+              <StoreLogo storeName={storeName} class="h-5" />
+              <p class={`font-bold text-xs ${local.stores[storeName] ? 'text-light' : 'text-shade'}`}>
+                {storeName}
               </p>
               <Show
-                when={store.active}
+                when={local.stores[storeName]}
                 fallback={<PlusCircleIcon class="absolute h-4 top-3 left-3" />}
               >
                 <CheckCircleIcon class="absolute h-4 top-3 left-3" />

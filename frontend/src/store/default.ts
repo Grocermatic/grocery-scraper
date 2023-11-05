@@ -1,14 +1,5 @@
-export const storeSelection = [
-  {
-    name: 'Aldi',
-    active: true,
-  },
-  {
-    name: 'Coles',
-    active: true,
-  },
-  {
-    name: 'Woolworths',
-    active: true,
-  },
-]
+export const storeSelection = {
+  'Aldi': true,
+  'Coles': true,
+  'Woolworths': true,
+}
