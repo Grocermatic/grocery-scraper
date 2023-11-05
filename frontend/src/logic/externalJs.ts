@@ -1,7 +1,9 @@
 import { webWorkerFactory } from './webWorkerFactory'
 
 // Load dependencies
-const externalJs: string[] = []
+const externalJs: string[] = [
+  'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6950110112582359',
+]
 
 const fetchJs = () => {
   self.onmessage = async (e: MessageEvent) => {
