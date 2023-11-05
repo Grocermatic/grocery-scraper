@@ -2,8 +2,8 @@ import { For, Show, createSignal, onCleanup, onMount, splitProps } from 'solid-j
 import { SearchIcon } from '../svg/SearchIcon'
 
 export const SearchBar = (props: any) => {
-  const [local, _] = splitProps(props, ['id', 'placeholder', 'onChange', 'onInput', 'suggestions'])
-  const [searchQuery, setSearchQuery] = createSignal('')
+  const [local, _] = splitProps(props, ['id', 'placeholder', 'onChange', 'onInput', 'suggestions', 'initialValue'])
+  const [searchQuery, setSearchQuery] = createSignal(local.initialValue)
   const [typedInput, setTypedInput] = createSignal('')
   const [suggestions, setSuggestions] = createSignal([])
   const [selectedId, setSelectedId] = createSignal(0)
