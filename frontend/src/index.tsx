@@ -7,7 +7,7 @@ const App = () => {
   analytics
 
   // Temporary redirect all to search page
-  if (window.location.pathname != "/search") window.location.pathname = '/search'
+  if (window.location.pathname != '/search') window.location.pathname = '/search'
 
   return (
     <Router>

@@ -14,7 +14,7 @@ export const [miniSearch, setMiniSearch] = createSignal(new MiniSearch(searchOpt
 let i = 0
 const fillSearchEngineWithProduct = (products: any[]) => {
   allProducts = [...allProducts, ...products]
-  const miniSearch =  new MiniSearch(searchOptions)
+  const miniSearch = new MiniSearch(searchOptions)
   miniSearch.addAll(
     allProducts.map((productInfo: any) => {
       return { ...productInfo, id: i++ }
