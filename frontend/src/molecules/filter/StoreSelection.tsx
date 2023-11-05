@@ -5,19 +5,19 @@ import { PlusCircleIcon } from '../../svg/PlusCircleIcon'
 import { StoreLogo } from '../../svg/StoreLogo'
 import { createStoredStore } from '../../store/createStoredStore'
 import { defaultStoreSelection } from '../../store/default'
-import { setSearchParam } from '../../store/searchParam'
+import { useSearchParams } from '@solidjs/router'
 
 export const StoreSelection = (props: any) => {
   const [local, _] = splitProps(props, ['setActiveStores'])
   const [stores, setStores] = createStoredStore('storeSelection', defaultStoreSelection)
 
   // Initialise stores from search params to enable url search
-  const searchParams = new URLSearchParams(window.location.search) as any
-  if (!searchParams.get('stores')) setStores(defaultStoreSelection)
+  const [searchParams, setSearchParams] = useSearchParams()
+  if (!searchParams.stores) setStores(defaultStoreSelection)
   else {
     let initStores = defaultStoreSelection as any
     Object.keys(initStores).forEach((val) => (initStores[val] = false))
-    for (const activeStore of searchParams.get('stores').split(' ')) {
+    for (const activeStore of searchParams.stores.split(' ')) {
       if (initStores[activeStore] == false) initStores[activeStore] = true
     }
     setStores(initStores)
@@ -31,7 +31,9 @@ export const StoreSelection = (props: any) => {
   local.setActiveStores(activeStores())
 
   const allStoresSelected = () => activeStores().length == Object.keys(stores).length
-  createEffect(() => setSearchParam('stores', allStoresSelected() ? '' : activeStores().join(' ')))
+  createEffect(() =>
+    setSearchParams({ stores: allStoresSelected() ? '' : activeStores().join(' ') }),
+  )
 
   const onClick = (storeName: string) => {
     // Require at least one store to be selected

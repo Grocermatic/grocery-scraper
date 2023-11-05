@@ -2,7 +2,7 @@ import { createEffect, createSignal, splitProps } from 'solid-js'
 import { miniSearch } from '../../store/search'
 import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
-import { setSearchParam } from '../../store/searchParam'
+import { useSearchParams } from '@solidjs/router'
 
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
@@ -11,8 +11,8 @@ export const SearchFilter = (props: any) => {
   const [searchQuery, setSearchQuery] = createSignal<string>('')
 
   // Initialise search query from search params
-  const searchParams = new URLSearchParams(window.location.search) as any
-  if (searchParams.get('query')) setSearchQuery(searchParams.get('query'))
+  const [searchParams, setSearchParams] = useSearchParams()
+  if (searchParams.query) setSearchQuery(searchParams.query)
 
   const searchFilter = (product: any) => {
     for (const storeName of activeStores()) {
@@ -37,7 +37,7 @@ export const SearchFilter = (props: any) => {
 
   createEffect(() => {
     local.setSearchResults(searchResults())
-    setSearchParam('query', searchQuery())
+    setSearchParams({ query: searchQuery() })
   })
 
   return (
