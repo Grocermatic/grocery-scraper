@@ -3,23 +3,38 @@ import { For, createEffect, createSignal } from 'solid-js'
 import { ProductCard } from './molecules/productList/ProductCard'
 import { SearchBar } from './components/SearchBar'
 import { miniSearch } from './store/search'
-import { loadExternaljs } from './store/externalJs'
 import { analytics } from './store/analytics'
+import { StoreSelection } from './molecules/filter/StoreSelection'
 
 const App = () => {
-  loadExternaljs()
   analytics
 
-  const [searchResults, setSearchResults] = createSignal<any[]>([])
   const [suggestions, setSuggestions] = createSignal<any[]>([])
+  const [searchQuery, setSearchQuery] = createSignal('')
+  const [stores, setStores] = createSignal<any>([])
 
+  const searchFilter = (product: any) => {
+    for (const store of stores()) {
+      if (store.active && product.url.match(store.domain)) return true
+    }
+    return false
+  }
+
+  const searchResults = () =>
+    miniSearch.search(searchQuery(), {
+      filter: searchFilter,
+    })
+    
   const searchBarChange = (searchQuery: string) => {
-    setSearchResults(miniSearch.search(searchQuery))
+    setSearchQuery(searchQuery)
   }
 
   const searchBarInput = (searchQuery: string) => {
-    const rawSuggestions = miniSearch.autoSuggest(searchQuery).map((sug) => sug.suggestion)
-    setSuggestions(rawSuggestions.slice(0, 5))
+    const rawSuggestions = miniSearch.autoSuggest(searchQuery, {
+      filter: searchFilter,
+    })
+    const suggestions = rawSuggestions.map((sug) => sug.suggestion)
+    setSuggestions(suggestions.slice(0, 5)) // Top 5 suggestions
   }
 
   let productListref: HTMLDivElement | undefined
@@ -31,6 +46,7 @@ const App = () => {
   return (
     <div class="h-full flex flex-col">
       <section class="relative z-10 flex flex-col p-2 gap-2 shadow-md">
+        <StoreSelection onChange={setStores} />
         <SearchBar
           onChange={searchBarChange}
           onInput={searchBarInput}

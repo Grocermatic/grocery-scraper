@@ -5,7 +5,9 @@ export const createStoredStore = (
   defaultValue: any,
   storage: any = localStorage,
 ): [proxy: any, setter: SetStoreFunction<any>] => {
-  const initialValue = storage.getItem(key) ? (JSON.parse(storage.getItem(key)) as Object) : defaultValue
+  const initialValue = storage.getItem(key)
+    ? (JSON.parse(storage.getItem(key)) as Object)
+    : defaultValue
 
   const [value, setValue] = createStore(initialValue as any)
 
