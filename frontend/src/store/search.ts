@@ -1,19 +1,26 @@
 import MiniSearch from 'minisearch'
 import { config } from '../../../global'
 import { webWorkerFactory } from '../logic/webWorkerFactory'
+import { createSignal } from 'solid-js'
 
-export const miniSearch = new MiniSearch({
+const searchOptions = {
   fields: ['name'],
   storeFields: ['name', 'url', 'img', 'price', 'quantity', 'unitPrice'],
-})
+}
+
+let allProducts: any[] = []
+export const [miniSearch, setMiniSearch] = createSignal(new MiniSearch(searchOptions))
 
 let i = 0
 const fillSearchEngineWithProduct = (products: any[]) => {
+  allProducts = [...allProducts, ...products]
+  const miniSearch =  new MiniSearch(searchOptions)
   miniSearch.addAll(
-    products.map((productInfo: any) => {
+    allProducts.map((productInfo: any) => {
       return { ...productInfo, id: i++ }
     }),
   )
+  setMiniSearch(miniSearch)
 }
 
 const fetchJson = () => {
