@@ -3,37 +3,20 @@ import { For, Show, splitProps } from 'solid-js'
 import { CheckCircleIcon } from '../../svg/CheckCircleIcon'
 import { PlusCircleIcon } from '../../svg/PlusCircleIcon'
 import { StoreLogo } from '../../svg/StoreLogo'
-import { createStoredStore } from '../../store/createStoredStore'
 
 export const StoreSelection = (props: any) => {
-  const [local, _] = splitProps(props, ['onChange'])
-  const [stores, setStores] = createStoredStore('storeSelection', [
-    {
-      name: 'Aldi',
-      active: true,
-    },
-    {
-      name: 'Coles',
-      active: true,
-    },
-    {
-      name: 'Woolworths',
-      active: true,
-    },
-  ])
-  local.onChange(stores)
+  const [local, _] = splitProps(props, ['stores', 'setStores'])
 
   const storeOnClick = (id: number) => {
-    let tempStore = JSON.parse(JSON.stringify(stores))
-    tempStore[id].active = !stores[id].active
-    setStores(tempStore)
-    local.onChange(stores)
+    let tempStore = JSON.parse(JSON.stringify(local.stores))
+    tempStore[id].active = !local.stores[id].active
+    local.setStores(tempStore)
   }
 
   return (
     <>
       <div class="flex gap-2 overflow-x-auto no-scrollbar">
-        <For each={stores}>
+        <For each={local.stores}>
           {(store, i) => (
             <ActionButton
               onClick={() => storeOnClick(i())}
