@@ -1,23 +1,31 @@
-import { createEffect, createSignal, onMount, splitProps } from 'solid-js'
+import { createEffect, createSignal, splitProps } from 'solid-js'
 import { miniSearch } from '../../store/search'
 import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
 import { createStoredStore } from '../../store/createStoredStore'
 import { storeSelection } from '../../store/default'
+import { setSearchParam } from '../../store/searchParam'
 
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
 
   const searchParams = new URLSearchParams(window.location.search) as any
-  const [searchQuery, setSearchQuery] = createSignal<string>(searchParams.get('query'))
+  const [searchQuery, setSearchQuery] = createSignal<string>('')
+  if (searchParams.get('query')) setSearchQuery(searchParams.get('query'))
   const [suggestions, setSuggestions] = createSignal<any[]>([])
   
   const [stores, setStores] = createStoredStore('storeSelection', storeSelection)
   const activeStores = () => Object.keys(stores).filter(key => {return stores[key]})
   
-  let initStores = storeSelection as any
-  Object.keys(storeSelection).forEach(val => initStores[val] = false)
-  for (const activeStore in activeStores) stores[activeStore] = true
+  if (!searchParams.get('stores')) setStores(storeSelection)
+  else {
+    let initStores = storeSelection as any
+    Object.keys(storeSelection).forEach(val => initStores[val] = false)
+    for (const activeStore of searchParams.get('stores').split(' ')) {
+      if (initStores[activeStore] == false) initStores[activeStore] = true
+    }
+    setStores(initStores)
+  }
 
   const searchFilter = (product: any) => {
     for (const storeName of activeStores()) {
@@ -32,10 +40,6 @@ export const SearchFilter = (props: any) => {
       filter: searchFilter,
     })
 
-  const searchBarChange = (searchQuery: string) => {
-    setSearchQuery(searchQuery)
-  }
-
   const searchBarInput = (searchQuery: string) => {
     const rawSuggestions = miniSearch().autoSuggest(searchQuery, {
       filter: searchFilter,
@@ -44,17 +48,12 @@ export const SearchFilter = (props: any) => {
     setSuggestions(suggestions.slice(0, 5)) // Top 5 suggestions
   }
 
-  onMount(() => {
-    searchResults()
-  })
-
   createEffect(() => {
     searchResults()
     local.setSearchResults(searchResults())
-    const searchParams = new URLSearchParams('')
-    searchParams.set('query', searchQuery())
-    searchParams.set('stores', activeStores().join(' '))
-    history.pushState(null, '', window.location.pathname + '?' + searchParams.toString())
+    setSearchParam('query', searchQuery())
+    const storesParam = activeStores().length == Object.keys(storeSelection).length ? '' : activeStores().join(' ')
+    setSearchParam('stores', storesParam)
   })
 
   return (
@@ -62,7 +61,7 @@ export const SearchFilter = (props: any) => {
       <StoreSelection stores={stores} setStores={setStores} />
       <SearchBar
         initialValue={searchQuery()}
-        onChange={searchBarChange}
+        onChange={setSearchQuery}
         onInput={searchBarInput}
         suggestions={suggestions()}
         placeholder="Search product..."
