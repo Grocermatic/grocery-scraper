@@ -11,17 +11,14 @@ export const StoreSelection = (props: any) => {
     {
       name: 'Aldi',
       active: true,
-      domain: 'aldi.com.au',
     },
     {
       name: 'Coles',
       active: true,
-      domain: 'coles.com.au',
     },
     {
       name: 'Woolworths',
       active: true,
-      domain: 'woolworths.com.au',
     },
   ])
   local.onChange(stores)
