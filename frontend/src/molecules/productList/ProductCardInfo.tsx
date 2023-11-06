@@ -1,21 +1,30 @@
-import { Show } from 'solid-js'
+import { Show, splitProps } from 'solid-js'
 import { limitStringLength } from '../../logic/limitStringLength'
 
 export const ProductCardInfo = (props: any) => {
-  const { name, url, price, quantity, unitPrice } = props
-  const productName = limitStringLength(name, 45)
+  const [local, _] = splitProps(props, [
+    'name',
+    'url',
+    'price',
+    'quantity',
+    'unitPrice',
+    'isActive',
+  ])
+  const productName = limitStringLength(local.name, 45)
   return (
     <>
-      <a href={url} target="blank">
-        <h2 class="underline">{productName}</h2>
-      </a>
+      <div class="flex">
+        <a href={local.url} target="blank">
+          <h2 class="underline text-blue-700">{productName}</h2>
+        </a>
+      </div>
       <div class="flex-grow"></div>
-      <div class="flex justify-between gap-4">
-        <p class="font-bold">${price}</p>
-        <Show when={quantity < 1} fallback={<p class="font-bold">{quantity}kg</p>}>
-          <p class="font-bold">{quantity * 1000}g</p>
+      <div class={`flex justify-between gap-4 ${local.isActive ? 'flex-col' : ''}`}>
+        <p class="font-bold">${local.price}</p>
+        <Show when={local.quantity < 1} fallback={<p class="font-bold">{local.quantity}kg</p>}>
+          <p class="font-bold">{local.quantity * 1000}g</p>
         </Show>
-        <p class="font-bold">{unitPrice} $/kg</p>
+        <p class="font-bold">{local.unitPrice} $/kg</p>
       </div>
     </>
   )
