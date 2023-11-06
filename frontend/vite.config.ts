@@ -32,6 +32,7 @@ export default defineConfig({
       'www.google-analytics.com',
       'www.googletagmanager.com',
       'fonts.googleapis.com',
+      'fonts.gstatic.com',
     ]),
   ],
   build: {
