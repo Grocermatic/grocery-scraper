@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
 import { VitePWA } from 'vite-plugin-pwa'
 import { viteSingleFile } from 'vite-plugin-singlefile'
-import { viteSri } from './plugin/viteSri'
+import { viteCSP } from './plugin/viteCSP'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import { icons, manifest } from './plugin/manifest'
@@ -25,15 +25,23 @@ export default defineConfig({
       includeAssets: icons,
       manifest: manifest,
     }),
-    viteSri([
-      'product.grocermatic.org',
-      'static.cloudflareinsights.com',
-      'cloudflareinsights.com',
-      'www.google-analytics.com',
-      'www.googletagmanager.com',
-      'fonts.googleapis.com',
-      'fonts.gstatic.com',
-    ]),
+    viteCSP({
+      otherCsp: {
+        'default-src': [`'none'`],
+        'connect-src': ['product.grocermatic.org', 'www.google-analytics.com/g/collect'],
+        'font-src': ['fonts.gstatic.com'],
+        'frame-src': ['googleads.g.doubleclick.net'],
+        'manifest-src': [`'self'`],
+        'worker-src': [`'strict-dynamic'`],
+        'img-src': [`'self'`, 'data:'],
+      },
+      scriptSrc: [
+        'static.cloudflareinsights.com',
+        'cloudflareinsights.com',
+        'www.googletagmanager.com/gtag/js',
+      ],
+      styleSrc: ['fonts.googleapis.com'],
+    }),
   ],
   build: {
     chunkSizeWarningLimit: 50,

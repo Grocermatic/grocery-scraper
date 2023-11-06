@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs'
 
-export const generateHeaders = (csp: string) => {
+export const generateHeadersFile = (csp: string) => {
   const headers: any = {
     '/*': {
       'X-Frame-Options': 'DENY',
