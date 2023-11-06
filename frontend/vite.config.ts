@@ -31,6 +31,7 @@ export default defineConfig({
       'cloudflareinsights.com',
       'www.google-analytics.com',
       'www.googletagmanager.com',
+      'fonts.googleapis.com',
     ]),
   ],
   build: {
