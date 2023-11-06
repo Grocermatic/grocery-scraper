@@ -40,7 +40,7 @@ export default defineConfig({
         'cloudflareinsights.com',
         'www.googletagmanager.com/gtag/js',
       ],
-      styleSrc: ['fonts.googleapis.com'],
+      styleSrc: ['fonts.googleapis.com', 'about:srcdoc:'],
     }),
   ],
   build: {
