@@ -30,9 +30,7 @@ export const viteSri = (origins: string[]) => {
       const scripts = $('script') as any
       const stylesheets = $('style') as any
       let contentSecurityPolicy = `default-src 'none';`
-      contentSecurityPolicy += `base-uri 'none';`
-      contentSecurityPolicy += `form-action 'none';`
-      contentSecurityPolicy += `img-src https: data:`
+      contentSecurityPolicy += `img-src https: data:;`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
       contentSecurityPolicy += `connect-src ${origins.join(' ')};`
