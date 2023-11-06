@@ -1,6 +1,7 @@
 import { For, createEffect, createSignal } from 'solid-js'
 import { ProductCard } from './molecules/productList/ProductCard'
 import { SearchFilter } from './molecules/filter/SearchFilter'
+import { AdCard } from './components/AdCard'
 
 export const Search = () => {
   const [searchResults, setSearchResults] = createSignal<any[]>([])
@@ -18,6 +19,9 @@ export const Search = () => {
         ref={productListref}
         class="flex animate-none h-full flex-col p-2 overflow-y-auto snap-mandatory snap-both no-scrollbar"
       >
+        <div class="h-2 shrink-0 snap-start"></div>
+        <AdCard class="shrink-0" />
+
         <For each={searchResults()}>{(productInfo, _) => <ProductCard {...productInfo} />}</For>
         <div class="h-2 shrink-0 snap-start"></div>
 
