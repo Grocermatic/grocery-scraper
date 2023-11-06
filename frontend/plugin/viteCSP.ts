@@ -74,7 +74,7 @@ export const viteCSP = (configCsp: ConfigCsp = {}) => {
       // Implement SRI for scripts and stylesheets.
       cspLine += await $('script').asyncForEach(`script-src ${joinMainSrc(configCsp.scriptSrc)}`)
       await $('style').asyncForEach(`style-src ${joinMainSrc(configCsp.styleSrc)}`)
-      cspLine += `style-src 'unsafe-inline';`
+      cspLine += `style-src 'unsafe-inline' ${joinMainSrc(configCsp.styleSrc)};`
 
       // Generate _headers file
       generateHeadersFile(cspLine)
