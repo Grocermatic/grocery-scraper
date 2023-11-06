@@ -37,6 +37,7 @@ export const viteSri = (origins: string[]) => {
       contentSecurityPolicy += `manifest-src 'self';`
       contentSecurityPolicy += `frame-src googleads.g.doubleclick.net;`
       contentSecurityPolicy += `connect-src ${origins.join(' ')};`
+      contentSecurityPolicy += `font-src ${origins.join(' ')};`
       contentSecurityPolicy += await scripts.asyncForEach(
         `script-src-elem 'strict-dynamic' ${origins.join(' ')}`,
       )
