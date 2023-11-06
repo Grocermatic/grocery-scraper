@@ -32,7 +32,7 @@ export const viteSri = (origins: string[]) => {
       let contentSecurityPolicy = `default-src 'none';`
       contentSecurityPolicy += `base-uri 'none';`
       contentSecurityPolicy += `form-action 'none';`
-      contentSecurityPolicy += `img-src 'self' https://*;`
+      contentSecurityPolicy += `img-src https: data:`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
       contentSecurityPolicy += `connect-src ${origins.join(' ')};`
