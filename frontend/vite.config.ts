@@ -28,16 +28,15 @@ export default defineConfig({
     viteCSP({
       otherCsp: {
         'default-src': [`'none'`],
-        'connect-src': ['product.grocermatic.org', 'www.google-analytics.com/g/collect'],
+        'connect-src': ['product.grocermatic.org', 'cloudflareinsights.com/cdn-cgi/rum', 'www.google-analytics.com/g/collect'],
         'font-src': ['fonts.gstatic.com'],
-        'frame-src': ['googleads.g.doubleclick.net'],
+        'frame-src': ['googleads.g.doubleclick.net/pagead/html'],
         'manifest-src': [`'self'`],
         'worker-src': [`'strict-dynamic'`],
         'img-src': [`'self'`, 'data:'],
       },
       scriptSrc: [
-        'static.cloudflareinsights.com',
-        'cloudflareinsights.com',
+        'static.cloudflareinsights.com/beacon.min.js',
         'www.googletagmanager.com/gtag/js',
       ],
       styleSrc: ['fonts.googleapis.com', 'about:srcdoc:'],
