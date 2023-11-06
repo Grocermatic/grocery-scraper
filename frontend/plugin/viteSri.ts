@@ -36,7 +36,7 @@ export const viteSri = (origins: string[]) => {
       contentSecurityPolicy += `connect-src ${origins.join(' ')};`
       contentSecurityPolicy += `font-src ${origins.join(' ')};`
       contentSecurityPolicy += await scripts.asyncForEach(`script-src-elem ${origins.join(' ')}`)
-      contentSecurityPolicy += `style-src https:;`
+      contentSecurityPolicy += `style-src about: * data: blob: 'unsafe-inline';`
       await stylesheets.asyncForEach(`style-src 'unsafe-inline'`)
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]
