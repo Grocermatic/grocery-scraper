@@ -26,7 +26,7 @@ export const ProductCard = (props: any) => {
           />
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
-          <Show when={false} fallback={<ProductCardInfo {...props} />}>
+          <Show when={false} fallback={<ProductCardInfo isActive={isActive()} {...props} />}>
             <ProductCalculator {...props} amount={local.amount} />
           </Show>
         </div>
