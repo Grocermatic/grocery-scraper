@@ -35,12 +35,10 @@ export const viteSri = (origins: string[]) => {
       contentSecurityPolicy += `img-src 'self' https://*;`
       contentSecurityPolicy += `worker-src 'strict-dynamic';`
       contentSecurityPolicy += `manifest-src 'self';`
-      contentSecurityPolicy += `frame-src googleads.g.doubleclick.net;`
+      contentSecurityPolicy += `frame-src`
       contentSecurityPolicy += `connect-src ${origins.join(' ')};`
       contentSecurityPolicy += `font-src ${origins.join(' ')};`
-      contentSecurityPolicy += await scripts.asyncForEach(
-        `script-src-elem 'strict-dynamic' ${origins.join(' ')}`,
-      )
+      contentSecurityPolicy += await scripts.asyncForEach(`script-src-elem ${origins.join(' ')}`)
       contentSecurityPolicy += await stylesheets.asyncForEach(`style-src ${origins.join(' ')}`)
 
       const cspElement = $('meta').filter('[http-equiv=Content-Security-Policy]')[0]
