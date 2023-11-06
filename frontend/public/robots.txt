@@ -1,2 +1,2 @@
-User-agent: Googlebot, bingbot, DuckDuckBot, archive.org_bot
+User-agent: Googlebot, bingbot, DuckDuckBot, archive.org_bot, Mediapartners-Google
 Allow: /
