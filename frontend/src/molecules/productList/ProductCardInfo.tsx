@@ -14,8 +14,8 @@ export const ProductCardInfo = (props: any) => {
   return (
     <>
       <div class="flex">
-        <a href={local.url} target="blank">
-          <h2 class="underline text-blue-700">{productName}</h2>
+        <a href={local.url} target="blank" class="text-blue-700 visited:text-dark">
+          <h2 class="underline">{productName}</h2>
         </a>
       </div>
       <div class="flex-grow"></div>
