@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
 import { VitePWA } from 'vite-plugin-pwa'
-import { viteSingleFile } from 'vite-plugin-singlefile'
 import { viteCSP } from './plugin/viteCSP'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
@@ -15,7 +14,6 @@ export default defineConfig({
   },
   plugins: [
     solid(),
-    viteSingleFile({ useRecommendedBuildConfig: false }),
     VitePWA({
       strategies: 'injectManifest',
       srcDir: './plugin',
@@ -32,15 +30,16 @@ export default defineConfig({
           'product.grocermatic.org',
           'cloudflareinsights.com/cdn-cgi/rum',
           'www.google-analytics.com/g/collect',
-          'pagead2.googlesyndication.com/getconfig/sodar',
+          'pagead2.googlesyndication.com',
         ],
         'font-src': ['fonts.gstatic.com'],
         'frame-src': ['googleads.g.doubleclick.net', 'www.google.com', 'tpc.googlesyndication.com'],
         'manifest-src': [`'self'`],
         'worker-src': [`'strict-dynamic'`],
-        'img-src': [`'self'`, 'data:', 'pagead2.googlesyndication.com'],
+        'img-src': [`'self'`, 'data:', 'https:'],
       },
       scriptSrc: [
+        `'sha256-l0IHPvf8eV52c9mPJymShDKYQmoP/YyzUHeE31FDYIs='`, // Manifest hash
         'static.cloudflareinsights.com',
         'www.googletagmanager.com/gtag/js',
         'pagead2.googlesyndication.com',
@@ -50,7 +49,4 @@ export default defineConfig({
       styleSrc: ['fonts.googleapis.com', 'about:'],
     }),
   ],
-  build: {
-    chunkSizeWarningLimit: 50,
-  },
 })

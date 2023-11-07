@@ -88,6 +88,9 @@ devDependencies:
   workbox-core:
     specifier: ^7.0.0
     version: 7.0.0
+  workbox-navigation-preload:
+    specifier: ^7.0.0
+    version: 7.0.0
   workbox-precaching:
     specifier: ^7.0.0
     version: 7.0.0

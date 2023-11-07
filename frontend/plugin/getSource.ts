@@ -18,6 +18,7 @@ export const getSource = async (
     // Inline local source from bundle.
     const resourcePathWithoutLeadingSlash = element.attribs[attributeName].slice(1)
     source = bundle[resourcePathWithoutLeadingSlash].code
+    delete bundle[resourcePathWithoutLeadingSlash]
   } else {
     // Load inline source
     source = $(element).text()
