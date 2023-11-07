@@ -10,6 +10,7 @@ const searchOptions = {
 
 let allProducts: any[] = []
 export const [miniSearch, setMiniSearch] = createSignal(new MiniSearch(searchOptions))
+export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(false)
 
 let i = 0
 const fillSearchEngineWithProduct = (products: any[]) => {
@@ -34,10 +35,16 @@ const fetchJson = () => {
 }
 
 // Fetch products with non-blocking webworker
+let loadedChunks = 0
 const fetchJsonWorker = webWorkerFactory(fetchJson)
 fetchJsonWorker.onmessage = (e: MessageEvent) => {
   const products: any = e.data
   fillSearchEngineWithProduct(products)
+  loadedChunks += 1
+  if (loadedChunks === config.numChunks) {
+    setMiniSearchLoaded(true)
+    fetchJsonWorker.terminate()
+  }
 }
 
 const urls = Array.from(

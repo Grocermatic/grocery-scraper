@@ -1,30 +1,6 @@
-import { webWorkerFactory } from './webWorkerFactory'
-
-// Load dependencies
-const externalJs: string[] = []
-
-const fetchJs = () => {
-  self.onmessage = async (e: MessageEvent) => {
-    const url: string = e.data
-    const res = await fetch(url)
-    if (!res) return
-    const js = await res.text()
-    self.postMessage(js)
-  }
-}
-
-const runJs = (js: string) => {
+export const loadExternalJs = (url: string) => {
   const script = document.createElement('script')
-  script.setAttribute('type', 'text/javascript')
-  script.innerHTML = js
+  script.setAttribute('src', url)
+  script.setAttribute('crossorigin', 'anonymous')
   document.head.appendChild(script)
-}
-
-export const loadExternaljs = () => {
-  const loadJsWorker = webWorkerFactory(fetchJs)
-  loadJsWorker.onmessage = (e: MessageEvent) => {
-    const js: string = e.data
-    runJs(js)
-  }
-  externalJs.map(async (url) => loadJsWorker.postMessage(url))
 }
