@@ -2,7 +2,6 @@ import { clientsClaim } from 'workbox-core'
 import { PrecacheFallbackPlugin, cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
-import * as navigationPreload from 'workbox-navigation-preload'
 
 precacheAndRoute(self.__WB_MANIFEST)
 
@@ -17,8 +16,16 @@ registerRoute(
   }),
 )
 
-self.skipWaiting()
-clientsClaim()
-cleanupOutdatedCaches()
+this.addEventListener('message', (event) => {
+  if (event.data.type === 'CACHE_UPDATED') {
+    const { updatedURL } = event.data.payload
+    console.log(`A newer version of ${updatedURL} is available!`)
+  }
+})
 
-console.info('Executed service worker')
+self.addEventListener('install', (e) => {
+  console.info('Install service worker')
+  cleanupOutdatedCaches()
+  self.skipWaiting()
+  clientsClaim()
+})
