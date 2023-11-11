@@ -35,7 +35,7 @@ export default defineConfig({
         'font-src': ['fonts.gstatic.com'],
         'frame-src': ['googleads.g.doubleclick.net', 'www.google.com', 'tpc.googlesyndication.com'],
         'manifest-src': [`'self'`],
-        'worker-src': [`'strict-dynamic'`],
+        'worker-src': [`'self'`, 'blob:'],
         'img-src': [`'self'`, 'data:', 'https:'],
       },
       scriptSrc: [
