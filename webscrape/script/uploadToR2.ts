@@ -1,4 +1,3 @@
-import * as fs from 'fs'
 import axios from 'axios'
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
@@ -13,7 +12,12 @@ const r2 = new S3Client({
   },
 })
 
-export const uploadToR2 = async (filePath: string, bucketName: string, objectName: string) => {
+export const uploadToR2 = async (
+  data: Buffer,
+  bucketName: string,
+  objectName: string,
+  contentType: string,
+) => {
   const url = await getSignedUrl(
     r2,
     new PutObjectCommand({ Bucket: bucketName, Key: objectName }),
@@ -22,16 +26,9 @@ export const uploadToR2 = async (filePath: string, bucketName: string, objectNam
   await axios({
     method: 'put',
     url,
-    data: fs.readFileSync(filePath),
+    data: data,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': contentType,
     },
   })
 }
-
-const productionPath = `data/production`
-const files = fs.readdirSync(productionPath)
-files.map(async (fileName) => {
-  const filePath = `${productionPath}/${fileName}`
-  await uploadToR2(filePath, 'grocermatic-product', fileName)
-})

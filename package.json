@@ -3,7 +3,8 @@
     "test": "jest --watchAll",
     "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
-    "upload": "ts-node webscrape/script/uploadToR2.ts",
+    "img": "ts-node webscrape/script/processImage.ts",
+    "upload": "ts-node webscrape/script/upload.ts",
     "dev": "vite frontend",
     "build": "vite build frontend",
     "preview": "vite preview frontend",
@@ -17,6 +18,7 @@
     "@solidjs/router": "^0.8.3",
     "analytics": "^0.8.9",
     "minisearch": "^6.2.0",
+    "sharp": "^0.32.6",
     "solid-js": "^1.8.5"
   },
   "devDependencies": {
