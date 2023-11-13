@@ -4,7 +4,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { viteCSP } from './plugin/viteCSP'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-import { icons, manifest } from './plugin/manifest'
+import { readFileSync } from 'fs'
+
+const manifestJson = readFileSync('frontend/public/manifest.json').toString()
 
 export default defineConfig({
   css: {
@@ -20,8 +22,7 @@ export default defineConfig({
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
-      includeAssets: icons,
-      manifest: manifest,
+      manifest: JSON.parse(manifestJson),
     }),
     viteCSP({
       otherCsp: {
