@@ -84,7 +84,7 @@ export const SearchBar = (props: any) => {
 
   return (
     <>
-      <ul ref={listRef} class="card overflow-clip !border-dark !border-[3px]">
+      <ul ref={listRef} class="card overflow-clip !border-dark !border-[2px]">
         <li class="flex bg-white">
           <input
             onSubmit={search}
@@ -95,7 +95,7 @@ export const SearchBar = (props: any) => {
             type="text"
             autocorrect="on"
             autocomplete="off"
-            class="w-full px-4 py-2 focus:border-transparent focus:outline-none"
+            class="w-full px-4 font-bold py-2 focus:border-transparent focus:outline-none"
           />
           <button aria-label="Search product" onClick={search} class="w-10">
             <SearchIcon class="m-auto h-5" />

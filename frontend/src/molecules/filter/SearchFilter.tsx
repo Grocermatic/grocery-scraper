@@ -1,14 +1,16 @@
-import { createEffect, createSignal, splitProps } from 'solid-js'
+import { createEffect, createMemo, createSignal, splitProps } from 'solid-js'
 import { miniSearch } from '../../store/search'
 import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
 import { useSearchParams } from '@solidjs/router'
+import { SortFilter } from './SortFilter'
 
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
   const [suggestions, setSuggestions] = createSignal<any[]>([])
   const [activeStores, setActiveStores] = createSignal<string[]>([])
   const [searchQuery, setSearchQuery] = createSignal<string>('')
+  const [sortedResults, setSortedResults] = createSignal<any[]>([])
 
   // Initialise search query from search params
   const [searchParams, setSearchParams] = useSearchParams()
@@ -22,10 +24,11 @@ export const SearchFilter = (props: any) => {
     return false
   }
 
-  const searchResults = () =>
+  const filteredResults = createMemo(() =>
     miniSearch().search(searchQuery(), {
       filter: searchFilter,
-    })
+    }),
+  )
 
   const searchBarInput = (searchQuery: string) => {
     const rawSuggestions = miniSearch().autoSuggest(searchQuery, {
@@ -36,7 +39,7 @@ export const SearchFilter = (props: any) => {
   }
 
   createEffect(() => {
-    local.setSearchResults(searchResults())
+    local.setSearchResults(sortedResults())
     setSearchParams({ query: searchQuery() })
   })
 
@@ -51,6 +54,7 @@ export const SearchFilter = (props: any) => {
         placeholder="Search product..."
         id="search"
       />
+      <SortFilter filteredResults={filteredResults} setSortedResults={setSortedResults} />
     </section>
   )
 }
