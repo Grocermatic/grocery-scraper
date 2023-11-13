@@ -20,7 +20,9 @@
   "scope": "/",
   "prefer_related_applications": false,
   "dir": "auto",
-  "launch_handler": "auto",
+  "launch_handler": {
+    "client_mode": "auto"
+  },
   "handle_links": "auto",
   "shortcuts": [
     {
