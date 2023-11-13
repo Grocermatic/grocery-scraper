@@ -18,6 +18,10 @@
   "id": "www.grocermatic.org",
   "start_url": "/",
   "scope": "/",
+  "prefer_related_applications": false,
+  "dir": "auto",
+  "launch_handler": "auto",
+  "handle_links": "auto",
   "shortcuts": [
     {
       "name": "Home",
