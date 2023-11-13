@@ -52,5 +52,14 @@
       "purpose": "maskable"
     },
     { "src": "safari-pinned-tab.svg", "sizes": "16x16", "type": "image/svg", "purpose": "any" }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-1.webp",
+      "sizes": "1442x3202",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Search apples"
+    }
   ]
 }
