@@ -1,7 +1,7 @@
 import { Show, createSignal, onMount, splitProps } from 'solid-js'
 import { ProductCardInfo } from './ProductCardInfo'
 import { ProductCalculator } from './ProductCalculator'
-import { safeSha256 } from '../../../../common/safeSha256'
+import { safeSha256 } from '../../logic/safeSha256'
 import { config } from '../../../../global'
 import { imageSupport } from '../../store/imageSupport'
 

@@ -3,7 +3,7 @@ import { uploadToR2 } from './uploadToR2'
 import { config } from '../../global'
 import { generateUniqueArray } from '../src/dataCleaning/generateUniqueArray'
 import { readFileSync } from 'fs'
-import { safeSha256 } from '../../common/safeSha256'
+import { safeSha256 } from '../src/dataCleaning/safeSha256'
 
 const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType: string) => {
   sharpImage.toBuffer().then((imageBuffer) => {
