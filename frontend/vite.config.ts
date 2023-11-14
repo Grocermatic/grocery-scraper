@@ -22,12 +22,14 @@ export default defineConfig({
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
+      includeAssets: ['favicon.ico', 'favicon.svg', 'favicon-light.svg', 'spinner.svg'],
       manifest: JSON.parse(manifestJson),
     }),
     viteCSP({
       otherCsp: {
         'default-src': [`'none'`],
         'connect-src': [
+          'data:',
           'product.grocermatic.org',
           'cloudflareinsights.com/cdn-cgi/rum',
           'www.google-analytics.com/g/collect',

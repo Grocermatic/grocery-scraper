@@ -1,11 +1,28 @@
-import { Show, createSignal, splitProps } from 'solid-js'
+import { Show, createSignal, onMount, splitProps } from 'solid-js'
 import { ProductCardInfo } from './ProductCardInfo'
 import { ProductCalculator } from './ProductCalculator'
+import { safeSha256 } from '../../../../common/safeSha256'
+import { config } from '../../../../global'
+import { imageSupport } from '../../store/imageSupport'
 
 export const ProductCard = (props: any) => {
   const [local, _] = splitProps(props, ['name', 'img', 'amount'])
-
   const [isActive, setIsActive] = createSignal(false)
+  const [imgUrl, setImgUrl] = createSignal('spinner.svg')
+
+  onMount(async () => {
+    const img = local.img.replace('/medium/', '/large/')
+    const imgHash = await safeSha256(img)
+    const imgBase = `${config.productBaseUrl}/image/${imgHash}`
+    const imgUrls: {
+      [key: string]: string
+    } = {
+      avif: `${imgBase}.avif`,
+      webp: `${imgBase}.webp`,
+      jpg: img,
+    }
+    setImgUrl(imgUrls[imageSupport.type])
+  })
 
   return (
     <>
@@ -19,10 +36,11 @@ export const ProductCard = (props: any) => {
         >
           <img
             class="object-cover select-none h-full aspect-square"
-            src={local.img}
+            src={imgUrl()}
             loading="lazy"
             alt={local.name}
             aria-label={local.name}
+            onerror="this.src='favicon-light.svg';this.onerror='';"
           />
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
