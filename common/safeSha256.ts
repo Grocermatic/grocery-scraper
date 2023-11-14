@@ -1,4 +1,4 @@
-import { createHash } from "crypto"
+import { createHash } from 'crypto'
 
 export const safeSha256 = (input: string) => {
   return createHash('sha256')
