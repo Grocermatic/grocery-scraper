@@ -1,6 +1,6 @@
 import { getNumFromString } from './getNumFromString'
 import { getUnitFromString } from './getUnitFromString'
-import { roundDecimal } from './roundDecimal'
+import { roundDecimal } from '../../../common/roundDecimal'
 
 export const getMetricQuantity = (quantityString: string): number => {
   quantityString = quantityString.toLowerCase()

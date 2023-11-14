@@ -1,6 +1,6 @@
 import MiniSearch from 'minisearch'
 import { config } from '../../../global'
-import { webWorkerFactory } from '../logic/webWorkerFactory'
+import { webWorkerFactory } from '../../../common/webWorkerFactory'
 import { createSignal } from 'solid-js'
 import { cloneInstance } from '../logic/cloneInstance'
 

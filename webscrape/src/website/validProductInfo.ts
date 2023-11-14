@@ -1,4 +1,4 @@
-import { roundDecimal } from '../dataCleaning/roundDecimal'
+import { roundDecimal } from '../../../common/roundDecimal'
 import { ProductInfo } from '../../../common/interface'
 
 export const validProductInfo = (productInfo: ProductInfo) => {

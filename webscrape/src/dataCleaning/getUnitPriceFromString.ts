@@ -1,6 +1,6 @@
 import { getMetricQuantity } from './getMetricQuantity'
 import { getNumFromString } from './getNumFromString'
-import { roundDecimal } from './roundDecimal'
+import { roundDecimal } from '../../../common/roundDecimal'
 
 export const getUnitPriceFromString = (unitPriceImplicitString: string): number => {
   const unitQuantityImplicit = getMetricQuantity(unitPriceImplicitString)

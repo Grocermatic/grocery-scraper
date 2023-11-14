@@ -3,7 +3,7 @@ import { MinusIcon } from '../../svg/MinusIcon'
 import { PlusIcon } from '../../svg/PlusIcon'
 import { ActionButton } from '../../components/ActionButton'
 import { LabelledInput } from './LabelledInput'
-import { roundDecimal } from '../../logic/roundDecimal'
+import { roundDecimal } from '../../../../common/roundDecimal'
 
 export const ProductCalculator = (props: any) => {
   const [local, _] = splitProps(props, ['name', 'url', 'price', 'quantity', 'unitPrice', 'amount'])

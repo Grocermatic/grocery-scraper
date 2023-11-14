@@ -1,4 +1,4 @@
-import { roundDecimal } from '../roundDecimal'
+import { roundDecimal } from '../../../../common/roundDecimal'
 
 describe('number extractor from string', () => {
   it('should extract numbers including decimals', async () => {

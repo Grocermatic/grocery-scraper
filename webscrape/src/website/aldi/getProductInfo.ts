@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio'
 
 import { ProductInfo } from '../../../../common/interface'
-import { roundDecimal } from '../../dataCleaning/roundDecimal'
+import { roundDecimal } from '../../../../common/roundDecimal'
 import { getNumFromString } from '../../dataCleaning/getNumFromString'
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
 import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
