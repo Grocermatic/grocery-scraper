@@ -40,6 +40,7 @@ export const ProductCard = (props: any) => {
             loading="lazy"
             alt={local.name}
             aria-label={local.name}
+            style="background-image: url('spinner.svg'); background-repeat: no-repeat; background-size: contain;"
             onerror="this.src='favicon-light.svg';this.onerror='';"
           />
         </button>
