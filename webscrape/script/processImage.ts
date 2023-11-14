@@ -1,4 +1,3 @@
-import axios from 'axios'
 import sharp from 'sharp'
 import { uploadToR2 } from './uploadToR2'
 import { config } from '../../global'
@@ -18,10 +17,13 @@ const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType:
 }
 
 const transformProductImage = async (url: string) => {
-  const objectName = safeSha256(url.replaceAll('/medium/', '/large/'))
+  const newUrl = url.replaceAll('/medium/', '/large/')
+  const objectName = safeSha256(newUrl)
   try {
-    const response = await axios.get(url, { responseType: 'arraybuffer' })
-    const resizedImage = sharp(response.data).resize({
+    const res = await fetch(newUrl)
+    const buffer = await res.arrayBuffer()
+    if (buffer.byteLength < 1000) return null
+    const resizedImage = sharp(buffer).resize({
       height: 1200,
       width: 1200,
       fit: 'inside',
@@ -40,21 +42,6 @@ const transformProductImage = async (url: string) => {
   } catch {
     return null
   }
-}
-
-const getProductsFromUrl = async () => {
-  let products: any[] = []
-  const urls = Array.from(
-    { length: config.numChunks },
-    (_, i) => `${config.productBaseUrl}/product${i}.json`,
-  )
-  for (const url of urls) {
-    const res = await fetch(url)
-    if (!res) return products
-    const json = await res.json()
-    products = [...products, ...json]
-  }
-  return products
 }
 
 const getProductsFromFile = () => {
@@ -98,12 +85,10 @@ const getProductsFromFile = () => {
     const url = await transformProductImage(unsavedImageUrl)
     if (url != null) uploadedImages.push(url)
     else failedImages.push(unsavedImageUrl)
-    console.log(i)
-    if (++i % 10 == 0) saveUploadProgress(uploadedImages)
+    if (++i % 100 == 0) saveUploadProgress(uploadedImages)
   }
 
   saveUploadProgress(uploadedImages)
   console.info('Failed images:')
   console.info(failedImages)
-  getProductsFromUrl()
 })()
