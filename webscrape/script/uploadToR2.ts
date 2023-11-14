@@ -21,7 +21,7 @@ export const uploadToR2 = async (
   const url = await getSignedUrl(
     r2,
     new PutObjectCommand({ Bucket: bucketName, Key: objectName }),
-    { expiresIn: 5 },
+    { expiresIn: 300 },
   )
   await axios({
     method: 'put',
