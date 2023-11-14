@@ -3,13 +3,12 @@ import { ProductCard } from './molecules/productList/ProductCard'
 import { SearchFilter } from './molecules/filter/SearchFilter'
 import { AdCard } from './components/AdCard'
 
-function makeArr(startValue, stopValue, cardinality) {
-  var arr = [];
-  var step = (stopValue - startValue) / (cardinality - 1);
-  for (var i = 0; i < cardinality; i++) {
-    arr.push(startValue + (step * i));
+function makeArr(startValue: number, stopValue: number, step: number) {
+  let arr = []
+  for (let currentValue = startValue; currentValue < stopValue; currentValue += step) {
+    arr.push(currentValue)
   }
-  return arr;
+  return arr
 }
 
 export const Search = () => {
@@ -22,13 +21,12 @@ export const Search = () => {
     productListref?.scrollTo(0, 0)
   })
 
-  const [visibleLength, setVisibleLength] = createSignal<number>(10)
+  const [visibleLength, setVisibleLength] = createSignal<number>(0)
   const visibleResults = createMemo(() => searchResults().slice(0, visibleLength()))
   let intersectionRef: HTMLDivElement | undefined
   onMount(() => {
     let options = {
-      rootMargin: "0px",
-      threshold: makeArr(0, 1, 100),
+      threshold: makeArr(0, 1, 0.01),
     }
     const observer = new IntersectionObserver((e) => {
       setVisibleLength(visibleLength() + 1)
@@ -52,11 +50,13 @@ export const Search = () => {
 
         <For each={visibleResults()}>{(productInfo, _) => <ProductCard {...productInfo} />}</For>
         <div class="h-2 shrink-0 snap-start"></div>
-        
-        <div ref={intersectionRef} class="card flex-shrink-0 grid place-content-center w-full h-full">
+
+        <div
+          ref={intersectionRef}
+          class="card flex-shrink-0 grid place-content-center w-full h-full"
+        >
           <h1 class="text-center font-bold text-2xl">No more results</h1>
         </div>
-
       </section>
     </div>
   )
