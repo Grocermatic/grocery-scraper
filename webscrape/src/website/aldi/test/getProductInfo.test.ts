@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-import { ProductInfo } from '../../interface'
+import { ProductInfo } from '../../../../../common/interface'
 import { getProductInfo } from '../getProductInfo'
 import { getProductInfoPage } from '../getProductInfoPage'
 

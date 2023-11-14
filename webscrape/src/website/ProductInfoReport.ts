@@ -1,5 +1,5 @@
 import { generateUniqueArray } from '../dataCleaning/generateUniqueArray'
-import { GetProductInfo, ProductInfo } from './interface'
+import { GetProductInfo, ProductInfo } from '../../../common/interface'
 import { validProductInfo } from './validProductInfo'
 
 interface ProductInfoReportReport {

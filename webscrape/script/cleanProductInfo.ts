@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from 'fs'
-import { ProductInfo } from '../src/website/interface'
+import { ProductInfo } from '../../common/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
 import { config } from '../../global'

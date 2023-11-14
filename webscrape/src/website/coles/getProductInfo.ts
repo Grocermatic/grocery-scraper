@@ -1,4 +1,4 @@
-import { ProductInfo } from '../interface'
+import { ProductInfo } from '../../../../common/interface'
 import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
 

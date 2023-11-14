@@ -1,5 +1,5 @@
 import { roundDecimal } from '../dataCleaning/roundDecimal'
-import { ProductInfo } from './interface'
+import { ProductInfo } from '../../../common/interface'
 
 export const validProductInfo = (productInfo: ProductInfo) => {
   const { name, url, img, price, quantity, unitPrice } = productInfo
