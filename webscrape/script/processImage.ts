@@ -18,7 +18,7 @@ const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType:
 
 const transformProductImage = async (url: string) => {
   const newUrl = url.replaceAll('/medium/', '/large/')
-  const objectName = safeSha256(newUrl)
+  const objectName = await safeSha256(newUrl)
   try {
     const res = await fetch(newUrl)
     const buffer = await res.arrayBuffer()
