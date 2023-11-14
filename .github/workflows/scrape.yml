@@ -55,7 +55,7 @@ jobs:
         run: pnpm i
 
       - name: Scrape products
-        run: pnpm run scrape && pnpm run clean && pnpm run upload
+        run: pnpm run scrape && pnpm run clean && pnpm run upload && pnpm run img
         env:
           CLOUDFLARE_ID: ${{ secrets.CLOUDFLARE_ID }}
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
