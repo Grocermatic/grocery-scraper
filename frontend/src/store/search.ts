@@ -3,6 +3,7 @@ import { config } from '../../../global'
 import { webWorkerFactory } from '../../../common/webWorkerFactory'
 import { createSignal } from 'solid-js'
 import { cloneInstance } from '../logic/cloneInstance'
+import { ProductInfo } from '../../../common/interface'
 
 const searchOptions = {
   fields: ['name'],
@@ -14,9 +15,9 @@ export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(false)
 
 let i = 0
 const _miniSearch = new MiniSearch(searchOptions)
-const fillSearchEngineWithProduct = (products: any[]) => {
+const fillSearchEngineWithProduct = (products: ProductInfo[]) => {
   _miniSearch?.addAll(
-    products.map((productInfo: any) => {
+    products.map((productInfo: ProductInfo) => {
       return { ...productInfo, id: i++ }
     }),
   )
@@ -37,7 +38,7 @@ const fetchJson = () => {
 let loadedChunks = 0
 const fetchJsonWorker = webWorkerFactory(fetchJson)
 fetchJsonWorker.onmessage = (e: MessageEvent) => {
-  const products: any = e.data
+  const products: ProductInfo[] = e.data
   fillSearchEngineWithProduct(products)
   loadedChunks += 1
   if (loadedChunks === config.numChunks) {
