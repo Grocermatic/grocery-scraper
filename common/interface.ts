@@ -1,3 +1,8 @@
+export interface ProductPriceDay {
+  day: number
+  price: number
+}
+
 export interface ProductInfo {
   name: string
   url: string
@@ -5,6 +10,8 @@ export interface ProductInfo {
   price: number
   quantity: number
   unitPrice: number
+  id?: number | string
+  priceHistory?: ProductPriceDay[]
 }
 
 export interface GetProductInfo {
