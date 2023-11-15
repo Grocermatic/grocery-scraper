@@ -1,12 +1,19 @@
-import { createEffect, createMemo, createSignal, splitProps } from 'solid-js'
+import { createEffect, createMemo, createSignal, splitProps, onMount } from 'solid-js'
 import { miniSearch } from '../../store/search'
 import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
 import { useSearchParams } from '@solidjs/router'
 import { SortFilter } from './SortFilter'
 
+const onClickOutside = (element: HTMLElement, callback: () => void) => {
+  document.addEventListener('click', (e: any) => {
+    if (!element.contains(e.target)) callback()
+  })
+}
+
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
+  const [showAll, setShowAll] = createSignal<boolean>(true)
   const [suggestions, setSuggestions] = createSignal<any[]>([])
   const [activeStores, setActiveStores] = createSignal<string[]>([])
   const [searchQuery, setSearchQuery] = createSignal<string>('')
@@ -43,9 +50,17 @@ export const SearchFilter = (props: any) => {
     setSearchParams({ query: searchQuery() })
   })
 
+  let sectionRef: HTMLElement | undefined
+  onMount(() => {
+    if (sectionRef) onClickOutside(sectionRef, () => setShowAll(false))
+  })
+
   return (
-    <section class="relative z-10 flex flex-col p-2 gap-2 shadow-md">
-      <StoreSelection setActiveStores={setActiveStores} />
+    <section
+      ref={sectionRef}
+      onMouseDown={() => setShowAll(true)}
+      class="relative z-10 flex flex-col p-2 gap-2 shadow-md"
+    >
       <SearchBar
         initialValue={searchQuery()}
         onChange={setSearchQuery}
@@ -54,7 +69,12 @@ export const SearchFilter = (props: any) => {
         placeholder="Search product..."
         id="search"
       />
-      <SortFilter filteredResults={filteredResults} setSortedResults={setSortedResults} />
+      <StoreSelection class={showAll() ? '' : 'hidden'} setActiveStores={setActiveStores} />
+      <SortFilter
+        class={showAll() ? '' : 'hidden'}
+        filteredResults={filteredResults}
+        setSortedResults={setSortedResults}
+      />
     </section>
   )
 }

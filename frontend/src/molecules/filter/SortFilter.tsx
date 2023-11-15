@@ -5,7 +5,7 @@ import { useSearchParams } from '@solidjs/router'
 import { createStoredStore } from '../../store/createStoredStore'
 
 export const SortFilter = (props: any) => {
-  const [local, _] = splitProps(props, ['filteredResults', 'setSortedResults'])
+  const [local, _] = splitProps(props, ['filteredResults', 'setSortedResults', 'class'])
   const [sort, setSort] = createStoredStore('SortFilter', { id: 0 })
 
   const sortFuncs: {
@@ -37,7 +37,7 @@ export const SortFilter = (props: any) => {
   }
 
   return (
-    <div class="flex">
+    <div class={`flex ${local.class}`}>
       <ActionButton onClick={onClick} class="!w-40 !border-dark !border-[2px]">
         <p class=" text-left font-bold px-4 py-2">Sort: {sortFuncKeys[sort.id]}</p>
       </ActionButton>

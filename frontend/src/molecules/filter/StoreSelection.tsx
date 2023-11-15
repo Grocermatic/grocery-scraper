@@ -8,7 +8,7 @@ import { defaultStoreSelection } from '../../store/default'
 import { useSearchParams } from '@solidjs/router'
 
 export const StoreSelection = (props: any) => {
-  const [local, _] = splitProps(props, ['setActiveStores'])
+  const [local, _] = splitProps(props, ['setActiveStores', 'class'])
   const [stores, setStores] = createStoredStore('storeSelection', defaultStoreSelection)
 
   // Initialise stores from search params to enable url search
@@ -46,7 +46,7 @@ export const StoreSelection = (props: any) => {
 
   return (
     <>
-      <div class="flex gap-2 overflow-x-auto no-scrollbar">
+      <div class={`flex gap-2 overflow-x-auto no-scrollbar ${local.class}`}>
         <For each={Object.keys(stores)}>
           {(storeName, _) => (
             <ActionButton

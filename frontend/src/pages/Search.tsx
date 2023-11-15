@@ -1,7 +1,6 @@
 import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
-import { AdCard } from '../components/AdCard'
 
 function makeArr(startValue: number, stopValue: number, step: number) {
   let arr = []
