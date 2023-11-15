@@ -113,7 +113,7 @@ export const SearchBar = (props: any) => {
                     setSearchQuery(suggestion)
                     search()
                   }}
-                  class="flex flex-col"
+                  class="flex flex-col bg-white"
                 >
                   <div class="h-px mx-3 bg-light" />
                   <p class="px-4 py-2">{suggestion}</p>

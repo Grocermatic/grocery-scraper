@@ -2,7 +2,6 @@ import { ActionButton } from '../../components/ActionButton'
 import { For, Show, createEffect, splitProps } from 'solid-js'
 import { CheckCircleIcon } from '../../svg/CheckCircleIcon'
 import { PlusCircleIcon } from '../../svg/PlusCircleIcon'
-import { StoreLogo } from '../../svg/StoreLogo'
 import { createStoredStore } from '../../store/createStoredStore'
 import { defaultStoreSelection } from '../../store/default'
 import { useSearchParams } from '@solidjs/router'
@@ -51,20 +50,19 @@ export const StoreSelection = (props: any) => {
           {(storeName, _) => (
             <ActionButton
               onClick={() => onClick(storeName)}
-              class={`card relative gap-2 flex flex-col flex-grow flex-shrink-0 items-center w-40 p-4 ${
-                stores[storeName] ? 'fill-light bg-dark' : 'fill-shade'
+              class={`card relative pl-3 pr-6 py-2 gap-4 flex flex-grow flex-shrink-0 items-center ${
+                stores[storeName] ? 'fill-light bg-dark' : 'fill-shade bg-white'
               }`}
             >
-              <StoreLogo storeName={storeName} class="h-5" />
-              <p class={`font-bold text-xs ${stores[storeName] ? 'text-light' : 'text-shade'}`}>
-                {storeName}
-              </p>
               <Show
                 when={stores[storeName]}
-                fallback={<PlusCircleIcon class="absolute h-4 top-3 left-3" />}
+                fallback={<PlusCircleIcon class="h-4" />}
               >
-                <CheckCircleIcon class="absolute h-4 top-3 left-3" />
+                <CheckCircleIcon class="h-4" />
               </Show>
+              <p class={`font-bold ${stores[storeName] ? 'text-light' : 'text-shade'}`}>
+                {storeName.replace('Woolworths', 'Woolies')}
+              </p>
             </ActionButton>
           )}
         </For>

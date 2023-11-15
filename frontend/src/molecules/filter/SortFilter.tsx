@@ -38,7 +38,7 @@ export const SortFilter = (props: any) => {
 
   return (
     <div class={`flex ${local.class}`}>
-      <ActionButton onClick={onClick} class="!w-40 !border-dark !border-[2px]">
+      <ActionButton onClick={onClick} class="!w-40 bg-white">
         <p class=" text-left font-bold px-4 py-2">Sort: {sortFuncKeys[sort.id]}</p>
       </ActionButton>
     </div>
