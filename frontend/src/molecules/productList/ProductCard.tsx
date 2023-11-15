@@ -18,9 +18,8 @@ export const ProductCard = (props: any) => {
 
   const fetchOptimisedImage = async () => {
     if (imageSupport.type == 'jpg') return false
-    const url = `${config.productBaseUrl}/image/${await safeSha256(originalImage)}.${
-      imageSupport.type
-    }`
+    const imageHash = await safeSha256(originalImage)
+    const url = `${config.productBaseUrl}/image/${imageHash}.${imageSupport.type}`
     const res = await fetch(url)
     if (!res.ok) return false
     setImgUrl(bufferToUrl(await res.arrayBuffer()))
