@@ -1,7 +1,7 @@
 import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
-import { ProductCard } from './molecules/productList/ProductCard'
-import { SearchFilter } from './molecules/filter/SearchFilter'
-import { AdCard } from './components/AdCard'
+import { ProductCard } from '../molecules/productList/ProductCard'
+import { SearchFilter } from '../molecules/filter/SearchFilter'
+import { AdCard } from '../components/AdCard'
 
 function makeArr(startValue: number, stopValue: number, step: number) {
   let arr = []
@@ -30,7 +30,7 @@ export const Search = () => {
     }
     const observer = new IntersectionObserver((e) => {
       setVisibleLength(visibleLength() + 1)
-      if (searchLength() == visibleLength()) observer.unobserve(intersectionRef)
+      if (searchLength() == visibleLength() && intersectionRef) observer.unobserve(intersectionRef)
     }, options)
     if (intersectionRef) observer.observe(intersectionRef)
 
@@ -46,8 +46,6 @@ export const Search = () => {
         ref={productListref}
         class="flex animate-none h-full flex-col p-2 overflow-y-auto no-scrollbar"
       >
-        <AdCard class="shrink-0" />
-
         <For each={visibleResults()}>{(productInfo, _) => <ProductCard {...productInfo} />}</For>
         <div class="h-2 shrink-0 snap-start"></div>
 
