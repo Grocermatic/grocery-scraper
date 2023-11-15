@@ -22,7 +22,13 @@ export default defineConfig({
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',
-      includeAssets: ['favicon.ico', 'favicon.svg', 'favicon-light.svg', 'spinner.svg'],
+      includeAssets: [
+        'favicon.ico',
+        'favicon.svg',
+        'favicon-light.svg',
+        'spinner.svg',
+        'blank.svg',
+      ],
       manifest: JSON.parse(manifestJson),
     }),
     viteCSP({
@@ -39,7 +45,7 @@ export default defineConfig({
         'frame-src': ['googleads.g.doubleclick.net', 'www.google.com', 'tpc.googlesyndication.com'],
         'manifest-src': [`'self'`],
         'worker-src': [`'self'`, 'blob:'],
-        'img-src': [`'self'`, 'data:', 'https:'],
+        'img-src': [`'self'`, 'blob:', 'data:', 'https:'],
       },
       scriptSrc: [
         `'sha256-l0IHPvf8eV52c9mPJymShDKYQmoP/YyzUHeE31FDYIs='`, // Manifest hash

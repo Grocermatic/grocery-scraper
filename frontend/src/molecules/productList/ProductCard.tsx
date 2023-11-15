@@ -5,23 +5,31 @@ import { safeSha256 } from '../../logic/safeSha256'
 import { config } from '../../../../global'
 import { imageSupport } from '../../store/imageSupport'
 
+const bufferToUrl = (buffer: ArrayBuffer) => {
+  const blob = new Blob([buffer])
+  return URL.createObjectURL(blob)
+}
+
 export const ProductCard = (props: any) => {
   const [local, _] = splitProps(props, ['name', 'img', 'amount'])
   const [isActive, setIsActive] = createSignal(false)
-  const [imgUrl, setImgUrl] = createSignal('spinner.svg')
+  const [imgUrl, setImgUrl] = createSignal('blank.svg')
+  const originalImage = local.img.replace('/medium/', '/large/')
+
+  const fetchOptimisedImage = async () => {
+    if (imageSupport.type == 'jpg') return false
+    const url = `${config.productBaseUrl}/image/${await safeSha256(originalImage)}.${
+      imageSupport.type
+    }`
+    const res = await fetch(url)
+    if (!res.ok) return false
+    setImgUrl(bufferToUrl(await res.arrayBuffer()))
+    return true
+  }
 
   onMount(async () => {
-    const img = local.img.replace('/medium/', '/large/')
-    const imgHash = await safeSha256(img)
-    const imgBase = `${config.productBaseUrl}/image/${imgHash}`
-    const imgUrls: {
-      [key: string]: string
-    } = {
-      avif: `${imgBase}.avif`,
-      webp: `${imgBase}.webp`,
-      jpg: img,
-    }
-    setImgUrl(imgUrls[imageSupport.type])
+    if (await fetchOptimisedImage()) return
+    setImgUrl(originalImage)
   })
 
   return (
