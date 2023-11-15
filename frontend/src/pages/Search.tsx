@@ -44,10 +44,9 @@ export const Search = () => {
       <SearchFilter setSearchResults={setSearchResults} />
       <section
         ref={productListref}
-        class="flex animate-none h-full flex-col p-2 overflow-y-auto no-scrollbar"
+        class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
       >
         <For each={visibleResults()}>{(productInfo, _) => <ProductCard {...productInfo} />}</For>
-        <div class="h-2 shrink-0 snap-start"></div>
 
         <div
           ref={intersectionRef}

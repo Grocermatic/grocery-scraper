@@ -33,7 +33,6 @@ export const ProductCard = (props: any) => {
 
   return (
     <>
-      <div class="h-2 shrink-0 snap-start"></div>
       <div class={`card max-w-96 shrink-0 flex justify-between ${isActive() ? 'h-48' : 'h-28'}`}>
         <button
           onclick={() => setIsActive(!isActive())}
