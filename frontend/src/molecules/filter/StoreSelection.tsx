@@ -54,10 +54,7 @@ export const StoreSelection = (props: any) => {
                 stores[storeName] ? 'fill-light bg-dark' : 'fill-shade bg-white'
               }`}
             >
-              <Show
-                when={stores[storeName]}
-                fallback={<PlusCircleIcon class="h-4" />}
-              >
+              <Show when={stores[storeName]} fallback={<PlusCircleIcon class="h-4" />}>
                 <CheckCircleIcon class="h-4" />
               </Show>
               <p class={`font-bold ${stores[storeName] ? 'text-light' : 'text-shade'}`}>
