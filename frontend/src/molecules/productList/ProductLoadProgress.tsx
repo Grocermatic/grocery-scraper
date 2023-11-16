@@ -8,7 +8,6 @@ export const ProductLoadProgress = (props: any) => {
   const progressPercentage = () => miniSearchLoaded() * 100
 
   createEffect(() => {
-    console.log(progressPercentage())
     if (miniSearchLoaded() == 1) {
       setTimeout(() => setHidden(true), 500)
     }
