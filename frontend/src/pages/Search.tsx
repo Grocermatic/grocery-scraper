@@ -1,6 +1,7 @@
 import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
+import { ProductLoadProgress } from '../molecules/productList/ProductLoadProgress'
 
 function makeArr(startValue: number, stopValue: number, step: number) {
   let arr = []
@@ -45,6 +46,7 @@ export const Search = () => {
         ref={productListref}
         class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
       >
+        <ProductLoadProgress class="shrink-0" />
         <For each={visibleResults()}>{(productInfo, _) => <ProductCard {...productInfo} />}</For>
 
         <div

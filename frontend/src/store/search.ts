@@ -11,7 +11,7 @@ const searchOptions = {
 }
 
 export const [miniSearch, setMiniSearch] = createSignal(new MiniSearch(searchOptions))
-export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(false)
+export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(0)
 
 let i = 0
 const _miniSearch = new MiniSearch(searchOptions)
@@ -41,8 +41,8 @@ fetchJsonWorker.onmessage = (e: MessageEvent) => {
   const products: ProductInfo[] = e.data
   fillSearchEngineWithProduct(products)
   loadedChunks += 1
+  setMiniSearchLoaded(loadedChunks / config.numChunks)
   if (loadedChunks === config.numChunks) {
-    setMiniSearchLoaded(true)
     fetchJsonWorker.terminate()
   }
 }

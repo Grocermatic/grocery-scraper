@@ -6,7 +6,7 @@ import { createEffect } from 'solid-js'
 import { loadExternalJs } from './logic/externalJs'
 import { miniSearchLoaded } from './store/search'
 createEffect(() => {
-  if (miniSearchLoaded()) {
+  if (miniSearchLoaded() == 1) {
     loadExternalJs(
       'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6950110112582359',
     )
