@@ -5,23 +5,22 @@ import { SearchBar } from '../../components/SearchBar'
 import { useSearchParams } from '@solidjs/router'
 import { SortFilter } from './SortFilter'
 
-const onClickOutside = (element: HTMLElement, callback: () => void) => {
-  document.addEventListener('click', (e: any) => {
-    if (!element.contains(e.target)) callback()
-  })
-}
-
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
   const [showAll, setShowAll] = createSignal<boolean>(true)
   const [suggestions, setSuggestions] = createSignal<any[]>([])
   const [activeStores, setActiveStores] = createSignal<string[]>([])
-  const [searchQuery, setSearchQuery] = createSignal<string>('')
+  const [searchQuery, _setSearchQuery] = createSignal<string>('')
   const [sortedResults, setSortedResults] = createSignal<any[]>([])
 
-  // Initialise search query from search params
   const [searchParams, setSearchParams] = useSearchParams()
-  if (searchParams.query) setSearchQuery(searchParams.query)
+  const setSearchQuery = (query: string) => {
+    if (!query) return
+    _setSearchQuery(query)
+    setSearchParams({ query: query })
+  }
+  createEffect(() => setSearchQuery(searchParams.query))
+  createEffect(() => local.setSearchResults(sortedResults()))
 
   const searchFilter = (product: any) => {
     for (const storeName of activeStores()) {
@@ -45,19 +44,9 @@ export const SearchFilter = (props: any) => {
     setSuggestions(suggestions.slice(0, 5)) // Top 5 suggestions
   }
 
-  createEffect(() => {
-    local.setSearchResults(sortedResults())
-    setSearchParams({ query: searchQuery() })
-  })
-
-  let sectionRef: HTMLElement | undefined
-  onMount(() => {
-    if (sectionRef) onClickOutside(sectionRef, () => setShowAll(false))
-  })
-
   return (
     <section
-      ref={sectionRef}
+      onMouseLeave={() => setShowAll(false)}
       onMouseDown={() => setShowAll(true)}
       class="relative z-10 flex flex-col p-2 gap-2 shadow-md border-b-[1px] border-dark rounded-b-xl"
     >

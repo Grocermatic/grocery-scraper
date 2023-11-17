@@ -19,13 +19,17 @@ const App = () => {
   if (window.location.pathname != '/search') window.location.pathname = '/search'
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/search" component={Search} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/search" component={Search} />
+    </Routes>
   )
 }
 
 const root = document.getElementById('root')
-render(() => <App />, root!)
+render(() => {
+  return (
+    <Router>
+      <App />
+    </Router>
+  )
+}, root!)
