@@ -1,5 +1,6 @@
 import { For, Show, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
 import { SearchIcon } from '../svg/SearchIcon'
+import { CrossIcon } from '../svg/CrossIcon'
 
 export const SearchBar = (props: any) => {
   const [local, _] = splitProps(props, [
@@ -14,10 +15,12 @@ export const SearchBar = (props: any) => {
   const [typedInput, setTypedInput] = createSignal('')
   const [suggestions, setSuggestions] = createSignal([])
   const [selectedId, setSelectedId] = createSignal(0)
+  const [searched, setSearched] = createSignal(false)
   let listRef: HTMLUListElement | undefined
 
   const search = () => {
     local.onChange(searchQuery())
+    setSearched(true)
     setSuggestions([])
   }
 
@@ -25,6 +28,7 @@ export const SearchBar = (props: any) => {
     const query = e.target.value
     local.onInput(query)
     setSearchQuery(query)
+    setSearched(false)
     setTypedInput(query)
     setSuggestions(local.suggestions)
     setSelectedId(0)
@@ -82,6 +86,11 @@ export const SearchBar = (props: any) => {
     document.removeEventListener('keydown', selectSuggestion)
   })
 
+  const clearSearch = () => {
+    setSearchQuery('')
+    setSearched(false)
+  }
+
   return (
     <>
       <ul ref={listRef} class="card overflow-clip !border-dark !border-[2px]">
@@ -97,9 +106,15 @@ export const SearchBar = (props: any) => {
             autocomplete="off"
             class="w-full px-4 font-bold py-2 focus:border-transparent focus:outline-none"
           />
-          <button aria-label="Search product" onClick={search} class="w-10">
-            <SearchIcon class="m-auto h-5" />
+          <Show when={searched()} fallback={
+            <button aria-label="Search product" onClick={search} class="w-10">
+              <SearchIcon class="m-auto h-5" />
+            </button>
+          }>
+          <button aria-label="Search product" onClick={clearSearch} class="w-10">
+            <CrossIcon class="m-auto h-5" />
           </button>
+          </Show>
         </li>
         <Show when={local.suggestions.length > 0}>
           <For each={suggestions()}>
