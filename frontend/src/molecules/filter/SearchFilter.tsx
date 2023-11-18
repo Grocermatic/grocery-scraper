@@ -1,4 +1,4 @@
-import { createEffect, createMemo, createSignal, splitProps, onMount } from 'solid-js'
+import { createEffect, createMemo, createSignal, splitProps } from 'solid-js'
 import { miniSearch } from '../../store/search'
 import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
@@ -51,7 +51,7 @@ export const SearchFilter = (props: any) => {
       class="relative z-10 flex flex-col p-2 gap-2 shadow-md border-b-[1px] border-dark rounded-b-xl"
     >
       <SearchBar
-        initialValue={searchQuery()}
+        searchQuery={searchQuery()}
         onChange={setSearchQuery}
         onInput={searchBarInput}
         suggestions={suggestions()}

@@ -1,4 +1,4 @@
-import { For, Show, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
+import { For, Show, createEffect, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
 import { SearchIcon } from '../svg/SearchIcon'
 import { CrossIcon } from '../svg/CrossIcon'
 
@@ -9,9 +9,10 @@ export const SearchBar = (props: any) => {
     'onChange',
     'onInput',
     'suggestions',
-    'initialValue',
+    'searchQuery',
   ])
-  const [searchQuery, setSearchQuery] = createSignal(local.initialValue)
+  const [searchQuery, setSearchQuery] = createSignal('')
+  createEffect(() => setSearchQuery(local.searchQuery))
   const [typedInput, setTypedInput] = createSignal('')
   const [suggestions, setSuggestions] = createSignal([])
   const [selectedId, setSelectedId] = createSignal(0)
@@ -106,14 +107,17 @@ export const SearchBar = (props: any) => {
             autocomplete="off"
             class="w-full px-4 font-bold py-2 focus:border-transparent focus:outline-none"
           />
-          <Show when={searched()} fallback={
-            <button aria-label="Search product" onClick={search} class="w-10">
-              <SearchIcon class="m-auto h-5" />
+          <Show
+            when={searched()}
+            fallback={
+              <button aria-label="Search product" onClick={search} class="w-10">
+                <SearchIcon class="m-auto h-5" />
+              </button>
+            }
+          >
+            <button aria-label="Search product" onClick={clearSearch} class="w-10">
+              <CrossIcon class="m-auto h-5" />
             </button>
-          }>
-          <button aria-label="Search product" onClick={clearSearch} class="w-10">
-            <CrossIcon class="m-auto h-5" />
-          </button>
           </Show>
         </li>
         <Show when={local.suggestions.length > 0}>
