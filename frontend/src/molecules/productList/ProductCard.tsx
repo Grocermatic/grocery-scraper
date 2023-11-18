@@ -43,7 +43,6 @@ export const ProductCard = (props: any) => {
           <img
             class="object-cover select-none h-full aspect-square"
             src={imgUrl()}
-            loading="lazy"
             alt={local.name}
             aria-label={local.name}
             style="background-image: url('spinner.svg'); background-repeat: no-repeat; background-size: contain;"
