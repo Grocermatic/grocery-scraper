@@ -3,28 +3,14 @@ import { ProductInfo } from '../../common/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
 import { config } from '../../global'
+import { splitArray } from './helper/splitArray'
+import { stringKiloByte } from './helper/stringKiloByte'
 
 const basePath = 'data'
 const sourcePath = `${basePath}/productInfo`
 const productionPath = `data/production`
 const maxUnitPrice = 50
 const minUnitPrice = 0.5
-
-const stringKiloByte = (val: string) => {
-  return Math.round(val.length * 0.001)
-}
-
-const splitArray = (array: any[], lengths: number[]) => {
-  const newArrays: any[][] = []
-  for (const length of lengths) {
-    const newArray = array.slice(0, length)
-    if (newArray.length == 0) break
-    newArrays.push(newArray)
-    array = array.slice(length)
-  }
-  if (array.length != 0) newArrays.push(array)
-  return newArrays
-}
 
 const report = new ProductInfoReport()
 
@@ -44,8 +30,8 @@ console.table({
 })
 
 const productInfos = productInfoReport.productInfo.filter((productInfo: ProductInfo) => {
-  if (productInfo.unitPrice > maxUnitPrice) return false
-  if (productInfo.unitPrice < minUnitPrice) return false
+  if (productInfo.unitPrice && productInfo.unitPrice > maxUnitPrice) return false
+  if (productInfo.unitPrice && productInfo.unitPrice < minUnitPrice) return false
   return true
 })
 
