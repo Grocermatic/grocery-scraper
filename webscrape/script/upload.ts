@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from 'fs'
-import { uploadToR2 } from './uploadToR2'
+import { uploadToR2 } from './helper/uploadToR2'
 
 const productionPath = `data/production`
 const files = readdirSync(productionPath)

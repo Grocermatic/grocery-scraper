@@ -1,9 +1,9 @@
 import sharp from 'sharp'
-import { uploadToR2 } from './uploadToR2'
+import { uploadToR2 } from './helper/uploadToR2'
 import { config } from '../../global'
 import { generateUniqueArray } from '../src/dataCleaning/generateUniqueArray'
-import { readFileSync } from 'fs'
 import { safeSha256 } from '../src/dataCleaning/safeSha256'
+import { getProductsFromFile } from './helper/getProductsFromFile'
 
 const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType: string) => {
   sharpImage.toBuffer().then((imageBuffer) => {
@@ -42,14 +42,6 @@ const transformProductImage = async (url: string) => {
   } catch {
     return null
   }
-}
-
-const getProductsFromFile = () => {
-  let products: any[] = []
-  const filePath = 'data/cleanProductInfo.json'
-  const res = readFileSync(filePath).toString()
-  if (!res) return products
-  return JSON.parse(res)
 }
 
 ;(async () => {
