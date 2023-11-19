@@ -1,6 +1,6 @@
 import { Show, createEffect, createSignal, splitProps } from 'solid-js'
-import { miniSearchLoaded } from '../../store/search'
-import { FaviconLogo } from '../../svg/FaviconLogo'
+import { miniSearchLoaded } from '../store/search'
+import { FaviconLogo } from '../svg/FaviconLogo'
 
 export const ProductLoadProgress = (props: any) => {
   const [local, _] = splitProps(props, ['class'])
