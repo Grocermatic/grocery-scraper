@@ -4,6 +4,7 @@ import { webWorkerFactory } from '../../../common/webWorkerFactory'
 import { createSignal } from 'solid-js'
 import { cloneInstance } from '../logic/cloneInstance'
 import { ProductInfo } from '../../../common/interface'
+import { roundDecimal } from '../../../common/roundDecimal'
 
 const searchOptions = {
   fields: ['name'],
@@ -18,7 +19,11 @@ const _miniSearch = new MiniSearch(searchOptions)
 const fillSearchEngineWithProduct = (products: ProductInfo[]) => {
   _miniSearch?.addAll(
     products.map((productInfo: ProductInfo) => {
-      return { ...productInfo, id: i++ }
+      return {
+        ...productInfo,
+        id: i++,
+        unitPrice: roundDecimal(productInfo.price / productInfo.quantity, 2),
+      }
     }),
   )
   setMiniSearch(cloneInstance(_miniSearch))
