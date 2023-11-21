@@ -6,9 +6,7 @@
     "img": "ts-node webscrape/script/processImage.ts",
     "upload": "ts-node webscrape/script/upload.ts",
     "dev": "vite frontend",
-    "build": "vite build frontend",
-    "preview": "vite preview frontend",
-    "start": "pnpm run prettier & pnpm run clean && pnpm run build && pnpm run preview",
+    "start": "pnpm run prettier && vite build frontend && vite preview frontend",
     "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100"
   },
   "dependencies": {
