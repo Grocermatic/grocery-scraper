@@ -1,4 +1,4 @@
-import { Show, createSignal, onMount, splitProps } from 'solid-js'
+import { Show, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
 import { ProductCardInfo } from './ProductCardInfo'
 import { ProductCalculator } from './ProductCalculator'
 import { safeSha256 } from '../../logic/safeSha256'
@@ -13,22 +13,39 @@ const bufferToUrl = (buffer: ArrayBuffer) => {
 export const ProductCard = (props: any) => {
   const [local, _] = splitProps(props, ['name', 'img', 'amount'])
   const [isActive, setIsActive] = createSignal(false)
-  const [imgUrl, setImgUrl] = createSignal('blank.svg')
+  const [imgUrl, setImgUrl] = createSignal('favicon-light.svg')
   const originalImage = local.img.replace('/medium/', '/large/')
 
   const fetchOptimisedImage = async () => {
     if (imageSupport.type == 'jpg') return false
-    const imageHash = await safeSha256(originalImage)
-    const url = `${config.productBaseUrl}/image/${imageHash}.${imageSupport.type}`
-    const res = await fetch(url)
-    if (!res.ok) return false
-    setImgUrl(bufferToUrl(await res.arrayBuffer()))
-    return true
+    try {
+      const imageHash = await safeSha256(originalImage)
+      const url = `${config.productBaseUrl}/image/${imageHash}.${imageSupport.type}`
+      const res = await fetch(url)
+      if (!res.ok) return false
+      setImgUrl(bufferToUrl(await res.arrayBuffer()))
+      return true
+    } catch {
+      return false
+    }
   }
 
-  onMount(async () => {
+  const fetchImage = async () => {
+    if (imgUrl() != 'favicon-light.svg') return
+    setImgUrl('spinner.svg') // Loading image
+    if (imageSupport.type == 'jpg') return setImgUrl(originalImage)
     if (await fetchOptimisedImage()) return
     setImgUrl(originalImage)
+  }
+
+  let imgRef: HTMLImageElement | undefined
+  onMount(async () => {
+    await fetchImage()
+    if (imgRef) imgRef.onerror = () => setImgUrl('favicon-light.svg')
+    addEventListener('online', fetchImage)
+    onCleanup(() => {
+      removeEventListener('online', fetchImage)
+    })
   })
 
   return (
@@ -41,12 +58,11 @@ export const ProductCard = (props: any) => {
           }`}
         >
           <img
+            ref={imgRef}
             class="object-cover select-none h-full aspect-square"
             src={imgUrl()}
             alt={local.name}
             aria-label={local.name}
-            style="background-image: url('spinner.svg'); background-repeat: no-repeat; background-size: contain;"
-            onerror="this.src='favicon-light.svg';this.onerror='';"
           />
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
