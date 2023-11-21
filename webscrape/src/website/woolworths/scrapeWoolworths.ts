@@ -9,19 +9,17 @@ export const scrapeWoolworths = async (cookie?: string) => {
   // Page links with get request health star filters
   const sectionIds: string[] = [
     // fruit-veg
-    '1-5931EE89', // https://www.woolworths.com.au/shop/browse/fruit-veg/fruit
-    '1_AC17EDD', // https://www.woolworths.com.au/shop/browse/fruit-veg/vegetables
+    '1-E5BEE36E', //https://www.woolworths.com.au/shop/browse/fruit-veg
     // bakery
-    '1_5402F90', // https://www.woolworths.com.au/shop/browse/bakery/in-store-bakery
-    '1_62B7AA0', // https://www.woolworths.com.au/shop/browse/bakery/packaged-bread-bakery
+    '1_DEB537E', // https://www.woolworths.com.au/shop/browse/bakery
     // poultry-meat-seafood
-    '1_CED9B86', // https://www.woolworths.com.au/shop/browse/poultry-meat-seafood/meat
-    '1_D610306', // https://www.woolworths.com.au/shop/browse/poultry-meat-seafood/seafood
+    '1_D5A2236', // https://www.woolworths.com.au/shop/browse/poultry-meat-seafood
+    // deli-chilled-meals
+    '1_3151F6F', // https://www.woolworths.com.au/shop/browse/deli-chilled-meals
     // dairy-eggs-fridge
-    '1_223D9D6', // https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge/milk
-    '1_AC76873', // https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge/yoghurt
-    '1_85274A0', // https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge/eggs-butter-margarine
-    '1_D3D428B', // https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge/fresh-pasta-sauces
+    '1_6E4F4E4', // https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge
+    // lunch-box
+    '1_9E92C35', // https://www.woolworths.com.au/shop/browse/lunch-box
     // pantry
     '1_C7A623D', // https://www.woolworths.com.au/shop/browse/pantry/breakfast-spreads
     '1_0B44952', // https://www.woolworths.com.au/shop/browse/pantry/long-life-milk
@@ -37,9 +35,12 @@ export const scrapeWoolworths = async (cookie?: string) => {
     '1_24957B7', // https://www.woolworths.com.au/shop/browse/pantry/canned-food-instant-meals/canned-beans-legumes
     '1_050D440', // https://www.woolworths.com.au/shop/browse/pantry/canned-food-instant-meals/canned-fruit
     '1_E216643', // https://www.woolworths.com.au/shop/browse/pantry/oil-vinegar
+    // snacks-confectionery
+    '1_717445A', // https://www.woolworths.com.au/shop/browse/snacks-confectionery
     // freezer
-    '1_A96D7F8', // https://www.woolworths.com.au/shop/browse/freezer/frozen-vegetables
-    '1_4B53D5A', // https://www.woolworths.com.au/shop/browse/freezer/frozen-fruit
+    '1_ACA2FC2', // https://www.woolworths.com.au/shop/browse/freezer
+    // drinks
+    '1_5AF3A0A', // https://www.woolworths.com.au/shop/browse/drinks
   ]
 
   const promiseArray = sectionIds.map((sectionId) => {
