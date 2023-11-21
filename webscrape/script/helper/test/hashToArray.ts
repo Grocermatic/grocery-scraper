@@ -1,4 +1,4 @@
-import { hashToArray } from "../hashToArray"
+import { hashToArray } from '../hashToArray'
 
 describe('Function hashToArray', () => {
   it('should transform hash values to array', () => {
