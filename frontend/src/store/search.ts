@@ -10,6 +10,7 @@ const searchOptions = {
   storeFields: ['name', 'url', 'img', 'price', 'quantity', 'unitPrice'],
 }
 
+export const productInfos: ProductInfoPublic[] = []
 export const [miniSearch, setMiniSearch] = createSignal(new MiniSearch(searchOptions))
 export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(0)
 
@@ -17,12 +18,13 @@ let i = 0
 const _miniSearch = new MiniSearch(searchOptions)
 const fillSearchEngineWithProduct = (products: ProductInfoPublic[]) => {
   _miniSearch?.addAll(
-    products.map((productInfo) => {
-      const productInfoSearch = {
-        ...productInfo,
+    products.map((productInfo: ProductInfoPublic) => {
+      productInfos.push(productInfo)
+      return {
+        name: productInfo.name,
+        url: productInfo.url,
         id: i++,
       }
-      return productInfoSearch
     }),
   )
   setMiniSearch(cloneInstance(_miniSearch))
@@ -42,7 +44,7 @@ const fetchJson = () => {
 let loadedChunks = 0
 const fetchJsonWorker = webWorkerFactory(fetchJson)
 fetchJsonWorker.onmessage = (e: MessageEvent) => {
-  const products: ProductInfo[] = e.data
+  const products: ProductInfoPublic[] = e.data
   fillSearchEngineWithProduct(products)
   loadedChunks += 1
   setMiniSearchLoaded(loadedChunks / config.numChunks)

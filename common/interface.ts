@@ -18,7 +18,6 @@ export interface ProductInfoPublic {
   img: string
   quantity: number
   history: ProductPriceDay[]
-  id?: number | string
 }
 
 export interface GetProductInfo {

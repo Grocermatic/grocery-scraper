@@ -2,7 +2,7 @@ import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
-import { ProductInfoPublic } from '../../../common/interface'
+import { productInfos } from '../store/search'
 
 function makeArr(startValue: number, stopValue: number, step: number) {
   let arr = []
@@ -48,7 +48,7 @@ export const Search = () => {
         class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
       >
         <ProductLoadProgress class="shrink-0" />
-        <For each={visibleResults()}>{(productInfo: ProductInfoPublic, _) => <ProductCard {...productInfo} />}</For>
+        <For each={visibleResults()}>{(result, _) => <ProductCard {...productInfos[result.id]} />}</For>
 
         <div
           ref={intersectionRef}
