@@ -1,52 +1,63 @@
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
-import { ProductInfo } from '../../../common/interface'
+import { ProductInfo, ProductInfoPublic } from '../../../common/interface'
+import { cloneJson } from '../../../frontend/src/logic/cloneJson'
 import { keys } from '../../../frontend/src/logic/keys'
 import { getProductsFromUrl } from './getProductsFromUrl'
+import { hashToArray } from './hashToArray'
 
-export const hashProducts = (products: ProductInfo[]) => {
-  const hash: { [key: string]: ProductInfo } = {}
+export const hashProducts = (products: any[]) => {
+  const hash: { [key: string]: any } = {}
   products.forEach((p) => (hash[p.url] = p))
   return hash
 }
 
-export const hashToArray = (hash: { [key: string]: ProductInfo }) => {
-  return Object.keys(hash).map((key) => hash[key])
-}
-
-export const initProduct = (newProduct: ProductInfo) => {
-  newProduct.priceHistory = [{
-    price: newProduct.price as number,
-    daySinceEpoch: daySinceEpoch
-  }]
-  delete newProduct.unitPrice
-  return newProduct
-}
-
-export const mergeProduct = (oldProduct: ProductInfo, newProduct: ProductInfo) => {
-  if (oldProduct.priceHistory && oldProduct.priceHistory.length > 0) {
-    const lastPrice = oldProduct.priceHistory[0].price
-    const priceHistory = oldProduct.priceHistory
-    if (newProduct.price == lastPrice) priceHistory[0].daySinceEpoch = daySinceEpoch
-    else if (newProduct.price) {
-      priceHistory.unshift({
+export const initProduct = (newProduct: any) => {
+  if (newProduct.history) return newProduct
+  const product: ProductInfoPublic = {
+    name: newProduct.name,
+    url: newProduct.url,
+    img: newProduct.img,
+    quantity: newProduct.quantity,
+    history: [
+      {
+        daySinceEpoch: daySinceEpoch,
         price: newProduct.price,
-        daySinceEpoch: daySinceEpoch
-      })
-    }
-    oldProduct.priceHistory = priceHistory.slice(0, 10)
-  } else oldProduct = initProduct(newProduct)
-  oldProduct.price = newProduct.price
-  delete oldProduct.unitPrice
-  return oldProduct
+      },
+    ],
+  }
+  return product
 }
 
-export const mergeProducts = async (currentProducts: ProductInfo[]) => {
+export const mergeProduct = (oldProduct: ProductInfoPublic, newProduct: ProductInfo) => {
+  const product: ProductInfoPublic = {
+    name: oldProduct.name,
+    url: oldProduct.url,
+    img: oldProduct.img,
+    quantity: oldProduct.quantity,
+    history: cloneJson(oldProduct.history),
+  }
+  // Add new price to history
+  const lastPrice = oldProduct.history[0].price
+  if (newProduct.price != lastPrice) {
+    product.history.unshift({
+      daySinceEpoch: daySinceEpoch,
+      price: newProduct.price,
+    })
+    product.history = product.history.slice(0, 10)
+  } else product.history[0].daySinceEpoch = daySinceEpoch
+  return product
+}
+
+export const mergeOldProducts = async (currentProducts: ProductInfo[]) => {
   const oldProducts = await getProductsFromUrl()
   const productsHash = hashProducts(oldProducts)
+
+  // Todo: Remove after migration: converts ProductInfo to ProductInfoPublic
   for (const oldProductUrl of keys(productsHash)) {
     const oldProduct = productsHash[oldProductUrl]
-    productsHash[oldProductUrl] = initProduct(oldProduct)
+    productsHash[oldProductUrl] = initProduct(oldProduct as any)
   }
+
   for (const newProduct of currentProducts) {
     const productId = newProduct.url
     const oldProduct = productsHash[productId]
