@@ -1,4 +1,4 @@
-import { readFileSync } from "fs"
+import { readFileSync } from 'fs'
 
 export const getProductsFromFile = () => {
   let products: any[] = []
