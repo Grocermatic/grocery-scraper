@@ -16,14 +16,22 @@ export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(0)
 
 let i = 0
 const _miniSearch = new MiniSearch(searchOptions)
-const fillSearchEngineWithProduct = (products: ProductInfo[]) => {
+const fillSearchEngineWithProduct = (products: any[]) => {
   _miniSearch?.addAll(
-    products.map((productInfo: ProductInfo) => {
-      return {
+    products.map((productInfo) => {
+      const productInfoSearch = {
         ...productInfo,
         id: i++,
-        unitPrice: roundDecimal(productInfo.price / productInfo.quantity, 2),
       }
+      productInfoSearch.price = productInfo.price ? productInfo.price : productInfo.history[0].price
+      productInfoSearch.unitPrice = roundDecimal(productInfoSearch.price / productInfo.quantity, 2)
+      productInfoSearch.history = [
+        {
+          daySinceEpoch: 0,
+          price: productInfoSearch.price,
+        },
+      ]
+      return productInfoSearch
     }),
   )
   setMiniSearch(cloneInstance(_miniSearch))
