@@ -7,11 +7,18 @@ export interface ProductInfo {
   name: string
   url: string
   img: string
-  price?: number
+  price: number
   quantity: number
-  unitPrice?: number
+  unitPrice: number
+}
+
+export interface ProductInfoPublic {
+  name: string
+  url: string
+  img: string
+  quantity: number
+  history: ProductPriceDay[]
   id?: number | string
-  priceHistory?: ProductPriceDay[]
 }
 
 export interface GetProductInfo {
