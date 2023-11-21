@@ -11,6 +11,7 @@ export const hashProducts = (products: any[]) => {
   return hash
 }
 
+// Todo: Remove after migration: converts ProductInfo to ProductInfoPublic
 export const initProduct = (newProduct: any) => {
   if (newProduct.history) return newProduct
   const product: ProductInfoPublic = {
@@ -61,8 +62,9 @@ export const mergeOldProducts = async (currentProducts: ProductInfo[]) => {
   for (const newProduct of currentProducts) {
     const productId = newProduct.url
     const oldProduct = productsHash[productId]
-    if (oldProduct) productsHash[productId] = mergeProduct(oldProduct, newProduct)
-    else initProduct(newProduct)
+    productsHash[productId] = oldProduct
+      ? mergeProduct(oldProduct, newProduct)
+      : initProduct(newProduct)
   }
-  hashToArray(productsHash)
+  return hashToArray(productsHash) as ProductInfoPublic[]
 }

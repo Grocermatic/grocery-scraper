@@ -45,6 +45,7 @@ describe('Function hashProducts', () => {
   })
 })
 
+// Todo: Remove after migration: converts ProductInfo to ProductInfoPublic
 describe('Function initProduct', () => {
   it('should transform ProductInfo with history', () => {
     const newProductInfo = initProduct(productInfos[0])
