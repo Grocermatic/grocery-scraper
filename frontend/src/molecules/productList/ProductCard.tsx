@@ -43,9 +43,9 @@ export const ProductCard = (props: any) => {
     await fetchImage()
     if (imgRef) imgRef.onerror = () => setImgUrl('favicon-light.svg')
     addEventListener('online', fetchImage)
-    onCleanup(() => {
-      removeEventListener('online', fetchImage)
-    })
+  })
+  onCleanup(() => {
+    removeEventListener('online', fetchImage)
   })
 
   return (
