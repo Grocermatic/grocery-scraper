@@ -82,9 +82,6 @@ devDependencies:
   workbox-routing:
     specifier: ^7.0.0
     version: 7.0.0
-  workbox-strategies:
-    specifier: ^7.0.0
-    version: 7.0.0
 
 packages:
   /@alloc/quick-lru@5.2.0:

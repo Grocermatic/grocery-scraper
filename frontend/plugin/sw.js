@@ -1,27 +1,14 @@
 import { clientsClaim } from 'workbox-core'
-import { PrecacheFallbackPlugin, cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
-import { registerRoute } from 'workbox-routing'
-import { StaleWhileRevalidate } from 'workbox-strategies'
+import {
+  cleanupOutdatedCaches,
+  createHandlerBoundToURL,
+  precacheAndRoute,
+} from 'workbox-precaching'
+import { NavigationRoute, registerRoute } from 'workbox-routing'
 
 precacheAndRoute(self.__WB_MANIFEST)
 
-registerRoute(
-  ({ request }) => request.mode === 'navigate',
-  new StaleWhileRevalidate({
-    plugins: [
-      new PrecacheFallbackPlugin({
-        fallbackURL: '/index.html',
-      }),
-    ],
-  }),
-)
-
-this.addEventListener('message', (event) => {
-  if (event.data.type === 'CACHE_UPDATED') {
-    const { updatedURL } = event.data.payload
-    console.log(`A newer version of ${updatedURL} is available!`)
-  }
-})
+registerRoute(new NavigationRoute(createHandlerBoundToURL('/index.html')))
 
 self.addEventListener('install', (e) => {
   console.info('Install service worker')
