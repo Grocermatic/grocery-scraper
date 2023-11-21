@@ -34,3 +34,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+
+# android
+*.keystore
+.gradle
+android/app/build
+*.aab
+*.apk
+*idsig
