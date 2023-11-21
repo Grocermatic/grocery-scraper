@@ -1,19 +1,16 @@
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
 import { ProductInfo, ProductInfoPublic } from '../../../common/interface'
 import { cloneJson } from '../../../frontend/src/logic/cloneJson'
-import { keys } from '../../../frontend/src/logic/keys'
 import { getProductsFromUrl } from './getProductsFromUrl'
 import { hashToArray } from './hashToArray'
 
-export const hashProducts = (products: any[]) => {
-  const hash: { [key: string]: any } = {}
+export const hashProducts = (products: ProductInfoPublic[]) => {
+  const hash: { [key: string]: ProductInfoPublic } = {}
   products.forEach((p) => (hash[p.url] = p))
   return hash
 }
 
-// Todo: Remove after migration: converts ProductInfo to ProductInfoPublic
-export const initProduct = (newProduct: any) => {
-  if (newProduct.history) return newProduct
+export const initProduct = (newProduct: ProductInfo) => {
   const product: ProductInfoPublic = {
     name: newProduct.name,
     url: newProduct.url,
@@ -52,12 +49,6 @@ export const mergeProduct = (oldProduct: ProductInfoPublic, newProduct: ProductI
 export const mergeOldProducts = async (currentProducts: ProductInfo[]) => {
   const oldProducts = await getProductsFromUrl()
   const productsHash = hashProducts(oldProducts)
-
-  // Todo: Remove after migration: converts ProductInfo to ProductInfoPublic
-  for (const oldProductUrl of keys(productsHash)) {
-    const oldProduct = productsHash[oldProductUrl]
-    productsHash[oldProductUrl] = initProduct(oldProduct as any)
-  }
 
   for (const newProduct of currentProducts) {
     const productId = newProduct.url

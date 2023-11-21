@@ -40,12 +40,11 @@ describe('Function hashProducts', () => {
     const expectedArray: { [key: string]: ProductInfo } = {}
     expectedArray[productInfos[0].url] = productInfos[0]
     expectedArray[productInfos[1].url] = productInfos[1]
-    const array = hashProducts(productInfos)
+    const array = hashProducts(productInfos as any)
     expect(array).toEqual(expectedArray)
   })
 })
 
-// Todo: Remove after migration: converts ProductInfo to ProductInfoPublic
 describe('Function initProduct', () => {
   it('should transform ProductInfo with history', () => {
     const newProductInfo = initProduct(productInfos[0])

@@ -3,8 +3,7 @@ import { config } from '../../../global'
 import { webWorkerFactory } from '../../../common/webWorkerFactory'
 import { createSignal } from 'solid-js'
 import { cloneInstance } from '../logic/cloneInstance'
-import { ProductInfo } from '../../../common/interface'
-import { roundDecimal } from '../../../common/roundDecimal'
+import { ProductInfoPublic } from '../../../common/interface'
 
 const searchOptions = {
   fields: ['name'],
@@ -16,21 +15,13 @@ export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(0)
 
 let i = 0
 const _miniSearch = new MiniSearch(searchOptions)
-const fillSearchEngineWithProduct = (products: any[]) => {
+const fillSearchEngineWithProduct = (products: ProductInfoPublic[]) => {
   _miniSearch?.addAll(
     products.map((productInfo) => {
       const productInfoSearch = {
         ...productInfo,
         id: i++,
       }
-      productInfoSearch.price = productInfo.price ? productInfo.price : productInfo.history[0].price
-      productInfoSearch.unitPrice = roundDecimal(productInfoSearch.price / productInfo.quantity, 2)
-      productInfoSearch.history = [
-        {
-          daySinceEpoch: 0,
-          price: productInfoSearch.price,
-        },
-      ]
       return productInfoSearch
     }),
   )
