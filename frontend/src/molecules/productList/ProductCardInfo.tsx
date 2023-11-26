@@ -3,13 +3,7 @@ import { limitStringLength } from '../../logic/limitStringLength'
 import { roundDecimal } from '../../../../common/roundDecimal'
 
 export const ProductCardInfo = (props: any) => {
-  const [local, _] = splitProps(props, [
-    'name',
-    'url',
-    'quantity',
-    'isActive',
-    'history'
-  ])
+  const [local, _] = splitProps(props, ['name', 'url', 'quantity', 'isActive', 'history'])
   const productName = limitStringLength(local.name, 45)
   const price = local.history[0].price
   const unitPrice = roundDecimal(price / local.quantity, 2)

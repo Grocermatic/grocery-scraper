@@ -48,7 +48,9 @@ export const Search = () => {
         class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
       >
         <ProductLoadProgress class="shrink-0" />
-        <For each={visibleResults()}>{(result, _) => <ProductCard {...productInfos[result.id]} />}</For>
+        <For each={visibleResults()}>
+          {(result, _) => <ProductCard {...productInfos[result.id]} />}
+        </For>
 
         <div
           ref={intersectionRef}

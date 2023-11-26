@@ -20,9 +20,12 @@ const fillSearchEngineWithProduct = (products: ProductInfoPublic[]) => {
   _miniSearch?.addAll(
     products.map((productInfo: ProductInfoPublic) => {
       productInfos.push(productInfo)
+      const price = productInfo.history[0].price
       return {
         name: productInfo.name,
         url: productInfo.url,
+        price: price,
+        unitPrice: price / productInfo.quantity,
         id: i++,
       }
     }),
