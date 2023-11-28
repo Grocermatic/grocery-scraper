@@ -12,7 +12,7 @@ export const getProductInfoSection = async (sectionId: string, woolworthsCookie:
     pageNumber: 1,
     pageSize: 36,
     sortType: 'CUPAsc',
-    url: '',
+    url: '/shop/browse/fruit-veg',
   }
   const woolworthsProductListUrl = 'https://www.woolworths.com.au/apis/ui/browse/category'
 
