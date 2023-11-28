@@ -3,7 +3,7 @@ import { uploadToR2 } from './helper/uploadToR2'
 import { config } from '../../global'
 import { generateUniqueArray } from '../src/dataCleaning/generateUniqueArray'
 import { safeSha256 } from '../src/dataCleaning/safeSha256'
-import { getProductsFromFile } from './helper/getProductsFromFile'
+import { getProductsFromUrl } from './helper/getProductsFromUrl'
 
 const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType: string) => {
   sharpImage.toBuffer().then((imageBuffer) => {
@@ -16,13 +16,26 @@ const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType:
   })
 }
 
+const buf2hex = (buffer: ArrayBuffer) => { // buffer is an ArrayBuffer
+  return [...new Uint8Array(buffer)]
+      .map(x => x.toString(16).padStart(2, '0'))
+      .join('');
+}
+
+const isImage = (hexId: string) => {
+  if (hexId == 'ffd8ff') return true // jpeg
+  if (hexId == '89504e') return true // png
+  return false
+}
+
 const transformProductImage = async (url: string) => {
   const newUrl = url.replaceAll('/medium/', '/large/')
   const objectName = await safeSha256(newUrl)
   try {
     const res = await fetch(newUrl)
     const buffer = await res.arrayBuffer()
-    if (buffer.byteLength < 1000) return null
+    const bufferHexId = buf2hex(buffer).slice(0,6)
+    if (!isImage(bufferHexId)) return null
     const resizedImage = sharp(buffer).resize({
       height: 1200,
       width: 1200,
@@ -49,7 +62,7 @@ const transformProductImage = async (url: string) => {
   const uploadedImages = generateUniqueArray(await res.json())
   const uploadedImagesLen = uploadedImages.length
 
-  const products = getProductsFromFile()
+  const products = await getProductsFromUrl()
   const productImages = products.map((product: any) => product.img)
 
   const unsavedImages = generateUniqueArray(
