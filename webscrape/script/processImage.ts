@@ -25,6 +25,7 @@ const buf2hex = (buffer: ArrayBuffer) => { // buffer is an ArrayBuffer
 const isImage = (hexId: string) => {
   if (hexId == 'ffd8ff') return true // jpeg
   if (hexId == '89504e') return true // png
+  if (hexId == '524946') return true // webp
   return false
 }
 
