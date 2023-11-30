@@ -3,7 +3,7 @@ name: Scrape
 on:
   schedule:
     # Coles and Woolworths update prices every Wednesday
-    # Run every Tuesday at 6pm UTC, equivalent to Wednesday 5am
+    # Run everyday at 6pm UTC, equivalent to everyday 5am
     - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
