@@ -16,10 +16,9 @@ const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType:
   })
 }
 
-const buf2hex = (buffer: ArrayBuffer) => { // buffer is an ArrayBuffer
-  return [...new Uint8Array(buffer)]
-      .map(x => x.toString(16).padStart(2, '0'))
-      .join('');
+const buf2hex = (buffer: ArrayBuffer) => {
+  // buffer is an ArrayBuffer
+  return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
 }
 
 const isImage = (hexId: string) => {
@@ -35,7 +34,7 @@ const transformProductImage = async (url: string) => {
   try {
     const res = await fetch(newUrl)
     const buffer = await res.arrayBuffer()
-    const bufferHexId = buf2hex(buffer).slice(0,6)
+    const bufferHexId = buf2hex(buffer).slice(0, 6)
     if (!isImage(bufferHexId)) return null
     const resizedImage = sharp(buffer).resize({
       height: 1200,
