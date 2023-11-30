@@ -65,6 +65,9 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
+      - name: Get current ip
+        run: curl http://whatismyip.akamai.com
+
       - name: Upload scrape result artifact
         uses: actions/upload-artifact@v3
         with:
