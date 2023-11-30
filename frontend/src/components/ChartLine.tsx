@@ -2,7 +2,10 @@ import { AutoScaleAxis, Interpolation, LineChart, LineChartOptions } from 'chart
 import { onMount, splitProps } from 'solid-js'
 
 const options: LineChartOptions = {
-  axisX: { type: AutoScaleAxis },
+  axisX: {
+    type: AutoScaleAxis,
+    onlyInteger: true,
+  },
   lineSmooth: Interpolation.step({ postpone: false }),
   classNames: {
     line: 'fill-none stroke-dark',
