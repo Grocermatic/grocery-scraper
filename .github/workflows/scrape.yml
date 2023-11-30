@@ -4,7 +4,7 @@ on:
   schedule:
     # Coles and Woolworths update prices every Wednesday
     # Run every Tuesday at 6pm UTC, equivalent to Wednesday 5am
-    - cron: '0 18 * * 2'
+    - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
       logLevel:
