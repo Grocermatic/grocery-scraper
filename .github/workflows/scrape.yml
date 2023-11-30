@@ -70,5 +70,4 @@ jobs:
         with:
           name: scrape-${{ steps.date.outputs.date }}
           path: |
-            webscrape/data/**/*.json
-            frontend/public/**/*.json
+            data/productInfo/*.json
