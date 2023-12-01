@@ -1,6 +1,8 @@
 <h1 align="center">
- Grocermatic: Find the cheapest groceries in Australia
+ Grocermatic - Australian Grocery Comparison
 </h1>
+
+Grocermatic is a web app for comparing and tracking Australian grocery prices. Test the application at [www.grocermatic.org](https://www.grocermatic.org) or access the raw json data at [product.grocermatic.org/cleanProductInfo.json](https://product.grocermatic.org/cleanProductInfo.json)
 
 <div flex align="center">
   <img src="https://img.shields.io/github/actions/workflow/status/MengLinMaker/Grocermatic/scrape.yml?style=for-the-badge&label=Webscrape">
@@ -14,24 +16,13 @@
 
 <div>&nbsp</div>
 
-## Benefits
-
-### 1. Improve Nutritional Intake
-
-Estimated [10 - 20% of Australians meet fruit and vegetable recommendation](https://www.abs.gov.au/statistics/health/health-conditions-and-risks/dietary-behaviour/2020-21), most averaging half the recommended servings. Is this you?
-
-### 2. Save On Grocery Expenditure
-
-Meal prepping for $1.8 per meal equates to $2000/year/person compared to the average of $5000/year/person on groceries.
-Perhaps this could be attributed to the high cost of eating out, ranging from $10 - $20 per meal.
-
-### 3. Positive Environmental Impact
-
-Meal planning reduces food waste. Over 2.5 million tonnes of food is wasted by Australian households. These foods are dumped in landfills that release methane, which warms the planet 25x more than CO2. Additionally, healthier foods are usually more friendly for the environment.
-
-### 4. Decrease Food Prep Time
-
-Optimise for bulk buying and meal prepping. Healthy food should be convenient.
+## Local Deployment
+You must have `node.js` and `git` installed.
+1. Clone repository: `git clone https://github.com/MengLinMaker/Grocermatic.git`
+2. Install packages: `npm i`
+3. Run development frontend: `npm run dev` and visit `localhost:5174`
+5. Preview build frontend: `npm run start` and visit `localhost:4174`
+6. Scrape data: `npm run scrape`
 
 <div>&nbsp</div>
 
