@@ -16,13 +16,19 @@ Grocermatic is a web app for comparing and tracking Australian grocery prices. T
 
 <div>&nbsp</div>
 
+## Motivation 
+Grocermatic aims to reduce grocery prices and ease cost of living as food is typically the third largest expense behind housing and transport. The price tracker identifies good sale prices and exposes price gouging practices from the Woolworths and Coles duopoly. The app can work offline to aid users with poor internet connections.
+
+<div>&nbsp</div>
+
 ## Local Deployment
 You must have `node.js` and `git` installed.
+
 1. Clone repository: `git clone https://github.com/MengLinMaker/Grocermatic.git`
 2. Install packages: `npm i`
 3. Run development frontend: `npm run dev` and visit `localhost:5174`
-5. Preview build frontend: `npm run start` and visit `localhost:4174`
-6. Scrape data: `npm run scrape`
+4. Preview build frontend: `npm run start` and visit `localhost:4174`
+5. Scrape data: `npm run scrape`
 
 <div>&nbsp</div>
 
