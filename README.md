@@ -2,7 +2,9 @@
  Grocermatic - Australian Grocery Comparison
 </h1>
 
-Grocermatic is a web app for comparing and tracking Australian grocery prices. Test the application at [www.grocermatic.org](https://www.grocermatic.org) or access the raw json data at [product.grocermatic.org/cleanProductInfo.json](https://product.grocermatic.org/cleanProductInfo.json)
+Grocermatic is a web app for comparing and tracking Australian grocery prices. This price tracker identifies good sale prices and exposes price gouging practices from the Woolworths and Coles duopoly. The PWA app is downloadable and accessible offline to aid users with poor internet connections.
+
+Test the application at [www.grocermatic.org](https://www.grocermatic.org) or access the [raw json data](https://product.grocermatic.org/cleanProductInfo.json)
 
 <div flex align="center">
   <img src="https://img.shields.io/github/actions/workflow/status/MengLinMaker/Grocermatic/scrape.yml?style=for-the-badge&label=Webscrape">
@@ -13,11 +15,6 @@ Grocermatic is a web app for comparing and tracking Australian grocery prices. T
   <img src="https://img.shields.io/hsts/preload/grocermatic.pages.dev?style=for-the-badge&label=hsts">
   <img src="https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fwww.grocermatic.org&style=for-the-badge">
 </div>
-
-<div>&nbsp</div>
-
-## Motivation 
-Grocermatic aims to reduce grocery prices and ease cost of living as food is typically the third largest expense behind housing and transport. The price tracker identifies good sale prices and exposes price gouging practices from the Woolworths and Coles duopoly. The app can work offline to aid users with poor internet connections.
 
 <div>&nbsp</div>
 
