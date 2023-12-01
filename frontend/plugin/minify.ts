@@ -11,7 +11,7 @@ export const minifyCss = (sourceCss: string) => {
   return transformSync(sourceCss, {
     loader: 'css',
     minify: true,
-  }).code
+  }).code.replaceAll(/--.[a-z-]+: ;/gi, '') // Delete undefined css variables
 }
 
 export const minify = (source: string, sourceType: string) => {
