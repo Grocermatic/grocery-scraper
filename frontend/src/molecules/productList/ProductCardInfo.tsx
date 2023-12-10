@@ -15,12 +15,14 @@ export const ProductCardInfo = (props: any) => {
         </a>
       </div>
       <div class="flex-grow"></div>
-      <div class={`flex justify-between gap-4 ${local.isActive ? 'flex-col' : ''}`}>
+      <div class={`flex justify-between gap-2 ${local.isActive ? 'flex-col' : ''}`}>
         <p class="font-bold">${price}</p>
         <Show when={local.quantity < 1} fallback={<p class="font-bold">{local.quantity}kg</p>}>
           <p class="font-bold">{local.quantity * 1000}g</p>
         </Show>
-        <p class="font-bold">{unitPrice} $/kg</p>
+        <Show when={!local.isActive}>
+          <p class="font-bold">{unitPrice} $/kg</p>
+        </Show>
       </div>
     </>
   )

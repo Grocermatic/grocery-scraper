@@ -4,6 +4,9 @@ import { ProductCalculator } from './ProductCalculator'
 import { safeSha256 } from '../../logic/safeSha256'
 import { config } from '../../../../global'
 import { imageSupport } from '../../store/imageSupport'
+import { ChartLine } from '../../components/ChartLine'
+import { ProductPriceDay } from '../../../../common/interface'
+import { roundDecimal } from '../../../../common/roundDecimal'
 
 const bufferToUrl = (buffer: ArrayBuffer) => {
   const blob = new Blob([buffer])
@@ -11,7 +14,7 @@ const bufferToUrl = (buffer: ArrayBuffer) => {
 }
 
 export const ProductCard = (props: any) => {
-  const [local, _] = splitProps(props, ['name', 'img', 'amount'])
+  const [local, _] = splitProps(props, ['name', 'img', 'quantity', 'history'])
   const [isActive, setIsActive] = createSignal(false)
   const [imgUrl, setImgUrl] = createSignal('favicon-light.svg')
   const originalImage = local.img.replace('/medium/', '/large/')
@@ -48,9 +51,23 @@ export const ProductCard = (props: any) => {
     removeEventListener('online', fetchImage)
   })
 
+  const series = () =>
+    local.history.map((p: ProductPriceDay) => {
+      return { x: p.daySinceEpoch, y: roundDecimal(p.price / local.quantity, 2) }
+    })
+  const data = () => {
+    return {
+      series: [series()],
+    }
+  }
+
   return (
-    <>
-      <div class={`card max-w-96 shrink-0 flex justify-between ${isActive() ? 'h-48' : 'h-28'}`}>
+    <div class="card max-w-96 flex flex-col">
+      <div
+        class={`shrink-0 flex justify-between ${
+          isActive() ? 'h-48 rounded-lg border-b border-light' : 'h-28'
+        }`}
+      >
         <button
           onclick={() => setIsActive(!isActive())}
           class={`h-full aspect-square shrink-0 rounded-lg bg-white border-r ${
@@ -67,10 +84,17 @@ export const ProductCard = (props: any) => {
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
           <Show when={false} fallback={<ProductCardInfo isActive={isActive()} {...props} />}>
-            <ProductCalculator {...props} amount={local.amount} />
+            <ProductCalculator {...props} amount={local.quantity} />
           </Show>
         </div>
       </div>
-    </>
+      <Show when={isActive()}>
+        <div class="p-4">
+          <div class="">
+            <ChartLine data={data()} />
+          </div>
+        </div>
+      </Show>
+    </div>
   )
 }
