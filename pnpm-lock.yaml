@@ -17,6 +17,9 @@ dependencies:
   solid-js:
     specifier: ^1.8.5
     version: 1.8.5
+  uplot:
+    specifier: ^1.6.27
+    version: 1.6.27
 
 devDependencies:
   '@aws-sdk/client-s3':
@@ -6841,6 +6844,13 @@ packages:
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
+
+  /uplot@1.6.27:
+    resolution:
+      {
+        integrity: sha512-78U4ss5YeU65kQkOC/QAKiyII+4uo+TYUJJKvuxRzeSpk/s5sjpY1TL0agkmhHBBShpvLtmbHIEiM7+C5lBULg==,
+      }
+    dev: false
 
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}

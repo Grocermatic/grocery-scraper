@@ -25,6 +25,7 @@ Test the application at [www.grocermatic.org](https://www.grocermatic.org) or ac
 <div>&nbsp</div>
 
 ## Local Deployment
+
 You must have `node.js` and `git` installed.
 
 1. Clone repository: `git clone https://github.com/MengLinMaker/Grocermatic.git`
