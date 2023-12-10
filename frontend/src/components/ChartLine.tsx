@@ -1,7 +1,6 @@
 import { onMount, splitProps } from 'solid-js'
 import uPlot, { AlignedData } from 'uplot'
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
-import 'uplot/dist/uPlot.min.css'
 
 const dateFormatGB = (days: number, mini: boolean = true) => {
   if (!days) return '--'
@@ -32,7 +31,7 @@ export const ChartLine = (props: any) => {
 
   const _x = local.data.series[0].map((val: any) => val.x)
   const _y = local.data.series[0].map((val: any) => val.y)
-  const data = steppifyChart([_x, _y], daySinceEpoch)
+  const data = steppifyChart([_x, _y], daySinceEpoch + 1)
 
   onMount(() => {
     if (!ctx || !legendRef) return
@@ -78,10 +77,6 @@ export const ChartLine = (props: any) => {
         width: entries[0].contentRect.width,
         height: entries[0].contentRect.height,
       })
-    })
-    plot.setCursor({
-      left: 10e10,
-      top: 10e10,
     })
     chartSizeObserver.observe(ctx)
   })
