@@ -42,7 +42,7 @@ export const mergeProduct = (oldProduct: ProductInfoPublic, newProduct: ProductI
       price: newProduct.price,
     })
     product.history = product.history.slice(0, 10)
-  } else product.history[0].daySinceEpoch = daySinceEpoch
+  }
   return product
 }
 
