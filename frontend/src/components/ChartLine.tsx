@@ -1,7 +1,7 @@
 import { onMount, splitProps } from 'solid-js'
 import uPlot, { AlignedData } from 'uplot'
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
-import { steppifyChart } from '../logic/chart/steppifyChart'
+import { stepChart } from '../logic/chart/stepChart'
 import { transpose } from '../logic/chart/transpose'
 
 const dateFormatGB = (days: number, mini: boolean = true) => {
@@ -18,7 +18,7 @@ export const ChartLine = (props: any) => {
   let legendRef: HTMLDivElement | undefined
 
   const _data = local.data.series[0].map((val: any) => [val.x, val.y])
-  const data = transpose(steppifyChart(_data.reverse(), daySinceEpoch)) as AlignedData
+  const data = transpose(stepChart(_data.reverse(), daySinceEpoch)) as AlignedData
 
   onMount(() => {
     if (!ctx || !legendRef) return

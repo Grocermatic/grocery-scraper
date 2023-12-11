@@ -1,4 +1,4 @@
-export const steppifyChart = (lineChart: number[][], lastX: undefined | number = undefined) => {
+export const stepChart = (lineChart: number[][], lastX: undefined | number = undefined) => {
   const stepChart: number[][] = []
   let lastY: undefined | number = undefined
   for (let i = lineChart.length - 1; i >= 0; i--) {

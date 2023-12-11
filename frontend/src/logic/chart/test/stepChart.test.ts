@@ -1,4 +1,4 @@
-import { steppifyChart } from '../steppifyChart'
+import { stepChart } from '../stepChart'
 
 describe('steppify a chart', () => {
   it('Should not modify a flat line chart', async () => {
@@ -6,7 +6,7 @@ describe('steppify a chart', () => {
       [0, 2],
       [5, 2],
     ]
-    expect(steppifyChart(simpleChart)).toEqual(simpleChart)
+    expect(stepChart(simpleChart)).toEqual(simpleChart)
   })
   it('Should steppify a chart', async () => {
     const simpleChart = [
@@ -21,7 +21,7 @@ describe('steppify a chart', () => {
       [4, 1],
       [4, 3],
     ]
-    expect(steppifyChart(simpleChart)).toEqual(expectedChart)
+    expect(stepChart(simpleChart)).toEqual(expectedChart)
   })
   it('Should steppify a chart', async () => {
     const simpleChart = [
@@ -36,7 +36,7 @@ describe('steppify a chart', () => {
       [3, 0],
       [3, 4],
     ]
-    expect(steppifyChart(simpleChart)).toEqual(expectedChart)
+    expect(stepChart(simpleChart)).toEqual(expectedChart)
   })
   it('Should account for shift', async () => {
     const simpleChart = [
@@ -52,6 +52,6 @@ describe('steppify a chart', () => {
       [4, 3],
       [5, 3],
     ]
-    expect(steppifyChart(simpleChart, 5)).toEqual(expectedChart)
+    expect(stepChart(simpleChart, 5)).toEqual(expectedChart)
   })
 })
