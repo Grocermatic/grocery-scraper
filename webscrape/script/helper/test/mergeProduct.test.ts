@@ -72,7 +72,7 @@ describe('Function mergeProduct', () => {
     expect(newProductInfo).toEqual(expectedProductInfoPublic)
   })
 
-  it('should update date of same price in price history', () => {
+  it('should not update date of same price in price history', () => {
     // Replace old history
     const oldProductInfoPublic = cloneJson(productInfoPublic)
     oldProductInfoPublic.history = [
@@ -81,12 +81,8 @@ describe('Function mergeProduct', () => {
         price: 2,
       },
     ]
-    // Push new price to expected history
-    const expectedProductInfoPublic = cloneJson(oldProductInfoPublic)
-    const initProductInfo = initProduct(productInfos[0])
-    if (initProductInfo.history) expectedProductInfoPublic.history = [initProductInfo.history[0]]
-
+    
     const newProductInfo = mergeProduct(oldProductInfoPublic, productInfos[0])
-    expect(newProductInfo).toEqual(expectedProductInfoPublic)
+    expect(newProductInfo).toEqual(oldProductInfoPublic)
   })
 })
