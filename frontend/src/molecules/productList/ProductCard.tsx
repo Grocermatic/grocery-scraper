@@ -7,6 +7,9 @@ import { imageSupport } from '../../store/imageSupport'
 import { ChartLine } from '../../components/ChartLine'
 import { ProductPriceDay } from '../../../../common/interface'
 import { roundDecimal } from '../../../../common/roundDecimal'
+import { stepChart } from '../../logic/chart/stepChart'
+import { daySinceEpoch } from '../../../../common/daysSinceEpoch'
+import { transpose } from '../../logic/chart/transpose'
 
 const bufferToUrl = (buffer: ArrayBuffer) => {
   const blob = new Blob([buffer])
@@ -51,14 +54,12 @@ export const ProductCard = (props: any) => {
     removeEventListener('online', fetchImage)
   })
 
-  const series = () =>
-    local.history.map((p: ProductPriceDay) => {
-      return { x: p.daySinceEpoch, y: roundDecimal(p.price / local.quantity, 2) }
-    })
   const data = () => {
-    return {
-      series: [series()],
-    }
+    const _data = local.history.map((p: ProductPriceDay) => [
+      p.daySinceEpoch,
+      roundDecimal(p.price / local.quantity, 2),
+    ])
+    return transpose(stepChart(_data.reverse(), daySinceEpoch))
   }
 
   return (

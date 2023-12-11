@@ -1,8 +1,6 @@
 import { onMount, splitProps } from 'solid-js'
-import uPlot, { AlignedData } from 'uplot'
+import uPlot from 'uplot'
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
-import { stepChart } from '../logic/chart/stepChart'
-import { transpose } from '../logic/chart/transpose'
 
 const dateFormatGB = (days: number, mini: boolean = true) => {
   if (!days) return '--'
@@ -16,9 +14,6 @@ export const ChartLine = (props: any) => {
   const [local, _] = splitProps(props, ['class', 'data'])
   let ctx: HTMLDivElement | undefined
   let legendRef: HTMLDivElement | undefined
-
-  const _data = local.data.series[0].map((val: any) => [val.x, val.y])
-  const data = transpose(stepChart(_data.reverse(), daySinceEpoch)) as AlignedData
 
   onMount(() => {
     if (!ctx || !legendRef) return
@@ -39,12 +34,12 @@ export const ChartLine = (props: any) => {
           label: '$/kg',
           stroke: 'red',
           width: 2,
-          value: (_uplot, unitPrice) => (unitPrice ? unitPrice : _data[_data.length - 1][1]),
+          value: (_uplot, unitPrice) => (unitPrice ? unitPrice : local.data[local.data.length - 1][1]),
         },
       ],
       legend: { mount: (_self: uPlot, el: HTMLElement) => legendRef?.append(el) },
     }
-    const plot = new uPlot(opts, data, ctx)
+    const plot = new uPlot(opts, local.data, ctx)
     new ResizeObserver((entries) => {
       plot.setSize({ width: entries[0].contentRect.width, height: entries[0].contentRect.height })
     }).observe(ctx)
