@@ -1,6 +1,6 @@
 import { stepChart } from '../stepChart'
 
-describe('steppify a chart', () => {
+describe('Function stepChart', () => {
   it('Should not modify a flat line chart', async () => {
     const simpleChart = [
       [0, 2],
@@ -38,7 +38,7 @@ describe('steppify a chart', () => {
     ]
     expect(stepChart(simpleChart)).toEqual(expectedChart)
   })
-  it('Should account for shift', async () => {
+  it('Should account for chart extension', async () => {
     const simpleChart = [
       [-1, 3],
       [1, 1],

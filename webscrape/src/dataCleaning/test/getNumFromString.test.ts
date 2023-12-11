@@ -1,6 +1,6 @@
 import { getNumFromString } from '../getNumFromString'
 
-describe('number extractor from string', () => {
+describe('Function getNumFromString', () => {
   it('should extract numbers including decimals', async () => {
     const numArray = getNumFromString('abc12def3.4 5.6 7.89')
     expect(numArray).toEqual([12, 3.4, 5.6, 7.89])
