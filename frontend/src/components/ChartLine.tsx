@@ -35,7 +35,7 @@ export const ChartLine = (props: any) => {
           stroke: 'red',
           width: 2,
           value: (_uplot, unitPrice) =>
-            unitPrice ? unitPrice : local.data[local.data.length - 1][1],
+            unitPrice ? unitPrice : local.data[1][local.data[0].length - 1],
         },
       ],
       legend: { mount: (_self: uPlot, el: HTMLElement) => legendRef?.append(el) },
