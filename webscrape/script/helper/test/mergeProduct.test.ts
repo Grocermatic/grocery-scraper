@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { daySinceEpoch } from '../../../../common/daysSinceEpoch'
 import { ProductInfo, ProductInfoPublic } from '../../../../common/interface'
 import { cloneJson } from '../../../../frontend/src/logic/cloneJson'
@@ -35,54 +36,47 @@ const productInfoPublic: ProductInfoPublic = {
   ],
 }
 
-describe('Function hashProducts', () => {
-  it('should transform ProductInfo arrays to a hashtable', () => {
-    const expectedArray: { [key: string]: ProductInfo } = {}
-    expectedArray[productInfos[0].url] = productInfos[0]
-    expectedArray[productInfos[1].url] = productInfos[1]
-    const array = hashProducts(productInfos as any)
-    expect(array).toEqual(expectedArray)
-  })
+test('Function hashProducts - should transform ProductInfo arrays to a hashtable', () => {
+  const expectedArray: { [key: string]: ProductInfo } = {}
+  expectedArray[productInfos[0].url] = productInfos[0]
+  expectedArray[productInfos[1].url] = productInfos[1]
+  const array = hashProducts(productInfos as any)
+  expect(array).toEqual(expectedArray)
 })
 
-describe('Function initProduct', () => {
-  it('should transform ProductInfo with history', () => {
-    const newProductInfo = initProduct(productInfos[0])
-    expect(newProductInfo).toEqual(productInfoPublic)
-  })
+test('Function initProduct - should transform ProductInfo with history', () => {
+  const newProductInfo = initProduct(productInfos[0])
+  expect(newProductInfo).toEqual(productInfoPublic)
 })
 
-describe('Function mergeProduct', () => {
-  it('should push new price to history array', () => {
-    // Replace old history
-    const oldProductInfoPublic = cloneJson(productInfoPublic)
-    oldProductInfoPublic.history = [
-      {
-        daySinceEpoch: 0,
-        price: 1,
-      },
-    ]
-    // Push new price to expected history
-    const expectedProductInfoPublic = cloneJson(oldProductInfoPublic)
-    const initProductInfo = initProduct(productInfos[0])
-    if (initProductInfo.history)
-      expectedProductInfoPublic.history.unshift(initProductInfo.history[0])
+test('Function mergeProduct - should push new price to history array', () => {
+  // Replace old history
+  const oldProductInfoPublic = cloneJson(productInfoPublic)
+  oldProductInfoPublic.history = [
+    {
+      daySinceEpoch: 0,
+      price: 1,
+    },
+  ]
+  // Push new price to expected history
+  const expectedProductInfoPublic = cloneJson(oldProductInfoPublic)
+  const initProductInfo = initProduct(productInfos[0])
+  if (initProductInfo.history) expectedProductInfoPublic.history.unshift(initProductInfo.history[0])
 
-    const newProductInfo = mergeProduct(oldProductInfoPublic, productInfos[0])
-    expect(newProductInfo).toEqual(expectedProductInfoPublic)
-  })
+  const newProductInfo = mergeProduct(oldProductInfoPublic, productInfos[0])
+  expect(newProductInfo).toEqual(expectedProductInfoPublic)
+})
 
-  it('should not update date of same price in price history', () => {
-    // Replace old history
-    const oldProductInfoPublic = cloneJson(productInfoPublic)
-    oldProductInfoPublic.history = [
-      {
-        daySinceEpoch: 0,
-        price: 2,
-      },
-    ]
-    
-    const newProductInfo = mergeProduct(oldProductInfoPublic, productInfos[0])
-    expect(newProductInfo).toEqual(oldProductInfoPublic)
-  })
+test('Function mergeProduct - should not update date of same price in price history', () => {
+  // Replace old history
+  const oldProductInfoPublic = cloneJson(productInfoPublic)
+  oldProductInfoPublic.history = [
+    {
+      daySinceEpoch: 0,
+      price: 2,
+    },
+  ]
+
+  const newProductInfo = mergeProduct(oldProductInfoPublic, productInfos[0])
+  expect(newProductInfo).toEqual(oldProductInfoPublic)
 })

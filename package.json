@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "vitest --reporter verbose --logHeapUsage --typecheck.enabled --coverage --ui",
     "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
     "img": "ts-node webscrape/script/processImage.ts",
@@ -22,6 +22,8 @@
     "@aws-sdk/s3-request-presigner": "^3.438.0",
     "@types/jest": "^29.5.7",
     "@types/node": "^20.8.9",
+    "@vitest/coverage-v8": "^1.0.4",
+    "@vitest/ui": "^1.0.4",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.0",
     "cheerio": "1.0.0-rc.12",
@@ -37,6 +39,7 @@
     "vite": "^4.5.1",
     "vite-plugin-pwa": "^0.16.6",
     "vite-plugin-solid": "^2.7.2",
+    "vitest": "^1.0.4",
     "workbox-core": "^7.0.0",
     "workbox-precaching": "^7.0.0",
     "workbox-routing": "^7.0.0"
