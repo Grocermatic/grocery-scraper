@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "vitest --reporter verbose --logHeapUsage --typecheck.enabled --coverage --ui",
+    "test": "vitest watch --reporter verbose --typecheck.enabled --coverage",
     "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
     "img": "ts-node webscrape/script/processImage.ts",
@@ -23,7 +23,6 @@
     "@types/jest": "^29.5.7",
     "@types/node": "^20.8.9",
     "@vitest/coverage-v8": "^1.0.4",
-    "@vitest/ui": "^1.0.4",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.0",
     "cheerio": "1.0.0-rc.12",
