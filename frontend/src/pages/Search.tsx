@@ -56,9 +56,7 @@ export const Search = () => {
       ])
       return data
     })
-    const mergeGraph = mergeStepChart(priceGraphs)
-    const data = transpose([...mergeGraph, [daySinceEpoch, mergeGraph[mergeGraph.length - 1][1]]])
-    return data
+    return transpose(mergeStepChart(priceGraphs, daySinceEpoch))
   }
 
   return (
