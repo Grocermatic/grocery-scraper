@@ -1,4 +1,4 @@
-import { onMount, splitProps } from 'solid-js'
+import { createEffect, splitProps } from 'solid-js'
 import uPlot from 'uplot'
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
 
@@ -14,9 +14,11 @@ export const ChartLine = (props: any) => {
   const [local, _] = splitProps(props, ['class', 'data'])
   let ctx: HTMLDivElement | undefined
   let legendRef: HTMLDivElement | undefined
+  let plot: undefined | uPlot
 
-  onMount(() => {
+  createEffect(() => {
     if (!ctx || !legendRef) return
+    plot?.destroy()
     const opts: uPlot.Options = {
       width: 0,
       height: 0,
@@ -40,9 +42,9 @@ export const ChartLine = (props: any) => {
       ],
       legend: { mount: (_self: uPlot, el: HTMLElement) => legendRef?.append(el) },
     }
-    const plot = new uPlot(opts, local.data, ctx)
+    plot = new uPlot(opts, local.data, ctx)
     new ResizeObserver((entries) => {
-      plot.setSize({ width: entries[0].contentRect.width, height: entries[0].contentRect.height })
+      plot?.setSize({ width: entries[0].contentRect.width, height: entries[0].contentRect.height })
     }).observe(ctx)
   })
   return (
