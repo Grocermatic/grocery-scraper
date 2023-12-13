@@ -1,8 +1,14 @@
-import { For, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
+import { For, Show, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
 import { productInfos } from '../store/search'
+import { ChartLine } from '../components/ChartLine'
+import { ProductPriceDay } from '../../../common/interface'
+import { roundDecimal } from '../../../common/roundDecimal'
+import { transpose } from '../logic/chart/transpose'
+import { mergeStepChart } from '../logic/chart/mergeStepChart'
+import { daySinceEpoch } from '../../../common/daysSinceEpoch'
 
 function makeArr(startValue: number, stopValue: number, step: number) {
   let arr = []
@@ -40,6 +46,21 @@ export const Search = () => {
     })
   })
 
+  const lowestPriceGraph = () => {
+    if (searchLength() == 0) return [[0], [0]]
+    const priceGraphs = searchResults().map((result, _) => {
+      const product = productInfos[result.id]
+      const data = product.history.map((p: ProductPriceDay) => [
+        p.daySinceEpoch,
+        roundDecimal(p.price / product.quantity, 2),
+      ])
+      return data
+    })
+    const mergeGraph = mergeStepChart(priceGraphs)
+    const data = transpose([...mergeGraph, [daySinceEpoch, mergeGraph[mergeGraph.length - 1][1]]])
+    return data
+  }
+
   return (
     <div class="h-full flex flex-col">
       <SearchFilter setSearchResults={setSearchResults} />
@@ -48,6 +69,12 @@ export const Search = () => {
         class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
       >
         <ProductLoadProgress class="shrink-0" />
+        <Show when={searchLength() > 0}>
+          <div class="card pt-4">
+            <p class="px-4 text-center font-bold">Lowest price history</p>
+            <ChartLine data={lowestPriceGraph()} />
+          </div>
+        </Show>
         <For each={visibleResults()}>
           {(result, _) => <ProductCard {...productInfos[result.id]} />}
         </For>
