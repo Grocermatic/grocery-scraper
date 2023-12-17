@@ -27,10 +27,7 @@ export const scrapeIga = async (cookie?: string) => {
     'Breakfast Foods',
     'Soups',
     // meat-seafood-and-deli
-    'Deli Specialties',
-    'Meat',
-    'Deli',
-    'Seafood',
+    'Meat Seafood and Deli',
     // dairy-eggs-and-fridge
     'Chilled and Fresh',
     'Milk and Cream',
@@ -44,18 +41,7 @@ export const scrapeIga = async (cookie?: string) => {
     // drinks
     'Drinks',
     // frozen
-    'Frozen Meals',
-    'Frozen Pies and Party Food',
-    'Ice Cream',
-    'Frozen Vegetables',
-    'Chips and Wedges',
-    'Frozen Fish and Seafood',
-    'Frozen Desserts',
-    'Frozen Meat',
-    'Frozen Vegetarian and Vegan Food',
-    'Frozen Fruit',
-    'Frozen Pizza',
-    'Ice',
+    'Frozen'
   ].map((category: string) => category.replaceAll(' ', '_').replaceAll(',', ''))
 
   for (const sectionName of sectionNames) {
