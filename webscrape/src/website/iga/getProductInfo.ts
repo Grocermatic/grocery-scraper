@@ -12,8 +12,8 @@ export const getProductInfo: GetProductInfo = (product) => {
     const splitTextUnitPrice = product.pricePerUnit.split('/')
     const kilograms = getMetricQuantity(splitTextUnitPrice[1])
     const cost = splitTextUnitPriceNumbers[0]
-    unitPrice = roundDecimal(cost/kilograms, 2)
-  } 
+    unitPrice = roundDecimal(cost / kilograms, 2)
+  }
 
   const productInfo: ProductInfo = {
     name: product.name,
