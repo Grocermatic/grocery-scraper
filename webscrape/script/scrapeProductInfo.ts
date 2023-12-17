@@ -3,6 +3,7 @@ import { getCookie } from '../src/request/getCookie'
 import { scrapeAldi } from '../src/website/aldi/scrapeAldi'
 import { scrapeColes } from '../src/website/coles/scrapeColes'
 import { saveJson } from '../src/dataCleaning/saveJson'
+import { scrapeIga } from '../src/website/iga/scrapeIga'
 
 const basePath = 'data/productInfo'
 
@@ -16,10 +17,15 @@ const colesProductInfo = async () => {
   saveJson(`${basePath}/coles.json`, report.get())
 }
 
+const igaProductInfo = async () => {
+  const report = await scrapeIga()
+  saveJson(`${basePath}/iga.json`, report.get())
+}
+
 const woolworthsProductInfo = async () => {
   const cookie = await getCookie('https://www.woolworths.com.au')
   const report = await scrapeWoolworths(cookie)
   saveJson(`${basePath}/woolworths.json`, report.get())
 }
 
-Promise.all([woolworthsProductInfo(), colesProductInfo(), aldiProductInfo()])
+Promise.all([woolworthsProductInfo(), colesProductInfo(), igaProductInfo(), aldiProductInfo()])
