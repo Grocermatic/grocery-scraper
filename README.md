@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-  <a href="https://www.grocermatic.org](https://www.grocermatic.org">
+  <a href="https://www.grocermatic.org">
     <img width="400" src="https://github.com/MengLinMaker/Grocermatic/assets/39476147/ef580265-7427-4491-96e2-739a54dc44f7">
   </a>
 </div>
