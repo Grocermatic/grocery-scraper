@@ -41,7 +41,7 @@ export const scrapeIga = async (cookie?: string) => {
     // drinks
     'Drinks',
     // frozen
-    'Frozen'
+    'Frozen',
   ].map((category: string) => category.replaceAll(' ', '_').replaceAll(',', ''))
 
   for (const sectionName of sectionNames) {

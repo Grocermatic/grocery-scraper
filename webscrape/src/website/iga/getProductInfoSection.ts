@@ -13,7 +13,7 @@ export const getProductInfoSection = async (sectionName: string, cookie?: string
   for (let skipProduct = 0; skipProduct < totalProduct; skipProduct += paginationSize) {
     const productJson = await getRequestJson(
       `${baseUrl}?take=${paginationSize}&skip=${skipProduct}`,
-      cookie
+      cookie,
     )
     if (productJson == '') break
     if (totalProduct == Infinity) totalProduct = JSON.parse(productJson).total
