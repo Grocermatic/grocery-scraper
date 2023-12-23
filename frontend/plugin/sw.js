@@ -7,10 +7,11 @@ import {
 import { NavigationRoute, registerRoute } from 'workbox-routing'
 
 precacheAndRoute(self.__WB_MANIFEST)
+const currentRevision = `${Date.now()}`
+precacheAndRoute([{ url: 'app/index.html', revision: currentRevision }])
+registerRoute(new NavigationRoute(createHandlerBoundToURL('app/index.html')))
 
-registerRoute(new NavigationRoute(createHandlerBoundToURL('/index.html')))
-
-self.addEventListener('install', (e) => {
+self.addEventListener('install', () => {
   console.info('Install service worker')
   cleanupOutdatedCaches()
   self.skipWaiting()

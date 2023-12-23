@@ -1,5 +1,5 @@
 import { render } from 'solid-js/web'
-import { Route, Router, Routes } from '@solidjs/router'
+import { Route, Router } from '@solidjs/router'
 import { Search } from './pages/Search'
 /*
 import { createEffect } from 'solid-js'
@@ -14,22 +14,12 @@ createEffect(() => {
 })
 //*/
 
-const App = () => {
-  // Temporary redirect all to search page
-  if (window.location.pathname != '/search') window.location.pathname = '/search'
-
-  return (
-    <Routes>
-      <Route path="/search" component={Search} />
-    </Routes>
-  )
-}
-
 const root = document.getElementById('root')
 render(() => {
+  navigator.serviceWorker?.register('/sw.js')
   return (
     <Router>
-      <App />
+      <Route path="/app" component={Search} />
     </Router>
   )
 }, root!)

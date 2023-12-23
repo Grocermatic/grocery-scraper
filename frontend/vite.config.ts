@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
-import { VitePWA } from 'vite-plugin-pwa'
 import { viteCSP } from './plugin/viteCSP'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-import { readFileSync } from 'fs'
-
-const manifestJson = readFileSync('frontend/public/manifest.json').toString()
 
 export default defineConfig({
+  publicDir: '',
+  build: {
+    emptyOutDir: false,
+    outDir: 'dist/app',
+  },
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer()],
@@ -16,21 +17,6 @@ export default defineConfig({
   },
   plugins: [
     solid(),
-    VitePWA({
-      strategies: 'injectManifest',
-      srcDir: './plugin',
-      filename: 'sw.js',
-      registerType: 'autoUpdate',
-      injectRegister: 'inline',
-      includeAssets: [
-        'favicon.ico',
-        'favicon.svg',
-        'favicon-light.svg',
-        'spinner.svg',
-        'blank.svg',
-      ],
-      manifest: JSON.parse(manifestJson),
-    }),
     viteCSP({
       otherCsp: {
         'default-src': [`'none'`],
