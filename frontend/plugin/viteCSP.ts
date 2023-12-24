@@ -3,7 +3,7 @@ import { PluginOption } from 'vite'
 import { sha512 } from './hash'
 import { getSource } from './getSource'
 import { generateHeadersFile } from './generateHeadersFile'
-import { keys } from '../src/logic/keys'
+import { keys } from '../app/logic/keys'
 
 // CSP doc: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/Sources
 type OtherCsp = {

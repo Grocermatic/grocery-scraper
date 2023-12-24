@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest'
 import { daySinceEpoch } from '../../../../common/daysSinceEpoch'
 import { ProductInfo, ProductInfoPublic } from '../../../../common/interface'
-import { cloneJson } from '../../../../frontend/src/logic/cloneJson'
+import { cloneJson } from '../../../../frontend/app/logic/cloneJson'
 import { hashProducts, initProduct, mergeProduct } from '../mergeProduct'
 
 const productInfos: ProductInfo[] = [

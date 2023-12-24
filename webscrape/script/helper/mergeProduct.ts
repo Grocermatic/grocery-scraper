@@ -1,6 +1,6 @@
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
 import { ProductInfo, ProductInfoPublic } from '../../../common/interface'
-import { cloneJson } from '../../../frontend/src/logic/cloneJson'
+import { cloneJson } from '../../../frontend/app/logic/cloneJson'
 import { getProductsFromUrl } from './getProductsFromUrl'
 import { hashToArray } from './hashToArray'
 
