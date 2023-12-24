@@ -3,7 +3,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['frontend/**/*.{js,ts,jsx,tsx,html}'],
+  content: ['**/*.{tsx,html,astro}'],
   darkMode: 'class',
   theme: {
     extend: {

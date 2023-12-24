@@ -15,7 +15,7 @@ export default defineConfig({
     sitemap(),
     AstroPWA({
       strategies: 'injectManifest',
-      srcDir: './plugin',
+      srcDir: '../plugin',
       filename: 'sw.js',
       registerType: 'autoUpdate',
       injectRegister: 'inline',

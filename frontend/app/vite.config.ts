@@ -3,6 +3,7 @@ import solid from 'vite-plugin-solid'
 import { viteCSP } from '../plugin/viteCSP'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import tailwindConfig from '../tailwind.config.cjs'
 
 export default defineConfig({
   build: {
@@ -11,7 +12,7 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [tailwindcss(), autoprefixer()],
+      plugins: [tailwindcss(tailwindConfig), autoprefixer()],
     },
   },
   plugins: [
