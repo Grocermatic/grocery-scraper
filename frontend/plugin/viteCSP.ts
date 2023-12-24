@@ -64,8 +64,8 @@ export const viteCSP = (configCsp: ConfigCsp = {}) => {
         for (let index = 0; index < this.length; index++) {
           const element = this[index]
           const sourceType = cspType.split('-')[0]
-          const source = await getSource($, element, bundle, sourceType)
-          const hash = `sha512-${sha512(source)}`
+          const source = await getSource($, element, bundle, sourceType!)
+          const hash = `sha512-${sha512(source!)}`
           cspLine += ` '${hash}'`
         }
         return cspLine + ';'
