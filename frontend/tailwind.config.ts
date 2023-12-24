@@ -1,8 +1,8 @@
+import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export const tailwindConfig: Config = {
   content: ['**/*.{tsx,html,astro}'],
   darkMode: 'class',
   theme: {
@@ -14,8 +14,8 @@ module.exports = {
       },
       fontFamily: {
         // to change, update font in _document.js
-        sans: [defaultTheme.fontFamily.sans],
-        serif: [defaultTheme.fontFamily.serif],
+        sans: defaultTheme.fontFamily.sans,
+        serif: defaultTheme.fontFamily.serif,
       },
     },
   },

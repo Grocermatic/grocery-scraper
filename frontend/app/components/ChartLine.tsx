@@ -44,7 +44,10 @@ export const ChartLine = (props: any) => {
     }
     plot = new uPlot(opts, local.data, ctx)
     new ResizeObserver((entries) => {
-      plot?.setSize({ width: entries[0].contentRect.width, height: entries[0].contentRect.height })
+      plot?.setSize({
+        width: entries[0]!.contentRect.width,
+        height: entries[0]!.contentRect.height,
+      })
     }).observe(ctx)
   })
   return (

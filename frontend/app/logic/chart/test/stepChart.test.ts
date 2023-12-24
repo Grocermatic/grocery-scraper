@@ -1,20 +1,21 @@
 import { expect, test } from 'vitest'
 import { stepChart } from '../stepChart'
+import type { Coordinates } from '../../../../../common/interface'
 
 test('Function: stepChart - should not modify a flat line chart', async () => {
-  const simpleChart = [
+  const simpleChart: Coordinates[] = [
     [0, 2],
     [5, 2],
   ]
   expect(stepChart(simpleChart)).toEqual(simpleChart)
 })
 test('Function: stepChart - should steppify a chart', async () => {
-  const simpleChart = [
+  const simpleChart: Coordinates[] = [
     [-1, 3],
     [1, 1],
     [4, 3],
   ]
-  const expectedChart = [
+  const expectedChart: Coordinates[] = [
     [-1, 3],
     [1, 3],
     [1, 1],
@@ -24,12 +25,12 @@ test('Function: stepChart - should steppify a chart', async () => {
   expect(stepChart(simpleChart)).toEqual(expectedChart)
 })
 test('Function: stepChart - should steppify a chart', async () => {
-  const simpleChart = [
+  const simpleChart: Coordinates[] = [
     [-2, 4],
     [2, 0],
     [3, 4],
   ]
-  const expectedChart = [
+  const expectedChart: Coordinates[] = [
     [-2, 4],
     [2, 4],
     [2, 0],
@@ -39,12 +40,12 @@ test('Function: stepChart - should steppify a chart', async () => {
   expect(stepChart(simpleChart)).toEqual(expectedChart)
 })
 test('Function: stepChart - should account for chart extension', async () => {
-  const simpleChart = [
+  const simpleChart: Coordinates[] = [
     [-1, 3],
     [1, 1],
     [4, 3],
   ]
-  const expectedChart = [
+  const expectedChart: Coordinates[] = [
     [-1, 3],
     [1, 3],
     [1, 1],

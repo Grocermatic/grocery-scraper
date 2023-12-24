@@ -19,7 +19,7 @@ export const SearchFilter = (props: any) => {
     _setSearchQuery(query)
     setSearchParams({ query: query })
   }
-  createEffect(() => setSearchQuery(searchParams.query))
+  createEffect(() => setSearchQuery(searchParams.query!))
   createEffect(() => local.setSearchResults(sortedResults()))
 
   const searchFilter = (product: any) => {

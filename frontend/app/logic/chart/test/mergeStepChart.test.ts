@@ -1,9 +1,10 @@
 import { expect, test } from 'vitest'
 import { mergeStepChart } from '../mergeStepChart'
 import { stepChart } from '../stepChart'
+import type { Coordinates } from '../../../../../common/interface'
 
 test('Function: mergeStepChart - should merge step charts', async () => {
-  const charts = [
+  const charts: Coordinates[][] = [
     [
       [0, 2],
       [5, 2],

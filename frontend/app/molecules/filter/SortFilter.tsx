@@ -16,17 +16,17 @@ export const SortFilter = (props: any) => {
   }
   const sortFuncKeys = keys(sortFuncs)
   let sortFuncIdHash: any = {}
-  for (let i = 0; i < sortFuncKeys.length; i++) sortFuncIdHash[sortFuncKeys[i]] = i
+  for (let i = 0; i < sortFuncKeys.length; i++) sortFuncIdHash[sortFuncKeys[i]!] = i
 
   const [searchParams, setSearchParams] = useSearchParams()
   createEffect(() => setSortFromParams())
   const setSortFromParams = () => {
-    if (!searchParams.sort && !sortFuncIdHash[searchParams.sort]) setSortId(0)
-    else setSortId(sortFuncIdHash[searchParams.sort])
+    if (!searchParams.sort && !sortFuncIdHash[searchParams.sort!]) setSortId(0)
+    else setSortId(sortFuncIdHash[searchParams.sort!])
   }
 
   createEffect(() => {
-    const sortFunction = sortFuncs[sortFuncKeys[sortId()]]
+    const sortFunction = sortFuncs[sortFuncKeys[sortId()]!]
     const sortedResults = structuredClone(local.filteredResults()).sort(sortFunction)
     local.setSortedResults(sortedResults)
     if (sortId() == 0) setSearchParams({ sort: '' })

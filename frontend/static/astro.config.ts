@@ -3,6 +3,7 @@ import { readFileSync } from 'fs'
 import tailwind from '@astrojs/tailwind'
 import AstroPWA from '@vite-pwa/astro'
 import sitemap from '@astrojs/sitemap'
+import { tailwindConfig } from '../tailwind.config'
 
 const manifestJson = readFileSync('frontend/public/manifest.json').toString()
 
@@ -11,7 +12,7 @@ export default defineConfig({
   outDir: '../dist',
   site: 'https://www.grocermatic.org',
   integrations: [
-    tailwind(),
+    tailwind(tailwindConfig as any),
     sitemap(),
     AstroPWA({
       strategies: 'injectManifest',

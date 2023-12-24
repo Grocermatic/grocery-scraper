@@ -1,4 +1,4 @@
-import { SetStoreFunction, createStore } from 'solid-js/store'
+import { createStore, type SetStoreFunction } from 'solid-js/store'
 
 export const createStoredStore = (
   key: string,

@@ -57,7 +57,7 @@ export const SearchBar = (props: any) => {
     const newListItemElement = listRef.getElementsByTagName('li')[newSelectedId]
     selectListElementToggle(newListItemElement, true)
     if (newSelectedId == 0) setSearchQuery(typedInput())
-    else setSearchQuery(newListItemElement.innerText)
+    else if (newListItemElement) setSearchQuery(newListItemElement.innerText)
     setSelectedId(newSelectedId)
   }
 
@@ -67,15 +67,15 @@ export const SearchBar = (props: any) => {
     if (e.key === 'ArrowDown') selectListElement(listRef, 1)
     else if (e.key === 'ArrowUp') {
       selectListElement(listRef, -1)
-      searchElement.blur()
+      searchElement?.blur()
       setTimeout(() => {
-        searchElement.focus()
+        searchElement?.focus()
       }, 0)
     } else if (document.activeElement === searchElement && e.key === 'Enter') search()
     else if (e.key.match(/[a-zA-Z ]/gi)?.length == 1 && listRef) {
-      searchElement.focus()
+      searchElement?.focus()
     } else if (e.key === 'Escape') {
-      searchElement.blur()
+      searchElement?.blur()
     }
   }
 

@@ -1,10 +1,10 @@
+import type { Coordinates, ProductPriceDay } from '../../../common/interface'
 import { For, Show, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
-import { productInfos } from '../store/search'
 import { ChartLine } from '../components/ChartLine'
-import { ProductPriceDay } from '../../../common/interface'
+import { productInfos } from '../store/search'
 import { roundDecimal } from '../../../common/roundDecimal'
 import { transpose } from '../logic/chart/transpose'
 import { mergeStepChart } from '../logic/chart/mergeStepChart'
@@ -48,13 +48,15 @@ export const Search = () => {
 
   const lowestPriceGraph = () => {
     if (searchLength() == 0) return [[0], [0]]
-    const priceGraphs = searchResults().map((result, _) => {
+    const priceGraphs: Coordinates[][] = []
+    searchResults().map((result, _) => {
       const product = productInfos[result.id]
-      const data = product.history.map((p: ProductPriceDay) => [
+      if (!product) return
+      const data: Coordinates[] = product.history.map((p: ProductPriceDay) => [
         p.daySinceEpoch,
         roundDecimal(p.price / product.quantity, 2),
       ])
-      return data
+      return priceGraphs.push(data)
     })
     return transpose(mergeStepChart(priceGraphs, daySinceEpoch))
   }

@@ -17,7 +17,7 @@ export interface ProductInfoPublic {
   url: string
   img: string
   quantity: number
-  history: ProductPriceDay[]
+  history: [ProductPriceDay, ...ProductPriceDay[]] // Minimum length of one
 }
 
 export interface GetProductInfo {
@@ -31,3 +31,5 @@ export interface GetBatchProductInfo {
 export interface GetProductLinks {
   (): Promise<string[]>
 }
+
+export type Coordinates = [number, number]

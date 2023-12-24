@@ -3,7 +3,7 @@ import { config } from '../../../common/global'
 import { webWorkerFactory } from '../../../common/webWorkerFactory'
 import { createSignal } from 'solid-js'
 import { cloneInstance } from '../logic/cloneInstance'
-import { ProductInfoPublic } from '../../../common/interface'
+import type { ProductInfoPublic } from '../../../common/interface'
 
 const searchOptions = {
   fields: ['name'],
