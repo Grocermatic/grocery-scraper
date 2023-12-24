@@ -52,8 +52,8 @@ export const ChartLine = (props: any) => {
   })
   return (
     <div>
-      <div ref={legendRef}></div>
-      <div ref={ctx} class={`h-48 w-full ${local.class} -mt-2`} />
+      <div ref={legendRef!}></div>
+      <div ref={ctx!} class={`h-48 w-full ${local.class} -mt-2`} />
     </div>
   )
 }

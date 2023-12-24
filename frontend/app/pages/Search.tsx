@@ -65,7 +65,7 @@ export const Search = () => {
     <div class="h-full flex flex-col">
       <SearchFilter setSearchResults={setSearchResults} />
       <section
-        ref={productListref}
+        ref={productListref!}
         class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
       >
         <ProductLoadProgress class="shrink-0" />
@@ -80,7 +80,7 @@ export const Search = () => {
         </For>
 
         <div
-          ref={intersectionRef}
+          ref={intersectionRef!}
           class="card flex-shrink-0 grid place-content-center w-full h-full"
         >
           <h1 class="text-center font-bold text-2xl">No more results</h1>

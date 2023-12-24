@@ -76,7 +76,7 @@ export const ProductCard = (props: any) => {
           }`}
         >
           <img
-            ref={imgRef}
+            ref={imgRef!}
             class="object-cover select-none h-full aspect-square"
             src={imgUrl()}
             alt={local.name}

@@ -94,7 +94,7 @@ export const SearchBar = (props: any) => {
 
   return (
     <>
-      <ul ref={listRef} class="card overflow-clip !border-dark !border-[2px]">
+      <ul ref={listRef!} class="card overflow-clip !border-dark !border-[2px]">
         <li class="flex bg-white">
           <input
             onSubmit={search}
