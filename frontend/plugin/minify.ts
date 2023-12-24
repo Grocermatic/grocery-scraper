@@ -1,4 +1,3 @@
-// @ts-ignore
 import { transformSync } from 'esbuild'
 
 export const minifyJs = (sourceJs: string) => {

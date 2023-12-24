@@ -1,5 +1,5 @@
+import type { PluginOption } from 'vite'
 import { load } from 'cheerio'
-import { PluginOption } from 'vite'
 import { sha512 } from './hash'
 import { getSource } from './getSource'
 import { generateHeadersFile } from './generateHeadersFile'
