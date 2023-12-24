@@ -7,8 +7,8 @@ import sitemap from '@astrojs/sitemap'
 const manifestJson = readFileSync('frontend/public/manifest.json').toString()
 
 export default defineConfig({
-  srcDir: 'static',
-  outDir: './dist',
+  srcDir: './',
+  outDir: '../dist',
   site: 'https://www.grocermatic.org',
   integrations: [
     tailwind(),

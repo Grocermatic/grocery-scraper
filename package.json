@@ -5,9 +5,9 @@
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
     "img": "ts-node webscrape/script/processImage.ts",
     "upload": "ts-node webscrape/script/upload.ts",
-    "dev": "astro --root frontend dev & vite frontend/app",
-    "build": "astro --root frontend build && vite build frontend/app",
-    "start": "pnpm run prettier && pnpm run build && astro --root frontend preview",
+    "dev": "astro --root frontend/static dev & vite frontend/app",
+    "build": "astro --root frontend/static build && vite build frontend/app",
+    "start": "pnpm run prettier && pnpm run build && astro --root frontend/static preview",
     "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100"
   },
   "dependencies": {
