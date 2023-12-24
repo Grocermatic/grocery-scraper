@@ -8,12 +8,12 @@ import { NavigationRoute, registerRoute } from 'workbox-routing'
 
 precacheAndRoute(self.__WB_MANIFEST)
 
-const currentRevision = `${Date.now()}`
-const cacheUntilUpdate = (url) => {
-  precacheAndRoute([{ url: url, revision: currentRevision }])
+const revision = `${Date.now()}`
+const cacheUrlUntilUpdate = ['app/index.html']
+cacheUrlUntilUpdate.forEach((url) => {
+  precacheAndRoute([{ url, revision }])
   registerRoute(new NavigationRoute(createHandlerBoundToURL(url)))
-}
-cacheUntilUpdate('app/index.html')
+})
 
 self.addEventListener('install', () => {
   console.info('Install service worker')
