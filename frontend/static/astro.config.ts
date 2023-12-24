@@ -10,6 +10,7 @@ const manifestJson = readFileSync('frontend/public/manifest.json').toString()
 export default defineConfig({
   srcDir: './',
   outDir: '../dist',
+  publicDir: '../public',
   site: 'https://www.grocermatic.org',
   integrations: [
     tailwind(tailwindConfig as any),
