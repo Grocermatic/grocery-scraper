@@ -1,14 +1,13 @@
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
-import { viteCSP } from './plugin/viteCSP'
+import { viteCSP } from '../plugin/viteCSP'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
-  publicDir: '',
   build: {
     emptyOutDir: false,
-    outDir: 'dist/app',
+    outDir: '../dist/app',
   },
   css: {
     postcss: {
