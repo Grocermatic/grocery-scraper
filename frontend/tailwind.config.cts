@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
-export const tailwindConfig: Config = {
+module.exports = {
   content: ['**/*.{tsx,html,astro}'],
   darkMode: 'class',
   theme: {
@@ -20,4 +20,4 @@ export const tailwindConfig: Config = {
     },
   },
   plugins: [],
-}
+} as Config
