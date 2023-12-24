@@ -1,6 +1,6 @@
 import sharp from 'sharp'
 import { uploadToR2 } from './helper/uploadToR2'
-import { config } from '../../global'
+import { config } from '../../common/global'
 import { generateUniqueArray } from '../src/dataCleaning/generateUniqueArray'
 import { safeSha256 } from '../src/dataCleaning/safeSha256'
 import { getProductsFromUrl } from './helper/getProductsFromUrl'

@@ -1,5 +1,5 @@
 import { ProductInfoPublic } from '../../../common/interface'
-import { config } from '../../../global'
+import { config } from '../../../common/global'
 
 export const getProductsFromUrl = async (): Promise<ProductInfoPublic[]> => {
   const url = `${config.productBaseUrl}/cleanProductInfo.json`
