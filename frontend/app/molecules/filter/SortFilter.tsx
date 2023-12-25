@@ -1,6 +1,6 @@
 import { createEffect, createSignal, splitProps } from 'solid-js'
 import { ActionButton } from '../../components/ActionButton'
-import { keys } from '../../logic/keys'
+import { keys } from '../../../../common/keys'
 import { useSearchParams } from '@solidjs/router'
 
 export const SortFilter = (props: any) => {

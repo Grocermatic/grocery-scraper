@@ -3,7 +3,7 @@ import { load } from 'cheerio'
 import { sha512 } from './hash'
 import { getSource } from './getSource'
 import { generateHeadersFile } from './generateHeadersFile'
-import { keys } from '../app/logic/keys'
+import { keys } from '../../common/keys'
 
 // CSP doc: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/Sources
 type OtherCsp = {

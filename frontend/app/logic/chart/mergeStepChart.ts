@@ -1,5 +1,5 @@
 import type { Coordinates } from '../../../../common/interface'
-import { keys } from '../keys'
+import { keys } from '../../../../common/keys'
 import { stepChart } from './stepChart'
 
 export const mergeStepChart = (

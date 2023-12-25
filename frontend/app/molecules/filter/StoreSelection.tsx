@@ -3,7 +3,7 @@ import { For, Show, createEffect, createSignal, splitProps } from 'solid-js'
 import { CheckCircleIcon } from '../../svg/CheckCircleIcon'
 import { PlusCircleIcon } from '../../svg/PlusCircleIcon'
 import { defaultStoreSelection } from '../../store/default'
-import { keys } from '../../logic/keys'
+import { keys } from '../../../../common/keys'
 import { useSearchParams } from '@solidjs/router'
 import { cloneJson } from '../../logic/cloneJson'
 
