@@ -48,7 +48,7 @@ export const SearchFilter = (props: any) => {
     <section
       onMouseLeave={() => setShowAll(false)}
       onMouseDown={() => setShowAll(true)}
-      class="relative z-10 flex flex-col p-2 gap-2 shadow-md border-b-[1px] border-dark rounded-b-xl"
+      class="relative z-10 flex flex-col p-2 gap-2 shadow-md border-b-[1px] border-neutral-dark rounded-b-xl"
     >
       <SearchBar
         searchQuery={searchQuery()}

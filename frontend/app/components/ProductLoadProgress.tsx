@@ -21,13 +21,13 @@ export const ProductLoadProgress = (props: any) => {
           <span class="flex flex-col h-full p-4 gap-2 justify-center m-auto">
             <h3 class="w-full font-bold">Loading products...</h3>
             <span
-              class="block w-full rounded-full bg-light overflow-hidden"
+              class="block w-full rounded-full bg-neutral-light overflow-hidden"
               role="progressbar"
               aria-labelledby="Product loading progress"
               aria-valuenow={progressPercentage()}
             >
               <span
-                class="block h-2 animate-pulse transition-all duration-300 rounded-full bg-dark"
+                class="block h-2 animate-pulse transition-all duration-300 rounded-full bg-neutral-dark"
                 style={`width: ${progressPercentage()}%`}
               ></span>
             </span>
@@ -42,9 +42,9 @@ export const ProductLoadProgress = (props: any) => {
           data-ad-slot="4758549840"
         >
           <span class="flex h-full justify-center m-auto">
-            <FaviconLogo class="h-20 px-1 pr-2 my-auto aspect-square fill-light" />
+            <FaviconLogo class="h-20 px-1 pr-2 my-auto aspect-square fill-neutral-light" />
             <div class="flex pr-2">
-              <h1 class="my-auto font-bold text-4xl  text-light">Grocermatic</h1>
+              <h1 class="my-auto font-bold text-4xl  text-neutral-light">Grocermatic</h1>
             </div>
           </span>
         </ins>

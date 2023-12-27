@@ -53,13 +53,13 @@ export const StoreSelection = (props: any) => {
             <ActionButton
               onClick={() => onClick(storeName)}
               class={`card relative pl-3 pr-6 py-2 gap-4 flex flex-grow flex-shrink-0 items-center ${
-                stores()[storeName] ? 'fill-light bg-dark' : 'fill-shade bg-white'
+                stores()[storeName] ? 'fill-neutral-light bg-neutral-dark' : 'fill-shade bg-white'
               }`}
             >
               <Show when={stores()[storeName]} fallback={<PlusCircleIcon class="h-4" />}>
                 <CheckCircleIcon class="h-4" />
               </Show>
-              <p class={`font-bold ${stores()[storeName] ? 'text-light' : 'text-shade'}`}>
+              <p class={`font-bold ${stores()[storeName] ? 'text-neutral-light' : 'text-shade'}`}>
                 {storeName.replace('Woolworths', 'Woolies')}
               </p>
             </ActionButton>

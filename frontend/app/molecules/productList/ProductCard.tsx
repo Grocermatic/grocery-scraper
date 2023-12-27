@@ -66,7 +66,7 @@ export const ProductCard = (props: any) => {
     <div class="card max-w-96 flex flex-col">
       <div
         class={`shrink-0 flex justify-between ${
-          isActive() ? 'h-48 rounded-lg border-b border-light' : 'h-28'
+          isActive() ? 'h-48 rounded-lg border-b border-neutral-light' : 'h-28'
         }`}
       >
         <button

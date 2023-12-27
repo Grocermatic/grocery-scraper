@@ -44,10 +44,10 @@ export const SearchBar = (props: any) => {
     if (on) {
       setSelectedId(Number(listElement.value))
       selectListElementToggle(listElement, false)
-      listElement.classList.add('bg-light')
+      listElement.classList.add('bg-neutral-light')
     } else if (listRef) {
       for (const listItemElement of listRef.getElementsByTagName('li')) {
-        listItemElement.classList.remove('bg-light')
+        listItemElement.classList.remove('bg-neutral-light')
       }
     }
   }
@@ -94,7 +94,7 @@ export const SearchBar = (props: any) => {
 
   return (
     <>
-      <ul ref={listRef!} class="card overflow-clip !border-dark !border-[2px]">
+      <ul ref={listRef!} class="card overflow-clip !border-neutral-dark !border-[2px]">
         <li class="flex bg-white">
           <input
             onSubmit={search}
@@ -134,7 +134,7 @@ export const SearchBar = (props: any) => {
                   }}
                   class="flex flex-col bg-white"
                 >
-                  <div class="h-px mx-3 bg-light" />
+                  <div class="h-px mx-3 bg-neutral-light" />
                   <p class="px-4 py-2">{suggestion}</p>
                 </li>
               </>

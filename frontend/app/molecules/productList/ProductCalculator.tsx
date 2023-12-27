@@ -70,17 +70,17 @@ export const ProductCalculator = (props: any) => {
               local.name
             }`}
             onClick={subtractQuantity}
-            class="flex-grow p-2 bg-dark active:border-light active:contrast-75"
+            class="flex-grow p-2 bg-neutral-dark active:border-light active:contrast-75"
           >
-            <MinusIcon class="fill-light m-auto h-4" />
+            <MinusIcon class="fill-neutral-light m-auto h-4" />
           </ActionButton>
         </Show>
         <ActionButton
           aria-label={`Remove 1 item to list, currently ${quantity()} items in list: ${local.name}`}
           onClick={addQuantity}
-          class="flex-grow p-2 bg-dark active:border-light active:contrast-75"
+          class="flex-grow p-2 bg-neutral-dark active:border-light active:contrast-75"
         >
-          <PlusIcon class="fill-light m-auto h-4" />
+          <PlusIcon class="fill-neutral-light m-auto h-4" />
         </ActionButton>
       </div>
     </>

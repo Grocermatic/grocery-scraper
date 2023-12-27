@@ -14,9 +14,9 @@ export const AdCard = (props: any) => {
         data-ad-slot="4758549840"
       >
         <span class="flex h-full justify-center m-auto">
-          <FaviconLogo class="h-20 px-1 pr-2 my-auto aspect-square fill-light" />
+          <FaviconLogo class="h-20 px-1 pr-2 my-auto aspect-square fill-neutral-light" />
           <div class="flex pr-2">
-            <h1 class="my-auto font-bold text-4xl  text-light">Grocermatic</h1>
+            <h1 class="my-auto font-bold text-4xl  text-neutral-light">Grocermatic</h1>
           </div>
         </span>
       </ins>

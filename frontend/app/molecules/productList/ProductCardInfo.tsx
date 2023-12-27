@@ -10,7 +10,7 @@ export const ProductCardInfo = (props: any) => {
   return (
     <>
       <div class="flex">
-        <a href={local.url} target="blank" class="text-blue-700 visited:text-dark">
+        <a href={local.url} target="blank" class="text-blue-700 visited:text-neutral-dark">
           <h2 class="underline">{productName}</h2>
         </a>
       </div>
