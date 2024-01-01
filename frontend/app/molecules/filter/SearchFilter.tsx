@@ -23,7 +23,8 @@ export const SearchFilter = (props: any) => {
   createEffect(() => local.setSearchResults(sortedResults()))
 
   const searchFilter = (product: any) => {
-    for (const storeName of activeStores()) {
+    for (let storeName of activeStores()) {
+      if (storeName == 'Iga') storeName = 'igashop'
       const storeDomain = `${storeName}.com.au`.toLowerCase()
       if (product.url.match(storeDomain)) return true
     }
