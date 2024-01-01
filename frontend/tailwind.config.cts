@@ -27,12 +27,13 @@ module.exports = {
     extend: {
       colors: colorMatrix(
         {
-          primary: colors.green,
-          neutral: colors.neutral,
+          primary: colors.emerald,
+          secondary: colors.yellow,
+          neutral: colors.stone,
         },
         {
           light: 200,
-          medium: 600,
+          medium: 500,
           dark: 800,
         },
       ),
