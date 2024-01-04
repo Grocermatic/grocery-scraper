@@ -1,5 +1,5 @@
 ---
-import Navbar from '../navbar/navbar.astro'
+import Navbar from '../section/navbar.astro'
 import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
@@ -57,7 +57,7 @@ const { title, description } = Astro.props as Props
       }
     }
   </style>
-  <body>
+  <body class="text-neutral-dark duration-200">
     <Navbar />
     <slot />
   </body>
