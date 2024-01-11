@@ -1,11 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Faq from '../components/section/faq.astro'
+import Footer from '../components/section/footer.astro';
+import Hero from '../components/section/hero.astro'
+import Layout from '../components/wrapper/layout.astro'
 ---
 
 <Layout
   title="Grocermatic"
   description="Find the cheapest Australian groceries and track your spending."
 >
-  <h1>Grocermatic</h1>
-  <p>Automate your grocery list creation</p>
+  <Hero />
+  <Faq />
+  <Footer />
 </Layout>
