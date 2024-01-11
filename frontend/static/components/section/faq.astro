@@ -6,6 +6,18 @@ const faqs: {
   description: string
 }[] = [
   {
+    title: `Where do I report bugs?`,
+    description: `Report via <a class="underline" target="_blank" href="https://github.com/MengLinMaker/Grocermatic">GitHub</a>. You will find the source code along with any documentation.`,
+  },
+  {
+    title: `Which stores do you compare?`,
+    description: `As to date, Aldi, Coles IGA and Woolworths are compared. This accounts for roughly 75% of the grocery market in Australia.`,
+  },
+  {
+    title: `Why can't I find fruits and vegetables from Aldi`,
+    description: `Aldi does not provide prices online unforunately. The alternative solution is to crowd source information, which is not very practical.`,
+  },
+  {
     title: `Why can't I find pet food?`,
     description: `There are both technical and non technical reasons for not including pet food:
 			<ul style="list-style: inside;">
@@ -14,7 +26,7 @@ const faqs: {
 			</ul>`,
   },
   {
-    title: "Why are 'each' priced items missing?",
+    title: `Why are 'each' priced items missing?`,
     description: `The ability to compare the value ($/kg) of each grocery is key to reducing cost. So items without a defined quantity are removed, which happens to include many iterms with 'each' based pricing.`,
   },
 ]
@@ -39,7 +51,7 @@ const faqs: {
           </div>
         </dt>
         <dd class="grid-rows-[0fr] grid content-accordian pr-12 transition-all">
-          <span class="text-base overflow-hidden" set:html={faq.description} />
+          <span class="text-base overflow-hidden leading-relaxed" set:html={faq.description} />
         </dd>
       </button>
     ))
@@ -61,9 +73,9 @@ const faqs: {
 
   const accordianElements = document.getElementsByClassName('accordion')
   for (const accordianBtn of accordianElements) {
+    const accordianIcons = accordianBtn.getElementsByClassName('accordian-icon')
+    const contentElement = accordianBtn.getElementsByClassName('content-accordian')[0]!
     accordianBtn.addEventListener('click', () => {
-      const accordianIcons = accordianBtn.getElementsByClassName('accordian-icon')
-      const contentElement = accordianBtn.getElementsByClassName('content-accordian')[0]!
       toggleVisibility(accordianIcons[0]!)
       toggleVisibility(accordianIcons[1]!)
       toggleHeight(contentElement)
