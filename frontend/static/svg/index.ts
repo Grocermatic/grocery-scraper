@@ -25,5 +25,5 @@ export {
   Tumblericon,
   TwitterIcon,
   VimeoIcon,
-  YoutubeIcon
+  YoutubeIcon,
 }
