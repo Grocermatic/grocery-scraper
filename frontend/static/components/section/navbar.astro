@@ -1,5 +1,6 @@
 ---
 import Favicon from '../svg/Favicon.astro'
+import A from '../ui/A.astro'
 import Container from '../wrapper/container.astro'
 export const brandName1 = 'Grocer'
 export const brandName2 = 'matic'
@@ -26,7 +27,7 @@ export const dropMenuHeight = `${menuItems.length * 2.5 + 0.5}em`
 <nav class="sticky top-0 z-20 bg-white border-b select-none" aria-label="Navbar">
   <input id="hamburger-checkbox" type="checkbox" class="hidden" />
   <Container class="flex items-center py-3">
-    <a
+    <A
       class="flex items-center gap-1.5 w-56"
       href={menuItems[0]?.path}
       aria-label={menuItems[0]?.aria}
@@ -36,7 +37,7 @@ export const dropMenuHeight = `${menuItems.length * 2.5 + 0.5}em`
         <p class="text-2xl font-bold text-primary-medium">{brandName1}</p>
         <p class="text-2xl font-bold text-secondary-medium">{brandName2}</p>
       </div>
-    </a>
+    </A>
     <div class="hidden sm:flex w-full justify-end gap-8 px-6">
       {
         menuItems.map((link) => {
@@ -61,9 +62,9 @@ export const dropMenuHeight = `${menuItems.length * 2.5 + 0.5}em`
     {
       menuItems.map((link) => {
         return (
-          <a class="font-medium text-lg text-neutral-medium" href={link.path}>
+          <A class="font-medium text-lg text-neutral-medium" href={link.path}>
             {link.title}
-          </a>
+          </A>
         )
       })
     }
