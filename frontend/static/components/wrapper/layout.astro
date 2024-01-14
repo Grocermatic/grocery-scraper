@@ -1,6 +1,6 @@
 ---
 import Navbar from '../section/navbar.astro'
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions } from 'astro:transitions'
 
 export interface Props {
   title: string
@@ -21,6 +21,7 @@ const { title, description } = Astro.props as Props
     <!-- PWA -->
     <!-- Fully compliant according to Lighthouse and https://realfavicongenerator.net/favicon_checker -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/ico" sizes="32x32" href="/favicon.ico" />
     <link rel="shortcut icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
     <link rel="shortcut icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
@@ -33,32 +34,33 @@ const { title, description } = Astro.props as Props
       navigator.serviceWorker?.register('sw.js')
     </script>
     <ViewTransitions />
-  </head>
-  <style is:global>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+    <style is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
 
-    * {
-      -ms-touch-action: manipulation;
-      touch-action: manipulation;
-    }
-
-    @media (max-width: 640px) {
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
+      * {
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
       }
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+      @media (max-width: 640px) {
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
       }
-    }
-  </style>
+    </style></head
+  >
+
   <body class="text-neutral-dark duration-200">
     <Navbar />
     <slot />
-  </body>
-</html>
+  </body></html
+>
