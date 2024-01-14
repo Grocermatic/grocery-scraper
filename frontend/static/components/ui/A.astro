@@ -1,0 +1,7 @@
+---
+const { class: className = '', ariaLabel = '', href } = Astro.props
+---
+
+<a href={href} aria-label={ariaLabel} class={className} target="_blank" rel="noopener">
+  <slot />
+</a>

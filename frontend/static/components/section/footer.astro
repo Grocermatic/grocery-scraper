@@ -7,7 +7,6 @@ import Container from '../wrapper/container.astro'
 const creatorLink = {
   link: 'https://github.com/MengLinMaker',
   text: 'Created by MengLinMaker',
-  ariaLabel: `MengLinMaker's GitHub profile`,
 }
 
 const socialIcon = [
@@ -30,7 +29,6 @@ const socialIcon = [
   >
     <A
       href={creatorLink.link}
-      ariaLabel={creatorLink.ariaLabel}
       class="w-72 underline hidden text-left md:block hover:brightness-75"
     >
       {creatorLink.text}
@@ -47,7 +45,6 @@ const socialIcon = [
     <p class="w-72 md:text-right">Copyright © 2023</p>
     <A
       href={creatorLink.link}
-      ariaLabel={creatorLink.ariaLabel}
       class="w-72 underline md:hidden hover:brightness-75"
     >
       {creatorLink.text}
