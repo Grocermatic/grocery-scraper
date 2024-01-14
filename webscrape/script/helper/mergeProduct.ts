@@ -1,5 +1,5 @@
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
-import { ProductInfo, ProductInfoPublic } from '../../../common/interface'
+import { ProductInfo, ProductInfoPublic, ProductPriceDay } from '../../../common/interface'
 import { cloneJson } from '../../../frontend/app/logic/cloneJson'
 import { getProductsFromUrl } from './getProductsFromUrl'
 import { hashToArray } from './hashToArray'
@@ -41,7 +41,7 @@ export const mergeProduct = (oldProduct: ProductInfoPublic, newProduct: ProductI
       daySinceEpoch: daySinceEpoch,
       price: newProduct.price,
     })
-    product.history = product.history.slice(0, 10)
+    product.history = product.history.slice(0, 10) as [ProductPriceDay, ...ProductPriceDay[]]
   }
   return product
 }
