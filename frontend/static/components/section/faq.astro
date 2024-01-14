@@ -36,7 +36,7 @@ const faqs: {
   <h2 class="text-xl font-bold pb-4">Frequently asked questions</h2>
   {
     faqs.map((faq) => (
-      <button class="accordion py-4 text-left flex flex-col">
+      <div class="accordion py-4 text-left flex flex-col">
         <dt class="flex w-full justify-between">
           <span class="font-bold">{faq.title}</span>
           <div class="block accordian-icon">
@@ -53,7 +53,7 @@ const faqs: {
         <dd class="grid-rows-[0fr] grid content-accordian pr-12 transition-all">
           <span class="text-base overflow-hidden leading-relaxed" set:html={faq.description} />
         </dd>
-      </button>
+      </div>
     ))
   }
   <div class="h-[1px] bg-neutral-light"></div>
