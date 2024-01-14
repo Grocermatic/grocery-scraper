@@ -1,21 +1,25 @@
 ---
-import FacebookIcon from '../svg/FacebookIcon.astro';
-import GithubIcon from '../svg/GithubIcon.astro';
+import FacebookIcon from '../svg/FacebookIcon.astro'
+import GithubIcon from '../svg/GithubIcon.astro'
+import A from '../ui/A.astro'
 import Container from '../wrapper/container.astro'
 
 const creatorLink = {
   link: 'https://github.com/MengLinMaker',
   text: 'Created by MengLinMaker',
+  ariaLabel: `MengLinMaker's GitHub profile`,
 }
 
 const socialIcon = [
   {
     link: 'https://www.facebook.com/profile.php?id=61555550600687',
     svg: FacebookIcon,
+    ariaLabel: `Grocermatic FaceBook page`,
   },
   {
     link: 'https://github.com/MengLinMaker/Grocermatic',
     svg: GithubIcon,
+    ariaLabel: `Grocermatic GitHub page`,
   },
 ]
 ---
@@ -24,25 +28,29 @@ const socialIcon = [
   <Container
     class="flex flex-col items-center text-center px-6 gap-y-4 py-16 md:py-6 md:flex-row md:justify-between"
   >
-    <a
+    <A
       href={creatorLink.link}
-      target="_blank"
+      ariaLabel={creatorLink.ariaLabel}
       class="w-72 underline hidden text-left md:block hover:brightness-75"
     >
       {creatorLink.text}
-    </a>
+    </A>
     <div class="flex justify-center gap-1">
       {
         socialIcon.map((icon) => (
-          <a href={icon.link} target="_blank">
+          <A href={icon.link} ariaLabel={icon.ariaLabel}>
             <icon.svg class="h-10 w-10 fill-neutral-light hover:brightness-75" />
-          </a>
+          </A>
         ))
       }
     </div>
     <p class="w-72 md:text-right">Copyright © 2023</p>
-    <a href={creatorLink.link} target="_blank" class="w-72 underline md:hidden hover:brightness-75">
+    <A
+      href={creatorLink.link}
+      ariaLabel={creatorLink.ariaLabel}
+      class="w-72 underline md:hidden hover:brightness-75"
+    >
       {creatorLink.text}
-    </a>
+    </A>
   </Container>
 </footer>
