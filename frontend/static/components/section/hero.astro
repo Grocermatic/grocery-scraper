@@ -1,11 +1,13 @@
 ---
 import Container from '../wrapper/container.astro'
+import heroBg from './hero-bg.svg'
 ---
 
 <section
   id="hero"
-  class="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 dark:before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element-dark.svg')]"
+  class="relative overflow-hidden"
 >
+  <img class="absolute top-0 -z-10" alt="Hexagon hero background" src={heroBg.src}>
   <Container class="mx-auto px-8 pt-16 pb-16">
     <!-- Title -->
     <div class="mt-5 max-w-3xl text-center mx-auto">
@@ -26,6 +28,7 @@ import Container from '../wrapper/container.astro'
       <a
         class="inline-flex justify-center items-center gap-x-3 text-center bg-primary-medium border text-white text-sm font-medium rounded-xl py-3 px-4"
         href="/app"
+        
       >
         Create your list &#8594;
       </a>
