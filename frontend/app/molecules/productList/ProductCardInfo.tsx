@@ -1,3 +1,4 @@
+import { Link } from '@kobalte/core'
 import { Show, splitProps } from 'solid-js'
 import { limitStringLength } from '../../logic/limitStringLength'
 import { roundDecimal } from '../../../../common/roundDecimal'
@@ -10,9 +11,9 @@ export const ProductCardInfo = (props: any) => {
   return (
     <>
       <div class="flex">
-        <a href={local.url} target="blank" class="text-blue-700 visited:text-neutral-dark">
+        <Link.Root href={local.url} target="blank" class="text-blue-700 visited:text-neutral-dark">
           <h2 class="underline">{productName}</h2>
-        </a>
+        </Link.Root>
       </div>
       <div class="flex-grow"></div>
       <div class={`flex justify-between gap-2 ${local.isActive ? 'flex-col' : ''}`}>
