@@ -1,3 +1,4 @@
+import { Button } from '@kobalte/core'
 import { children, mergeProps, splitProps } from 'solid-js'
 
 export const ActionButton = (props: any) => {
@@ -5,8 +6,8 @@ export const ActionButton = (props: any) => {
   const [local, _] = splitProps(props, ['class', 'onClick'])
   const c = children(() => props.children)
   return (
-    <button onClick={local.onClick} class={`card ${local.class}`}>
+    <Button.Root onClick={local.onClick} class={`card ${local.class}`}>
       {c()}
-    </button>
+    </Button.Root>
   )
 }
