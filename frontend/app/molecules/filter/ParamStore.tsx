@@ -15,7 +15,7 @@ export const ParamStore = () => {
   const [searchParam, setSearchParam] = useSearchParams() as [SearchParam, (_: SearchParam) => void]
 
   // Default values don't show in URL
-  createEffect(() => setParam('query', searchParam.query!))
+  createEffect(() => setParam('query', searchParam.query ? searchParam.query : ''))
   createEffect(() => setSearchParam({ query: param.query }))
 
   const splitSymbol = ' '

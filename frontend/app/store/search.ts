@@ -92,21 +92,21 @@ export const productSearchEngine = new (class {
   })
 
   #searchFilter = (param: ProductSearchParam) => (product: any) => {
-    for (const store of param.stores) if (product.url.match(this.#storeDomain[store])) return true
+    for (const store of param.stores) {
+      if (product.url.match(this.#storeDomain[store])) return true
+    }
     return false
   }
 
   suggest = (param: ProductSearchParam, numSuggest = 5) =>
     miniSearch()
-      .autoSuggest(param.query)
-      .filter(this.#searchFilter(param))
+      .autoSuggest(param.query, { filter: this.#searchFilter(param) })
       .slice(0, numSuggest)
       .map((sug: Suggestion) => sug.suggestion)
 
   search = (param: ProductSearchParam) =>
     miniSearch()
-      .search(param.query)
-      .filter(this.#searchFilter(param))
+      .search(param.query, { filter: this.#searchFilter(param) })
       .map((result: SearchResult) => productInfos[result.id]!)
       .sort(this.#sortFuncs[param.sort])
 })()

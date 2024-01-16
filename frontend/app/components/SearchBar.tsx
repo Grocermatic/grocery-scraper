@@ -1,37 +1,32 @@
 import { For, Show, createEffect, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
 import { SearchIcon } from '../svg/SearchIcon'
 import { CrossIcon } from '../svg/CrossIcon'
+import { param, setParam } from '../molecules/filter/ParamStore'
+import { productSearchEngine } from '../store/search'
+import { cloneJson } from '../logic/cloneJson'
 
 export const SearchBar = (props: any) => {
-  const [local, _] = splitProps(props, [
-    'id',
-    'placeholder',
-    'onChange',
-    'onInput',
-    'suggestions',
-    'searchQuery',
-  ])
+  const [local, _] = splitProps(props, ['id', 'placeholder'])
   const [searchQuery, setSearchQuery] = createSignal('')
-  createEffect(() => setSearchQuery(local.searchQuery))
+  createEffect(() => setSearchQuery(param.query))
+
   const [typedInput, setTypedInput] = createSignal('')
-  const [suggestions, setSuggestions] = createSignal([])
+  const [suggestions, setSuggestions] = createSignal<string[]>([])
   const [selectedId, setSelectedId] = createSignal(0)
-  const [searched, setSearched] = createSignal(false)
   let listRef: HTMLUListElement | undefined
 
   const search = () => {
-    local.onChange(searchQuery())
-    setSearched(true)
+    setParam('query', searchQuery())
     setSuggestions([])
   }
 
   const input = (e: any) => {
-    const query = e.target.value
-    local.onInput(query)
-    setSearchQuery(query)
-    setSearched(false)
-    setTypedInput(query)
-    setSuggestions(local.suggestions)
+    const searchParam = cloneJson(param)
+    searchParam.query = e.target.value
+    const suggestions = productSearchEngine.suggest(searchParam)
+    setSearchQuery(e.target.value)
+    setTypedInput(e.target.value)
+    setSuggestions(suggestions)
     setSelectedId(0)
   }
 
@@ -89,7 +84,6 @@ export const SearchBar = (props: any) => {
 
   const clearSearch = () => {
     setSearchQuery('')
-    setSearched(false)
   }
 
   return (
@@ -108,7 +102,7 @@ export const SearchBar = (props: any) => {
             class="w-full px-4 font-bold py-2 focus:border-transparent focus:outline-none"
           />
           <Show
-            when={searched()}
+            when={suggestions().length == 0}
             fallback={
               <button aria-label="Search product" onClick={search} class="w-10">
                 <SearchIcon class="m-auto h-5" />
@@ -120,7 +114,7 @@ export const SearchBar = (props: any) => {
             </button>
           </Show>
         </li>
-        <Show when={local.suggestions.length > 0}>
+        <Show when={suggestions().length > 0}>
           <For each={suggestions()}>
             {(suggestion, id) => (
               <>
