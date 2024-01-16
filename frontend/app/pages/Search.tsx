@@ -1,5 +1,5 @@
 import type { Coordinates, ProductPriceDay } from '../../../common/interface'
-import { For, Show, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
+import { For, Show, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
@@ -11,37 +11,25 @@ import { mergeStepChart } from '../logic/chart/mergeStepChart'
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
 import { param } from '../molecules/filter/ParamStore'
 
-function makeArr(startValue: number, stopValue: number, step: number) {
-  let arr = []
-  for (let currentValue = startValue; currentValue < stopValue; currentValue += step) {
-    arr.push(currentValue)
-  }
-  return arr
-}
-
 export const Search = () => {
   const searchResults = createMemo(() => productSearchEngine.search(param))
   const searchLength = createMemo(() => searchResults().length)
 
   let productListref: HTMLDivElement | undefined
-  createEffect(() => {
-    searchResults()
-    productListref?.scrollTo(0, 0)
-  })
 
-  const [visibleLength, setVisibleLength] = createSignal<number>(0)
+  const [visibleLength, setVisibleLength] = createSignal<number>(12)
   const visibleResults = createMemo(() => searchResults().slice(0, visibleLength()))
+
   let intersectionRef: HTMLDivElement | undefined
   onMount(() => {
-    let options = {
-      threshold: makeArr(0, 1, 0.01),
-    }
-    const observer = new IntersectionObserver(() => {
-      setVisibleLength(visibleLength() + 1)
-      if (searchLength() == visibleLength() && intersectionRef) observer.unobserve(intersectionRef)
-    }, options)
+    const observer = new IntersectionObserver(
+      () => {
+        setVisibleLength(visibleLength() + 12)
+        if (searchLength() <= visibleLength() && intersectionRef) setVisibleLength(searchLength())
+      },
+      { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] },
+    )
     if (intersectionRef) observer.observe(intersectionRef)
-
     onCleanup(() => {
       if (intersectionRef) observer.unobserve(intersectionRef)
     })
