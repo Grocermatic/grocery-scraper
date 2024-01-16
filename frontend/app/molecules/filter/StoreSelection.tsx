@@ -1,66 +1,49 @@
 import { ActionButton } from '../../components/ActionButton'
-import { For, Show, createEffect, createSignal, splitProps } from 'solid-js'
+import { For, Show, createMemo, splitProps } from 'solid-js'
 import { CheckCircleIcon } from '../../svg/CheckCircleIcon'
 import { PlusCircleIcon } from '../../svg/PlusCircleIcon'
-import { defaultStoreSelection } from '../../store/default'
+import { productSearch, type ProductSearchStore } from '../../store/search'
+import { param, setParam } from './ParamStore'
 import { keys } from '../../../../common/keys'
-import { useSearchParams } from '@solidjs/router'
-import { cloneJson } from '../../logic/cloneJson'
-
-const listTrueKeys = (object: any) => Object.keys(object).filter((key) => object[key])
-const activeStoresToParams = (activeStores: string[]) => {
-  if (activeStores.length == keys(defaultStoreSelection).length) return ''
-  return activeStores.join(' ')
-}
-const paramsToActiveStores = (params: string) => {
-  const initStores = cloneJson(defaultStoreSelection) as any
-  keys(initStores).forEach((val) => (initStores[val] = false))
-  for (const activeStore of params.split(' ')) {
-    if (initStores[activeStore] == false) initStores[activeStore] = true
-  }
-  return initStores
-}
 
 export const StoreSelection = (props: any) => {
   const [local, _] = splitProps(props, ['setActiveStores', 'class'])
-  const [stores, setStores] = createSignal(cloneJson(defaultStoreSelection))
-  const setActiveStores = (stores: any) => {
-    setStores(stores)
-    local.setActiveStores(listTrueKeys(stores))
-  }
-  const [searchParams, setSearchParams] = useSearchParams()
+  local.setActiveStores(param.stores)
 
-  createEffect(() => setStoreFromParams())
-  const setStoreFromParams = () => {
-    const paramStores = searchParams.stores
-    if (!paramStores) setActiveStores(defaultStoreSelection)
-    else setActiveStores(paramsToActiveStores(paramStores))
+  const toggleStore = (store: ProductSearchStore) => {
+    const newStores = [...param.stores]
+    const storeId = newStores.indexOf(store)
+    storeId > -1 ? newStores.splice(storeId, 1) : newStores.push(store)
+    if (newStores.length == 0) return // At least 1 selected store
+    local.setActiveStores(newStores)
+    setParam('stores', newStores)
   }
 
-  const onClick = (storeName: any) => {
-    const newStores = structuredClone(stores())
-    newStores[storeName] = !newStores[storeName]
-    const activeStores = listTrueKeys(newStores)
-    if (activeStores.length == 0) return
-    setSearchParams({ stores: activeStoresToParams(activeStores) })
-  }
+  // Memoise calculation of selected stores
+  const stores = createMemo(() => {
+    const storeState: { [key in ProductSearchStore]?: boolean } = {}
+    for (const store of productSearch.storesDefault) {
+      storeState[store] = param.stores.indexOf(store) > -1 ? true : false
+    }
+    return storeState
+  })
 
   return (
     <>
       <div class={`flex gap-2 overflow-x-auto no-scrollbar ${local.class}`}>
         <For each={keys(stores())}>
-          {(storeName: any, _) => (
+          {(store, _) => (
             <ActionButton
-              onClick={() => onClick(storeName)}
+              onClick={() => toggleStore(store)}
               class={`card relative pl-3 pr-6 py-2 gap-4 flex flex-grow flex-shrink-0 items-center ${
-                stores()[storeName] ? 'fill-neutral-light bg-neutral-dark' : 'fill-shade bg-white'
+                stores()[store] ? 'fill-neutral-light bg-neutral-dark' : 'fill-shade bg-white'
               }`}
             >
-              <Show when={stores()[storeName]} fallback={<PlusCircleIcon class="h-4" />}>
+              <Show when={stores()[store]} fallback={<PlusCircleIcon class="h-4" />}>
                 <CheckCircleIcon class="h-4" />
               </Show>
-              <p class={`font-bold ${stores()[storeName] ? 'text-neutral-light' : 'text-shade'}`}>
-                {storeName.replace('Woolworths', 'Woolies')}
+              <p class={`font-bold ${stores()[store] ? 'text-neutral-light' : 'text-shade'}`}>
+                {store}
               </p>
             </ActionButton>
           )}
