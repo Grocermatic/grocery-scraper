@@ -4,11 +4,12 @@ import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
 import { ChartLine } from '../components/ChartLine'
-import { productInfos } from '../store/search'
+import { productSearchEngine } from '../store/search'
 import { roundDecimal } from '../../../common/roundDecimal'
 import { transpose } from '../logic/chart/transpose'
 import { mergeStepChart } from '../logic/chart/mergeStepChart'
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
+import { param } from '../molecules/filter/ParamStore'
 
 function makeArr(startValue: number, stopValue: number, step: number) {
   let arr = []
@@ -19,7 +20,7 @@ function makeArr(startValue: number, stopValue: number, step: number) {
 }
 
 export const Search = () => {
-  const [searchResults, setSearchResults] = createSignal<any[]>([])
+  const searchResults = createMemo(() => productSearchEngine.search(param))
   const searchLength = createMemo(() => searchResults().length)
 
   let productListref: HTMLDivElement | undefined
@@ -35,7 +36,7 @@ export const Search = () => {
     let options = {
       threshold: makeArr(0, 1, 0.01),
     }
-    const observer = new IntersectionObserver((e) => {
+    const observer = new IntersectionObserver(() => {
       setVisibleLength(visibleLength() + 1)
       if (searchLength() == visibleLength() && intersectionRef) observer.unobserve(intersectionRef)
     }, options)
@@ -47,11 +48,8 @@ export const Search = () => {
   })
 
   const lowestPriceGraph = () => {
-    if (searchLength() == 0) return [[0], [0]]
     const priceGraphs: Coordinates[][] = []
-    searchResults().map((result, _) => {
-      const product = productInfos[result.id]
-      if (!product) return
+    searchResults().map((product, _) => {
       const data: Coordinates[] = product.history.map((p: ProductPriceDay) => [
         p.daySinceEpoch,
         roundDecimal(p.price / product.quantity, 2),
@@ -63,7 +61,7 @@ export const Search = () => {
 
   return (
     <div class="h-full flex flex-col">
-      <SearchFilter setSearchResults={setSearchResults} />
+      <SearchFilter />
       <section
         ref={productListref!}
         class="flex animate-none h-full flex-col p-2 gap-2 overflow-y-auto no-scrollbar"
@@ -75,9 +73,7 @@ export const Search = () => {
             <ChartLine data={lowestPriceGraph()} />
           </div>
         </Show>
-        <For each={visibleResults()}>
-          {(result, _) => <ProductCard {...productInfos[result.id]} />}
-        </For>
+        <For each={visibleResults()}>{(result, _) => <ProductCard {...result} />}</For>
 
         <div
           ref={intersectionRef!}

@@ -1,31 +1,11 @@
-import { createEffect, createMemo, createSignal, splitProps } from 'solid-js'
-import { miniSearch } from '../../store/search'
+import { createSignal } from 'solid-js'
 import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
 import { SortFilter } from './SortFilter'
-import { ParamStore, param } from './ParamStore'
+import { ParamStore } from './ParamStore'
 
-export const SearchFilter = (props: any) => {
-  const [local, _] = splitProps(props, ['setSearchResults'])
+export const SearchFilter = () => {
   const [showAll, setShowAll] = createSignal<boolean>(true)
-  const [sortedResults, setSortedResults] = createSignal<any[]>([])
-
-  createEffect(() => local.setSearchResults(sortedResults()))
-
-  const searchFilter = (product: any) => {
-    for (let storeName of param.stores) {
-      if (storeName == 'Iga') storeName = 'igashop' as any
-      const storeDomain = `${storeName}.com.au`.toLowerCase()
-      if (product.url.match(storeDomain)) return true
-    }
-    return false
-  }
-
-  const filteredResults = createMemo(() =>
-    miniSearch().search(param.query, {
-      filter: searchFilter,
-    }),
-  )
 
   return (
     <section
@@ -35,11 +15,7 @@ export const SearchFilter = (props: any) => {
     >
       <SearchBar placeholder="Search product..." id="search" />
       <StoreSelection class={showAll() ? '' : 'hidden'} />
-      <SortFilter
-        class={showAll() ? '' : 'hidden'}
-        filteredResults={filteredResults}
-        setSortedResults={setSortedResults}
-      />
+      <SortFilter class={showAll() ? '' : 'hidden'} />
       <ParamStore />
     </section>
   )

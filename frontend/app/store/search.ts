@@ -19,8 +19,10 @@ const _miniSearch = new MiniSearch(searchOptions)
 const fillSearchEngineWithProduct = (products: ProductInfoPublic[]) => {
   _miniSearch?.addAll(
     products.map((productInfo: ProductInfoPublic) => {
-      productInfos.push(productInfo)
       const price = productInfo.history[0].price
+      productInfo.price = price
+      productInfo.unitPrice = price / productInfo.quantity
+      productInfos.push(productInfo)
       return {
         name: productInfo.name,
         url: productInfo.url,
