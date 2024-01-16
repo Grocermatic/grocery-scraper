@@ -4,13 +4,12 @@ import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
 import { useSearchParams } from '@solidjs/router'
 import { SortFilter } from './SortFilter'
-import { ParamStore } from './ParamStore'
+import { ParamStore, param } from './ParamStore'
 
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
   const [showAll, setShowAll] = createSignal<boolean>(true)
   const [suggestions, setSuggestions] = createSignal<any[]>([])
-  const [activeStores, setActiveStores] = createSignal<string[]>([])
   const [searchQuery, _setSearchQuery] = createSignal<string>('')
   const [sortedResults, setSortedResults] = createSignal<any[]>([])
 
@@ -24,8 +23,8 @@ export const SearchFilter = (props: any) => {
   createEffect(() => local.setSearchResults(sortedResults()))
 
   const searchFilter = (product: any) => {
-    for (let storeName of activeStores()) {
-      if (storeName == 'Iga') storeName = 'igashop'
+    for (let storeName of param.stores) {
+      if (storeName == 'Iga') storeName = 'igashop' as any
       const storeDomain = `${storeName}.com.au`.toLowerCase()
       if (product.url.match(storeDomain)) return true
     }
@@ -60,7 +59,7 @@ export const SearchFilter = (props: any) => {
         placeholder="Search product..."
         id="search"
       />
-      <StoreSelection class={showAll() ? '' : 'hidden'} setActiveStores={setActiveStores} />
+      <StoreSelection class={showAll() ? '' : 'hidden'} />
       <SortFilter
         class={showAll() ? '' : 'hidden'}
         filteredResults={filteredResults}

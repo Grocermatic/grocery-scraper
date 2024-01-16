@@ -7,15 +7,13 @@ import { param, setParam } from './ParamStore'
 import { keys } from '../../../../common/keys'
 
 export const StoreSelection = (props: any) => {
-  const [local, _] = splitProps(props, ['setActiveStores', 'class'])
-  local.setActiveStores(param.stores)
+  const [local, _] = splitProps(props, ['class'])
 
   const toggleStore = (store: ProductSearchStore) => {
     const newStores = [...param.stores]
     const storeId = newStores.indexOf(store)
     storeId > -1 ? newStores.splice(storeId, 1) : newStores.push(store)
     if (newStores.length == 0) return // At least 1 selected store
-    local.setActiveStores(newStores)
     setParam('stores', newStores)
   }
 
