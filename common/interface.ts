@@ -1,9 +1,9 @@
-export interface ProductPriceDay {
+export type ProductPriceDay = {
   daySinceEpoch: number
   price: number
 }
 
-export interface ProductInfo {
+export type ProductInfo = {
   name: string
   url: string
   img: string
@@ -12,23 +12,25 @@ export interface ProductInfo {
   unitPrice: number
 }
 
-export interface ProductInfoPublic {
+export type ProductInfoPublic = {
   name: string
   url: string
   img: string
+  price?: number
   quantity: number
   history: [ProductPriceDay, ...ProductPriceDay[]] // Minimum length of one
+  unitPrice?: number
 }
 
-export interface GetProductInfo {
+export type GetProductInfo = {
   (product: any): ProductInfo
 }
 
-export interface GetBatchProductInfo {
+export type GetBatchProductInfo = {
   (urls: string[]): Promise<ProductInfo[]>
 }
 
-export interface GetProductLinks {
+export type GetProductLinks = {
   (): Promise<string[]>
 }
 

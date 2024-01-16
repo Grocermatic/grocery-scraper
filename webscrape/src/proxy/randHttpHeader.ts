@@ -1,6 +1,6 @@
 import { randInt } from './randInt'
 
-interface HttpHeaders {
+type HttpHeaders = {
   readonly ['Accept']: string
   readonly ['Accept-Encoding']: string
   readonly ['Accept-Language']: string
