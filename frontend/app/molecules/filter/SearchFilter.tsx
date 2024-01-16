@@ -4,6 +4,7 @@ import { StoreSelection } from './StoreSelection'
 import { SearchBar } from '../../components/SearchBar'
 import { useSearchParams } from '@solidjs/router'
 import { SortFilter } from './SortFilter'
+import { ParamStore } from './ParamStore'
 
 export const SearchFilter = (props: any) => {
   const [local, _] = splitProps(props, ['setSearchResults'])
@@ -65,6 +66,7 @@ export const SearchFilter = (props: any) => {
         filteredResults={filteredResults}
         setSortedResults={setSortedResults}
       />
+      <ParamStore />
     </section>
   )
 }
