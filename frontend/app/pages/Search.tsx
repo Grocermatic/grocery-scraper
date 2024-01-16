@@ -1,5 +1,5 @@
 import type { Coordinates, ProductPriceDay } from '../../../common/interface'
-import { For, Show, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
+import { For, Show, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
@@ -16,6 +16,10 @@ export const Search = () => {
   const searchLength = createMemo(() => searchResults().length)
 
   let productListref: HTMLDivElement | undefined
+  createEffect(() => {
+    searchResults()
+    productListref?.scrollTo(0, 0)
+  })
 
   const [visibleLength, setVisibleLength] = createSignal<number>(12)
   const visibleResults = createMemo(() => searchResults().slice(0, visibleLength()))
