@@ -1,15 +1,11 @@
-import type { Coordinates, ProductPriceDay } from '../../../common/interface'
 import { For, Show, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
 import { ProductCard } from '../molecules/productList/ProductCard'
 import { SearchFilter } from '../molecules/filter/SearchFilter'
 import { ProductLoadProgress } from '../components/ProductLoadProgress'
 import { ChartLine } from '../components/ChartLine'
 import { productSearchEngine } from '../store/search'
-import { roundDecimal } from '../../../common/roundDecimal'
-import { transpose } from '../logic/chart/transpose'
-import { mergeStepChart } from '../logic/chart/mergeStepChart'
-import { daySinceEpoch } from '../../../common/daysSinceEpoch'
 import { param } from '../molecules/filter/ParamStore'
+import { lowestPriceGraph } from '../logic/chart/lowestPriceGraph'
 
 export const Search = () => {
   const searchResults = createMemo(() => productSearchEngine.search(param))
@@ -39,18 +35,6 @@ export const Search = () => {
     })
   })
 
-  const lowestPriceGraph = () => {
-    const priceGraphs: Coordinates[][] = []
-    searchResults().map((product, _) => {
-      const data: Coordinates[] = product.history.map((p: ProductPriceDay) => [
-        p.daySinceEpoch,
-        roundDecimal(p.price / product.quantity, 2),
-      ])
-      return priceGraphs.push(data)
-    })
-    return transpose(mergeStepChart(priceGraphs, daySinceEpoch))
-  }
-
   return (
     <div class="h-full flex flex-col">
       <SearchFilter />
@@ -62,11 +46,10 @@ export const Search = () => {
         <Show when={searchLength() > 0}>
           <div class="card pt-4">
             <p class="px-4 text-center font-bold">Lowest price history</p>
-            <ChartLine data={lowestPriceGraph()} />
+            <ChartLine data={lowestPriceGraph(searchResults())} />
           </div>
         </Show>
         <For each={visibleResults()}>{(result, _) => <ProductCard {...result} />}</For>
-
         <div
           ref={intersectionRef!}
           class="card flex-shrink-0 grid place-content-center w-full h-full"
