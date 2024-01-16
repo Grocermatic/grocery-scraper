@@ -39,18 +39,18 @@ const faqs: {
       <dl class="accordion py-4 text-left flex flex-col">
         <dt class="flex w-full justify-between">
           <span class="font-bold">{faq.title}</span>
-          <div class="block accordian-icon">
+          <div class="accordian-icon block">
             <svg class="h-6 w-6 stroke-neutral-dark" viewBox="0 0 24 24" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
             </svg>
           </div>
-          <div class="hidden accordian-icon">
+          <div class="accordian-icon hidden">
             <svg class="h-6 w-6 stroke-neutral-dark" viewBox="0 0 24 24" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
             </svg>
           </div>
         </dt>
-        <dd class="grid-rows-[0fr] grid content-accordian pr-12 transition-all">
+        <dd class="accordian-content grid-rows-[0fr] mt-0 grid pr-12 transition-all">
           <span class="text-base overflow-hidden leading-relaxed" set:html={faq.description} />
         </dd>
       </dl>
@@ -61,24 +61,26 @@ const faqs: {
 
 <script>
   const toggleClass = (e: Element, class1: string, class2: string) => {
-    const classes = e.className
-    const classLen1 = class1.split(' ').length
-    const isClass1 = e.classList.value.split(' ').slice(0, classLen1).join(' ') == class1
-    e.className = isClass1
-      ? class2 + classes.slice(class1.length, classes.length)
-      : class1 + classes.slice(class2.length, classes.length)
+    const classList = e.classList.value.split(' ')
+    const indexClass1 = classList.indexOf(class1)
+    const indexClass2 = classList.indexOf(class2)
+    if (indexClass1 >= 0) classList[indexClass1] = class2
+    else if (indexClass2 >= 0) classList[indexClass2] = class1
+    else console.error(`Classes don't exist: '${class1}', '${class2}' in element`, e)
+    e.className = classList.join(' ')
   }
-  const toggleVisibility = (e: Element) => toggleClass(e, 'hidden', 'block')
-  const toggleHeight = (e: Element) => toggleClass(e, 'grid-rows-[0fr]', 'grid-rows-[1fr] mt-4')
-
-  const accordianElements = document.getElementsByClassName('accordion')
-  for (const accordianBtn of accordianElements) {
+  const toggleAccordianIcons = (e: Element) => toggleClass(e, 'hidden', 'block')
+  const toggleAccordianContent = (e: Element) => {
+    toggleClass(e, 'grid-rows-[0fr]', 'grid-rows-[1fr]')
+    toggleClass(e, 'mt-0', 'mt-4')
+  }
+  for (const accordianBtn of document.getElementsByClassName('accordion')) {
     const accordianIcons = accordianBtn.getElementsByClassName('accordian-icon')
-    const contentElement = accordianBtn.getElementsByClassName('content-accordian')[0]!
+    const accordianContent = accordianBtn.getElementsByClassName('accordian-content')[0]!
     accordianBtn.addEventListener('click', () => {
-      toggleVisibility(accordianIcons[0]!)
-      toggleVisibility(accordianIcons[1]!)
-      toggleHeight(contentElement)
+      toggleAccordianIcons(accordianIcons[0]!)
+      toggleAccordianIcons(accordianIcons[1]!)
+      toggleAccordianContent(accordianContent)
     })
   }
 </script>
