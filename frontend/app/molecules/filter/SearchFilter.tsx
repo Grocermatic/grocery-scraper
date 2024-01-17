@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js'
 import { StoreSelection } from './StoreSelection'
-import { SearchBar } from '../../components/SearchBar'
+import { SearchBar } from './SearchBar'
 import { SortFilter } from './SortFilter'
 import { ParamStore } from './ParamStore'
 

@@ -1,9 +1,9 @@
 import { For, Show, createEffect, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
-import { SearchIcon } from '../svg/SearchIcon'
-import { CrossIcon } from '../svg/CrossIcon'
-import { param, setParam } from '../molecules/filter/ParamStore'
-import { productSearchEngine } from '../store/search'
-import { cloneJson } from '../logic/cloneJson'
+import { SearchIcon } from '../../svg/SearchIcon'
+import { CrossIcon } from '../../svg/CrossIcon'
+import { param, setParam } from './ParamStore'
+import { cloneJson } from '../../logic/cloneJson'
+import { productSearchEngine } from '../../store/search'
 
 export const SearchBar = (props: any) => {
   const [local, _] = splitProps(props, ['id', 'placeholder'])
