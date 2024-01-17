@@ -102,13 +102,13 @@ export const productSearchEngine = new (class {
 
   suggest = (param: ProductSearchParam, numSuggest = 5) =>
     miniSearch()
-      .autoSuggest(param.query, { filter: this.#searchFilter(param) })
+      .autoSuggest(param.query, { combineWith: 'AND', filter: this.#searchFilter(param) })
       .slice(0, numSuggest)
       .map((sug: Suggestion) => sug.suggestion)
 
   search = (param: ProductSearchParam) =>
     miniSearch()
-      .search(param.query, { filter: this.#searchFilter(param) })
+      .search(param.query, { combineWith: 'AND', filter: this.#searchFilter(param) })
       .map((result: SearchResult) => productInfos[result.id]!)
       .sort(this.#sortFuncs[param.sort])
 })()
