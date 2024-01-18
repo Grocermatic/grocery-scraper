@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "vitest watch --reporter verbose --typecheck.enabled --coverage",
+    "test": "vitest --reporter verbose --typecheck.enabled",
     "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
     "img": "ts-node webscrape/script/processImage.ts",
@@ -8,7 +8,8 @@
     "dev": "astro --root frontend/static dev & vite frontend/app",
     "build": "astro --root frontend/static build && vite build frontend/app",
     "start": "pnpm run prettier && pnpm run build && astro --root frontend/static preview",
-    "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100"
+    "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@kobalte/core": "^0.12.0",
@@ -35,6 +36,7 @@
     "cheerio": "1.0.0-rc.12",
     "dotenv": "^16.3.1",
     "esbuild": "^0.19.10",
+    "husky": "^8.0.3",
     "prettier": "^3.1.1",
     "puppeteer": "^21.6.1",
     "sharp": "^0.33.1",
