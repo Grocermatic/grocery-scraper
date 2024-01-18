@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "vitest --reporter verbose --typecheck.enabled",
+    "test": "vitest run --reporter verbose --typecheck.enabled --coverage && rm -r ./coverage",
     "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
     "img": "ts-node webscrape/script/processImage.ts",
