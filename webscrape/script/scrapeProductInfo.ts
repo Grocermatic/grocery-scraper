@@ -23,12 +23,12 @@ const igaProductInfo = async () => {
 }
 
 const woolworthsProductInfo = async () => {
-  let cookie = ""
+  let cookie = ''
   for (let i = 0; i < 3; i++) {
     try {
       cookie = await getCookie('https://www.woolworths.com.au')
       break
-    } catch { }
+    } catch {}
   }
   const report = await scrapeWoolworths(cookie)
   saveJson(`${basePath}/woolworths.json`, report.get())
