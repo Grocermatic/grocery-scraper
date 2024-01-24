@@ -19,7 +19,7 @@ export const uploadToR2 = async (
   contentType: string,
 ) => {
   const url = await getSignedUrl(
-    r2,
+    r2 as any,
     new PutObjectCommand({ Bucket: bucketName, Key: objectName }),
     { expiresIn: 300 },
   )
