@@ -29,7 +29,7 @@
     "@types/node": "^20.10.5",
     "@vite-pwa/astro": "^0.2.0",
     "@vitest/coverage-v8": "^1.1.0",
-    "astro": "^4.0.7",
+    "astro": "^4.3.0",
     "astro-compress": "^2.2.7",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.2",
