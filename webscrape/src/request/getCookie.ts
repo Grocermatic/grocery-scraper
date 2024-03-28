@@ -1,7 +1,7 @@
 import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
 
 const launchOption: PuppeteerLaunchOptions = {
-  headless: 'new',
+  headless: true,
 }
 
 const excludeContentType = [
