@@ -35,7 +35,7 @@
     "axios": "^1.6.7",
     "cheerio": "1.0.0-rc.12",
     "dotenv": "^16.3.1",
-    "esbuild": "^0.19.11",
+    "esbuild": "^0.20.2",
     "husky": "^8.0.3",
     "prettier": "^3.2.5",
     "puppeteer": "^22.3.0",
