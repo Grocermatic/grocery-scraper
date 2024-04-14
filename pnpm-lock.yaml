@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^2.2.7
     version: 2.2.7
   autoprefixer:
-    specifier: ^10.4.17
-    version: 10.4.17(postcss@8.4.32)
+    specifier: ^10.4.19
+    version: 10.4.19(postcss@8.4.32)
   axios:
     specifier: ^1.6.7
     version: 1.6.7
@@ -200,7 +200,7 @@ packages:
       tailwindcss: ^3.0.24
     dependencies:
       astro: 4.3.0(@types/node@20.11.24)(typescript@5.3.3)
-      autoprefixer: 10.4.17(postcss@8.4.32)
+      autoprefixer: 10.4.19(postcss@8.4.32)
       postcss: 8.4.32
       postcss-load-config: 4.0.2(postcss@8.4.32)(ts-node@10.9.2)
       tailwindcss: 3.4.1(ts-node@10.9.2)
@@ -4452,15 +4452,15 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: true
 
-  /autoprefixer@10.4.17(postcss@8.4.32):
-    resolution: {integrity: sha512-/cpVNRLSfhOtcGflT13P2794gVSgmPgTR+erw5ifnMLZb0UnSlkK4tquLmkd3BhA+nLo5tX8Cu0upUsGKvKbmg==}
+  /autoprefixer@10.4.19(postcss@8.4.32):
+    resolution: {integrity: sha512-BaENR2+zBZ8xXhM4pUaKUxlVdxZ0EZhjvbopwnXmxRUfqDmwSpC2lAi/QXvx7NRdPCo1WKEcEF6mV64si1z4Ew==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      browserslist: 4.22.2
-      caniuse-lite: 1.0.30001582
+      browserslist: 4.23.0
+      caniuse-lite: 1.0.30001609
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -4752,6 +4752,17 @@ packages:
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
     dev: true
 
+  /browserslist@4.23.0:
+    resolution: {integrity: sha512-QW8HiM1shhT2GuzkvklfjcKDiWFXHOeFCIA/huJPwHsslwcydgk7X+z2zXpEijP98UCY7HbubZt5J2Zgvf0CaQ==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+    dependencies:
+      caniuse-lite: 1.0.30001609
+      electron-to-chromium: 1.4.736
+      node-releases: 2.0.14
+      update-browserslist-db: 1.0.13(browserslist@4.23.0)
+    dev: true
+
   /bs-logger@0.2.6:
     resolution: {integrity: sha512-pd8DCoxmbgc7hyPKOvxtqNcjYoOsABPQdcCUjGp3d42VR2CX1ORhk2A87oqqu5R1kk+76nsxZupkmyd+MVtCog==}
     engines: {node: '>= 6'}
@@ -4839,6 +4850,10 @@ packages:
 
   /caniuse-lite@1.0.30001582:
     resolution: {integrity: sha512-vsJG3V5vgfduaQGVxL53uSX/HUzxyr2eA8xCo36OLal7sRcSZbibJtLeh0qja4sFOr/QQGt4opB4tOy+eOgAxg==}
+    dev: true
+
+  /caniuse-lite@1.0.30001609:
+    resolution: {integrity: sha512-JFPQs34lHKx1B5t1EpQpWH4c+29zIyn/haGsbpfq3suuV9v56enjFt23zqijxGTMwy1p/4H2tjnQMY+p1WoAyA==}
     dev: true
 
   /ccount@2.0.1:
@@ -5470,6 +5485,10 @@ packages:
 
   /electron-to-chromium@1.4.616:
     resolution: {integrity: sha512-1n7zWYh8eS0L9Uy+GskE0lkBUNK83cXTVJI0pU3mGprFsbfSdAc15VTFbo+A+Bq4pwstmL30AVcEU3Fo463lNg==}
+    dev: true
+
+  /electron-to-chromium@1.4.736:
+    resolution: {integrity: sha512-Rer6wc3ynLelKNM4lOCg7/zPQj8tPOCB2hzD32PX9wd3hgRRi9MxEbmkFCokzcEhRVMiOVLjnL9ig9cefJ+6+Q==}
     dev: true
 
   /emittery@0.13.1:
@@ -10031,6 +10050,17 @@ packages:
       browserslist: '>= 4.21.0'
     dependencies:
       browserslist: 4.22.2
+      escalade: 3.1.1
+      picocolors: 1.0.0
+    dev: true
+
+  /update-browserslist-db@1.0.13(browserslist@4.23.0):
+    resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
+    hasBin: true
+    peerDependencies:
+      browserslist: '>= 4.21.0'
+    dependencies:
+      browserslist: 4.23.0
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
