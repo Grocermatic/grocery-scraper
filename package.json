@@ -24,7 +24,7 @@
     "@astrojs/tailwind": "^5.0.4",
     "@astrojs/ts-plugin": "^1.6.1",
     "@aws-sdk/client-s3": "^3.496.0",
-    "@aws-sdk/s3-request-presigner": "^3.478.0",
+    "@aws-sdk/s3-request-presigner": "^3.565.0",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.11.24",
     "@vite-pwa/astro": "^0.2.0",
