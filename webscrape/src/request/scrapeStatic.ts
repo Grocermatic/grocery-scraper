@@ -8,7 +8,7 @@ export const scrapeStatic = async (url: string, cookie?: string): Promise<string
   try {
     const proxyClient = axios.create({
       headers: headers,
-      httpsAgent: new https.Agent({ rejectUnauthorized: false })
+      httpsAgent: new https.Agent({ rejectUnauthorized: false }),
     })
     const response = await proxyClient.get(url)
     return response.data
