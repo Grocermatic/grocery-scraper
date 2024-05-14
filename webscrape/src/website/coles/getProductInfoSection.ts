@@ -11,11 +11,13 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
   let pageLimit = Infinity
   for (let pageNumber = 1; pageNumber <= pageLimit; pageNumber++) {
     let jsonData = ''
-    let backoffMillisecs = 3000
+    let backoffMillisecs = 2000
+    let retry = 2
     while (jsonData == '') {
       const pageUrl = url + `?sortBy=unitPriceAscending&page=${pageNumber}`
       try {
-        const html = await scrapeStatic(pageUrl)
+        await wait(1000)
+        const html = await scrapeStatic(pageUrl, _cookie)
         const $ = Cheerio.load(html)
 
         if (pageLimit == Infinity) {
@@ -26,10 +28,12 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
         }
 
         jsonData = $('#__NEXT_DATA__').text()
+        console.log(getProductInfoPage(jsonData).get())
       } catch {
         console.warn(`Coles - backoff scrape - ${pageUrl}`)
-        wait(backoffMillisecs)
+        await wait(backoffMillisecs)
         backoffMillisecs *= 2
+        if (retry-- == 0) break
       }
     }
     report.recordProductInfoPage(getProductInfoPage, jsonData)
