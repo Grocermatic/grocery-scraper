@@ -31,9 +31,9 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
       } catch {
         console.warn(`Coles - backoff scrape - ${pageUrl}`)
         await wait(backoffMillisecs)
-        backoffMillisecs *= 2
-        if (retry-- == 0) break
       }
+      backoffMillisecs *= 2
+      if (retry-- == 0) break
     }
     report.recordProductInfoPage(getProductInfoPage, jsonData)
 
