@@ -3,6 +3,7 @@ import { getProductInfoSection } from './getProductInfoSection'
 
 export const scrapeColes = async (cookie?: string) => {
   const report = new ProductInfoReport()
+  console.debug('Begin scraping: Coles')
 
   // Page links with get request health star filters
   const sectionLinks = [
@@ -27,5 +28,6 @@ export const scrapeColes = async (cookie?: string) => {
   for (const sectionLink of sectionLinks) {
     await report.recordProductInfoSection(getProductInfoSection, sectionLink, cookie)
   }
+  console.debug('Finish scraping: Coles')
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }

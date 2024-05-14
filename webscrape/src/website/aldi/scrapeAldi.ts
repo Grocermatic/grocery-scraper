@@ -3,6 +3,7 @@ import { getProductInfoSection } from './getProductInfoSection'
 
 export const scrapeAldi = async (cookie?: string) => {
   const report = new ProductInfoReport()
+  console.debug('Begin scraping: Aldi')
 
   const productLinks = [
     'https://www.aldi.com.au/en/groceries/super-savers',
@@ -17,5 +18,6 @@ export const scrapeAldi = async (cookie?: string) => {
     return report.recordProductInfoSection(getProductInfoSection, url, cookie)
   })
   await Promise.all(promiseArray)
+  console.debug('Finish scraping: Aldi')
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }

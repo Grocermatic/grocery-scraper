@@ -5,6 +5,7 @@ import { getProductInfoSection } from './getProductInfoSection'
 
 export const scrapeWoolworths = async (cookie?: string) => {
   const report = new ProductInfoReport()
+  console.debug('Begin scraping: Woolworths')
 
   // Page links with get request health star filters
   const sectionIds: string[] = [
@@ -47,6 +48,6 @@ export const scrapeWoolworths = async (cookie?: string) => {
     return report.recordProductInfoSection(getProductInfoSection, sectionId, cookie)
   })
   await Promise.all(promiseArray)
-
+  console.debug('Finish scraping: Woolworths')
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }

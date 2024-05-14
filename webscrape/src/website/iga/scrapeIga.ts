@@ -4,6 +4,7 @@ import { ProductInfoReport } from '../ProductInfoReport'
 import { getProductInfoSection } from './getProductInfoSection'
 
 export const scrapeIga = async (cookie?: string) => {
+  console.debug('Begin scraping: IGA')
   const report = new ProductInfoReport()
 
   // Page links with get request health star filters
@@ -47,5 +48,6 @@ export const scrapeIga = async (cookie?: string) => {
   for (const sectionName of sectionNames) {
     await report.recordProductInfoSection(getProductInfoSection, sectionName, cookie)
   }
+  console.debug('Finish scraping: IGA')
   return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
 }
