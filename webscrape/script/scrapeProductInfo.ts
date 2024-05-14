@@ -13,7 +13,14 @@ const aldiProductInfo = async () => {
 }
 
 const colesProductInfo = async () => {
-  const report = await scrapeColes()
+  let cookie = ''
+  for (let i = 0; i < 3; i++) {
+    try {
+      cookie = await getCookie('https://www.coles.com.au')
+      break
+    } catch {}
+  }
+  const report = await scrapeColes(cookie)
   saveJson(`${basePath}/coles.json`, report.get())
 }
 
@@ -34,4 +41,4 @@ const woolworthsProductInfo = async () => {
   saveJson(`${basePath}/woolworths.json`, report.get())
 }
 
-Promise.all([woolworthsProductInfo(), colesProductInfo(), igaProductInfo(), aldiProductInfo()])
+Promise.all([aldiProductInfo(), woolworthsProductInfo(), colesProductInfo(), igaProductInfo()])
