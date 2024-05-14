@@ -13,6 +13,7 @@ export const scrapeStatic = async (url: string, cookie?: string): Promise<string
     const response = await proxyClient.get(url)
     return response.data
   } catch (err: any) {
+    console.error(err)
     return ''
   }
 }
