@@ -28,7 +28,6 @@ export const getProductInfoSection = async (url: string, _cookie?: string) => {
         }
 
         jsonData = $('#__NEXT_DATA__').text()
-        console.log(getProductInfoPage(jsonData).get())
       } catch {
         console.warn(`Coles - backoff scrape - ${pageUrl}`)
         await wait(backoffMillisecs)
