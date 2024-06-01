@@ -38,7 +38,7 @@
     "esbuild": "^0.20.2",
     "husky": "^8.0.3",
     "prettier": "^3.2.5",
-    "puppeteer": "^22.3.0",
+    "puppeteer": "^22.10.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "sharp": "^0.33.3",
