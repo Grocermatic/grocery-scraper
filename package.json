@@ -22,7 +22,7 @@
   "devDependencies": {
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/ts-plugin": "^1.7.0",
+    "@astrojs/ts-plugin": "^1.8.0",
     "@aws-sdk/client-s3": "^3.574.0",
     "@aws-sdk/s3-request-presigner": "^3.574.0",
     "@types/jest": "^29.5.12",
