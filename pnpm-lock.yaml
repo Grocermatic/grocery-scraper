@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.12.6
     version: 0.12.6(solid-js@1.8.17)
   '@solidjs/router':
-    specifier: ^0.10.10
-    version: 0.10.10(solid-js@1.8.17)
+    specifier: ^0.13.5
+    version: 0.13.5(solid-js@1.8.17)
   chartist:
     specifier: ^1.3.0
     version: 1.3.0
@@ -3929,8 +3929,8 @@ packages:
       solid-js: 1.8.17
     dev: false
 
-  /@solidjs/router@0.10.10(solid-js@1.8.17):
-    resolution: {integrity: sha512-nGl7gMgsojuaupI5MAK2cFtkndmWWSAPhill/8La3IjujY3vMBamcQFymBsA2ejzxEYJjkOlEQHYgp2jNFkwuQ==}
+  /@solidjs/router@0.13.5(solid-js@1.8.17):
+    resolution: {integrity: sha512-I/bR5ZHCz2Dx80qL+6uGwSdclqXRqoT49SJ5cvLbOuT3HnYysSIxSfULCTWUMLFVcgPh5GrdHV6KwEoyrbPZZA==}
     peerDependencies:
       solid-js: ^1.8.6
     dependencies:
