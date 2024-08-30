@@ -1,6 +1,7 @@
 import { Route, Router } from '@solidjs/router'
 import { render } from 'solid-js/web'
 import { Search } from './pages/Search'
+import './index.css'
 /*
 import { createEffect } from 'solid-js'
 import { loadExternalJs } from './logic/externalJs'
@@ -15,13 +16,11 @@ createEffect(() => {
 //*/
 
 const root = document.getElementById('root')
-if (root) {
-  render(() => {
-    navigator.serviceWorker?.register('/sw.js')
-    return (
-      <Router>
-        <Route path="/app" component={Search} />
-      </Router>
-    )
-  }, root)
-}
+render(() => {
+  navigator.serviceWorker?.register('/sw.js')
+  return (
+    <Router>
+      <Route path="/" component={Search} />
+    </Router>
+  )
+}, root)

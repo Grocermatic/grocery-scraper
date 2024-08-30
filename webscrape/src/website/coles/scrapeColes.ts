@@ -1,3 +1,5 @@
+/* c8 ignore start */
+
 import { ProductInfoReport } from '../ProductInfoReport'
 import { getProductInfoSection } from './getProductInfoSection'
 

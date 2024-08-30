@@ -1,3 +1,5 @@
+/* c8 ignore start */
+
 import * as Cheerio from 'cheerio'
 import { getNumFromString } from '../../dataCleaning/getNumFromString'
 import { scrapeStatic } from '../../request/scrapeStatic'

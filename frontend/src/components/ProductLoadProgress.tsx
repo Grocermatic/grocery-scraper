@@ -14,10 +14,10 @@ export const ProductLoadProgress = (props: any) => {
   })
 
   return (
-    <div class={`card aspect-[320/100] overflow-hidden ${local.class}`}>
-      <Show
-        when={hidden()}
-        fallback={
+    <Show
+      when={hidden()}
+      fallback={
+        <div class={`card aspect-[320/100] overflow-hidden ${local.class}`}>
           <span class="flex flex-col h-full p-4 gap-2 justify-center m-auto">
             <h3 class="w-full font-bold">Loading products...</h3>
             <span
@@ -31,8 +31,10 @@ export const ProductLoadProgress = (props: any) => {
               />
             </span>
           </span>
-        }
-      >
+        </div>
+      }
+    >
+      {/* <div class={`card aspect-[320/100] overflow-hidden ${local.class}`}>
         <ins
           class="h-full w-full block text-center"
           data-ad-layout="in-article"
@@ -49,7 +51,7 @@ export const ProductLoadProgress = (props: any) => {
             </div>
           </span>
         </ins>
-      </Show>
-    </div>
+      </div> */}
+    </Show>
   )
 }

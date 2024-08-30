@@ -1,3 +1,5 @@
+/* c8 ignore start */
+
 import { postRequestJson } from '../../request/scrapeJson'
 import { ProductInfoReport } from '../ProductInfoReport'
 import { getProductInfoPage } from './getProductInfoPage'

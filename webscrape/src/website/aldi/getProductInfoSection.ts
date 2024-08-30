@@ -1,3 +1,5 @@
+/* c8 ignore start */
+
 import { scrapeStatic } from '../../request/scrapeStatic'
 import { ProductInfoReport } from '../ProductInfoReport'
 import { getProductInfoPage } from './getProductInfoPage'

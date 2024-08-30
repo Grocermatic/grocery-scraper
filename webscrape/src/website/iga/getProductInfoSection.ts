@@ -1,3 +1,5 @@
+/* c8 ignore start */
+
 import { getRequestJson } from '../../request/scrapeJson'
 import { wait } from '../../request/wait'
 import { ProductInfoReport } from '../ProductInfoReport'

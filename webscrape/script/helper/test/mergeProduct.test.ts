@@ -4,7 +4,6 @@ import type {
   ProductInfo,
   ProductInfoPublic,
 } from '../../../../common/interface'
-import { cloneJson } from '../../../../frontend/app/logic/cloneJson'
 import { hashProducts, initProduct, mergeProduct } from '../mergeProduct'
 
 const productInfos: ProductInfo[] = [
@@ -54,7 +53,7 @@ test('Function initProduct - should transform ProductInfo with history', () => {
 
 test('Function mergeProduct - should push new price to history array', () => {
   // Replace old history
-  const oldProductInfoPublic = cloneJson(productInfoPublic)
+  const oldProductInfoPublic = structuredClone(productInfoPublic)
   oldProductInfoPublic.history = [
     {
       daySinceEpoch: 0,
@@ -62,7 +61,7 @@ test('Function mergeProduct - should push new price to history array', () => {
     },
   ]
   // Push new price to expected history
-  const expectedProductInfoPublic = cloneJson(oldProductInfoPublic)
+  const expectedProductInfoPublic = structuredClone(oldProductInfoPublic)
   const initProductInfo = initProduct(productInfos[0])
   if (initProductInfo.history)
     expectedProductInfoPublic.history.unshift(initProductInfo.history[0])
@@ -73,7 +72,7 @@ test('Function mergeProduct - should push new price to history array', () => {
 
 test('Function mergeProduct - should not update date of same price in price history', () => {
   // Replace old history
-  const oldProductInfoPublic = cloneJson(productInfoPublic)
+  const oldProductInfoPublic = structuredClone(productInfoPublic)
   oldProductInfoPublic.history = [
     {
       daySinceEpoch: 0,

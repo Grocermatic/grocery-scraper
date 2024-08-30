@@ -4,7 +4,6 @@ import type {
   ProductInfoPublic,
   ProductPriceDay,
 } from '../../../common/interface'
-import { cloneJson } from '../../../frontend/app/logic/cloneJson'
 import { getProductsFromUrl } from './getProductsFromUrl'
 import { hashToArray } from './hashToArray'
 
@@ -41,7 +40,7 @@ export const mergeProduct = (
     url: oldProduct.url,
     img: oldProduct.img,
     quantity: oldProduct.quantity,
-    history: cloneJson(oldProduct.history),
+    history: structuredClone(oldProduct.history),
   }
   // Add new price to history
   const lastPrice = oldProduct.history[0].price
