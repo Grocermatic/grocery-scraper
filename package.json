@@ -4,10 +4,10 @@
     "postinstall": "simple-git-hooks",
     "format": "biome check --write --verbose",
     "test": "vitest run --reporter verbose --typecheck.enabled --coverage",
-    "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
-    "clean": "ts-node webscrape/script/cleanProductInfo.ts",
-    "img": "ts-node webscrape/script/processImage.ts",
-    "upload": "ts-node webscrape/script/upload.ts"
+    "scrape": "ts-node -T webscrape/script/scrapeProductInfo.ts",
+    "clean": "ts-node -T webscrape/script/cleanProductInfo.ts",
+    "img": "ts-node -T webscrape/script/processImage.ts",
+    "upload": "ts-node -T webscrape/script/upload.ts"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm format",
