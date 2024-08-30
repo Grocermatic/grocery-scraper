@@ -1,9 +1,17 @@
-import { For, Show, createEffect, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
-import { SearchIcon } from '../../svg/SearchIcon'
-import { CrossIcon } from '../../svg/CrossIcon'
-import { param, setParam } from './ParamStore'
+import {
+  For,
+  Show,
+  createEffect,
+  createSignal,
+  onCleanup,
+  onMount,
+  splitProps,
+} from 'solid-js'
 import { cloneJson } from '../../logic/cloneJson'
 import { productSearchEngine } from '../../store/search'
+import { CrossIcon } from '../../svg/CrossIcon'
+import { SearchIcon } from '../../svg/SearchIcon'
+import { param, setParam } from './ParamStore'
 
 export const SearchBar = (props: any) => {
   const [local, _] = splitProps(props, ['id', 'placeholder'])
@@ -51,7 +59,7 @@ export const SearchBar = (props: any) => {
     const newSelectedId = mod(selectedId() + diff, suggestions().length + 1)
     const newListItemElement = listRef.getElementsByTagName('li')[newSelectedId]
     selectListElementToggle(newListItemElement, true)
-    if (newSelectedId == 0) setSearchQuery(typedInput())
+    if (newSelectedId === 0) setSearchQuery(typedInput())
     else if (newListItemElement) setSearchQuery(newListItemElement.innerText)
     setSelectedId(newSelectedId)
   }
@@ -66,8 +74,9 @@ export const SearchBar = (props: any) => {
       setTimeout(() => {
         searchElement?.focus()
       }, 0)
-    } else if (document.activeElement === searchElement && e.key === 'Enter') search()
-    else if (e.key.match(/[a-zA-Z ]/gi)?.length == 1 && listRef) {
+    } else if (document.activeElement === searchElement && e.key === 'Enter')
+      search()
+    else if (e.key.match(/[a-zA-Z ]/gi)?.length === 1 && listRef) {
       searchElement?.focus()
     } else if (e.key === 'Escape') {
       searchElement?.blur()
@@ -88,7 +97,10 @@ export const SearchBar = (props: any) => {
 
   return (
     <>
-      <ul ref={listRef!} class="card overflow-clip !border-neutral-dark !border-[2px]">
+      <ul
+        ref={listRef!}
+        class="card overflow-clip !border-neutral-dark !border-[2px]"
+      >
         <li class="flex bg-white">
           <input
             onSubmit={search}
@@ -102,14 +114,24 @@ export const SearchBar = (props: any) => {
             class="w-full px-4 font-bold py-2 focus:border-transparent focus:outline-none"
           />
           <Show
-            when={suggestions().length == 0}
+            when={suggestions().length === 0}
             fallback={
-              <button aria-label="Search product" onClick={search} class="w-10">
+              <button
+                type="button"
+                aria-label="Search product"
+                onClick={search}
+                class="w-10"
+              >
                 <SearchIcon class="m-auto h-5" />
               </button>
             }
           >
-            <button aria-label="Search product" onClick={clearSearch} class="w-10">
+            <button
+              type="button"
+              aria-label="Search product"
+              onClick={clearSearch}
+              class="w-10"
+            >
               <CrossIcon class="m-auto h-5" />
             </button>
           </Show>

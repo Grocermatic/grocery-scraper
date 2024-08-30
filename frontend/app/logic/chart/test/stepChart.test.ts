@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
-import { stepChart } from '../stepChart'
 import type { Coordinates } from '../../../../../common/interface'
+import { stepChart } from '../stepChart'
 
 test('Function: stepChart - should not modify a flat line chart', async () => {
   const simpleChart: Coordinates[] = [

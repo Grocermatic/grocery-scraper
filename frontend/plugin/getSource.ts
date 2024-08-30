@@ -1,4 +1,4 @@
-import { CheerioAPI, Element } from 'cheerio'
+import type { CheerioAPI, Element } from 'cheerio'
 import { minify } from './minify'
 
 export const getSource = async (
@@ -7,16 +7,18 @@ export const getSource = async (
   bundle: any,
   sourceType: string,
 ) => {
-  let source
+  let source: string
   const attributeName = element.attribs.src ? 'src' : 'href'
   const resourcePath = element.attribs[attributeName]
-  if (resourcePath?.startsWith('http')) {
-    // Load JS from URL.
-    source = await (await fetch(resourcePath)).text()
-    return source
-  } else if (element.attribs.src || element.attribs.href) {
+
+  // Load JS from URL.
+  if (resourcePath?.startsWith('http'))
+    return await (await fetch(resourcePath)).text()
+
+  if (element.attribs.src || element.attribs.href) {
     // Inline local source from bundle.
-    const resourcePathWithoutLeadingSlash = element.attribs[attributeName].slice(1)
+    const resourcePathWithoutLeadingSlash =
+      element.attribs[attributeName]!.slice(1)
     source = bundle[resourcePathWithoutLeadingSlash].code
     delete bundle[resourcePathWithoutLeadingSlash]
   } else {

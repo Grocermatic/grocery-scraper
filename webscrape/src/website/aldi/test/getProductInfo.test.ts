@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
 import * as fs from 'fs'
+import { expect, test } from 'vitest'
 
-import { ProductInfo } from '../../../../../common/interface'
+import type { ProductInfo } from '../../../../../common/interface'
 import { getProductInfo } from '../getProductInfo'
 import { getProductInfoPage } from '../getProductInfoPage'
 
@@ -53,7 +53,9 @@ test('Aldi product scraper - should extract quantity from complex title', async 
 test('Aldi page scraper - should parse product data', async () => {
   const html = fs.readFileSync(`${__dirname}/freezer.test.html`).toString()
   const report = getProductInfoPage(html)
-  const expectedJson = fs.readFileSync(`${__dirname}/expected.test.json`).toString()
+  const expectedJson = fs
+    .readFileSync(`${__dirname}/expected.test.json`)
+    .toString()
   const expectedReport = JSON.parse(expectedJson)
 
   expect(report.get()).toEqual(expectedReport)

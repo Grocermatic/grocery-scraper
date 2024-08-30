@@ -1,12 +1,18 @@
 import { Show, createSignal, splitProps } from 'solid-js'
+import { roundDecimal } from '../../../../common/roundDecimal'
+import { ActionButton } from '../../components/ActionButton'
 import { MinusIcon } from '../../svg/MinusIcon'
 import { PlusIcon } from '../../svg/PlusIcon'
-import { ActionButton } from '../../components/ActionButton'
 import { LabelledInput } from './LabelledInput'
-import { roundDecimal } from '../../../../common/roundDecimal'
 
 export const ProductCalculator = (props: any) => {
-  const [local, _] = splitProps(props, ['name', 'url', 'price', 'quantity', 'amount'])
+  const [local, _] = splitProps(props, [
+    'name',
+    'url',
+    'price',
+    'quantity',
+    'amount',
+  ])
   const [quantity, setQuantity] = createSignal(local.amount)
 
   const addQuantity = () => {
@@ -17,8 +23,8 @@ export const ProductCalculator = (props: any) => {
     if (quantity() > 0) setQuantity(quantity() - 1)
   }
 
-  const validSetQuantity = (newQuantity: number) => {
-    newQuantity = Math.floor(newQuantity)
+  const validSetQuantity = (_newQuantity: number) => {
+    const newQuantity = Math.floor(_newQuantity)
     setQuantity(null)
     if (newQuantity > 0) setQuantity(newQuantity)
     else setQuantity(0)
@@ -41,14 +47,14 @@ export const ProductCalculator = (props: any) => {
       <div class="flex flex-grow justify-between gap-2">
         <LabelledInput
           type="number"
-          id={local.url + ' price input'}
+          id={`${local.url} price input`}
           label="Price"
           value={roundDecimal(quantity() * local.price, 2)}
           onChange={inputPrice}
         />
         <LabelledInput
           type="number"
-          id={local.url + ' weight input'}
+          id={`${local.url} weight input`}
           label="Kg"
           value={roundDecimal(quantity() * local.quantity, 3)}
           onChange={inputWeight}
@@ -57,7 +63,7 @@ export const ProductCalculator = (props: any) => {
       <div class="flex flex-grow justify-between gap-2">
         <LabelledInput
           type="number"
-          id={local.url + ' quantity input'}
+          id={`${local.url} quantity input`}
           label="Quantity"
           value={quantity()}
           onChange={inputQuantity}

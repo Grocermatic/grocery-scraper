@@ -6,7 +6,8 @@ import { param, setParam } from './ParamStore'
 export const SortFilter = (props: any) => {
   const [local, _] = splitProps(props, ['class'])
   const [sortId, setSortId] = createSignal(0)
-  const onClick = () => setSortId((sortId() + 1) % productSearch.sortOptions.length)
+  const onClick = () =>
+    setSortId((sortId() + 1) % productSearch.sortOptions.length)
   const sortStrategy = () => productSearch.sortOptions[sortId()]!
   createEffect(() => setParam('sort', sortStrategy()))
   createEffect(() => setSortId(productSearch.sortOptions.indexOf(param.sort)))

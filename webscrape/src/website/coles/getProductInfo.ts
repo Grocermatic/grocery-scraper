@@ -1,12 +1,13 @@
-import { ProductInfo } from '../../../../common/interface'
-import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
+import type { ProductInfo } from '../../../../common/interface'
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
+import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
 
 export const getProductInfo = (product: any) => {
-  const urlSlug = `${product.brand}-${product.name}-${product.size}-${product.id}`
-    .toLowerCase()
-    .split(' ')
-    .join('-')
+  const urlSlug =
+    `${product.brand}-${product.name}-${product.size}-${product.id}`
+      .toLowerCase()
+      .split(' ')
+      .join('-')
 
   const productInfo: ProductInfo = {
     name: product.name,

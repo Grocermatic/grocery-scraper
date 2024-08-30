@@ -1,4 +1,4 @@
-import puppeteer, { PuppeteerLaunchOptions } from 'puppeteer'
+import puppeteer, { type PuppeteerLaunchOptions } from 'puppeteer'
 
 const launchOption: PuppeteerLaunchOptions = {
   headless: true,

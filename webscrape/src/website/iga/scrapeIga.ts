@@ -46,8 +46,15 @@ export const scrapeIga = async (cookie?: string) => {
   ].map((category: string) => category.replaceAll(' ', '_').replaceAll(',', ''))
 
   for (const sectionName of sectionNames) {
-    await report.recordProductInfoSection(getProductInfoSection, sectionName, cookie)
+    await report.recordProductInfoSection(
+      getProductInfoSection,
+      sectionName,
+      cookie,
+    )
   }
   console.debug('Finish scraping: IGA')
-  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
+  return report
+    .removeDuplicate()
+    .sortProductInfoUnitPrice()
+    .recordScrapeSecond()
 }

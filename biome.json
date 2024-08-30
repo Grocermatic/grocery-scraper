@@ -7,7 +7,17 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "off"
+      },
+      "style": {
+        "useNodejsImportProtocol": "off",
+        "noNonNullAssertion": "off"
+      },
+      "performance": {
+        "noDelete": "off"
+      }
     }
   },
   "javascript": {
@@ -17,7 +27,8 @@
     }
   },
   "files": {
-    "ignore": ["node_modules", ".serverless", "coverage"],
-    "ignoreUnknown": true
+    "ignore": ["node_modules", ".serverless", "coverage", "dist", "static"],
+    "ignoreUnknown": true,
+    "maxSize": 1000000000
   }
 }

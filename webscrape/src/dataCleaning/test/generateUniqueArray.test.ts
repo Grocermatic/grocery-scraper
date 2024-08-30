@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { generateUniqueArray } from '../generateUniqueArray'
 
 test('Function: generateUniqueArray - should produce array containing only unique elements', () => {

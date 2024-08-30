@@ -1,5 +1,9 @@
 import { daySinceEpoch } from '../../../../common/daysSinceEpoch'
-import type { Coordinates, ProductInfoPublic, ProductPriceDay } from '../../../../common/interface'
+import type {
+  Coordinates,
+  ProductInfoPublic,
+  ProductPriceDay,
+} from '../../../../common/interface'
 import { roundDecimal } from '../../../../common/roundDecimal'
 import { mergeStepChart } from './mergeStepChart'
 import { transpose } from './transpose'

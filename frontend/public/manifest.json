@@ -37,8 +37,18 @@
     }
   ],
   "icons": [
-    { "src": "favicon.ico", "sizes": "32x32", "type": "image/ico", "purpose": "any" },
-    { "src": "favicon.svg", "sizes": "32x32", "type": "image/svg", "purpose": "any" },
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/ico",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg",
+      "purpose": "any"
+    },
     {
       "src": "android-chrome-192x192.png",
       "sizes": "192x192",
@@ -57,7 +67,12 @@
       "type": "image/png",
       "purpose": "maskable"
     },
-    { "src": "safari-pinned-tab.svg", "sizes": "16x16", "type": "image/svg", "purpose": "any" }
+    {
+      "src": "safari-pinned-tab.svg",
+      "sizes": "16x16",
+      "type": "image/svg",
+      "purpose": "any"
+    }
   ],
   "screenshots": [
     {

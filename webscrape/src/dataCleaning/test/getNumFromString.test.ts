@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { getNumFromString } from '../getNumFromString'
 
 test('Function: getNumFromString - should extract numbers including decimals', async () => {

@@ -1,9 +1,9 @@
-import { scrapeWoolworths } from '../src/website/woolworths/scrapeWoolworths'
+import { saveJson } from '../src/dataCleaning/saveJson'
 import { getCookie } from '../src/request/getCookie'
 import { scrapeAldi } from '../src/website/aldi/scrapeAldi'
 import { scrapeColes } from '../src/website/coles/scrapeColes'
-import { saveJson } from '../src/dataCleaning/saveJson'
 import { scrapeIga } from '../src/website/iga/scrapeIga'
+import { scrapeWoolworths } from '../src/website/woolworths/scrapeWoolworths'
 
 const basePath = 'data/productInfo'
 
@@ -41,4 +41,9 @@ const woolworthsProductInfo = async () => {
   saveJson(`${basePath}/woolworths.json`, report.get())
 }
 
-Promise.all([aldiProductInfo(), woolworthsProductInfo(), colesProductInfo(), igaProductInfo()])
+Promise.all([
+  aldiProductInfo(),
+  woolworthsProductInfo(),
+  colesProductInfo(),
+  igaProductInfo(),
+])

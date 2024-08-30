@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "format": "biome check --write --verbose",
     "test": "vitest run --reporter verbose --typecheck.enabled --coverage && rm -r ./coverage",
     "scrape": "ts-node webscrape/script/scrapeProductInfo.ts",
     "clean": "ts-node webscrape/script/cleanProductInfo.ts",
@@ -7,9 +10,7 @@
     "upload": "ts-node webscrape/script/upload.ts",
     "dev": "astro --root frontend/static dev & vite frontend/app",
     "build": "astro --root frontend/static build && vite build frontend/app",
-    "start": "pnpm run prettier && pnpm run build && astro --root frontend/static preview",
-    "prettier": "prettier . --write --cache --no-semi --single-quote --print-width 100",
-    "prepare": "husky install"
+    "start": "pnpm run prettier && pnpm run build && astro --root frontend/static preview"
   },
   "dependencies": {
     "@kobalte/core": "^0.12.6",
@@ -37,8 +38,6 @@
     "cheerio": "1.0.0-rc.12",
     "dotenv": "^16.4.5",
     "esbuild": "^0.23.0",
-    "husky": "^9.0.11",
-    "prettier": "^3.3.2",
     "puppeteer": "^22.10.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",

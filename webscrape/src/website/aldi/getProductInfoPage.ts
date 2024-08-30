@@ -1,6 +1,6 @@
 import * as Cheerio from 'cheerio'
-import { getProductInfo } from './getProductInfo'
 import { ProductInfoReport } from '../ProductInfoReport'
+import { getProductInfo } from './getProductInfo'
 
 export const getProductInfoPage = (html: string) => {
   const report = new ProductInfoReport()

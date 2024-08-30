@@ -16,7 +16,9 @@ export const LabelledInput = (props: any) => {
       class="w-full card text-center px-2 focus-within:border-dark focus-within:ring-0"
     >
       <Show when={local.label}>
-        <span class="text-xs font-semibold text-neutral-dark">{local.label}</span>
+        <span class="text-xs font-semibold text-neutral-dark">
+          {local.label}
+        </span>
       </Show>
       <input
         onChange={local.onChange}

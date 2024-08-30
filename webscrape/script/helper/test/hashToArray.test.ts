@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { hashToArray } from '../hashToArray'
 
 test('Function: stepChart - should transform hash values to array', () => {

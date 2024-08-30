@@ -2,7 +2,10 @@ import { postRequestJson } from '../../request/scrapeJson'
 import { ProductInfoReport } from '../ProductInfoReport'
 import { getProductInfoPage } from './getProductInfoPage'
 
-export const getProductInfoSection = async (sectionId: string, woolworthsCookie: string) => {
+export const getProductInfoSection = async (
+  sectionId: string,
+  woolworthsCookie: string,
+) => {
   const report = new ProductInfoReport()
 
   // Configure Woolworths post payload for section json
@@ -14,28 +17,31 @@ export const getProductInfoSection = async (sectionId: string, woolworthsCookie:
     sortType: 'CUPAsc',
     url: '/shop/browse/fruit-veg',
   }
-  const woolworthsProductListUrl = 'https://www.woolworths.com.au/apis/ui/browse/category'
+  const woolworthsProductListUrl =
+    'https://www.woolworths.com.au/apis/ui/browse/category'
 
   // Loop until no products show
   for (let pageNumber = 1; ; pageNumber++) {
-    postRequestPayload['pageNumber'] = pageNumber
+    postRequestPayload.pageNumber = pageNumber
     const productJson = await postRequestJson(
       woolworthsProductListUrl,
       postRequestPayload,
       woolworthsCookie,
     )
-    if (productJson == '') {
+    if (productJson === '') {
       break
     }
-    const productListJson = JSON.parse(productJson)['Bundles']
-    if (productListJson.length == 0) {
+    const productListJson = JSON.parse(productJson).Bundles
+    if (productListJson.length === 0) {
       break
     }
 
     report.recordProductInfoPage(getProductInfoPage, productJson)
 
     const numProducts = report.get().productInfo.length
-    console.debug(`Woolworths - ${sectionId} - Page ${pageNumber} - ${numProducts} products`)
+    console.debug(
+      `Woolworths - ${sectionId} - Page ${pageNumber} - ${numProducts} products`,
+    )
   }
   return report
 }

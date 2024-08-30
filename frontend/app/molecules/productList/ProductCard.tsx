@@ -1,15 +1,15 @@
-import type { ProductPriceDay } from '../../../../common/interface'
 import { Show, createSignal, onCleanup, onMount, splitProps } from 'solid-js'
-import { ProductCardInfo } from './ProductCardInfo'
-import { ProductCalculator } from './ProductCalculator'
-import { safeSha256 } from '../../logic/safeSha256'
-import { config } from '../../../../common/global'
-import { imageSupport } from '../../store/imageSupport'
-import { ChartLine } from '../../components/ChartLine'
-import { roundDecimal } from '../../../../common/roundDecimal'
-import { stepChart } from '../../logic/chart/stepChart'
 import { daySinceEpoch } from '../../../../common/daysSinceEpoch'
+import { config } from '../../../../common/global'
+import type { ProductPriceDay } from '../../../../common/interface'
+import { roundDecimal } from '../../../../common/roundDecimal'
+import { ChartLine } from '../../components/ChartLine'
+import { stepChart } from '../../logic/chart/stepChart'
 import { transpose } from '../../logic/chart/transpose'
+import { safeSha256 } from '../../logic/safeSha256'
+import { imageSupport } from '../../store/imageSupport'
+import { ProductCalculator } from './ProductCalculator'
+import { ProductCardInfo } from './ProductCardInfo'
 
 const bufferToUrl = (buffer: ArrayBuffer) => {
   const blob = new Blob([buffer])
@@ -23,7 +23,7 @@ export const ProductCard = (props: any) => {
   const originalImage = local.img.replace('/medium/', '/large/')
 
   const fetchOptimisedImage = async () => {
-    if (imageSupport.type == 'jpg') return false
+    if (imageSupport.type === 'jpg') return false
     try {
       const imageHash = await safeSha256(originalImage)
       const url = `${config.productBaseUrl}/image/${imageHash}.${imageSupport.type}`
@@ -37,9 +37,9 @@ export const ProductCard = (props: any) => {
   }
 
   const fetchImage = async () => {
-    if (imgUrl() != 'favicon-light.svg') return
+    if (imgUrl() !== 'favicon-light.svg') return
     setImgUrl('spinner.svg') // Loading image
-    if (imageSupport.type == 'jpg') return setImgUrl(originalImage)
+    if (imageSupport.type === 'jpg') return setImgUrl(originalImage)
     if (await fetchOptimisedImage()) return
     setImgUrl(originalImage)
   }
@@ -70,6 +70,7 @@ export const ProductCard = (props: any) => {
         }`}
       >
         <button
+          type="button"
           onclick={() => setIsActive(!isActive())}
           class={`h-full aspect-square shrink-0 rounded-lg bg-white border-r ${
             isActive() ? 'p-6' : 'p-3'
@@ -84,7 +85,10 @@ export const ProductCard = (props: any) => {
           />
         </button>
         <div class="p-3 h-full flex-grow flex flex-col gap-2">
-          <Show when={false} fallback={<ProductCardInfo isActive={isActive()} {...props} />}>
+          <Show
+            when={false}
+            fallback={<ProductCardInfo isActive={isActive()} {...props} />}
+          >
             <ProductCalculator {...props} amount={local.quantity} />
           </Show>
         </div>

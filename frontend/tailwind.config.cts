@@ -12,7 +12,7 @@ const colorMatrix = (
   const colorConfig: { [colorWithIntensity: string]: string } = {}
   for (const baseKey of keys(colorBase)) {
     for (const intensityKey of keys(colorIntensity)) {
-      const color = colorBase[baseKey]!
+      const color = colorBase[baseKey]
       const intensity = colorIntensity[intensityKey] as never
       colorConfig[`${baseKey}-${intensityKey}`] = color[intensity]
     }

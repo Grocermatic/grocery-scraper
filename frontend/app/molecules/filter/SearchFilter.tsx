@@ -1,8 +1,8 @@
 import { createSignal } from 'solid-js'
-import { StoreSelection } from './StoreSelection'
+import { ParamStore } from './ParamStore'
 import { SearchBar } from './SearchBar'
 import { SortFilter } from './SortFilter'
-import { ParamStore } from './ParamStore'
+import { StoreSelection } from './StoreSelection'
 
 export const SearchFilter = () => {
   const [showAll, setShowAll] = createSignal<boolean>(true)

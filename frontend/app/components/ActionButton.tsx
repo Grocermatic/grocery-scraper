@@ -1,8 +1,8 @@
 import { Button } from '@kobalte/core'
 import { children, mergeProps, splitProps } from 'solid-js'
 
-export const ActionButton = (props: any) => {
-  props = mergeProps({ class: '', onClick: () => {} }, props)
+export const ActionButton = (_props: any) => {
+  const props = mergeProps({ class: '', onClick: () => {} }, _props)
   const [local, _] = splitProps(props, ['class', 'onClick'])
   const c = children(() => props.children)
   return (

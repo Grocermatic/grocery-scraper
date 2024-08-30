@@ -1,9 +1,9 @@
-import { createSignal } from 'solid-js'
 import MiniSearch, { type SearchResult, type Suggestion } from 'minisearch'
+import { createSignal } from 'solid-js'
 import { config } from '../../../common/global'
+import type { ProductInfoPublic } from '../../../common/interface'
 import { webWorkerFactory } from '../../../common/webWorkerFactory'
 import { cloneInstance } from '../logic/cloneInstance'
-import type { ProductInfoPublic } from '../../../common/interface'
 
 const searchOptions = Object.freeze({
   fields: ['name'],
@@ -11,7 +11,9 @@ const searchOptions = Object.freeze({
 })
 
 export const productInfos: ProductInfoPublic[] = []
-export const [miniSearch, setMiniSearch] = createSignal(new MiniSearch(searchOptions))
+export const [miniSearch, setMiniSearch] = createSignal(
+  new MiniSearch(searchOptions),
+)
 export const [miniSearchLoaded, setMiniSearchLoaded] = createSignal(0)
 
 let i = 0
@@ -86,10 +88,13 @@ export const productSearchEngine = new (class {
   })
 
   #sortFuncs: {
-    [key in ProductSearchSort]: (a: ProductInfoPublic, b: ProductInfoPublic) => number
+    [key in ProductSearchSort]: (
+      a: ProductInfoPublic,
+      b: ProductInfoPublic,
+    ) => number
   } = Object.freeze({
-    'unit price': (a, b) => a.unitPrice! - b.unitPrice!,
-    price: (a, b) => a.price! - b.price!,
+    'unit price': (a, b) => a.unitPrice - b.unitPrice,
+    price: (a, b) => a.price - b.price,
     relevance: () => 0,
   })
 
@@ -102,13 +107,19 @@ export const productSearchEngine = new (class {
 
   suggest = (param: ProductSearchParam, numSuggest = 5) =>
     miniSearch()
-      .autoSuggest(param.query, { combineWith: 'AND', filter: this.#searchFilter(param) })
+      .autoSuggest(param.query, {
+        combineWith: 'AND',
+        filter: this.#searchFilter(param),
+      })
       .slice(0, numSuggest)
       .map((sug: Suggestion) => sug.suggestion)
 
   search = (param: ProductSearchParam) =>
     miniSearch()
-      .search(param.query, { combineWith: 'AND', filter: this.#searchFilter(param) })
-      .map((result: SearchResult) => productInfos[result.id]!)
+      .search(param.query, {
+        combineWith: 'AND',
+        filter: this.#searchFilter(param),
+      })
+      .map((result: SearchResult) => productInfos[result.id])
       .sort(this.#sortFuncs[param.sort])
 })()

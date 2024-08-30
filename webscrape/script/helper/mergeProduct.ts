@@ -1,12 +1,18 @@
 import { daySinceEpoch } from '../../../common/daysSinceEpoch'
-import { ProductInfo, ProductInfoPublic, ProductPriceDay } from '../../../common/interface'
+import type {
+  ProductInfo,
+  ProductInfoPublic,
+  ProductPriceDay,
+} from '../../../common/interface'
 import { cloneJson } from '../../../frontend/app/logic/cloneJson'
 import { getProductsFromUrl } from './getProductsFromUrl'
 import { hashToArray } from './hashToArray'
 
 export const hashProducts = (products: ProductInfoPublic[]) => {
   const hash: { [key: string]: ProductInfoPublic } = {}
-  products.forEach((p) => (hash[p.url] = p))
+  products.map((p) => {
+    hash[p.url] = p
+  })
   return hash
 }
 
@@ -26,7 +32,10 @@ export const initProduct = (newProduct: ProductInfo) => {
   return product
 }
 
-export const mergeProduct = (oldProduct: ProductInfoPublic, newProduct: ProductInfo) => {
+export const mergeProduct = (
+  oldProduct: ProductInfoPublic,
+  newProduct: ProductInfo,
+) => {
   const product: ProductInfoPublic = {
     name: oldProduct.name,
     url: oldProduct.url,
@@ -36,12 +45,15 @@ export const mergeProduct = (oldProduct: ProductInfoPublic, newProduct: ProductI
   }
   // Add new price to history
   const lastPrice = oldProduct.history[0].price
-  if (newProduct.price != lastPrice) {
+  if (newProduct.price !== lastPrice) {
     product.history.unshift({
       daySinceEpoch: daySinceEpoch,
       price: newProduct.price,
     })
-    product.history = product.history.slice(0, 10) as [ProductPriceDay, ...ProductPriceDay[]]
+    product.history = product.history.slice(0, 10) as [
+      ProductPriceDay,
+      ...ProductPriceDay[],
+    ]
   }
   return product
 }

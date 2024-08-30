@@ -1,18 +1,17 @@
 import { readFileSync, readdirSync } from 'fs'
-import { ProductInfo } from '../../common/interface'
+import { config } from '../../common/global'
+import type { ProductInfo } from '../../common/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'
 import { ProductInfoReport } from '../src/website/ProductInfoReport'
-import { config } from '../../common/global'
+import { mergeOldProducts } from './helper/mergeProduct'
 import { splitArray } from './helper/splitArray'
 import { stringKiloByte } from './helper/stringKiloByte'
-import { mergeOldProducts } from './helper/mergeProduct'
 
 const basePath = 'data'
 const sourcePath = `${basePath}/productInfo`
-const productionPath = `data/production`
+const productionPath = 'data/production'
 const maxUnitPrice = 50
 const minUnitPrice = 0.5
-
 ;(async () => {
   const report = new ProductInfoReport()
 
@@ -22,7 +21,10 @@ const minUnitPrice = 0.5
     const productInfoReport = new ProductInfoReport(JSON.parse(reportJson))
     report.merge(productInfoReport)
   }
-  const productInfoReport = report.removeDuplicate().sortProductInfoUnitPrice().get()
+  const productInfoReport = report
+    .removeDuplicate()
+    .sortProductInfoUnitPrice()
+    .get()
 
   console.table({
     Success: productInfoReport.productInfo.length,
@@ -33,21 +35,28 @@ const minUnitPrice = 0.5
 
   const productInfos = await mergeOldProducts(
     productInfoReport.productInfo.filter((productInfo: ProductInfo) => {
-      if (productInfo.unitPrice && productInfo.unitPrice > maxUnitPrice) return false
-      if (productInfo.unitPrice && productInfo.unitPrice < minUnitPrice) return false
+      if (productInfo.unitPrice && productInfo.unitPrice > maxUnitPrice)
+        return false
+      if (productInfo.unitPrice && productInfo.unitPrice < minUnitPrice)
+        return false
       return true
     }),
   )
 
-  console.debug(`Output data size: ${stringKiloByte(JSON.stringify(productInfos))} kb`)
+  console.debug(
+    `Output data size: ${stringKiloByte(JSON.stringify(productInfos))} kb`,
+  )
 
   saveJson(`${basePath}/cleanProductInfo.json`, productInfos)
 
   const sumConsecutive = 0.5 * config.numChunks * (config.numChunks + 1)
   const chunkLengths = Array.from({ length: config.numChunks }, (_, i) =>
-    Math.ceil((++i * productInfos.length) / sumConsecutive),
+    Math.ceil(((i + 1) * productInfos.length) / sumConsecutive),
   )
-  const productInfosBatch: ProductInfo[][] = splitArray(productInfos, chunkLengths)
+  const productInfosBatch: ProductInfo[][] = splitArray(
+    productInfos,
+    chunkLengths,
+  )
   productInfosBatch.map(async (productInfo, id) => {
     const name = `product${id}.json`
     const filePath = `${productionPath}/${name}`

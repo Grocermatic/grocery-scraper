@@ -10,7 +10,7 @@ precacheAndRoute(self.__WB_MANIFEST)
 
 const revision = `${Date.now()}`
 const cacheUrlUntilUpdate = ['app/index.html']
-cacheUrlUntilUpdate.forEach((url) => {
+cacheUrlUntilUpdate.map((url) => {
   precacheAndRoute([{ url, revision }])
   registerRoute(new NavigationRoute(createHandlerBoundToURL(url)))
 })

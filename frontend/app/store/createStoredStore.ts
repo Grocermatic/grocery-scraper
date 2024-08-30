@@ -1,4 +1,4 @@
-import { createStore, type SetStoreFunction } from 'solid-js/store'
+import { type SetStoreFunction, createStore } from 'solid-js/store'
 
 export const createStoredStore = (
   key: string,
@@ -6,7 +6,7 @@ export const createStoredStore = (
   storage: any = localStorage,
 ): [proxy: any, setter: SetStoreFunction<any>] => {
   const initialValue = storage.getItem(key)
-    ? (JSON.parse(storage.getItem(key)) as Object)
+    ? (JSON.parse(storage.getItem(key)) as object)
     : defaultValue
 
   const [value, setValue] = createStore(initialValue as any)

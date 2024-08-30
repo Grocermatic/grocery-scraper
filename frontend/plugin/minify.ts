@@ -17,9 +17,7 @@ export const minifyCss = (sourceCss: string) => {
 }
 
 export const minify = (source: string, sourceType: string) => {
-  if (sourceType === 'script') {
-    return minifyJs(source)
-  } else if (sourceType === 'style') {
-    return minifyCss(source)
-  }
+  if (sourceType === 'script') return minifyJs(source)
+  if (sourceType === 'style') return minifyCss(source)
+  return source
 }

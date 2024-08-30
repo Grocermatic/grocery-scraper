@@ -3,11 +3,16 @@
 import axios from 'axios'
 import { wait } from './wait'
 
-export const getRequestJson = async (url: string, cookie?: string): Promise<string> => {
-  const headers: any = {}
-  if (cookie != undefined) headers['Cookie'] = cookie
+export const getRequestJson = async (
+  url: string,
+  cookie?: string,
+): Promise<string> => {
   try {
-    const proxyClient = axios.create({ headers: headers })
+    const proxyClient = axios.create({
+      headers: {
+        Cookie: cookie !== undefined ? cookie : '',
+      },
+    })
     const response = await proxyClient.get(url)
     await wait(2000)
     return JSON.stringify(response.data)
@@ -18,13 +23,15 @@ export const getRequestJson = async (url: string, cookie?: string): Promise<stri
 
 export const postRequestJson = async (
   url: string,
-  postRequestPayload: any,
+  postRequestPayload: object,
   cookie?: string,
 ): Promise<string> => {
-  const headers: any = {}
-  if (cookie != undefined) headers['Cookie'] = cookie
   try {
-    const proxyClient = axios.create({ headers: headers })
+    const proxyClient = axios.create({
+      headers: {
+        Cookie: cookie !== undefined ? cookie : '',
+      },
+    })
     const response = await proxyClient.post(url, postRequestPayload)
     await wait(1000)
     return JSON.stringify(response.data)

@@ -1,8 +1,8 @@
+import autoprefixer from 'autoprefixer'
+import tailwindcss from 'tailwindcss'
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
 import { viteCSP } from '../plugin/viteCSP'
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
 const tailwindConfig = require('../tailwind.config.cjs')
 
 export default defineConfig({
@@ -28,7 +28,11 @@ export default defineConfig({
           'pagead2.googlesyndication.com',
         ],
         'font-src': ['fonts.gstatic.com'],
-        'frame-src': ['googleads.g.doubleclick.net', 'www.google.com', 'tpc.googlesyndication.com'],
+        'frame-src': [
+          'googleads.g.doubleclick.net',
+          'www.google.com',
+          'tpc.googlesyndication.com',
+        ],
         'manifest-src': [`'self'`],
         'worker-src': [`'self'`, 'blob:'],
         'img-src': [`'self'`, 'blob:', 'data:', 'https:'],

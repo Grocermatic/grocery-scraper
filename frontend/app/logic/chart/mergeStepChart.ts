@@ -33,7 +33,8 @@ export const mergeStepChart = (
     for (const point of pointHash[x]!) currentY[point.chartId] = point.y
     const minValue = Math.min(...Object.values(currentY))
     const mergeId = mergeStep.length - 1
-    if (mergeId == -1 || mergeStep[mergeId]![1] != minValue) mergeStep.push([Number(x), minValue])
+    if (mergeId === -1 || mergeStep[mergeId]![1] !== minValue)
+      mergeStep.push([Number(x), minValue])
   }
   const lastPoint = mergeStep[mergeStep.length - 1]
   if (lastX) mergeStep.push([lastX, lastPoint![1]])

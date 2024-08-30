@@ -1,20 +1,20 @@
 import { randInt } from './randInt'
 
 type HttpHeaders = {
-  readonly ['Accept']: string
-  readonly ['Accept-Encoding']: string
-  readonly ['Accept-Language']: string
-  readonly ['User-Agent']: string
-  readonly ['Sec-Fetch-Dest']?: string
-  readonly ['Sec-Fetch-Mode']?: string
-  readonly ['Sec-Fetch-Site']?: string
-  readonly ['Sec-Fetch-User']?: string
-  readonly ['Sec-Gpc']?: string
-  readonly ['Sec-Ch-Ua']?: string
-  readonly ['Sec-Ch-Ua-Mobile']?: string
-  readonly ['Sec-Ch-Ua-Platform']?: string
-  readonly ['Cache-Control']?: string
-  readonly ['Upgrade-Insecure-Requests']?: string
+  readonly Accept: string
+  readonly 'Accept-Encoding': string
+  readonly 'Accept-Language': string
+  readonly 'User-Agent': string
+  readonly 'Sec-Fetch-Dest'?: string
+  readonly 'Sec-Fetch-Mode'?: string
+  readonly 'Sec-Fetch-Site'?: string
+  readonly 'Sec-Fetch-User'?: string
+  readonly 'Sec-Gpc'?: string
+  readonly 'Sec-Ch-Ua'?: string
+  readonly 'Sec-Ch-Ua-Mobile'?: string
+  readonly 'Sec-Ch-Ua-Platform'?: string
+  readonly 'Cache-Control'?: string
+  readonly 'Upgrade-Insecure-Requests'?: string
 }
 
 export const httpHeaders: HttpHeaders[] = [
@@ -175,7 +175,7 @@ export const httpHeaders: HttpHeaders[] = [
   },
 ]
 
-export const randHttpHeader = (): any => {
+export const randHttpHeader = () => {
   // Generate user agents from Apple, Google, Sumsung phones and tablets
   const randomIndex = randInt(0, httpHeaders.length - 1)
   return httpHeaders[randomIndex]

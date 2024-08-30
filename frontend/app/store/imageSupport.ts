@@ -1,6 +1,9 @@
 import { createStoredStore } from './createStoredStore'
 
-export const [imageSupport, setImageSupport] = createStoredStore('Supported image', { type: 'jpg' })
+export const [imageSupport, setImageSupport] = createStoredStore(
+  'Supported image',
+  { type: 'jpg' },
+)
 
 async function supportsEncode() {
   if (!createImageBitmap) return 'jpg'
@@ -24,7 +27,6 @@ async function supportsEncode() {
   }
   return 'jpg'
 }
-
 ;(async () => {
   setImageSupport({ type: await supportsEncode() })
 })()

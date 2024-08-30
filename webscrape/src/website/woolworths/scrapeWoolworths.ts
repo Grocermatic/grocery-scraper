@@ -45,9 +45,16 @@ export const scrapeWoolworths = async (cookie?: string) => {
   ]
 
   const promiseArray = sectionIds.map((sectionId) => {
-    return report.recordProductInfoSection(getProductInfoSection, sectionId, cookie)
+    return report.recordProductInfoSection(
+      getProductInfoSection,
+      sectionId,
+      cookie,
+    )
   })
   await Promise.all(promiseArray)
   console.debug('Finish scraping: Woolworths')
-  return report.removeDuplicate().sortProductInfoUnitPrice().recordScrapeSecond()
+  return report
+    .removeDuplicate()
+    .sortProductInfoUnitPrice()
+    .recordScrapeSecond()
 }

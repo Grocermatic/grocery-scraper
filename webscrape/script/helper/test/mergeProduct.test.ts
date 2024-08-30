@@ -1,6 +1,9 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { daySinceEpoch } from '../../../../common/daysSinceEpoch'
-import { ProductInfo, ProductInfoPublic } from '../../../../common/interface'
+import type {
+  ProductInfo,
+  ProductInfoPublic,
+} from '../../../../common/interface'
 import { cloneJson } from '../../../../frontend/app/logic/cloneJson'
 import { hashProducts, initProduct, mergeProduct } from '../mergeProduct'
 
@@ -61,7 +64,8 @@ test('Function mergeProduct - should push new price to history array', () => {
   // Push new price to expected history
   const expectedProductInfoPublic = cloneJson(oldProductInfoPublic)
   const initProductInfo = initProduct(productInfos[0])
-  if (initProductInfo.history) expectedProductInfoPublic.history.unshift(initProductInfo.history[0])
+  if (initProductInfo.history)
+    expectedProductInfoPublic.history.unshift(initProductInfo.history[0])
 
   const newProductInfo = mergeProduct(oldProductInfoPublic, productInfos[0])
   expect(newProductInfo).toEqual(expectedProductInfoPublic)

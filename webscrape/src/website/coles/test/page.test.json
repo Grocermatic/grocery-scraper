@@ -365,7 +365,13 @@
             "heroImageAltText": "Whats For Dinner - Pumpkin Lentil Curry",
             "secondaryHeroImage": "https://coles.flavedo.io/citrus/c5c5d21e-2e0b-4989-bb5b-accaab2b8d30",
             "secondaryHeroImageAltText": "Whats For Dinner",
-            "productIds": ["5666513", "4202540", "4774113", "5266865", "408419"],
+            "productIds": [
+              "5666513",
+              "4202540",
+              "4774113",
+              "5266865",
+              "408419"
+            ],
             "additionalFields": null
           },
           {

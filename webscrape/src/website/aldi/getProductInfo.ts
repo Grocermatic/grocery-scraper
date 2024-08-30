@@ -1,9 +1,9 @@
 import * as cheerio from 'cheerio'
 
-import { ProductInfo } from '../../../../common/interface'
+import type { ProductInfo } from '../../../../common/interface'
 import { roundDecimal } from '../../../../common/roundDecimal'
-import { getNumFromString } from '../../dataCleaning/getNumFromString'
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
+import { getNumFromString } from '../../dataCleaning/getNumFromString'
 import { getUnitPriceFromString } from '../../dataCleaning/getUnitPriceFromString'
 
 export const getProductInfo = (html: string) => {
@@ -14,14 +14,14 @@ export const getProductInfo = (html: string) => {
   const rawTitleWords = rawTitle.split(' ')
 
   const rawQuantity = $('.box--amount').first().text()
-  let quantity = getMetricQuantity(rawQuantity)
+  const quantity = getMetricQuantity(rawQuantity)
 
   // All price in dollars
   const cents = $('.box--decimal').first().text()
   const dollars = $('.box--value').first().text()
   let price = getNumFromString(dollars + cents)[0]
-  if (cents.length == 0 && dollars.length != 0) {
-    price = getNumFromString('0.' + dollars)[0]
+  if (cents.length === 0 && dollars.length !== 0) {
+    price = getNumFromString(`0.${dollars}`)[0]
   }
 
   const imgContent = $('.box--wrapper')

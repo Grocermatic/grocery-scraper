@@ -1,11 +1,19 @@
-import { For, Show, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js'
-import { ProductCard } from '../molecules/productList/ProductCard'
-import { SearchFilter } from '../molecules/filter/SearchFilter'
-import { ProductLoadProgress } from '../components/ProductLoadProgress'
+import {
+  For,
+  Show,
+  createEffect,
+  createMemo,
+  createSignal,
+  onCleanup,
+  onMount,
+} from 'solid-js'
 import { ChartLine } from '../components/ChartLine'
-import { productSearchEngine } from '../store/search'
-import { param } from '../molecules/filter/ParamStore'
+import { ProductLoadProgress } from '../components/ProductLoadProgress'
 import { lowestPriceGraph } from '../logic/chart/lowestPriceGraph'
+import { param } from '../molecules/filter/ParamStore'
+import { SearchFilter } from '../molecules/filter/SearchFilter'
+import { ProductCard } from '../molecules/productList/ProductCard'
+import { productSearchEngine } from '../store/search'
 
 export const Search = () => {
   const searchResults = createMemo(() => productSearchEngine.search(param))
@@ -18,14 +26,17 @@ export const Search = () => {
   })
 
   const [visibleLength, setVisibleLength] = createSignal<number>(12)
-  const visibleResults = createMemo(() => searchResults().slice(0, visibleLength()))
+  const visibleResults = createMemo(() =>
+    searchResults().slice(0, visibleLength()),
+  )
 
   let intersectionRef: HTMLDivElement | undefined
   onMount(() => {
     const observer = new IntersectionObserver(
       () => {
         setVisibleLength(visibleLength() + 12)
-        if (searchLength() <= visibleLength() && intersectionRef) setVisibleLength(searchLength())
+        if (searchLength() <= visibleLength() && intersectionRef)
+          setVisibleLength(searchLength())
       },
       { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] },
     )
@@ -49,7 +60,9 @@ export const Search = () => {
             <ChartLine data={lowestPriceGraph(searchResults())} />
           </div>
         </Show>
-        <For each={visibleResults()}>{(result, _) => <ProductCard {...result} />}</For>
+        <For each={visibleResults()}>
+          {(result, _) => <ProductCard {...result} />}
+        </For>
         <div
           ref={intersectionRef!}
           class="card flex-shrink-0 grid place-content-center w-full h-full"

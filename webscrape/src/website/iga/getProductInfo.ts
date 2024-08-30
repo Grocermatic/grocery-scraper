@@ -1,4 +1,4 @@
-import { GetProductInfo, ProductInfo } from '../../../../common/interface'
+import type { GetProductInfo, ProductInfo } from '../../../../common/interface'
 import { roundDecimal } from '../../../../common/roundDecimal'
 import { getMetricQuantity } from '../../dataCleaning/getMetricQuantity'
 import { getNumFromString } from '../../dataCleaning/getNumFromString'
@@ -8,7 +8,7 @@ export const getProductInfo: GetProductInfo = (product) => {
   const urlName = product.name.toLowerCase().replace(/\s/g, '-')
   let unitPrice = product.wholePrice
   const splitTextUnitPriceNumbers = getNumFromString(product.pricePerUnit)
-  if (splitTextUnitPriceNumbers.length == 2) {
+  if (splitTextUnitPriceNumbers.length === 2) {
     const splitTextUnitPrice = product.pricePerUnit.split('/')
     const kilograms = getMetricQuantity(splitTextUnitPrice[1])
     const cost = splitTextUnitPriceNumbers[0]

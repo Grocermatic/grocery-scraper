@@ -1,11 +1,15 @@
 import sharp from 'sharp'
-import { uploadToR2 } from './helper/uploadToR2'
 import { config } from '../../common/global'
 import { generateUniqueArray } from '../src/dataCleaning/generateUniqueArray'
 import { safeSha256 } from '../src/dataCleaning/safeSha256'
 import { getProductsFromUrl } from './helper/getProductsFromUrl'
+import { uploadToR2 } from './helper/uploadToR2'
 
-const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType: string) => {
+const uploadImageToR2 = (
+  sharpImage: sharp.Sharp,
+  objectName: string,
+  imageType: string,
+) => {
   sharpImage.toBuffer().then((imageBuffer) => {
     uploadToR2(
       imageBuffer,
@@ -18,13 +22,15 @@ const uploadImageToR2 = (sharpImage: sharp.Sharp, objectName: string, imageType:
 
 const buf2hex = (buffer: ArrayBuffer) => {
   // buffer is an ArrayBuffer
-  return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, '0')).join('')
+  return [...new Uint8Array(buffer)]
+    .map((x) => x.toString(16).padStart(2, '0'))
+    .join('')
 }
 
 const isImage = (hexId: string) => {
-  if (hexId == 'ffd8ff') return true // jpeg
-  if (hexId == '89504e') return true // png
-  if (hexId == '524946') return true // webp
+  if (hexId === 'ffd8ff') return true // jpeg
+  if (hexId === '89504e') return true // png
+  if (hexId === '524946') return true // webp
   return false
 }
 
@@ -56,7 +62,6 @@ const transformProductImage = async (url: string) => {
     return null
   }
 }
-
 ;(async () => {
   const res = await fetch(`${config.productBaseUrl}/image.json`)
   const uploadedImages = generateUniqueArray(await res.json())
@@ -69,18 +74,29 @@ const transformProductImage = async (url: string) => {
     productImages.filter((x: string) => !uploadedImages.includes(x)),
   )
   const failedImages = []
-  console.log(`Transforming ${unsavedImages.length} unsaved images...\n\n\n\n\n\n\n\n`)
+  console.log(
+    `Transforming ${unsavedImages.length} unsaved images...\n\n\n\n\n\n\n\n`,
+  )
   const saveUploadProgress = (uploadedImages: string[]) => {
     try {
-      const uploadedImagesBuffer = Buffer.from(JSON.stringify(uploadedImages, null, 2), 'utf-8')
-      uploadToR2(uploadedImagesBuffer, 'grocermatic-product', `image.json`, `application/json`)
+      const uploadedImagesBuffer = Buffer.from(
+        JSON.stringify(uploadedImages, null, 2),
+        'utf-8',
+      )
+      uploadToR2(
+        uploadedImagesBuffer,
+        'grocermatic-product',
+        'image.json',
+        'application/json',
+      )
       process.stdout.moveCursor(0, -8)
       process.stdout.clearLine(1)
       console.table({
         'Current images': uploadedImages.length,
         'New images': uploadedImages.length - uploadedImagesLen,
         'Failed uploads': failedImages.length,
-        'Not uploaded': unsavedImages.length - (uploadedImages.length - uploadedImagesLen),
+        'Not uploaded':
+          unsavedImages.length - (uploadedImages.length - uploadedImagesLen),
       })
     } catch {}
   }
@@ -90,7 +106,7 @@ const transformProductImage = async (url: string) => {
     const url = await transformProductImage(unsavedImageUrl)
     if (url != null) uploadedImages.push(url)
     else failedImages.push(unsavedImageUrl)
-    if (++i % 100 == 0) saveUploadProgress(uploadedImages)
+    if (++i % 100 === 0) saveUploadProgress(uploadedImages)
   }
 
   saveUploadProgress(uploadedImages)
