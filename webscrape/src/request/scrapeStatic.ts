@@ -1,4 +1,4 @@
-import https from 'https'
+import https from 'node:https'
 import axios from 'axios'
 import { randHttpHeader } from '../proxy/randHttpHeader'
 

@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { uploadToR2 } from './helper/uploadToR2'
 
 const productionPath = 'data/production'

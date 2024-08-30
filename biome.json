@@ -12,7 +12,6 @@
         "noExplicitAny": "off"
       },
       "style": {
-        "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off"
       },
       "performance": {
@@ -27,7 +26,7 @@
     }
   },
   "files": {
-    "ignore": ["node_modules", ".serverless", "coverage", "dist", "static"],
+    "ignore": ["coverage", "dist", "node_modules"],
     "ignoreUnknown": true,
     "maxSize": 1000000000
   }

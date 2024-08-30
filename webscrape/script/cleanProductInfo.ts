@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { config } from '../../common/global'
 import type { ProductInfo } from '../../common/interface'
 import { saveJson } from '../src/dataCleaning/saveJson'

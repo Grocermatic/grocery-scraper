@@ -1,13 +1,12 @@
-import * as fs from 'fs'
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-
 import type { ProductInfo } from '../../../../../common/interface'
 import { getProductInfo } from '../getProductInfo'
 import { getProductInfoPage } from '../getProductInfoPage'
 
 test('Aldi product scraper - should parse product data', async () => {
   const testUrl = `${__dirname}/corn.test.html`
-  const testHtml: any = fs.readFileSync(testUrl)
+  const testHtml: any = readFileSync(testUrl)
   const productInfo = getProductInfo(testHtml)
   const expectedProductInfo: ProductInfo = {
     name: 'Market Fare Corn Kernels',
@@ -22,7 +21,7 @@ test('Aldi product scraper - should parse product data', async () => {
 
 test('Aldi product scraper - should parse product with cents', async () => {
   const testUrl = `${__dirname}/spinach.test.html`
-  const testHtml: any = fs.readFileSync(testUrl)
+  const testHtml: any = readFileSync(testUrl)
   const productInfo = getProductInfo(testHtml)
   const expectedProductInfo: ProductInfo = {
     name: 'Market Fare Spinach',
@@ -37,7 +36,7 @@ test('Aldi product scraper - should parse product with cents', async () => {
 
 test('Aldi product scraper - should extract quantity from complex title', async () => {
   const testUrl = `${__dirname}/egg.test.html`
-  const testHtml: any = fs.readFileSync(testUrl)
+  const testHtml: any = readFileSync(testUrl)
   const productInfo = getProductInfo(testHtml)
   const expectedProductInfo: ProductInfo = {
     name: 'Lodge Farms Large Free Range Eggs',
@@ -51,11 +50,11 @@ test('Aldi product scraper - should extract quantity from complex title', async 
 })
 
 test('Aldi page scraper - should parse product data', async () => {
-  const html = fs.readFileSync(`${__dirname}/freezer.test.html`).toString()
+  const html = readFileSync(`${__dirname}/freezer.test.html`).toString()
   const report = getProductInfoPage(html)
-  const expectedJson = fs
-    .readFileSync(`${__dirname}/expected.test.json`)
-    .toString()
+  const expectedJson = readFileSync(
+    `${__dirname}/expected.test.json`,
+  ).toString()
   const expectedReport = JSON.parse(expectedJson)
 
   expect(report.get()).toEqual(expectedReport)

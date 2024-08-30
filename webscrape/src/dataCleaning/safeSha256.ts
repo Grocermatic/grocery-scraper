@@ -1,4 +1,4 @@
-import { createHash } from 'crypto'
+import { createHash } from 'node:crypto'
 
 export const safeSha256 = async (input: string) => {
   return createHash('sha256')
