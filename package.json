@@ -2,6 +2,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
+    "commit": "czg",
     "format": "biome check --write --verbose",
     "test": "vitest run --reporter verbose --typecheck.enabled --coverage",
     "scrape": "ts-node -T webscrape/script/scrapeProductInfo.ts",
@@ -9,28 +10,39 @@
     "img": "ts-node -T webscrape/script/processImage.ts",
     "upload": "ts-node -T webscrape/script/upload.ts"
   },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm format",
-    "pre-push": "pnpm format"
-  },
-  "devDependencies": {
+  "dependencies": {
     "@aws-sdk/client-s3": "^3.574.0",
     "@aws-sdk/s3-request-presigner": "^3.621.0",
-    "@biomejs/biome": "^1.8.3",
-    "@types/node": "^20.12.11",
-    "@vitest/coverage-v8": "^2.0.5",
-    "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
     "cheerio": "1.0.0-rc.12",
     "dotenv": "^16.4.5",
     "puppeteer": "^22.10.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "sharp": "^0.33.3",
+    "sharp": "^0.33.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@commitlint/cli": "19.4.1",
+    "@commitlint/config-conventional": "19.4.1",
+    "@types/node": "^20.12.11",
+    "@vitest/coverage-v8": "^2.0.5",
+    "cz-git": "1.9.4",
+    "czg": "1.9.4",
     "simple-git-hooks": "^2.11.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "vite": "^5.4.2",
     "vitest": "^2.0.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm format",
+    "pre-push": "pnpm format",
+    "commit-msg": "npx --no -- commitlint --edit \"$1\""
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   }
 }
