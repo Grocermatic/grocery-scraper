@@ -18,4 +18,4 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install
-      - run: pnpm lint && pnpm test
+      - run: pnpm format && pnpm test
