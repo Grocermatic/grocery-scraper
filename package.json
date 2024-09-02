@@ -11,9 +11,9 @@
     "upload": "ts-node -T webscrape/script/upload.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.574.0",
+    "@aws-sdk/client-s3": "^3.637.0",
     "@aws-sdk/s3-request-presigner": "^3.637.0",
-    "axios": "^1.7.2",
+    "axios": "^1.7.7",
     "cheerio": "1.0.0",
     "dotenv": "^16.4.5",
     "puppeteer": "^23.2.1",
@@ -31,8 +31,7 @@
     "czg": "1.9.4",
     "simple-git-hooks": "^2.11.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
-    "vite": "^5.4.2",
+    "typescript": "^5.5.4",
     "vitest": "^2.0.5"
   },
   "simple-git-hooks": {
