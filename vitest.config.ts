@@ -5,7 +5,7 @@ export default defineConfig({
   test: {
     exclude: [...configDefaults.exclude],
     coverage: {
-      include: ['frontend/src', 'common', 'webscrape'],
+      include: ['common', 'webscrape'],
     },
   },
 })

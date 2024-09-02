@@ -1,9 +1,0 @@
-{
-  "type": "module",
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    "plugins": [{ "name": "@astrojs/ts-plugin" }],
-    "esModuleInterop": true
-  }
-}
