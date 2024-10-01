@@ -28,7 +28,7 @@
     "@types/node": "^22.5.2",
     "@vitest/coverage-v8": "^2.0.5",
     "cz-git": "1.9.4",
-    "czg": "1.9.4",
+    "czg": "1.10.0",
     "simple-git-hooks": "^2.11.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
