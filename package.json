@@ -11,7 +11,7 @@
     "upload": "ts-node -T webscrape/script/upload.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.637.0",
+    "@aws-sdk/client-s3": "^3.682.0",
     "@aws-sdk/s3-request-presigner": "^3.637.0",
     "axios": "^1.7.7",
     "cheerio": "1.0.0",
