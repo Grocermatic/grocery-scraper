@@ -57,7 +57,7 @@ jobs:
         run: curl http://whatismyip.akamai.com
 
       - name: Upload scrape result artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: scrape-${{ steps.date.outputs.date }}
           path: |
